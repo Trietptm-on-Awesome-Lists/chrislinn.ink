@@ -1,17 +1,6 @@
----
-layout:     post
-title:      "[DRAFTtechnical] Blockchain"
-date:       2018-02-26 21:27:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - DRAFTtechnical
----
+# Blockchain
 
-<br>
-
-# Reading List
+## Reading List
 + [区块链技术指南](https://yeasy.gitbooks.io/blockchain_guide/content/)
 + 《精通比特币》第二版
     * https://legacy.gitbook.com/book/wizardforcel/masterbitcoin2cn/details
@@ -80,7 +69,7 @@ tags:
 
 [谈谈如何做研究](https://mp.weixin.qq.com/s/owj8c2xeOWG7e-9oOvgaMw)
 
-# TODOS
+## TODOS
 + 多签
 + taint
 + coinbase
@@ -106,13 +95,13 @@ tags:
     * 持久化存储
 + cardano
 
-# DB
+## DB
 + https://github.com/bigchaindb/bigchaindb
 + https://github.com/pixelspark/catena
 + https://github.com/ChainSQL/chainsqld
 
 <!-- 
-# Soul-Rose
+## Soul-Rose
 + [以太坊私链](https://mp.weixin.qq.com/s?__biz=MzUzNTEwODM4OA==&mid=2247483747&idx=2&sn=e270c52cbea73654a08162e9a4833252&chksm=fa8bcf28cdfc463e6a45446e95e1a3461e302a48cae3af10b72cec8ae19f423a0a5c7ccfbf22&mpshare=1&scene=1&srcid=0323kCmh8uIp2uaN58GQUyfT&pass_ticket=xsclNig29Kt4k90qrIoVlF1vVltuq2IlP%2F3tszP3fSMRPVayWjSDx1mu5YdzNe7I#rd)
 + https://mp.weixin.qq.com/s?__biz=MzUzNTEwODM4OA==&mid=2247483740&idx=1&sn=07181641332359c45b64384eb8fc081b&chksm=fa8bcf17cdfc4601e2d46cd3d22fdf4b075f34452472ed107f59c0a9a1415ecd59e6dfd5162f&scene=0&pass_ticket=xsclNig29Kt4k90qrIoVlF1vVltuq2IlP%2F3tszP3fSMRPVayWjSDx1mu5YdzNe7I#rd
 + http://cj.sina.com.cn/articles/view/2506401175/9564a5970010046ph
@@ -127,13 +116,13 @@ tags:
 + [「以太猫」不是区块链游戏，这些才是 | 36氪新风向](https://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2247506101&idx=1&sn=c0caee8a9b2aa0980e201317b9dde7d0&chksm=eaa68969ddd1007fe8f3010a9c99200e38723988dfac4622a43a7738361669bc752d0b445b3b&scene=0&pass_ticket=xsclNig29Kt4k90qrIoVlF1vVltuq2IlP%2F3tszP3fSMRPVayWjSDx1mu5YdzNe7I#rd)
  -->
 
-# Books
+## Books
 
-# BigchainDB
+## BigchainDB
 
-# DNA 源码剖析
+## DNA 源码剖析
 
-# Chain 源码剖析
+## Chain 源码剖析
 
 > https://gguoss.github.io/2017/05/26/chain/
 > 
@@ -142,7 +131,7 @@ tags:
 > 当今社会的货币， 证券以及衍生品是以电子支付的形式进行交易的。电子支付需要太多的第三方中介参与，需要太多的人力物力去对帐。比特币虽然去中介化了，但堆栈式脚本实现的功能太少， 只支持本币的简单交易合约。以太坊的evm 又太过于复杂， 有太多的安全不确定性。再者， 他们是公有链，所有数据在公众的眼皮底下。 这时， Chain 恰好能够解决这些痛点。 Chain 是联盟链，支持多种资产的发布和交易， 也支持多种组织的跨链交易。
 
 
-# Misc
+## Misc
 > https://gguoss.github.io/2018/02/19/%E9%83%AD%E5%A4%A7%E4%BE%A0%E7%9A%842018/
 > 
 > 当今世界，我能看得上眼的链就5个半。可能真正有用的链也多不了几个。
@@ -156,7 +145,7 @@ tags:
 > + Zcash， 零知识证明， 密码学的大尝试。 （算半个）
 > + Filecoin , 有成熟的IPFS协议做支撑， 但filecoin 的落地，还是未知数。 （算半个）
 
-# 交易追踪
+## 交易追踪
 
 可以考虑写个脚本 通过api 把这些后续的交易都抓出来
 重点关注
