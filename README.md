@@ -2,7 +2,7 @@
 
 <!-- ex_nonav -->
 
-[https://chrislinn.gitbooks.io/blog/](https://chrislinn.gitbooks.io/blog/)
+[https://chrislinn.ink/](https://chrislinn.ink/)
 
 ---
 
