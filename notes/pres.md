@@ -1,111 +1,116 @@
+# Pentesting Resource
 
-# Sites/Blogs/Forums/ReportPlatform
-+ Multi-func sites
-    * [https://www.t00ls.net/](https://www.t00ls.net/)
-    - [FreeBuf](http://www.freebuf.com/)
-    - [安全客](http://bobao.360.cn/)
-    - [91ri.org](http://www.91ri.org)
-    - [漏洞银行](https://skills.bugbank.cn/)
-        + [技能树](#learning---miscellaneous)
-    - [mottoin](http://www.mottoin.com/)
-    - [seebug](https://www.seebug.org/)
-    - [sec-wiki](https://sec-wiki.com/)
-    - [Sec-News](http://wiki.ioin.in/)
-    - [网络安全焦点](http://www.xfocus.net/index.html)
-    - [游侠安全网](http://www.youxia.org/)
-    - [hi0x0](http://www.hi0x0.com/)
-    - [secbox](http://www.secbox.cn/)
-        + [书安](http://www.secbox.cn/tag/%E4%B9%A6%E5%AE%89)
-    - [安全圈 Info](http://www.anquanquan.info/)
-    - [爱尖刀](http://www.ijiandao.com/)
-        + [书安](http://www.ijiandao.com/secbook)
-    - [信安在线](https://www.cnmstl.net/)
-    - [https://www.hellboundhackers.org/](https://www.hellboundhackers.org/)
-    - [https://www.hackerone.com/](https://www.hackerone.com/)
-    - [https://navisec.it/](https://navisec.it/)
-    - [Linux 安全网](http://www.linuxso.com/)
-    - [myhack58](http://www.myhack58.com/)
-    - [红黑联盟](https://www.2cto.com/)
-    - [邪恶十六进制](http://www.evil0x.com/)
-    - [nullsecurity](http://nullsecurity.net/)
-* Blogs
-    - [信安之路](http://www.myh0st.cn/)
-    - [腾讯玄武实验室](http://xlab.tencent.com/cn/)
-        + [腾讯玄武实验室安全动态推送](https://xuanwulab.github.io/cn/secnews/2017/10/02/index.html)
-    - [kotowicz](http://blog.kotowicz.net/)
-    - [夜影二进制安全](http://www.dbgpro.com/)
-    - [Twosecurity](https://zhuanlan.zhihu.com/c_123166696)
-    - [https://null-byte.wonderhowto.com/](https://null-byte.wonderhowto.com/)
-    - [Ethan](http://www.beesfun.com/)
-    - [https://www.n0tr00t.com/](https://www.n0tr00t.com/)
-    - [https://paper.seebug.org/](https://paper.seebug.org/)
-    - [一些技术博客](http://airs-sec.com/uploads/cellect/Securtiy-blog-navigation.html)
-    - [https://github.com/evilcos/papers](https://github.com/evilcos/papers)
-    - [bestwing.me](http://bestwing.me/)
-    - [MDSec](https://www.mdsec.co.uk/blog/)
-    - [evi1m0 (Evil-say)](http://rm-rf.gg/)
-    - [hackfun.org](https://hackfun.org/)
-    - [xsec.io](https://xsec.io/)
-    - [余弦](http://evilcos.me/)
-        + [zhihu](https://zhuanlan.zhihu.com/evilcos)
-    - [离别歌leavesongs - PHITHON](https://www.leavesongs.com/)
-    - [黑暗执行绪](http://blog.darkthread.net/blogs/darkthreadtw/default.aspx)
-    - [noob.ninja](http://www.noob.ninja/)
-    - [riusksk](http://riusksk.me/)
-        + 《漏洞战争》林桠泉
-    - [hackdog](http://www.hackdog.me/)
-    - [qimingyu](http://qimingyu.github.io)
-    - [drop](https://drops.org.cn/)
-    - [bluescreenofjeff](https://bluescreenofjeff.com/)
-    - [04z.net](https://04z.net/)
-    - [黑鸟安全网](http://www.blovb.com/)
-    - [阿德马Web安全](http://www.nxadmin.com/)
-    - [dhb133](http://www.cnblogs.com/dhb133/category/101834.html)
-    - [neeao](http://neeao.com/category/infosecurity)
-    - [pkav](https://zhuanlan.zhihu.com/pkavsec)
-    - [孤独更可靠](http://gudugengkekao.blog.51cto.com/)
-    - [virink](https://www.virzz.com/)
-    - [chybeta](https://chybeta.github.io/)
-    - [5alt](http://5alt.me/)
-    - [鬼仔’s Blog](http://huaidan.org/category/technology)
-    - [长亭技术专栏](https://zhuanlan.zhihu.com/chaitin-tech)
-    - [x2know](http://blog.x2know.org/)
-    - [seay](http://www.cnseay.com/)
-    - [wing](http://hackerwing.com/)
-    - [sky](http://skysec.top)
-    - [Ha1g0](http://whc.dropsec.xyz/)
-    - [SecuritySite](https://github.com/pandazheng/SecuritySite)
-    - [一些有意思的博客](https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&mid=2247484858&idx=1&sn=9de255cbf05383ce07daa4db56b80410&chksm=ec1e3592db69bc849c1bc408336c71a7459c7427e6909a5aa240b32b2b7354b818d822444690&scene=21#wechat_redirect)
-    - [pentest-bookmarks](https://github.com/kurobeats/pentest-bookmarks)
-* Report Platform
-    - [http://0day5.com/](http://0day5.com/)
-    - [https://www.exploit-db.com/](https://www.exploit-db.com/)
-    - [w0rms.com](http://www.w0rms.com/)
-    - [https://x.threatbook.cn](https://x.threatbook.cn)
-    - [最新漏洞-非安全](https://www.sitedirsec.com/)
-    - [冠廷漏洞利用代码库 - 0day,Exploit,Shellcode](http://www.guanting.com/security/exploit/)
-    - [WooYun](http://wooyun.org/)
-        + https://wooyun.shuimugan.com/
-    - [http://www.milw0rm.com/](http://www.milw0rm.com/)
-* Forums
-    - [先知安全技术社区](https://xianzhi.aliyun.com/forum/)
-    - [看雪](http://bbs.pediy.com/)
-    - [第8个男人](http://debugman.com/forum.php)
-    - [邪恶八进制](https://forum.eviloctal.com/)
-    - [吾爱破解](https://www.52pojie.cn/)
-    - [China UNIX](http://bbs.chinaunix.net/)
-    - [ichunqiu BBS](https://bbs.ichunqiu.com/portal.php)
-    - [Hack Forums](https://hackforums.net/)
-    - [https://security.stackexchange.com/](https://security.stackexchange.com/)
-    - [https://reverseengineering.stackexchange.com/](https://reverseengineering.stackexchange.com/)
-    - [https://crypto.stackexchange.com/](https://crypto.stackexchange.com/)
-* Mailing Lists
-    - [http://seclists.org/bugtraq/](http://seclists.org/bugtraq/)
-    - [http://seclists.org/oss-sec/](http://seclists.org/oss-sec/)
-    - [http://seclists.org/fulldisclosure/](http://seclists.org/fulldisclosure/)
+## Websites/Blogs/Forums
+### Multi-func sites
+* [https://www.t00ls.net/](https://www.t00ls.net/)
+- [FreeBuf](http://www.freebuf.com/)
+- [安全客](http://bobao.360.cn/)
+- [91ri.org](http://www.91ri.org)
+- [漏洞银行](https://skills.bugbank.cn/)
+    + [技能树](#learning---miscellaneous)
+- [mottoin](http://www.mottoin.com/)
+- [seebug](https://www.seebug.org/)
+- [sec-wiki](https://sec-wiki.com/)
+- [Sec-News](http://wiki.ioin.in/)
+- [网络安全焦点](http://www.xfocus.net/index.html)
+- [游侠安全网](http://www.youxia.org/)
+- [hi0x0](http://www.hi0x0.com/)
+- [secbox](http://www.secbox.cn/)
+    + [书安](http://www.secbox.cn/tag/%E4%B9%A6%E5%AE%89)
+- [安全圈 Info](http://www.anquanquan.info/)
+- [爱尖刀](http://www.ijiandao.com/)
+    + [书安](http://www.ijiandao.com/secbook)
+- [信安在线](https://www.cnmstl.net/)
+- [https://www.hellboundhackers.org/](https://www.hellboundhackers.org/)
+- [https://www.hackerone.com/](https://www.hackerone.com/)
+- [https://navisec.it/](https://navisec.it/)
+- [Linux 安全网](http://www.linuxso.com/)
+- [myhack58](http://www.myhack58.com/)
+- [红黑联盟](https://www.2cto.com/)
+- [邪恶十六进制](http://www.evil0x.com/)
+- [nullsecurity](http://nullsecurity.net/)
 
+### Blogs
+- [信安之路](http://www.myh0st.cn/)
+- [腾讯玄武实验室](http://xlab.tencent.com/cn/)
+    + [腾讯玄武实验室安全动态推送](https://xuanwulab.github.io/cn/secnews/2017/10/02/index.html)
+- [kotowicz](http://blog.kotowicz.net/)
+- [夜影二进制安全](http://www.dbgpro.com/)
+- [Twosecurity](https://zhuanlan.zhihu.com/c_123166696)
+- [https://null-byte.wonderhowto.com/](https://null-byte.wonderhowto.com/)
+- [Ethan](http://www.beesfun.com/)
+- [https://www.n0tr00t.com/](https://www.n0tr00t.com/)
+- [https://paper.seebug.org/](https://paper.seebug.org/)
+- [一些技术博客](http://airs-sec.com/uploads/cellect/Securtiy-blog-navigation.html)
+- [https://github.com/evilcos/papers](https://github.com/evilcos/papers)
+- [bestwing.me](http://bestwing.me/)
+- [MDSec](https://www.mdsec.co.uk/blog/)
+- [evi1m0 (Evil-say)](http://rm-rf.gg/)
+- [hackfun.org](https://hackfun.org/)
+- [xsec.io](https://xsec.io/)
+- [余弦](http://evilcos.me/)
+    + [zhihu](https://zhuanlan.zhihu.com/evilcos)
+- [离别歌leavesongs - PHITHON](https://www.leavesongs.com/)
+- [黑暗执行绪](http://blog.darkthread.net/blogs/darkthreadtw/default.aspx)
+- [noob.ninja](http://www.noob.ninja/)
+- [riusksk](http://riusksk.me/)
+    + 《漏洞战争》林桠泉
+- [hackdog](http://www.hackdog.me/)
+- [qimingyu](http://qimingyu.github.io)
+- [drop](https://drops.org.cn/)
+- [bluescreenofjeff](https://bluescreenofjeff.com/)
+- [04z.net](https://04z.net/)
+- [黑鸟安全网](http://www.blovb.com/)
+- [阿德马Web安全](http://www.nxadmin.com/)
+- [dhb133](http://www.cnblogs.com/dhb133/category/101834.html)
+- [neeao](http://neeao.com/category/infosecurity)
+- [pkav](https://zhuanlan.zhihu.com/pkavsec)
+- [孤独更可靠](http://gudugengkekao.blog.51cto.com/)
+- [virink](https://www.virzz.com/)
+- [chybeta](https://chybeta.github.io/)
+- [5alt](http://5alt.me/)
+- [鬼仔’s Blog](http://huaidan.org/category/technology)
+- [长亭技术专栏](https://zhuanlan.zhihu.com/chaitin-tech)
+- [x2know](http://blog.x2know.org/)
+- [seay](http://www.cnseay.com/)
+- [wing](http://hackerwing.com/)
+- [sky](http://skysec.top)
+- [Ha1g0](http://whc.dropsec.xyz/)
+- [SecuritySite](https://github.com/pandazheng/SecuritySite)
+- [一些有意思的博客](https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&mid=2247484858&idx=1&sn=9de255cbf05383ce07daa4db56b80410&chksm=ec1e3592db69bc849c1bc408336c71a7459c7427e6909a5aa240b32b2b7354b818d822444690&scene=21#wechat_redirect)
+- [pentest-bookmarks](https://github.com/kurobeats/pentest-bookmarks)
 
-# Tools - pentest env
+### Report Platform
+* [http://0day5.com/](http://0day5.com/)
+* [https://www.exploit-db.com/](https://www.exploit-db.com/)
+* [w0rms.com](http://www.w0rms.com/)
+* [https://x.threatbook.cn](https://x.threatbook.cn)
+* [最新漏洞-非安全](https://www.sitedirsec.com/)
+* [冠廷漏洞利用代码库 - 0day,Exploit,Shellcode](http://www.guanting.com/security/exploit/)
+* [WooYun](http://wooyun.org/)
+    - https://wooyun.shuimugan.com/
+* [http://www.milw0rm.com/](http://www.milw0rm.com/)
+
+### Forums
+- [先知安全技术社区](https://xianzhi.aliyun.com/forum/)
+- [看雪](http://bbs.pediy.com/)
+- [第8个男人](http://debugman.com/forum.php)
+- [邪恶八进制](https://forum.eviloctal.com/)
+- [吾爱破解](https://www.52pojie.cn/)
+- [China UNIX](http://bbs.chinaunix.net/)
+- [ichunqiu BBS](https://bbs.ichunqiu.com/portal.php)
+- [Hack Forums](https://hackforums.net/)
+- [https://security.stackexchange.com/](https://security.stackexchange.com/)
+- [https://reverseengineering.stackexchange.com/](https://reverseengineering.stackexchange.com/)
+- [https://crypto.stackexchange.com/](https://crypto.stackexchange.com/)
+
+### Mailing Lists
+- [http://seclists.org/bugtraq/](http://seclists.org/bugtraq/)
+- [http://seclists.org/oss-sec/](http://seclists.org/oss-sec/)
+- [http://seclists.org/fulldisclosure/](http://seclists.org/fulldisclosure/)
+
+## Tools
+### pentest env
 * Kali
 * BlackArch Linux
 * Parrot Security OS
@@ -121,14 +126,14 @@
 + [PHPPHP](https://github.com/ircmaxell/PHPPHP)
     * A PHP VM implementation written in PHP.
 
-# Tools - Encode/Decode
+### Encode/Decode
 * [XSS'OR](http://web2hack.org/xssor/)
     - [evilcos/xssor](https://github.com/evilcos/xssor)
 + [XSSEE](http://web2hack.org/xssee/)
 + [oschina tools](http://tool.oschina.net/)
 + [chinaz tools](http://tool.chinaz.com/map.aspx)
 
-# Tools - Crypto
+### Crypto
 + Frequency/subsitition/...
     * [Frequency Counter](https://www.mtholyoke.edu/courses/quenell/s2003/ma139/js/count.html)
     * [quipqiup](https://quipqiup.com/)
@@ -255,7 +260,7 @@
             + [WPACracker](http://www.wpacracker.com/)
             + [Question-Defense](http://tools.question-defense.com/wpa-password-cracker/)
 
-# Tools - 域名/ip
+### 域名/ip
 + ip 反查域名
     * [dns.aizhan.com](http://dns.aizhan.com)
 + 子域名枚举
@@ -278,7 +283,7 @@
     * [Gobuster](https://github.com/OJ/gobuster)
         - Go 语言编写的收集网站 URI 和 DNS 子域名的工具
 
-# Tools - XSS
+### XSS
 + [XSStrike](https://github.com/UltimateHackers/XSStrike)
     * XSStrike is a program which can crawl, fuzz and bruteforce parameters for XSS. It can also detect and bypass WAFs.
 + [xsschef](https://github.com/koto/xsschef)
@@ -302,7 +307,7 @@
         - 自动化检测页面是否存在 XSS 和 CSRF 漏洞的浏览器插件
 * [xss](https://github.com/tennc/xss)
 
-# Tools - 数据库扫描、注入工具 SQLi
+### 数据库扫描、注入工具 SQLi
 + [注入工具之王 sqlmap](https://github.com/sqlmapproject/sqlmap)
 + [NoSQLMap](https://github.com/codingo/NoSQLMap)
 + [SQLiScanner](https://github.com/0xbug/SQLiScanner)
@@ -327,7 +332,7 @@
 + [sqli-hunter](https://github.com/zt2/sqli-hunter)
     * Web代理，通过加载sqlmap api进行sqli实时检测
 
-# Tools - 弱口令或信息泄漏扫描
+### 弱口令或信息泄漏扫描
 + [awBruter](https://github.com/theLSA/awBruter)
     * 千倍速一句话密码爆破工具
 + [Cr3dOv3r](https://github.com/D4Vinci/Cr3dOv3r)
@@ -375,7 +380,7 @@
 + [xlog](https://github.com/apxar/xlog)
     * web日志扫描工具
 
-# Tools - 端口扫描、指纹识别以及中间件扫描
+### 端口扫描、指纹识别以及中间件扫描
 * [Nmap](https://nmap.org/)
         - 端口扫描器之王
         - [https://svn.nmap.org/](https://svn.nmap.org/)
@@ -436,7 +441,7 @@
 + [DirBrute](https://github.com/Xyntax/DirBrute)
     * 多线程WEB目录爆破工具
 
-# Tools - 内网安全渗透测试
+### 内网安全渗透测试
 * [VulScritp](https://github.com/0xwindows/VulScritp)
     - 企业内网渗透脚本，包括 banner 扫描、端口扫描；各种通用漏洞利用等
 * [VulScritp](https://github.com/CaiJiJi/VulScritp)
@@ -468,7 +473,7 @@
 * [Powershell-RAT](https://github.com/Viralmaniar/Powershell-RAT)
     - Python based backdoor that uses Gmail to exfiltrate data as an e-mail attachment. It tracks the user activity using screen capture and sends the information to an attacker as an e-mail attachment.
 
-# Tools - 针对性漏洞测试工具
+### 针对性漏洞测试工具
 + [weblogic_unserialize_exploit](https://github.com/hanc00l/weblogic_unserialize_exploit)
     * java反序列化漏洞的weblogic exploit命令回显exp
 + [cmsPoc](https://github.com/CHYbeta/cmsPoc)
@@ -509,7 +514,7 @@
     * Damn Small XSS Scanner (DSXS)
     * a fully functional Cross-site scripting vulnerability scanner (supporting GET and POST parameters) written in under 100 lines of code.
 
-# Tools - 代码静态扫描、代码运行栈跟踪
+### 代码静态扫描、代码运行栈跟踪
 * [VulHint](https://github.com/5alt/VulHint)
 * [php-static-analysis-tools](https://github.com/exakat/php-static-analysis-tools)
     - php静态扫描工具集
@@ -541,7 +546,7 @@
 * [angr](https://github.com/angr/angr)
     - The next-generation binary analysis platform from UC Santa Barbara's Seclab
 
-# Tools - fuzz
+### fuzz
 + [honggfuzz](https://github.com/google/honggfuzz)
     * [honggfuzz-rs](https://github.com/rust-fuzz/honggfuzz-rs)
         - Fuzz your Rust code with Honggfuzz! 
@@ -561,7 +566,7 @@
 * [kDriver-Fuzzer](https://github.com/k0keoyo/kDriver-Fuzzer)
     - 基于ioctlbf框架编写的驱动漏洞挖掘工具
 
-# Tools - 漏洞利用及攻击框架
+### 漏洞利用及攻击框架
 + [msf](https://github.com/rapid7/metasploit-framework)
     * [metasploitHelper](https://github.com/milo2012/metasploitHelper)
 + [OWASP-Nettacker](https://github.com/viraintel/OWASP-Nettacker)
@@ -578,7 +583,7 @@
 + [POC-T](https://github.com/Xyntax/POC-T)
     * 渗透测试插件化并发框架
 
-# Tools - 模块化扫描、综合扫描器
+### 模块化扫描、综合扫描器
 + [nmap-vulners](https://github.com/vulnersCom/nmap-vulners)
     * NSE script using some well-known service to provide info on vulnerabilities
     * [为Nmap添砖加瓦](https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&mid=2247484047&idx=1&sn=73880e568c3cda7118928217ff9fccce&scene=21#wechat_redirect)
@@ -651,7 +656,7 @@
 * [HUNT](https://github.com/bugcrowd/HUNT)
     - Identify common parameters vulnerable to certain vulnerability classes
 
-# Tools - Shell
+### Shell
 * [webshell](https://github.com/tennc/webshell)
 * [Cknife](https://github.com/Chora10/Cknife)
 * 中国蚁剑
@@ -671,7 +676,7 @@
 * [p0wnedShell](https://github.com/Cn33liz/p0wnedShell)
     - 不依赖 powershell.exe 执行 PowerShell 脚本代码的环境
 
-# Tools - 无线 wifi /IoT
+### 无线 wifi /IoT
 + 无线网络渗透、扫描
     - [fern-wifi-cracker](https://github.com/savio-code/fern-wifi-cracker/)
         + 无线安全审计工具
@@ -697,7 +702,7 @@
     - [PRET](https://github.com/RUB-NDS/PRET)
         + 打印机攻击框架
 
-# Tools - 企业网络自检
+### 企业网络自检
 * [LNScan](https://github.com/sowish/LNScan)
     - 详细的内部网络信息扫描器
 * [LocalNetworkScanner](https://github.com/SkyLined/LocalNetworkScanner)
@@ -709,7 +714,7 @@
 * [Multisearch-v2](https://github.com/x0day/Multisearch-v2)
     - 搜索引擎聚合搜索，可用于发现企业被搜索引擎收录的敏感资产信息
 
-# Tools - EXP编写框架及工具
+### EXP编写框架及工具
 + [rop-tool](https://github.com/t00sh/rop-tool)
     * 二进制EXP编写工具
 + [pwntools](https://github.com/Gallopsled/pwntools)
@@ -726,7 +731,7 @@
 + [CHAOS](https://github.com/tiagorlampert/CHAOS)
     * CHAOS allow generate payloads and control remote Windows systems.
 
-# Tools - MIM & phishing
+### MIM & phishing
 + MIM 中间人攻击框架
     * https://github.com/secretsquirrel/the-backdoor-factory
     * https://github.com/secretsquirrel/BDFProxy
@@ -742,7 +747,7 @@
 - [mitmproxy](https://github.com/mitmproxy/mitmproxy)
     + An interactive TLS-capable intercepting HTTP proxy for penetration testers and software developers.
 
-# Tools - Defense
+### Defense
 + Malware analysts and reverse-engineering env
     - [REMnux](https://remnux.org/) - Based on Debian
 * webshell 检测以及病毒分析工具
@@ -804,12 +809,12 @@
 * [yulong-hids](https://github.com/ysrc/yulong-hids)
     - 驭龙 HIDS - 一款由 YSRC 开发的主机入侵检测系统
 
-# Tools - Mining
+### Mining
 + [xmrig](https://github.com/xmrig)
 + [coin-hive](https://coin-hive.com)
     * [CoinHive cryptocurrency miner for node.js](https://github.com/cazala/coin-hive)
 
-# Tools - Miscellaneous
+### Miscellaneous
 + [SocialEngineeringPayloads](https://github.com/bhdresh/SocialEngineeringPayloads)
 + [github_arsenal](https://github.com/HiJackJTR/github_arsenal)
     * github军火库
@@ -883,7 +888,7 @@
 + [pentest_tools](https://github.com/l3m0n/pentest_tools)\
 + [Java高并发秒杀系统API](https://github.com/codingXiaxw/seckill)
 
-# Tools - CTF tools
+### CTF tools
 + Miscellaneous
     * [pwndocker](https://github.com/skysider/pwndocker)
     - [vFuckingTools](https://github.com/virink/vFuckingTools)
@@ -1003,7 +1008,8 @@
     * [XSSer](http://xsser.sourceforge.net/) - Automated XSS testor
     * [WhatWaf](https://github.com/Ekultek/WhatWaf)
 
-# Learning - Web application pentesting
+## Learning
+### Web application pentesting
 * Prerequisites:
     * __Usage of__
         * Burp
@@ -1112,7 +1118,7 @@
         + Some thoughts on how Node.js might respond to a changing security environment
         + The security roadmap is a gitbook publication available at https://nodesecroadmap.fyi/
 
-# Learning - Binary and memory exploitation
+### Binary and memory exploitation
 * Prerequisites:
     * __Usage of__
         * Gdb (inc. gdb-peda), Valgrind
@@ -1145,7 +1151,7 @@
     * [browser-security-whitepaper-2017](https://github.com/x41sec/browser-security-whitepaper-2017)
         - X41 Browser Security White Paper - Tools and PoCs
 
-# Learning - Windows and Linux Privilege Escalation
+### Windows and Linux Privilege Escalation
 * Prerequisites:
     * __Usage of__
         * Metasploit
@@ -1197,7 +1203,7 @@
     * Breaking out of restricted shells
         * [https://speakerdeck.com/knaps/escape-from-shellcatraz-breaking-out-of-restricted-unix-shells](https://speakerdeck.com/knaps/escape-from-shellcatraz-breaking-out-of-restricted-unix-shells)
 
-# Learning - Miscellaneous
+### Miscellaneous
 + 漏洞 POC & EXP
     * [php漏洞代码分析](https://github.com/80vul/phpcodz)
     * [100php](https://github.com/Xyntax/1000php)
@@ -1317,7 +1323,7 @@
     * [bWAPP 玩法总结](https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&mid=2247485571&idx=1&sn=2b90a85c307bf02b82f9b81bab462627&chksm=ec1e38abdb69b1bd231814098afea2bba9e685ddffdb014a0d210680435a6045c5fa90483c71&scene=21#wechat_redirect)
     * [RPO攻击技术浅析](http://blog.nsfocus.net/rpo-attack/)
 
-# Wargrames/CTFs/VulEnvApp
+## Wargrames/CTFs/VulEnvApp
 * ichunqiu
 * google CTF
 * facebook
@@ -1394,7 +1400,7 @@
 * [FOS:RASP-PHP](https://github.com/umarfarook882/FOS_Demo_Vulnerable_App)
 
 
-# WriteUps
+## WriteUps
 + [ctfs](https://github.com/ctfs/)
 + [picoctf_2017_writeup](https://github.com/LFlare/picoctf_2017_writeup)
 + [Awesome CTF writeups-collections](https://github.com/apsdehal/awesome-ctf/blob/master/README.md#writeups-collections)
@@ -1415,10 +1421,9 @@
 * [p4-team/ctf](https://github.com/p4-team/ctf)
 * [bl4de/ctf](https://github.com/bl4de/ctf)
 * [2018-QWB-CTF](https://github.com/jas502n/2018-QWB-CTF)
-* 
 
 
-# Miscellaneous
+## Miscellaneous
 + [https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
 + [https://www.metasploit.com/](https://www.metasploit.com/)
 - [https://www.coursera.org/specializations/cyber-security](https://www.coursera.org/specializations/cyber-security)
