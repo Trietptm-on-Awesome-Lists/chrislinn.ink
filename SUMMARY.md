@@ -1,6 +1,8 @@
 # Summary
 
 * [About Me](README.md)
+<!-- 
+
 - Published
     - Technical
         + [爬虫抓代理](tech/proxy-crawler.md)
@@ -55,3 +57,4 @@
         - [王小波读后感](miscs/wangxiaobo.md)
         * [青岛灌填](miscs/qd-pouring.md)
         * [Paths](miscs/paths.md)
+ -->
