@@ -1,15 +1,3 @@
----
-layout:     post
-title:      "[technical] Pentesting resources"
-date:       2018-04-14 13:10:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - technical
----
-
-<br>
 
 # Sites/Blogs/Forums/ReportPlatform
 + Multi-func sites

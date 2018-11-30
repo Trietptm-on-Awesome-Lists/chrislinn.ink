@@ -1,18 +1,4 @@
----
-layout:     post
-title:      "[DRAFT杂乱笔记] Bytom"
-subtitle:   "比原链"
-date:       2018-03-06 21:27:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - DRAFT杂乱笔记
----
-
-<br>
-
-# 我在比原的工作
+## 我在比原的工作
 
 + bytom
     * 可以看看 release notes
@@ -322,7 +308,7 @@ tags:
 If you look into the Bytom mining code, you will find it hard to understand. In fact, it's designed to collaborate with bitmain's hardware. How can a blockchain product be promising if it doesn't have its own right to choose the algo?
  --> 
 
-# 回答老马
+## 回答老马
 * 为何比原链适合上链资产，比起以太坊、neo、bts有什么好处？
     * 以太坊
         * 比特币本身的中的非图灵完备栈式脚本语言，所表达的功能极少，很难实现一些稍微复杂的功能
@@ -351,7 +337,9 @@ If you look into the Bytom mining code, you will find it hard to understand. In 
         + 数量
         + 以及其他等等
 
-# Bytom - 商业模型
+## Bytom 架构
+
+### 商业模型
 > https://gguoss.github.io/2017/06/28/Bytom-s-data-structure/
 > 
 > __资产账户__
@@ -365,98 +353,29 @@ If you look into the Bytom mining code, you will find it hard to understand. In 
 > + signer 管理公私钥对，以便用该资产的私钥签名，只有拥有该资产私钥的人才能发布该资产
 > + definition 对该资产的解释说明等。
 
-# Bytom - 软件架构
+### 软件架构
 
-+ Bytom 技术特点
-    * 区块处理
-        - btc
-    * tx
-        - butxo 支持多资产
-            + "扩展 utxo，扩展字段不上链，相当于拆表"?"分两类，一类 上链的，一类钱包的"?
-        - txin txout 分多 action、做映射
-    * merkle tree
-        - trie (pat)
-        - 2 叉，不平衡
-        - 保存交易状态
-    * p2p
-        - tendermint reactor模型
-        - eth discover
-        - eth block sync
-    * 合约
-        - chain
+#### 技术特点
+* 区块处理
+    - btc
+* tx
+    - butxo 支持多资产
+        + "扩展 utxo，扩展字段不上链，相当于拆表"?"分两类，一类 上链的，一类钱包的"?
+    - txin txout 分多 action、做映射
+* merkle tree
+    - trie (pat)
+    - 2 叉，不平衡
+    - 保存交易状态
+* p2p
+    - tendermint reactor模型
+    - eth discover
+    - eth block sync
+* 合约
+    - chain
 
-
-# Bytom - 软件架构 - 共识算法
-
-# Bytom - 软件架构 - BVM
+#### BVM
 + 智能合约
     * 合约交易
         - Bytom 默认不支持含 btm 的交易对，只支持 非btm交易对
         - btm 只支持标准(P2SH)交易
         - 但有个 解决方案：将合约交易转为 P2SH 交易
-
-# 6Degree
-+ 星火节点设计文档
-    + 数据库设计
-        ```
-        Server Table {
-            ip: string,
-            port: int,
-            location: string,
-            version #: string,
-            height: int,
-            hash: string,
-            init handshake time: time,
-            last handshake time: time,
-        }
-
-        Try Table {
-            server: <pointer to server table>,
-            created: time,
-            success: bool,
-        }
-        ```
-    + API设计
-        * `list-node //展示所有的node`
-        * `dump-config //下载所有的配置`
-    + 实现流程伪代码
-        * 启动一个侦测节点
-        * 侦测节点fo loop数据库，连接节点
-            - 成功连上节点后，更新/插入 Server table的数据，同时也插入Try table的连接记录
-            - 与节点进行地址交换，获取新节点信息并加入尝试队列
-            - 与节点断开连接
-        * 结束流程。
-+ procedure
-    * [unwrap-bytom](https://github.com/bytom-win/unwrap-bytom)
-+ needing
-    * ip & location
-    * version
-    * live_time
-    * ~~height~~
-+ db
-    * db to use
-        - mem --> MySQL
-    * structure
-+ port for diff nets
-
-### 中心化钱包api服务器架构设计
-![bcenter_echo](/img\bytom\bcenter_echo.png)
-
-+ root pubkey
-    + https://chain.com/docs/1.2/protocol/specifications/chainkd
-    + https://juejin.im/post/5b5548fff265da0f9313a5c8
-
-
-<!-- 
-
-+ https://github.com/Bytom/equity
-+ https://docs.bytom.io/mydoc_contract_operator.cn.html
-
-+ https://stackoverflow.com/questions/36953/resources-for-lexing-tokenising-and-parsing-in-python
-+ https://github.com/webmaven/python-parsing-tools
-+ https://wiki.python.org/moin/LanguageParsing
-+ http://pygments.org/docs/lexerdevelopment/
-+ https://tomassetti.me/parsing-in-python/#parserGenerators
-+ http://www.jayconrod.com/posts/37/a-simple-interpreter-from-scratch-in-python-part-1
-
- -->
