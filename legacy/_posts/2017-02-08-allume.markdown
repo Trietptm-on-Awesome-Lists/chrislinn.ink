@@ -1,0 +1,184 @@
+---
+layout:     post
+title:      "[杂乱笔记] My days in Allume Energy"
+date:       2017-02-08 21:48:00
+author:     "LiqueurTofu"
+header-img: "img/home-bg-art.jpg"
+catalog:    true
+tags:
+    - 杂乱笔记
+---
+
+<br>
+
+# 20170208
++ I don't have a repo for it so I would just put something here.
+
+# 20170209
++ deicided to dev on my own laptop
+
+# 20170210
++ created an repo on github.
++ can get the data now
+
+# 20170211
++ gonna save the file
++ can save the file now
++ can have appropriate filename now
++ can work with non-existing directory now
++ finished subRunner I think
+
+# 20170214
++ get the ftp stuff done and tested.
+
+# 20170215
++ ends up my understanding of the architecture is incorrect, gonna put more effort now.
+
+# 20170308
++ It ends.
+
+# 20170725
++ start again!
+    * Packages
+        - React
+        - React Hot Loader
+        - React Router
+        - Webpack 2
+        - Webpack Dev Middleware
+        - Webpack Hot Middleware
+        - Babel Loader
+        - Express
+    * Pages
+        - connection
+        - what pages
+            + which file
+                * dir
+            + to modify
+            + to add
+        - background
+            + imitate
+        - animation
+        - symbol
+            + position
+                * relevant
+            + size
+        - color
+        - 404
+            + redirect
+                * router
+                    - we r using 3.0.3
+    * redux
+        - more stable
+        - for production
+    * Help
+        - hasting
+        - daniel
+        - xiaoliang
+        - shreyash
+
+# 20170726
++ router
++ sass
++ import css
++ finish 404
+
+# 20170727
++ font
+    * herolight
++ need different TopMenu
++ find components by myself
+    * `--save`
+    * into `package.json` for `npm install`
++ stripe
+    * The Stripe function we will be using is called [subscription autopilot](https://stripe.com/subscriptions). We will specifically be using the 'metered billing' functionality of this API.
+    * use reg api for reg
+    * query api once a month?
+
+# 20170731
++ interaction
+    * curl for testing first?
+    * client/?
+    * server/?
++ what is the use of Publishable key and Secret key
+    * to receive payment?
++ local json?
++ subscription
+    * create a user
+    * create plans
+        - created first
+    * subscription
+        - attach a user to a plan 
+            + customer
+            + items (plans)
+            + source
+            + need charging?
++ coding
+    * online components?
+    * code myself!
+
+# 20170803
++ microserver
++ .
+    ```
+    psql -d allume -h 127.0.0.1 -p 5432
+    ```
++ .
+    ```
+    cd /home/chris/Miscellaneous/Allume/pgadmin4/bin
+    source activate
+    python /home/chris/Miscellaneous/Allume/pgadmin4/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py
+    ```
++ .
+    ```
+    pg_restore --host "localhost" --port "5432" -U postgres -d allume -v "dbposgres.tar" -W
+    ```
+
+#20170708
++ .
+    ```
+    CREATE DATABASE allume OWNER postgres;
+    GRANT ALL PRIVILEGES ON DATABASE allume to postgres;
+    ```
++ .
+    ```
+    . ~/Miscellaneous/Allume/pgadmin4/bin/activate
+    python  ~/Miscellaneous/Allume/pgadmin4/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py
+    ```
+
+#20170709
++ up
+    * 1 array of energy
++ func
+    * perc
+    * bill
+        - tenant
+            + bill+price
+                * omit empty
+            + landlord
+                * tenant paid
+                * total bill
+                * timestamp 
+                    - st
+                    - end
+                    - dur
++ testing
+    * goroutine
+        - 5s
+        - 1000
+
+#20170919
++ stripe
+    * specify json
+        - V
+    * status
+        - V
+    * don't response directly
+        - promise/callback/return-value
+            + V
+    * card info
+        - addr
++ billing-computing
+    * status code
++ allume-pg
+    * start-up
+    * test case

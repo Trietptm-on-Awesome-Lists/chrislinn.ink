@@ -1,0 +1,427 @@
+---
+layout:     post
+title:      "[杂乱笔记] Concurrent, Parallel"
+date:       2018-04-13 17:57:00
+author:     "LiqueurTofu"
+header-img: "img/home-bg-art.jpg"
+catalog:    true
+tags:
+    - 杂乱笔记
+---
+
+<br>
+
+# 设计模式
++ 创建型
+    * [单例（Singleton）](https://github.com/CyC2018/Interview-Notebook/blob/master/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md#1-%E5%8D%95%E4%BE%8Bsingleton)
+        - 双重校验锁-线程安全
+            + .
+                ```
+                public class Singleton {
+
+                    private volatile static Singleton uniqueInstance;
+
+                    private Singleton() {
+                    }
+
+                    public static Singleton getUniqueInstance() {
+                        if (uniqueInstance == null) {
+                            synchronized (Singleton.class) {
+                                if (uniqueInstance == null) {
+                                    uniqueInstance = new Singleton();
+                                }
+                            }
+                        }
+                        return uniqueInstance;
+                    }
+                }
+                ```
+        - 静态内部类实现
+            + 延迟初始化，且由虚拟机提供了对线程安全的支持
+                ```
+                public class Singleton {
+
+                    private Singleton() {
+                    }
+
+                    private static class SingletonHolder {
+                        private static final Singleton INSTANCE = new Singleton();
+                    }
+
+                    public static Singleton getUniqueInstance() {
+                        return SingletonHolder.INSTANCE;
+                    }
+                }
+                ```
+            + 只有当调用 `getUniqueInstance()` 方法从而触发 SingletonHolder.INSTANCE 时 SingletonHolder 才会被加载，此时初始化 INSTANCE 实例。
+        - __枚举实现__
+            + 单例模式的 __最佳__ 实践，它实现简单，并且在面对复杂的序列化或者反射攻击的时候，能够防止实例化多次。
+                ```
+                public enum Singleton {
+                    uniqueInstance;
+                }
+                ```
+
+
+
+
+
+# Tech
++ Shared Memory
++ Mutex & Semaphore
+    * https://www.zhihu.com/question/47704079
+    * 恐龙书
++ MapReduce
+    * https://www.google.com.au/search?q=mapreduce&ei=0X6SWYiEC8Wk8QW1-JuYDg&start=10&sa=N&biw=1600&bih=744
+    * https://baike.baidu.com/item/MapReduce
+    * https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html
+    * http://hadoop.apache.org/docs/r1.0.4/cn/mapred_tutorial.html
+    * https://www.ibm.com/analytics/us/en/technology/hadoop/mapreduce/
+    * https://en.wikipedia.org/wiki/MapReduce
++ distributed
+    * [《分布式系统设计》，来自微软](https://azure.microsoft.com/en-us/resources/designing-distributed-systems/en-us/)
+    * [谈谈分布式系统](https://mp.weixin.qq.com/s/J11Us4RE37fthUxsoDzW5Q)
+    * [decentralized-research](https://github.com/nicola/decentralized-research)
+    * P2P
+        - [DNA](https://github.com/DNAProject/DNA)
+    * [phxpaxos](https://github.com/letiantian/tencent-open-source)
++ SIMD
++ [OpenMP](https://bisqwit.iki.fi/story/howto/openmp/)
+    * usage
+        - `#include <omp.h>`
+        - `#pragma omp parallel for`
+        - `-fopenmp` in compling and linking
+            + the flag actually makes it link to when linking
+        - wrap-up
+            + parrallel
+            + for
+            + parrallel for
+            + atomic
+            + critical
+            + reduction
+            + simd
+    * OpenMP vs OpenCL
+        - OpenMP 和 OpenCL 都是用于高性能计算机，但前者主要是基于 __CPU__ 的并行，后者主攻 __GPU__ 并行。
+            + OpenMP (Open Multi-Processing)
+                * 跨平台共享内存方式的多线程并发的编程API，使用C,C++和Fortran语言
+                * CPU擅长处理不规则数据结构和不可预测的存取模式，以及递归算法、分支密集型代码和单线程程序。这类程序任务拥有复杂的指令调度、循环、分支、逻辑判断以及执行等步骤。例如，操作系统、文字处理、交互性应用的除错、通用计算、系统控制和虚拟化技术等系统软件和通用应用程序等等。
+                    - 逻辑运算
+            + OpenCL (Open Computing Language)
+                * OpenCL是一个为异构平台编写程序的框架，此异构平台可由CPU、GPU、DSP、FPGA或其他类型的处理器与硬件加速器所组成。
+                * GPU擅于处理规则数据结构和可预测存取模式。例如，光影处理、3D 坐标变换、油气勘探、金融分析、医疗成像、有限元、基因分析和地理信息系统以及科学计算等方面的应用。
+                    - 简单暴力运算
+                        + GPU芯片中有几百甚至更多数量的物理计算单元
+    * OpenCV vs OpenGL
+        - OpenCV, Open Source Computer Vision Library
+            + 图像处理和计算机视觉库
+            + 解析图片
+            + 图像到数据
+        - OpenGL, Open Graphics Library
+            + 图形程序接口
+            + 渲染
+            + 数据到图像
+    * C++ AMP
+        - Windows + all D3D11 graphics card
+    * Vulkan里的compute shader
++ Hyper Threading
+    * 物理多线程, 非完全物理并行，只对不同时使用的资源实现物理并行
++ matrix
+    * [How does Eigen compare to BLAS/LAPACK?](http://eigen.tuxfamily.org/index.php?title=FAQ#How_does_Eigen_compare_to_BLAS.2FLAPACK.3F)
+    * [BLAS vs LAPACK vs ATLAS](https://stackoverflow.com/questions/17858104/what-is-the-relation-between-blas-lapack-and-atlas)
+        - matlab的矩阵计算脱胎于mkl
+            + Intel自己出的Math kernel library（MKL）,这个库远比其他的blas/lapack库要快
+            + 不使用GPU加速的MATLAB版本采用的是BLAS中的General Matrix Multiplication[1]。学术界有各种矩阵乘法算法将其复杂度降低到O(n^2.x)，例如Strassen和Winograd算法，在BLAS中应该已经使用了Strassen算法。
+            + 如果你的MATLAB是安装了Parallel Computing Toolbox的话，那么很可能它已经在使用GPU进行计算了。这种情况下采用的是MAGMA[2]。我没有使用过MAGMA，但我猜测它应该使用了cuBLAS来计算矩阵乘法。
+            + 宏观角度上对矩阵乘法的优化包括对局部内存使用的优化(Blocked/Tiled)以及对中间运算步骤的优化(Strassen/Winograd)，实现细节上的优化就非常繁多了。比如loop unrolling，多级的tiling，指令级并行等等。其中会牵扯到一些编译器和体系结构的知识，似乎对仅仅希望使用矩阵乘法函数的用户来讲没有什么太大必要去探究
+            + 同样算法 gpu 快是因为硬件
+        - python，其矩阵计算速度虽然微微落后于MATLAB，但是在很多其他地方是可以大大强于MATLAB的。例如绘制大规模三维点云，以及轻松调用gpu之类的
+            + 。因此python在矩阵计算的微小速度劣势完全可以忽略，可以考虑用于科学计算。关于NumPy链接MKL，我之前写过一篇博文：[Numpy使用MKL库提升计算性能](http://unifius.wordpress.com.cn/archives/5)。
+    * [eigen vs mkl](https://stackoverflow.com/questions/10366054/c-performance-in-eigen-library)
+        - [Using Intel® MKL from Eigen](https://eigen.tuxfamily.org/dox/TopicUsingIntelMKL.html)
+
+# Implementation
++ Python
+    * `map` 
+        ```
+        import urllib2
+        from multiprocessing.dummy import Pool as ThreadPool
+         
+        urls = [
+        'http://www.python.org',
+        'http://www.python.org/about/',
+        # etc..
+        ]
+         
+        # Make the Pool of workers
+        pool = ThreadPool(4)
+        # Open the urls in their own threads
+        # and return the results
+        results = pool.map(urllib2.urlopen, urls)
+        #close the pool and wait for the work to finish
+        pool.close()
+        pool.join()
+        ```
++ GoLang
+    * `go` 
+        - need to keep main thread running
+            + `WaitGroup`
+        - By default, the Go runtime allocates a single logical processor, bound to a single operating system thread, to execute all the goroutines. 当正在运行的 G0 阻塞的时候, 会再创建一个线程
+            * not recommended to add more that one logical processor
+                - Though if you configure the runtime to use more than one logical processor, the scheduler will distribute goroutines between these logical processors which will result in goroutines running on different operating system threads.
+            + It's concurrent but not parallel
+            + If wanna make it parallel
+                * `GOMAXPROCS`
+                    - set to the number of cores available
+                        + physical processors
+        - Concurrency Example1
+            + only one thread is used
+            + code
+                ```
+                package main
+
+                import (
+                    "fmt"
+                    "runtime"
+                    "sync"
+                )
+
+                func main() {
+                    runtime.GOMAXPROCS(1)
+
+                    var wg sync.WaitGroup
+                    wg.Add(2)
+
+                    fmt.Println("Starting Go Routines")
+                    go func() {
+                        defer wg.Done()
+
+                        for char := ‘a’; char < ‘a’+26; char++ {
+                            fmt.Printf("%c ", char)
+                        }
+                    }()
+
+                    go func() {
+                        defer wg.Done()
+
+                        for number := 1; number < 27; number++ {
+                            fmt.Printf("%d ", number)
+                        }
+                    }()
+
+                    fmt.Println("Waiting To Finish")
+                    wg.Wait()
+
+                    fmt.Println("\nTerminating Program")
+                }
+                ```
+            + result
+                ```
+                Starting Go Routines
+                Waiting To Finish
+                a b c d e f g h i j k l m n o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 10 11
+                12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
+                Terminating Program
+                ```
+        - Concurrency Example2
+            + Calling sleep causes the scheduler to swap the two goroutines
+            + code
+                ```
+                package main
+
+                import (
+                    "fmt"
+                    "runtime"
+                    "sync"
+                    "time"
+                )
+
+                func main() {
+                    runtime.GOMAXPROCS(1)
+
+                    var wg sync.WaitGroup
+                    wg.Add(2)
+
+                    fmt.Println("Starting Go Routines")
+                    go func() {
+                        defer wg.Done()
+
+                        time.Sleep(1 * time.Microsecond)
+                        for char := ‘a’; char < ‘a’+26; char++ {
+                            fmt.Printf("%c ", char)
+                        }
+                    }()
+
+                    go func() {
+                        defer wg.Done()
+
+                        for number := 1; number < 27; number++ {
+                            fmt.Printf("%d ", number)
+                        }
+                    }()
+
+                    fmt.Println("Waiting To Finish")
+                    wg.Wait()
+
+                    fmt.Println("\nTerminating Program")
+                }
+                ```
+            + result
+                ```
+                Starting Go Routines
+                Waiting To Finish
+                1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 a
+                b c d e f g h i j k l m n o p q r s t u v w x y z
+                Terminating Program
+                ```
+        - Parallel Example
+            + code
+                ```
+                package main
+
+                import (
+                    "fmt"
+                    "runtime"
+                    "sync"
+                )
+
+                func main() {
+                    runtime.GOMAXPROCS(2)
+
+                    var wg sync.WaitGroup
+                    wg.Add(2)
+
+                    fmt.Println("Starting Go Routines")
+                    go func() {
+                        defer wg.Done()
+
+                        for char := ‘a’; char < ‘a’+26; char++ {
+                            fmt.Printf("%c ", char)
+                        }
+                    }()
+
+                    go func() {
+                        defer wg.Done()
+
+                        for number := 1; number < 27; number++ {
+                            fmt.Printf("%d ", number)
+                        }
+                    }()
+
+                    fmt.Println("Waiting To Finish")
+                    wg.Wait()
+
+                    fmt.Println("\nTerminating Program")
+                }
+                ```
+            + result
+                ```
+                Starting Go Routines
+                Waiting To Finish
+                a b 1 2 3 4 c d e f 5 g h 6 i 7 j 8 k 9 10 11 12 l m n o p q 13 r s 14
+                t 15 u v 16 w 17 x y 18 z 19 20 21 22 23 24 25 26
+                Terminating Program
+                ```
+        - Gosched
+            + 这个函数的作用是让当前 `goroutine` 让出 CPU, 当一个 `goroutine` 发生阻塞, Go 会自动地把与该 `goroutine` 处于同一系统线程的其他 `goroutine` 转移到另一个系统线程上去, 以使这些 `goroutine` 不阻塞
+                * code
+                    ```
+                    package main
+
+                    import (
+                        "fmt"
+                        "runtime"
+                    )
+
+                    func init() {
+                        runtime.GOMAXPROCS(1)  //使用单核
+                    }
+
+                    func main() {
+                        exit := make(chan int)
+                        go func() {
+                            defer close(exit)
+                            go func() {
+                                fmt.Println("b")
+                            }()
+                        }()
+
+                        for i := 0; i < 4; i++ {
+                            fmt.Println("a:", i)
+
+                            if i == 1 {
+                                runtime.Gosched()  //切换任务
+                            }
+                        }
+                        <-exit
+
+                    }
+                    ```
+                * result
+                    ```
+                    a: 0
+                    a: 1
+                    b
+                    a: 2
+                    a: 3
+                    ```
+
+
+# Popular distributed services frameworks
++ [Hadoop](https://www.google.com.au/search?q=hadoop&oq=hadoop&aqs=chrome..69i57j0l5.3599j0j7&sourceid=chrome&ie=UTF-8)
++ [Spark](https://www.google.com.au/search?q=spark&oq=spark&aqs=chrome..69i57j0l5.7501j0j7&sourceid=chrome&ie=UTF-8)
++ ZooKeeper
+    * zookeeper实际使用了paxos的简化版算法。想搞明白比特币(成于区块链技术)的算法，应先弄明白paxos算法（便于对比）
++ Dubbo
++ Kite 
+
+
+# High Concurrency 高并发
++ [关于高并发](https://zhuanlan.zhihu.com/p/38636111)
+    * ? [如何获得高并发经验](https://zhuanlan.zhihu.com/p/38552590)
+    * [手把手教你构建一个高性能、高可用的大型分布式网站](https://www.toutiao.com/a6573634116791566851/)
++ [究竟啥才是互联网架构“高并发”](https://zhuanlan.zhihu.com/p/24830094)  
+    * 垂直扩展
+        - 增强单机硬件性能
+        - 提升单机架构性能
+            + 使用Cache来减少IO次数
+            + 使用异步来增加单服务吞吐量
+            + 使用无锁数据结构来减少响应时间
+    * 水平扩展
++ [电商网站中，50W-100W高并发，秒杀功能是怎么实现的？](https://www.zhihu.com/question/20978066/answer/56149380)
+    * CDN或反向代理
+    * 负载均衡器中，负载均衡器分配到web服务器中，web服务器在进入队列
+    * 之后进入一个统一的缓存计数器中
+    * 大流量系统想要保证数据库中与前台与缓存的一致性几乎不可能，只要保证最终落表的数据正确
++ [高并发网络架构解决方案分析](https://zhuanlan.zhihu.com/p/27817343)
+    * HTML 静态化
+        - cms
+    * 文件
+        - 图片服务器分离
+        - 镜像分流
+        - 禁止盗链
+        - 控制大文件下载/专用下载服务器
+    * 数据库集群&库表散列
+    * 缓存
+    * 镜像
+    * 负载均衡
+        - 硬件
+        - 软件
+            + lvs 等
++ [傻瓜都能看懂的高并发量服务器架构](https://zhuanlan.zhihu.com/p/27289476)
+
+# SQL
++ [MySQL数据库](https://zhuanlan.zhihu.com/p/43031084)
++ 隔离级别
++ 索引
+    * mysql 索引原理 B+ 树
+    * 频繁 查询的加索引，但 如果表频繁 insert update就别加了，会重建索引
++ 数字型字段比字符型快，因为查询和连接会逐个比较字符串每一个字符，而字符型只需比较一次
++ 避免 `select * from` 
++ where 
+    * `is null` 将导致放弃索引、全表扫描
+    * 应该 `not null` & `= 0`
+    * where 应该 尽量确定
+        - 避免 等号左边 使用 函数、算数运算或其它表达式运算
+        - 避免 `like`
++ in 
+    * 尽量避免吧、如果能用 `between`/`exists`

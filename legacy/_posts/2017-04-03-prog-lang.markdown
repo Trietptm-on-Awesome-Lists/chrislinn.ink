@@ -1,0 +1,126 @@
+---
+layout:     post
+title:      "[杂乱笔记] Programming Language Picked"
+subtitle:   "那个时候我还很年轻，还一心只想成为地表最强 coder"
+date:       2017-02-16 17:10:00
+author:     "LiqueurTofu"
+header-img: "img/home-bg-art.jpg"
+catalog:    true
+tags:
+    - 杂乱笔记
+---
+
+<br>
+
+# low-level
+* assembly
+* C
+    - [The Definitive C++ Book Guide and List](https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
+    - The C Preprocessor
+        + https://gcc.gnu.org/onlinedocs/cpp/index.html
+* Rust
+    - memroy safe
+    - mid dev
+* C++
+    - mid dev
+    - 万能头文件 `#include <bits/stdc++.h>`
+    - compilation options
+        + `g++ -march=native -m32 ... -Q --help=target`
+    - SIMD
+        + https://mirrors.edge.kernel.org/pub/linux/kernel/people/geoff/cell/ps3-linux-docs/CellProgrammingTutorial/BasicsOfSIMDProgramming.html
+        + https://enigmahuang.github.io/2017/09/29/AVX-SIMD/
+        + http://www.cs.uu.nl/docs/vakken/magr/2017-2018/files/SIMD%20Tutorial.pdf
+        + https://www.inf.ethz.ch/personal/markusp/teaching/263-2300-ETH-spring12/slides/class15.pdf
+        + https://www.moreno.marzolla.name/teaching/high-performance-computing/2017-2018/L08-SIMD.pdf
+    - OpenMP
+        + https://bisqwit.iki.fi/story/howto/openmp/
+
+# concurrency
+* GoLang
+* OCaml
+* Haskell
+
+# quick dev
+* GoLang
+    - basic
+        + [For continued](https://tour.golang.org/flowcontrol/2), [For is Go's "while"](https://tour.golang.org/flowcontrol/3), [Forever](https://tour.golang.org/flowcontrol/4)
+        + [If with a short statement](https://tour.golang.org/flowcontrol/6)
+        + [Pointers to structs](https://tour.golang.org/moretypes/4)
+        + [Mutating Maps](https://tour.golang.org/moretypes/22)
+        + [Function values](https://tour.golang.org/moretypes/24), [Function closures](https://tour.golang.org/moretypes/25)
+        + [Switch with no condition](https://tour.golang.org/flowcontrol/11), [Switch evaluation order](https://tour.golang.org/flowcontrol/10), [Select](https://tour.golang.org/concurrency/5), [Default Selection](https://tour.golang.org/concurrency/6)
+        + [Channels](https://tour.golang.org/concurrency/2), [Buffered Channels](https://tour.golang.org/concurrency/3), [Range and Close](https://tour.golang.org/concurrency/4), [sync.Mutex](https://tour.golang.org/concurrency/9)
+        + [Interfaces](https://tour.golang.org/methods/9), [The empty interface](https://tour.golang.org/methods/14)
+        + [Type switches](https://tour.golang.org/methods/16), [Type assertions](https://tour.golang.org/methods/15)
+        + [Errors](https://tour.golang.org/methods/19)
+    - profiling
+		+ [google/pprof](https://github.com/google/pprof)
+            * `go get github.com/google/pprof`
+            * `pprof -top cpu.pprof`
+            * `pprof -pdf cpu.pprof > 1.pdf`
+		+ [pkg/profile](https://github.com/pkg/profile)
+            + `import "github.com/pkg/profile"`
+            + `defer profile.Start().Stop()`
+            + .
+                ```Go
+                start := time.Now()
+                ...
+                end := time.Now()
+                log.Println("time: ", end.Sub(start))
+                ```
+    * platform-related
+        - .
+            ```Go
+            // +build windows
+
+            package main
+
+            import (
+                "fmt"
+                "syscall"
+                "unsafe"
+                "runtime"
+            )
+
+            func main() {
+                if runtime.GOOS == "windows" {
+                    var mod = syscall.NewLazyDLL("user32.dll")
+                    var proc = mod.NewProc("MessageBoxW")
+                    var MB_YESNOCANCEL = 0x00000003
+
+                    ret, _, _ := proc.Call(0,
+                        uintptr(unsafe.Pointer(syscall.StringToUTF16Ptr("This test is Done."))),
+                        uintptr(unsafe.Pointer(syscall.StringToUTF16Ptr("Done Title"))),
+                        uintptr(MB_YESNOCANCEL))
+                    fmt.Printf("Return: %d\n", ret)
+                }
+            }
+            ```
+    * CGO
+        - Makefile
+            ```Makefile
+            CGO_ENABLED=1 GOOS=windows GOARCH=386   CC=i686-w64-mingw32-gcc-posix   CXX=i686-w64-mingw32-g++-posix   go build -ldflags "-X github.com/bytom/version.GitCommit=`git rev-parse HEAD`" -o <exec> <source>
+            CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC=x86_64-w64-mingw32-gcc-posix CXX=x86_64-w64-mingw32-g++-posix go build -ldflags "-X github.com/bytom/version.GitCommit=`git rev-parse HEAD`" -o <exec> <source>
+            CGO_ENABLED=1 GOOS=linux   GOARCH=386   CC=i686-linux-gnu-gcc           CXX=i686-linux-gnu-g++           go build -ldflags "-X github.com/bytom/version.GitCommit=`git rev-parse HEAD`" -o <exec> <source>
+            CGO_ENABLED=1 GOOS=linux   GOARCH=amd64 CC=x86_64-linux-gnu-gcc         CXX=x86_64-linux-gnu-g++         go build -ldflags "-X github.com/bytom/version.GitCommit=`git rev-parse HEAD`" -o <exec> <source>
+            ```
+        + go file
+            * `import "C"` 前面要紧跟, 后面要空行
+            * CGO CGO 逗号表示与，空格表示或
+                ```Go
+                // #cgo windows,amd64 linux CFLAGS: -I.
+                // #cgo windows,amd64 linux LDFLAGS: -L./lib/ -l:cSimdTs_win32.o -lstdc++ -lgomp -lpthread
+                // #cgo darwin,amd64 CFLAGS: -I. -I/usr/local/opt/llvm/include
+                // #cgo darwin,amd64 LDFLAGS: -L./lib/ -lcSimdTs_darwin64.o -lstdc++ -lomp -L/usr/local/opt/llvm/lib
+                // #include "./lib/cSimdTs.h"
+                import "C"
+
+                import (
+                )
+                ```
+* Pyhton
+* Node.js
+    - nvm
+    - npm
+    - naturally async
+    - promise
