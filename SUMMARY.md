@@ -3,6 +3,7 @@
 * [About Me](README.md)
 - Published
     - Technical
+        + [GoLang](technical/golang.md)
     - 自我提升
         + [为什么我应该开始写笔记/博客](life-hack/hello-blog.md)
     - Notes

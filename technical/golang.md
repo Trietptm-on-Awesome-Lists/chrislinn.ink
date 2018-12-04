@@ -1,17 +1,6 @@
----
-layout:     post
-title:      "[DRAFTtechnical] GoLang"
-date:       2018-04-12 13:10:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - DRAFTtechnical
----
+# GoLang
 
-<br>
-
-# Don't communicate by sharing memory; share memory by communicating
+## Don't communicate by sharing memory; share memory by communicating
 
 + [Share Memory By Communicating](https://blog.golang.org/share-memory-by-communicating)
 + [Explain: Don't communicate by sharing memory; share memory by communicating](https://stackoverflow.com/questions/36391421/explain-dont-communicate-by-sharing-memory-share-memory-by-communicating):
@@ -22,13 +11,13 @@ tags:
     + the convention is that sending a Resource pointer on a channel __passes ownership__ of the underlying data from the sender to the receiver. Because of this convention, we know that no two goroutines will access this Resource at the same time. This means we __don't have to worry about locking__ to prevent concurrent access to these data structures. 
 
 
-# pprof
+## pprof
 
-# [Effective Go](https://golang.org/doc/effective_go.html)
+## [Effective Go](https://golang.org/doc/effective_go.html)
 
-# channel
+## channel
 
-# Mem leak & GC
+## Mem leak & GC
 + 减少对象分配
     * 尽量做到对象的重用
 + goroutine channel leak
@@ -67,12 +56,12 @@ tags:
 + 考虑到程序中为了更好地做抽象，使用了反射操作，而 `reflect.Value` 会将对象拷贝并分配到堆上，程序中的对象都是消息体，有的消息体会超大，因此会分配较多的堆内存。对程序做了一版优化，去掉这个反射逻辑，改为 `switch case`
 + `fmt.Sprint`, 这个函数会把对象分配到堆上
 
-# pitfalls
+## pitfalls
 + copy, zcc
 + sync/atomic/
 
 
-# pool
+## pool
 + https://golang.org/pkg/sync/#Pool
 + https://www.reddit.com/r/golang/comments/2ap67l/when_to_use_syncpool_and_when_not_to/
 + https://www.reddit.com/r/golang/comments/6ng0aq/correct_use_of_syncpool/
@@ -80,7 +69,7 @@ tags:
 + https://stackoverflow.com/questions/50851421/sync-pool-is-much-slower-than-using-channel-so-why-should-we-use-sync-pool
 
 
-# bytom-cc
+## bytom-cc
 bytom coding code
 
 ### casting check
@@ -120,3 +109,8 @@ https://go-critic.github.io/overview.html#builtinshadow
 ### map mutex
 
 
+### append
+
+https://stackoverflow.com/questions/27622083/performance-slices-of-structs-vs-slices-of-pointers-to-structs
+
+AppendingStructs is faster than AppendingPointers
