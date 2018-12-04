@@ -7,6 +7,7 @@
         + [为什么我应该开始写笔记/博客](life-hack/hello-blog.md)
     - Notes
         + [Pentesting resource](notes/pres.md)
+        + [Subway 点餐指南](notes/subway.md)
     * 随笔
 - Draft
     - Technical

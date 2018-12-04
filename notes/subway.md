@@ -1,20 +1,6 @@
----
-layout:     post
-title:      "[杂乱笔记] Subway 点餐指南"
-subtitle:   "没空做饭怎么办"
-date:       2017-02-10 16:21:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 杂乱笔记
----
+# Subway 点餐指南
 
-<br>
-
-学习忙的时候没空做饭就只能吃快餐咯。
-
-快餐又想要吃的健康一些，那么就可以考虑一下（有选择地）点 Subway。保证碳水、蛋白质的摄入，同时注意脂肪。
+学习忙的时候没空做饭就只能吃快餐咯。快餐又想要吃的健康一些，那么就可以考虑一下（有选择地）点 Subway。保证碳水、蛋白质的摄入，同时注意脂肪。
 
 + 低脂三明治 (Subway® Sandwiches with 6 g of Fat or Less)
     * choices
