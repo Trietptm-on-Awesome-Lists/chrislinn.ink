@@ -1,72 +1,62 @@
----
-layout:     post
-title:      "[杂乱笔记] Concurrent, Parallel"
-date:       2018-04-13 17:57:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 杂乱笔记
----
+# Concurrent & Parallel
 
-<br>
+## 设计模式
 
-# 设计模式
-+ 创建型
-    * [单例（Singleton）](https://github.com/CyC2018/Interview-Notebook/blob/master/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md#1-%E5%8D%95%E4%BE%8Bsingleton)
-        - 双重校验锁-线程安全
-            + .
-                ```
-                public class Singleton {
+### 创建型
+#### [单例（Singleton）](https://github.com/CyC2018/Interview-Notebook/blob/master/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md#1-%E5%8D%95%E4%BE%8Bsingleton)
+- 双重校验锁-线程安全
+    + .
+        ```
+        public class Singleton {
 
-                    private volatile static Singleton uniqueInstance;
+            private volatile static Singleton uniqueInstance;
 
-                    private Singleton() {
-                    }
+            private Singleton() {
+            }
 
-                    public static Singleton getUniqueInstance() {
+            public static Singleton getUniqueInstance() {
+                if (uniqueInstance == null) {
+                    synchronized (Singleton.class) {
                         if (uniqueInstance == null) {
-                            synchronized (Singleton.class) {
-                                if (uniqueInstance == null) {
-                                    uniqueInstance = new Singleton();
-                                }
-                            }
+                            uniqueInstance = new Singleton();
                         }
-                        return uniqueInstance;
                     }
                 }
-                ```
-        - 静态内部类实现
-            + 延迟初始化，且由虚拟机提供了对线程安全的支持
-                ```
-                public class Singleton {
+                return uniqueInstance;
+            }
+        }
+        ```
+- 静态内部类实现
+    + 延迟初始化，且由虚拟机提供了对线程安全的支持
+        ```
+        public class Singleton {
 
-                    private Singleton() {
-                    }
+            private Singleton() {
+            }
 
-                    private static class SingletonHolder {
-                        private static final Singleton INSTANCE = new Singleton();
-                    }
+            private static class SingletonHolder {
+                private static final Singleton INSTANCE = new Singleton();
+            }
 
-                    public static Singleton getUniqueInstance() {
-                        return SingletonHolder.INSTANCE;
-                    }
-                }
-                ```
-            + 只有当调用 `getUniqueInstance()` 方法从而触发 SingletonHolder.INSTANCE 时 SingletonHolder 才会被加载，此时初始化 INSTANCE 实例。
-        - __枚举实现__
-            + 单例模式的 __最佳__ 实践，它实现简单，并且在面对复杂的序列化或者反射攻击的时候，能够防止实例化多次。
-                ```
-                public enum Singleton {
-                    uniqueInstance;
-                }
-                ```
-
-
+            public static Singleton getUniqueInstance() {
+                return SingletonHolder.INSTANCE;
+            }
+        }
+        ```
+    + 只有当调用 `getUniqueInstance()` 方法从而触发 SingletonHolder.INSTANCE 时 SingletonHolder 才会被加载，此时初始化 INSTANCE 实例。
+- __枚举实现__
+    + 单例模式的 __最佳__ 实践，它实现简单，并且在面对复杂的序列化或者反射攻击的时候，能够防止实例化多次。
+        ```
+        public enum Singleton {
+            uniqueInstance;
+        }
+        ```
 
 
 
-# Tech
+
+
+## Technique
 + Shared Memory
 + Mutex & Semaphore
     * https://www.zhihu.com/question/47704079
@@ -139,234 +129,235 @@ tags:
     * [eigen vs mkl](https://stackoverflow.com/questions/10366054/c-performance-in-eigen-library)
         - [Using Intel® MKL from Eigen](https://eigen.tuxfamily.org/dox/TopicUsingIntelMKL.html)
 
-# Implementation
-+ Python
-    * `map` 
+## Implementation
+### Python
+#### `map` 
+```
+import urllib2
+from multiprocessing.dummy import Pool as ThreadPool
+ 
+urls = [
+'http://www.python.org',
+'http://www.python.org/about/',
+# etc..
+]
+ 
+# Make the Pool of workers
+pool = ThreadPool(4)
+# Open the urls in their own threads
+# and return the results
+results = pool.map(urllib2.urlopen, urls)
+#close the pool and wait for the work to finish
+pool.close()
+pool.join()
+```
+
+### GoLang
+- need to keep main thread running
+    + `WaitGroup`
+- By default, the Go runtime allocates a single logical processor, bound to a single operating system thread, to execute all the goroutines. 当正在运行的 G0 阻塞的时候, 会再创建一个线程
+    * not recommended to add more that one logical processor
+        - Though if you configure the runtime to use more than one logical processor, the scheduler will distribute goroutines between these logical processors which will result in goroutines running on different operating system threads.
+    + It's concurrent but not parallel
+    + If wanna make it parallel
+        * `GOMAXPROCS`
+            - set to the number of cores available
+                + physical processors
+
+- Concurrency Example1
+    + only one thread is used
+    + code
         ```
-        import urllib2
-        from multiprocessing.dummy import Pool as ThreadPool
-         
-        urls = [
-        'http://www.python.org',
-        'http://www.python.org/about/',
-        # etc..
-        ]
-         
-        # Make the Pool of workers
-        pool = ThreadPool(4)
-        # Open the urls in their own threads
-        # and return the results
-        results = pool.map(urllib2.urlopen, urls)
-        #close the pool and wait for the work to finish
-        pool.close()
-        pool.join()
+        package main
+
+        import (
+            "fmt"
+            "runtime"
+            "sync"
+        )
+
+        func main() {
+            runtime.GOMAXPROCS(1)
+
+            var wg sync.WaitGroup
+            wg.Add(2)
+
+            fmt.Println("Starting Go Routines")
+            go func() {
+                defer wg.Done()
+
+                for char := ‘a’; char < ‘a’+26; char++ {
+                    fmt.Printf("%c ", char)
+                }
+            }()
+
+            go func() {
+                defer wg.Done()
+
+                for number := 1; number < 27; number++ {
+                    fmt.Printf("%d ", number)
+                }
+            }()
+
+            fmt.Println("Waiting To Finish")
+            wg.Wait()
+
+            fmt.Println("\nTerminating Program")
+        }
         ```
-+ GoLang
-    * `go` 
-        - need to keep main thread running
-            + `WaitGroup`
-        - By default, the Go runtime allocates a single logical processor, bound to a single operating system thread, to execute all the goroutines. 当正在运行的 G0 阻塞的时候, 会再创建一个线程
-            * not recommended to add more that one logical processor
-                - Though if you configure the runtime to use more than one logical processor, the scheduler will distribute goroutines between these logical processors which will result in goroutines running on different operating system threads.
-            + It's concurrent but not parallel
-            + If wanna make it parallel
-                * `GOMAXPROCS`
-                    - set to the number of cores available
-                        + physical processors
-        - Concurrency Example1
-            + only one thread is used
-            + code
-                ```
-                package main
+    + result
+        ```
+        Starting Go Routines
+        Waiting To Finish
+        a b c d e f g h i j k l m n o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 10 11
+        12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
+        Terminating Program
+        ```
+- Concurrency Example2
+    + Calling sleep causes the scheduler to swap the two goroutines
+    + code
+        ```
+        package main
 
-                import (
-                    "fmt"
-                    "runtime"
-                    "sync"
-                )
+        import (
+            "fmt"
+            "runtime"
+            "sync"
+            "time"
+        )
 
-                func main() {
-                    runtime.GOMAXPROCS(1)
+        func main() {
+            runtime.GOMAXPROCS(1)
 
-                    var wg sync.WaitGroup
-                    wg.Add(2)
+            var wg sync.WaitGroup
+            wg.Add(2)
 
-                    fmt.Println("Starting Go Routines")
-                    go func() {
-                        defer wg.Done()
+            fmt.Println("Starting Go Routines")
+            go func() {
+                defer wg.Done()
 
-                        for char := ‘a’; char < ‘a’+26; char++ {
-                            fmt.Printf("%c ", char)
-                        }
-                    }()
-
-                    go func() {
-                        defer wg.Done()
-
-                        for number := 1; number < 27; number++ {
-                            fmt.Printf("%d ", number)
-                        }
-                    }()
-
-                    fmt.Println("Waiting To Finish")
-                    wg.Wait()
-
-                    fmt.Println("\nTerminating Program")
+                time.Sleep(1 * time.Microsecond)
+                for char := ‘a’; char < ‘a’+26; char++ {
+                    fmt.Printf("%c ", char)
                 }
-                ```
-            + result
-                ```
-                Starting Go Routines
-                Waiting To Finish
-                a b c d e f g h i j k l m n o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 10 11
-                12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
-                Terminating Program
-                ```
-        - Concurrency Example2
-            + Calling sleep causes the scheduler to swap the two goroutines
-            + code
-                ```
-                package main
+            }()
 
-                import (
-                    "fmt"
-                    "runtime"
-                    "sync"
-                    "time"
-                )
+            go func() {
+                defer wg.Done()
 
-                func main() {
-                    runtime.GOMAXPROCS(1)
-
-                    var wg sync.WaitGroup
-                    wg.Add(2)
-
-                    fmt.Println("Starting Go Routines")
-                    go func() {
-                        defer wg.Done()
-
-                        time.Sleep(1 * time.Microsecond)
-                        for char := ‘a’; char < ‘a’+26; char++ {
-                            fmt.Printf("%c ", char)
-                        }
-                    }()
-
-                    go func() {
-                        defer wg.Done()
-
-                        for number := 1; number < 27; number++ {
-                            fmt.Printf("%d ", number)
-                        }
-                    }()
-
-                    fmt.Println("Waiting To Finish")
-                    wg.Wait()
-
-                    fmt.Println("\nTerminating Program")
+                for number := 1; number < 27; number++ {
+                    fmt.Printf("%d ", number)
                 }
-                ```
-            + result
-                ```
-                Starting Go Routines
-                Waiting To Finish
-                1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 a
-                b c d e f g h i j k l m n o p q r s t u v w x y z
-                Terminating Program
-                ```
-        - Parallel Example
-            + code
-                ```
-                package main
+            }()
 
-                import (
-                    "fmt"
-                    "runtime"
-                    "sync"
-                )
+            fmt.Println("Waiting To Finish")
+            wg.Wait()
 
-                func main() {
-                    runtime.GOMAXPROCS(2)
+            fmt.Println("\nTerminating Program")
+        }
+        ```
+    + result
+        ```
+        Starting Go Routines
+        Waiting To Finish
+        1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 a
+        b c d e f g h i j k l m n o p q r s t u v w x y z
+        Terminating Program
+        ```
+- Parallel Example
+    + code
+        ```
+        package main
 
-                    var wg sync.WaitGroup
-                    wg.Add(2)
+        import (
+            "fmt"
+            "runtime"
+            "sync"
+        )
 
-                    fmt.Println("Starting Go Routines")
-                    go func() {
-                        defer wg.Done()
+        func main() {
+            runtime.GOMAXPROCS(2)
 
-                        for char := ‘a’; char < ‘a’+26; char++ {
-                            fmt.Printf("%c ", char)
-                        }
-                    }()
+            var wg sync.WaitGroup
+            wg.Add(2)
 
-                    go func() {
-                        defer wg.Done()
+            fmt.Println("Starting Go Routines")
+            go func() {
+                defer wg.Done()
 
-                        for number := 1; number < 27; number++ {
-                            fmt.Printf("%d ", number)
-                        }
-                    }()
-
-                    fmt.Println("Waiting To Finish")
-                    wg.Wait()
-
-                    fmt.Println("\nTerminating Program")
+                for char := ‘a’; char < ‘a’+26; char++ {
+                    fmt.Printf("%c ", char)
                 }
-                ```
-            + result
-                ```
-                Starting Go Routines
-                Waiting To Finish
-                a b 1 2 3 4 c d e f 5 g h 6 i 7 j 8 k 9 10 11 12 l m n o p q 13 r s 14
-                t 15 u v 16 w 17 x y 18 z 19 20 21 22 23 24 25 26
-                Terminating Program
-                ```
-        - Gosched
-            + 这个函数的作用是让当前 `goroutine` 让出 CPU, 当一个 `goroutine` 发生阻塞, Go 会自动地把与该 `goroutine` 处于同一系统线程的其他 `goroutine` 转移到另一个系统线程上去, 以使这些 `goroutine` 不阻塞
-                * code
-                    ```
-                    package main
+            }()
 
-                    import (
-                        "fmt"
-                        "runtime"
-                    )
+            go func() {
+                defer wg.Done()
 
-                    func init() {
-                        runtime.GOMAXPROCS(1)  //使用单核
+                for number := 1; number < 27; number++ {
+                    fmt.Printf("%d ", number)
+                }
+            }()
+
+            fmt.Println("Waiting To Finish")
+            wg.Wait()
+
+            fmt.Println("\nTerminating Program")
+        }
+        ```
+    + result
+        ```
+        Starting Go Routines
+        Waiting To Finish
+        a b 1 2 3 4 c d e f 5 g h 6 i 7 j 8 k 9 10 11 12 l m n o p q 13 r s 14
+        t 15 u v 16 w 17 x y 18 z 19 20 21 22 23 24 25 26
+        Terminating Program
+        ```
+- Gosched
+    + 这个函数的作用是让当前 `goroutine` 让出 CPU, 当一个 `goroutine` 发生阻塞, Go 会自动地把与该 `goroutine` 处于同一系统线程的其他 `goroutine` 转移到另一个系统线程上去, 以使这些 `goroutine` 不阻塞
+        * code
+            ```
+            package main
+
+            import (
+                "fmt"
+                "runtime"
+            )
+
+            func init() {
+                runtime.GOMAXPROCS(1)  //使用单核
+            }
+
+            func main() {
+                exit := make(chan int)
+                go func() {
+                    defer close(exit)
+                    go func() {
+                        fmt.Println("b")
+                    }()
+                }()
+
+                for i := 0; i < 4; i++ {
+                    fmt.Println("a:", i)
+
+                    if i == 1 {
+                        runtime.Gosched()  //切换任务
                     }
+                }
+                <-exit
 
-                    func main() {
-                        exit := make(chan int)
-                        go func() {
-                            defer close(exit)
-                            go func() {
-                                fmt.Println("b")
-                            }()
-                        }()
-
-                        for i := 0; i < 4; i++ {
-                            fmt.Println("a:", i)
-
-                            if i == 1 {
-                                runtime.Gosched()  //切换任务
-                            }
-                        }
-                        <-exit
-
-                    }
-                    ```
-                * result
-                    ```
-                    a: 0
-                    a: 1
-                    b
-                    a: 2
-                    a: 3
-                    ```
+            }
+            ```
+        * result
+            ```
+            a: 0
+            a: 1
+            b
+            a: 2
+            a: 3
+            ```
 
 
-# Popular distributed services frameworks
+## Popular distributed services frameworks
 + [Hadoop](https://www.google.com.au/search?q=hadoop&oq=hadoop&aqs=chrome..69i57j0l5.3599j0j7&sourceid=chrome&ie=UTF-8)
 + [Spark](https://www.google.com.au/search?q=spark&oq=spark&aqs=chrome..69i57j0l5.7501j0j7&sourceid=chrome&ie=UTF-8)
 + ZooKeeper
@@ -375,10 +366,36 @@ tags:
 + Kite 
 
 
-# High Concurrency 高并发
+## High Concurrency 高并发
 + [关于高并发](https://zhuanlan.zhihu.com/p/38636111)
     * ? [如何获得高并发经验](https://zhuanlan.zhihu.com/p/38552590)
     * [手把手教你构建一个高性能、高可用的大型分布式网站](https://www.toutiao.com/a6573634116791566851/)
+        - 分层
+            + 应用层
+                * 无状态
+                * 负载均衡
+                * Session 同步
+                * 业务 垂直拆分
+                    - 分级
+                        + 突发流量, 降级
+            + 服务层
+                * 服务化
+                * 消息队列
+            + 数据层
+                * 海量数据 NoSQL 数据库加上搜索引擎可以达到更好的性能。并不是所有的数据都要放在关系型数据中。
+                    - Elasticsearch
+            + 管理层
+            + 分析层
+        - 资源复用
+            + 对象池
+            + 线程池
+        - CDN 加速
+            + 将数据内容缓存到运营商的机房，用户访问时先从最近的运营商获取数据
+        - 反向代理
+            + 部署在网站的机房，当用户请求达到时首先访问反向代理服务器，反向代理服务器将缓存的数据返回给用户。
+            + 如果没有缓存数据才会继续访问应用服务器获取，这样做减少了获取数据的成本。
+                * 缓存要善于做分级（本地/分布）
+            + Squid、Nginx
 + [究竟啥才是互联网架构“高并发”](https://zhuanlan.zhihu.com/p/24830094)  
     * 垂直扩展
         - 增强单机硬件性能
@@ -405,11 +422,18 @@ tags:
     * 镜像
     * 负载均衡
         - 硬件
+            + F5
         - 软件
-            + lvs 等
+            + DNS
+            + LVS
+                * 四层负载均衡，根据目标地址和端口选择内部服务器
+                * 分发路径优于 Nginx，性能要高些
+            + Nginx
+                * 七层负载均衡，可以根据报文内容选择内部服务器
+                * 更具配置性，如可以用来做动静分离（根据请求报文特征，选择静态资源服务器还是应用服务器）
 + [傻瓜都能看懂的高并发量服务器架构](https://zhuanlan.zhihu.com/p/27289476)
 
-# SQL
+## SQL
 + [MySQL数据库](https://zhuanlan.zhihu.com/p/43031084)
 + 隔离级别
 + 索引
