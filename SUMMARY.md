@@ -12,6 +12,7 @@
 - Draft
     - Technical
         + [GoLang](technical/golang.md)
+        + [concurrent & parallel](technical/concurrent-parallel.md)
     - 自我提升
     - Notes
     * 随笔
