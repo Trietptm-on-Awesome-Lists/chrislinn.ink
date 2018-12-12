@@ -14,6 +14,7 @@
     * rename market
     * struct keeper
     * del expired unconfirmed txs
+    * Add asset for unconfirmed txs
 
 <!-- 
 # TODOS
