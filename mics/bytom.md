@@ -24,7 +24,8 @@
 + rename market
 + struct keeper
 + del expired unconfirmed txs
-+ Add asset for unconfirmed txs
++ opt query utxo
++ for break->continue
 
 ## 下版本
 + 应该区分用户提交的业务形态的交易（并在数据库中存一份）和提交的 raw tx。
