@@ -16,16 +16,18 @@
 
 ## 这个版本
 + retire类型交易 utxo 是否忘了处理。应该变成不可用。
-+ api 整合import和create，（即整合 list-guids 和 create），一个 pubkey 永远只返回特定guid。幂等性。如果是已存在的pubkey就返回之前数据库中存在的 guid
-++ 即默认单账户体系，通过 传参"wallet_idx"来支持多账户体系
++ X. api 整合import和create，（即整合 list-guids 和 create），一个 pubkey 永远只返回特定guid。幂等性。如果是已存在的pubkey就返回之前数据库中存在的 guid
+++ X. 即默认单账户体系，通过 传参"wallet_idx"来支持多账户体系
+++ X better keep list-guids, to support multiple account.
+++ opt query utxo
+++ utxo >21 build fail
++++ availabel amount
 + submit tx 压测
 + list address 直接计算好并返回资产价值（现在只有数量），否则 如果多个资产，那么app就要请求完一次 list-address 后又要分资产多次请求 /q/asset 并计算
 + 路由改一改，account 可以全部改成 merchant
 + rename market
 + struct keeper
 + del expired unconfirmed txs
-+ opt query utxo
-+ for break->continue
 
 ## 下版本
 + 应该区分用户提交的业务形态的交易（并在数据库中存一份）和提交的 raw tx。
