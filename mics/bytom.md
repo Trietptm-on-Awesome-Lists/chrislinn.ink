@@ -11,10 +11,33 @@
 + Precogs
     * 涉及 P2P
 + 中心化钱包
-    * rename market
-    * struct keeper
-    * del expired unconfirmed txs
-    * Add asset for unconfirmed txs
+<!-- 
+# 2018_12_13 晚会议记录
+
+## 这个版本
++ retire类型交易 utxo 是否忘了处理。应该变成不可用。
++ api 整合import和create，（即整合 list-guids 和 create），一个 pubkey 永远只返回特定guid。幂等性。如果是已存在的pubkey就返回之前数据库中存在的 guid
+++ 即默认单账户体系，通过 传参"wallet_idx"来支持多账户体系
++ submit tx 压测
++ list address 直接计算好并返回资产价值（现在只有数量），否则 如果多个资产，那么app就要请求完一次 list-address 后又要分资产多次请求 /q/asset 并计算
++ 路由改一改，account 可以全部改成 merchant
++ rename market
++ struct keeper
++ del expired unconfirmed txs
++ Add asset for unconfirmed txs
+
+## 下版本
++ 应该区分用户提交的业务形态的交易（并在数据库中存一份）和提交的 raw tx。
+++ 这么做也有利于展示交易被回滚的情况，以告知用户。不然用户发了一笔交易，发生回滚就突然不见了。
++ utxo 现在是单纯的 10 min lock_until，而 unconfirmed tx 现在又不更新 utxo，应该设置长一点防止 出块超过 10min（现在这种情况在主网上还是很可能出现的）。这样可能导致间隔 10min 的两笔交易用了同样的 utxo，都能submit成功，但最终矿工只打包一个，用户莫名丢失了一笔交易但我们却没能提示。
+++ 这块要好好再设计，不能等入块了才解锁，不然如果一直不上链就永远锁住了。应该做成 submit 给 bytomd 就锁住，入块了就设置is_spend，如果一直没入块后面 expired 了才解锁utxo 。做好 utxo 和 balance 的删除/更新。
+++ 最好还是加上判断确认数（5～6次）才能进行花费 。
++ 应该区分 未确认交易 导致的 available balance 和 total balance
++ asset 价格 redis  查不到 应该重新拿，而不是查 mysql。asset 价格不放数据库。
++ sql IN 语句是否存在性能问题，是否用 数字型 而非字符串 加快查询
++ api 不应该和 bytomd 交互，应该做一个 channel/callback/mq 给 updater 或者 load balancer，统一和 bytomd 进行交互（即 所有和bytomd 的交互应该是一个统一的出入口）
+++ bytomd 目前是单节点 没有 load balancing，应该做上以免 submit tx 造成的 ddos 或别的原因造成的不可用
++++ bytomd load balancing 要注意节点状态不一致的处理，从哪个节点同步数据。拿块可以通过判断最高高度，问题主要是 ws 去哪个节点拿 tx -->
 
 <!-- 
 # TODOS
