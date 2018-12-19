@@ -1,21 +1,10 @@
----
-layout:     post
-title:      "[自我提升] 如何学习编程"
-subtitle:   "一些愚见"
-date:       2017-02-14 13:55:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 自我提升
----
+# 如何学习编程
 
-<br>
-
+## 一些资源
 + [hack-an-engineer](https://github.com/nemild/hack-an-engineer)
 + [open-funding](https://github.com/ralphtheninja/open-funding)
 
-# 学习路线的重要性
+## 学习路线的重要性
 
 没打好基础，学习时容易云里雾里、一知半解，功倍事半。
 
@@ -29,7 +18,7 @@ tags:
 
 于是乎学习的线路就很重要，应寻求前辈的建议，少走些弯路。
 
-# 多阅读
+## 多阅读
 
 [多阅读别人的代码。](https://github.com/tuvtran/project-based-learning)
 
@@ -38,14 +27,14 @@ tags:
 也可以上 Twitch 平台观看大牛直播编程。
 
 
-# Revising
+## 复习 Revising
 
 + Can you solve it by yourself, after reading the solution?
 + Can you solve it in another (more efficiently) way?
 + Can you use this strategy to solve another problem?
 
 
-# 不要对记忆抱有偏见
+### 不要对记忆抱有偏见
 
 学习编程其实和学习基础数学很像，如果不想成为脚本小子 script kids，不想完全离不开 google 和 stackoverflow，（别误会！ google 和 stackoverflow 很重要，但你不应该过分依赖于它们而荒废了自己的思考）那么就是知识点的记忆以及分析解决问题的能力。
 
@@ -59,7 +48,7 @@ tags:
 
 事实上，一些比较有用的函数，还是应该有个印象。又比如模板的使用、异步同步的处理方式、回调的使用、闭包的使用、经典架构……学习编程，完全脱离记忆其实并不靠谱。
 
-# 应用很重要
+## 应用很重要
 
 接下来最重要的就是去应用，这样才能确保巩固自己的能力。用自己学到的东西，当然其中你往往会遇到别的更多的问题，在解决他们的过程中要能进一步提高自己。
 
@@ -83,3 +72,26 @@ tags:
 
 甚至可以在前面提到的 Twitch 上直播自己编程的过程，参见 [我在 Twitch 平台直播编程的经验](https://mp.weixin.qq.com/s/ZrVHgAxgKJaP4IwDG2gZ9A)，这样的输出方式，促使自己认真准备，回答别人的问题也是一个查漏补缺自我交流提升的过程。
 
+## Code review checklist
++ 代码安全
+    * error 的判断&处理是否正确
+        - if nil?
+        - return nil?
+        - ...
+    * 锁
+        - 是否需要加锁
+        - 是否可能死锁
+    * 全局变量
+    * 宏定义 magic 
+    * 资源的关闭
+    * 资源的上限
+        - 产消模型，消费者挂掉了，队列一直堆积
+        - 线程、连接、channel...
++ 代码风格
+    * 缺乏设计，流水帐过程式，不可扩展
+    * helper util 过于宽泛，什么都往里面塞
++ 代码效率
+    * 循环中的冗余。循环中的操作是否在前几次循环中已经执行过了？
++ 代码精简
+    * 代码的中间变更是否清理了？(变来变去过程中，中途曾经有用但最后其实没用了)
+    * 不用的函数是否清理了
