@@ -13,41 +13,6 @@
 + 中心化钱包
 
 
-```
-昨天的 conns 配置效果
-1 没有再爆  连接资源不足
-2 超出长连接允许上限数的连接 也能及时被关闭
-
-
-现在再爆的失败是因为 
-1. linux 上配置连接数导致的 socket: too many open files。
-所以现在 bytomd 是不怕 ddos 的，
-无法直接请求 bytomd
-必须要经过 api submit
-如果 很多 submit 请求就会  socket error
-
-2. 压测时间过长 交易己经被打包然后utxo被用掉，这个并不算是错误
-
-机器性能问题（长连接，异步）
-配合调参
-
-
-
-优化方向
-1.submit 完直接resp，
-后面 数据库 goroutine & log
-
-2.和 bytom 能否建立长连接?
-updater 已经是ws
-但 api 无法利用 ws
-3.  socket: too many open files:
-提高连接数上限，但这个方案扩展性差
-
-list-address
-list-txs 
-的延迟
-```
-
 <!-- 
 # 2018_12_13 晚会议记录
 
