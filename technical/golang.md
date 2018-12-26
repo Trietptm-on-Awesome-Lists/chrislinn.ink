@@ -1,6 +1,25 @@
 # GoLang
 
-## Don't communicate by sharing memory; share memory by communicating
+## CSP 并发模型, communicating sequential processes
+不同于传统的多线程通过共享内存来通信，CSP讲究的是以通信的方式来共享内存。
+
++ 传统
+    * 线程间通信都是通过共享内存。
+    * 非常典型的方式是锁，因此，衍生出一种方便操作的“线程安全的数据结构”。
+    * go 也有
+        - 临界区(critical section), 每次只允许一个goroutine进入某个代码块
+            + 互斥锁
+            + 条件变量 Cond
+                * Wait
+                * Signal
+                * Broadcast 
+        - 原子操作(atomicity)
+            + Add
+            + CAS, compare and swap 交换并比较
+            + store value & load value
+            + swap
+
+### Don't communicate by sharing memory; share memory by communicating
 
 + [Share Memory By Communicating](https://blog.golang.org/share-memory-by-communicating)
 + [Explain: Don't communicate by sharing memory; share memory by communicating](https://stackoverflow.com/questions/36391421/explain-dont-communicate-by-sharing-memory-share-memory-by-communicating):
@@ -10,12 +29,12 @@
     + [Channels](#channel) allow you to pass references to data structures between goroutines. If you consider this as passing around ownership of the data (the ability to read and write it), they become a powerful and expressive synchronization mechanism.
     + the convention is that sending a Resource pointer on a channel __passes ownership__ of the underlying data from the sender to the receiver. Because of this convention, we know that no two goroutines will access this Resource at the same time. This means we __don't have to worry about locking__ to prevent concurrent access to these data structures. 
 
+### channel
 
 ## pprof
 
 ## [Effective Go](https://golang.org/doc/effective_go.html)
 
-## channel
 
 ## Mem leak & GC
 + 减少对象分配

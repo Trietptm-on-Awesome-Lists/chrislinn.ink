@@ -152,21 +152,21 @@ pool.close()
 pool.join()
 ```
 
-### GoLang
-- need to keep main thread running
-    + `WaitGroup`
-- By default, the Go runtime allocates a single logical processor, bound to a single operating system thread, to execute all the goroutines. 当正在运行的 G0 阻塞的时候, 会再创建一个线程
-    * not recommended to add more that one logical processor
-        - Though if you configure the runtime to use more than one logical processor, the scheduler will distribute goroutines between these logical processors which will result in goroutines running on different operating system threads.
-    + It's concurrent but not parallel
-    + If wanna make it parallel
-        * `GOMAXPROCS`
-            - set to the number of cores available
-                + physical processors
-
-- Concurrency Example1
-    + only one thread is used
-    + code
+### [GoLang](/technical/golang.md)
+#### `sync`
++ need to keep main thread running
+    * `WaitGroup`
++ By default, the Go runtime allocates a single logical processor, bound to a single operating system thread, to execute all the goroutines. 当正在运行的 G0 阻塞的时候, 会再创建一个线程
+    - not recommended to add more that one logical processor
+        + Though if you configure the runtime to use more than one logical processor, the scheduler will distribute goroutines between these logical processors which will result in goroutines running on different operating system threads.
+    * It's concurrent but not parallel
+    * If wanna make it parallel
+        - `GOMAXPROCS`
+            + set to the number of cores available
+                * physical processors
++ Concurrency Example1
+    * only one thread is used
+    * code
         ```
         package main
 
@@ -205,7 +205,7 @@ pool.join()
             fmt.Println("\nTerminating Program")
         }
         ```
-    + result
+    * result
         ```
         Starting Go Routines
         Waiting To Finish
@@ -213,9 +213,9 @@ pool.join()
         12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
         Terminating Program
         ```
-- Concurrency Example2
-    + Calling sleep causes the scheduler to swap the two goroutines
-    + code
++ Concurrency Example2
+    * Calling sleep causes the scheduler to swap the two goroutines
+    * code
         ```
         package main
 
@@ -256,7 +256,7 @@ pool.join()
             fmt.Println("\nTerminating Program")
         }
         ```
-    + result
+    * result
         ```
         Starting Go Routines
         Waiting To Finish
@@ -264,8 +264,8 @@ pool.join()
         b c d e f g h i j k l m n o p q r s t u v w x y z
         Terminating Program
         ```
-- Parallel Example
-    + code
++ Parallel Example
+    * code
         ```
         package main
 
@@ -304,7 +304,7 @@ pool.join()
             fmt.Println("\nTerminating Program")
         }
         ```
-    + result
+    * result
         ```
         Starting Go Routines
         Waiting To Finish
@@ -312,6 +312,8 @@ pool.join()
         t 15 u v 16 w 17 x y 18 z 19 20 21 22 23 24 25 26
         Terminating Program
         ```
+
+#### CSP 
 - Gosched
     + 这个函数的作用是让当前 `goroutine` 让出 CPU, 当一个 `goroutine` 发生阻塞, Go 会自动地把与该 `goroutine` 处于同一系统线程的其他 `goroutine` 转移到另一个系统线程上去, 以使这些 `goroutine` 不阻塞
         * code
@@ -355,6 +357,15 @@ pool.join()
             a: 2
             a: 3
             ```
+
+#### `context`
++ 应用场景主要是在API中
+    * goroutine往往要衍生出许多额外的goroutine去处理操作, 如
+        - 链接database
+        - 请求rpc请求
+    * 衍生的goroutine和主goroutine有很多公用数据的
+        - 同一个请求生命周期、用户认证信息、token等
+    * 当这个请求超时或者被取消的时候，这里所有的goroutine都应该结束
 
 
 ## Popular distributed services frameworks
