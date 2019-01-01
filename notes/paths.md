@@ -1,16 +1,6 @@
----
-layout:     post
-title:      "[DRAFT杂乱笔记] Paths"
-subtitle:   "There are paths for everyone"
-date:       2017-07-31 21:27:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - DRAFT杂乱笔记
----
+# Paths
 
-<br>
+> There are paths for everyone
 
 利益才是前进的动力，金钱、成就感。名誉当然也是有助于利益的，对于人脉而言。（所以在甲方做安全还是有点亏的，因为难以直接看到收益。虽然企业多么希望招到牛逼的安全开发、运维、架构，高薪一口气解决问题。）
 
@@ -21,13 +11,13 @@ tags:
 人脉、经验、投资的眼光和信息、架构、数学、建模、算法及其应用。要找到自己不可替代的核心竞争力，实现财务自由，能进行更自由的选择，也有自己自由的时间。
 
 <!-- 
-# Soul-Rose
+## Soul-Rose
 + 风投
 + mel blokchain 创业孵化器
 + 交易所推广 acx.io
  -->
 
-# 我感兴趣的
+## 我感兴趣的
 + 数学
 + 算法数据结构
 + 应用密码学
@@ -44,7 +34,7 @@ tags:
     * App
     * IoT
     
-# 策略
+## 策略
 * 算法数据结构
 * 企业安全
     - 大数据框架
@@ -53,7 +43,7 @@ tags:
 * IoT
 * 游戏安全
 
-# 企业安全
+## 企业安全
 + 代码审计
 + 黑盒测试
 + 安全运维
@@ -61,7 +51,7 @@ tags:
     * 机器学习
 + 日志分析
 <!-- 
-# 落户&买房
+## 落户&买房
 + [3分钟！搞定杭州人才居住证！](https://mp.weixin.qq.com/s/2zbRdzXfYc78Wt3si5EIUw)
 + [2017超完整杭州落户攻略，10个工作日让你成为新杭州人](https://mp.weixin.qq.com/s?__biz=MzU0NDE4MDM5Nw==&mid=2247483703&idx=1&sn=b60e5a653cc199eb41158c5c12cf222b&chksm=fb0150f5cc76d9e3dbb0beeebf17eb2d01470a5fde747add083d2d808d91b5c33a6afdb0da65&scene=21#wechat_redirect)
 + [杭州高技能人才落户](https://mp.weixin.qq.com/s?__biz=MzU0NDE4MDM5Nw==&mid=2247483711&idx=1&sn=872a9e6b38da814aa21d6f4b25610a39&chksm=fb0150fdcc76d9ebf998f4a48c07acd3b1cac944a9ac90ab3a42b3714838f5b1b3b70f88df6e&scene=21#wechat_redirect)
@@ -74,7 +64,7 @@ tags:
 + [杭州往届硕士(先落户后就业)办理流程咨询。](https://www.zhihu.com/question/53037563)
 + [杭州房产知识扫盲](https://github.com/houshanren/hangzhou_house_knowledge)
 
-# 国内工作
+## 国内工作
 + [2018 IT名企校招指南](https://www.nowcoder.com/activity/campus2018)[
     * [aqniu](http://job.aqniu.com/)
     * [time](https://www.nowcoder.com/activity/campus2018?nsukey=N2%2BKVokDPK3paLy%2FGLWH1ZP7pd7prKdS9sK3ew9Ht1%2FTnb5k84VSc17nI7mLThp1z7cni1kjwzU9oAPydpF%2Fn%2FH%2FLFM5zG8%2F7PWhld57KLJrw2bhDTCPtt1WcDMzLe4lepOs714xkNSNAkgVeGdbx3PdUj0Z3cXsBO8lctDArNcJ9tI3MP%2Fw5i850DSLLfAk)
@@ -238,7 +228,7 @@ tags:
         - 算法
         - 图像
 
-# PhD
+## PhD
 + RegExp
     ```
     (crypt|secur|dete|intru|penetra|cyber|malic|priva)
@@ -337,11 +327,11 @@ tags:
         * ML intrusion detection
         * differential privacy
 
-# 移民分数研究
+## 移民分数研究
 + 2年工签 psw
     * 485
 
-# 澳洲工作
+## 澳洲工作
 + ~~[Zendesk](https://www.zendesk.com/jobs/melbourne/)~~
     * ~~STAFF DEVOPS ENGINEER~~
     * ~~PRINCIPAL ENGINEER~~
@@ -514,7 +504,7 @@ tags:
 + Servian
     * [Full Stack Java Developer](https://www.linkedin.com/jobs/view/400736440/?recommendedFlavor=SCHOOL_RECRUIT&refId=3767bdfc-a144-4fa7-a3cc-6340b458582a&trk=eml-jymbii-organic-job-card&midToken=AQFNVLMPMe5Mfg&trkEmail=eml-jobs_jymbii_digest-null-10-null-null-8goll9~j7gfr3ae~t5-null-jobs~view&lipi=urn%3Ali%3Apage%3Aemail_jobs_jymbii_digest%3BewMn%2FiltRfuFjufXdv6vpQ%3D%3D)
 
-# 攒机
+## 攒机
 + 刚爆出来 Intel 的 CPU 有个硬件 bug，即使是修复后性能也会下降 5%-30%. 所以，把 8700k 换成 1800x
     * [这硬件 bug 可以说很牛了： 英特尔处理器发现严重设计漏洞， AMD 不受影响](https://www.v2ex.com/t/419683)
         - 操作系统就是使用的 cpu 提供的功能来隔离不同程序及内核的，现在这个隔离出了问题，意味着不同程序可以访问内核数据，其中可能存在一些密码等数据。看起来安全上对单机用户可能影响不大，但是对于云服务商来讲是个大问题。不过如果执行修复会造成悲剧的性能损失，这个会影响普通用户了。
