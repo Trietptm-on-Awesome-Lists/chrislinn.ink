@@ -6,7 +6,7 @@
 ## Prerequisites
 + bash
 ```
-git clone https://github.com/ChrisLinn/lianjia-scrawler.git
+git clone git@github.com:ChrisLinn/lianjia-scrawler.git
 cd lianjia-scrawler # If you'd like not to use [virtualenv](https://virtualenv.pypa.io/en/stable/), please skip step 3 and 4.
 virtualenv lianjia
 source lianjia/bin/activate
@@ -17,6 +17,8 @@ pip install -r requirements.txt
 + MySQL
 ```
 CREATE DATABASE `ershoufang` DEFAULT CHARACTER SET utf8;
+CREATE USER 'hz-house'@'localhost' IDENTIFIED BY 'lianjia';
+GRANT ALL PRIVILEGES ON ershoufang.* TO 'hz-house'@'localhost';
 ```
 
 ## Settings.py
