@@ -34,6 +34,10 @@ python scrawl.py
 
 ## Todo
 + 先爬。
+    * 爬租房比较麻烦
+        - 分为 apartment 和 zufang
+            + apartment 自有ID, href 可能相同
+            + zufang href 不同
 + 以后重新跑呢？16 行？first time？
     * 历史信息
 + GetHouseByRegionlist 100 pages?
