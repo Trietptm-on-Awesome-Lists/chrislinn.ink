@@ -1,16 +1,7 @@
----
-layout:     post
-title:      "[杂乱笔记] My trip on Linux"
-subtitle:   "Currently using Kubuntu"
-date:       2017-02-09 15:50:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 杂乱笔记
----
+# My trip on Linux
 
-<br>
+> Currently using Kubuntu
+
 
 [Linux命令行有这么多的好东西？](https://zhuanlan.zhihu.com/p/30720022)
 
@@ -156,6 +147,15 @@ tags:
     python -m SimpleHTTPServer 8000
     ```
 + Ops
+    * 跳板机
+        - 内网
+        ```
+        ssh -f -NT -R 7788:localhost:22 username@public_host
+        ```
+        - 外网
+        ```
+        ssh -p 7788 username@localhost
+        ```
     * Container
         - Docker
             + VM is about emulation, Docker is about isolation.
