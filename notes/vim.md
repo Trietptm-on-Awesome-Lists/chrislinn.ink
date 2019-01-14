@@ -1,15 +1,4 @@
----
-layout:     post
-title:      "[杂乱笔记] My trip on Vim"
-date:       2017-02-09 15:21:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 杂乱笔记
----
-
-<br>
+# My trip on Vim
 
 # Setup
 + ~~[vim-plug](https://github.com/junegunn/vim-plug)~~
