@@ -19,7 +19,7 @@
         + [杭州链家二手房爬虫](technical/second-hand-house.md)
     - 自我提升
     - Notes
-        + [My trip on Vim](notes/linux.md)
+        + [My trip on Vim](notes/vim.md)
     * 随笔
         - [王小波读后感](mics/wangxiaobo.md)
         - [Bytom](mics/bytom.md)

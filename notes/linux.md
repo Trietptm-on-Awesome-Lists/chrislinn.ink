@@ -66,7 +66,7 @@
 * [konsole-theme](https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master/konsole)
     - Atom
     - Copy the themes from the konsole directory to `$HOME/.config/konsole` (in some versions of KDE, the theme directory may be located at `$HOME/.local/share/konsole`), restart Konsole and choose your new theme from the profile preferences window.
-* [vim](https://chrislinn.github.io/2017/02/09/vim/)
+* [vim](./vim.md)
 + Check occupied ports
     ```bash
     netstat -ntl
