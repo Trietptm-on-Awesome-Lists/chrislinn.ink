@@ -11,6 +11,8 @@
 + Precogs
     * 涉及 P2P
 + 中心化钱包
+    * all utxos
+        - raw sql
 
 
 <!-- 
