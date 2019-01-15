@@ -7,6 +7,7 @@
     * PoW 相关完善及优化
         + 优化tensority
             * go 920ms -> go 820ms -> simd 160ms -> cuda 6ms
+        + block recommit
     - consume newBlockCh for vault_mode
 + Precogs
     * 涉及 P2P
