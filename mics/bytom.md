@@ -13,10 +13,9 @@
     * 涉及 P2P
 + 中心化钱包
     * all utxos
-        - addressTxMapping
-            + fill asset
         - check `utxo.Asset.Asset` in `btm.go`
         - raw sql
+        - address_id in addressTxMapping
 
 
 <!-- 
