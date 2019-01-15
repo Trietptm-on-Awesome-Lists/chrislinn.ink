@@ -15,7 +15,9 @@
     * all utxos
         - check `utxo.Asset.Asset` in `btm.go`
         - raw sql
-        - address_id in addressTxMapping
+        - address str for address
+        - utxo control_program
+        - non-address cp
 
 
 <!-- 
