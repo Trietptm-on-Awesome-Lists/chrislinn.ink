@@ -5,6 +5,10 @@
 
 [Linux命令行有这么多的好东西？](https://zhuanlan.zhihu.com/p/30720022)
 
++ cross-platform
+    * `g++ -v`
+    - `apt-cache search <keyword>`
+    * `apt-cache search mingw`
 + git
     * [git-tips](https://github.com/521xueweihan/git-tips)
     * emoji
