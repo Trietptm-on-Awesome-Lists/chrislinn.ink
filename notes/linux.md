@@ -9,6 +9,7 @@
     * `g++ -v`
     - `apt-cache search <keyword>`
     * `apt-cache search mingw`
+    * `-ldflags '-linkmode "external" -extldflags "-static"'`
 + git
     * [git-tips](https://github.com/521xueweihan/git-tips)
     * emoji
