@@ -10,6 +10,11 @@
     - `apt-cache search <keyword>`
     * `apt-cache search mingw`
     * `-ldflags '-linkmode "external" -extldflags "-static"'`
+    * sse, sse2, avx, avx512....
+        - `gcc ... -march=native`
+        - `gcc -dM -E - < /dev/null | egrep "SSE|AVX" | sort`
+        - `gcc -march=native -dM -E - < /dev/null | egrep "SSE|AVX" | sort`
+        - https://stackoverflow.com/questions/28939652/how-to-detect-sse-sse2-avx-avx2-avx-512-avx-128-fma-kcvi-availability-at-compile
 + git
     * [git-tips](https://github.com/521xueweihan/git-tips)
     * emoji
