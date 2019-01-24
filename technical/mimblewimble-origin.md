@@ -28,6 +28,8 @@ At the time of this writing, there were nearly 150 million transactions
 committed in the blockchain, which must be replayed to produce a set of
 only 4 million unspent outputs.
 
+在写这篇文章的时候，区块链上已有约 一亿五千万笔交易发生，产生了 约 4百万笔 未花费输出。
+
 It would be better if an auditor needed only to check data on the outputs
 themselves, but this is impossible because they are valid if and only if the
 output is at the end of a chain of previous outputs, each signs the next. In
@@ -240,24 +242,27 @@ But in fact it is OK.
 
 
 
-## Future Research
-
+## Future Research 未来研究的方向
 
 Here are some questions I can not answer at the time of this writing.
 
-1. What script support is possible? We would need to translate script operations into
-   some sort of discrete logarithm information.
+在写作这篇文章的时候，有几个问题我尚不能回答:
 
-2. We require user to check all k*G values, when in fact all that is needed is that their
-   sum is of the form k*G. Instead of using signatures is there another proof of discrete
-   logarithm that could be combined?
+1.
+What script support is possible? We would need to translate script operations into some sort of discrete logarithm information.
 
-3. There is a denial-of-service option when a user downloads the chain, the peer can give
-   gigabytes of data and list the wrong unspent outputs. The user will see that the result
-   do not add up to 0, but cannot tell where the problem is.
+都支持什么样的脚本？ 我们需要将脚本操作翻译成某种离散对数信息.
 
-   For now maybe the user should just download the blockchain from a Torrent or something
-   where the data is shared between many users and is reasonably likely to be correct.
+2.
+We require user to check all `k*G` values, when in fact all that is needed is that their sum is of the form `k*G`. Instead of using signatures is there another proof of discrete logarithm that could be combined?
+
+
+
+
+3.
+There is a denial-of-service option when a user downloads the chain, the peer can give gigabytes of data and list the wrong unspent outputs. The user will see that the result do not add up to 0, but cannot tell where the problem is.
+
+For now maybe the user should just download the blockchain from a Torrent or something where the data is shared between many users and is reasonably likely to be correct.
 
 ## 参考链接
 1. https://people.xiph.org/~greg/confidential_values.txt
