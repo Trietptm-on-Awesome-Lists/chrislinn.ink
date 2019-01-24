@@ -5,13 +5,15 @@ MimbleWimble 协议起源.
 翻译自 https://github.com/mimblewimble/docs/wiki/MimbleWimble-Origin.
 
 
-MIMBLEWIMBLE
-Tom Elvis Jedusor
-19 July, 2016
+> MIMBLEWIMBLE
+> 
+> Tom Elvis Jedusor
+> 
+> 19 July, 2016
 
-\****/
-Introduction
-/****\
+
+## Introduction
+
 
 Bitcoin is the first widely used financial system for which all the necessary
 data to validate the system status can be cryptographically verified by anyone.
@@ -77,9 +79,9 @@ I call my creation Mimblewimble because it is used to prevent the blockchain fro
 talking about all user's information [7].
 
 
-\****/
-Confidential Transactions and OWAS
-/****\
+
+## Confidential Transactions and OWAS
+
 
 The first thing we need to do is remove Bitcoin Script. This is sad, but it is too
 powerful so it is impossible to merge transactions using general scripts. We will
@@ -163,9 +165,9 @@ two unspent outputs are equal at the same time, to avoid confusion.
 
 
 
-\****/
-Merging Transactions Across Blocks
-/****\
+
+## Merging Transactions Across Blocks
+
 
 Now, we have used Dr. Maxwell's Confidential Transactions to create a noninteractive
 version of Dr. Maxwell's CoinJoin, but we have not seen the last of marvelous Dr. Maxwell!
@@ -209,9 +211,9 @@ The block headers and explicit amounts are negligible. Add this together and get
 30Gb -- with a confidential transaction and obscured transaction graph!
 
 
-\****/
-Questions and Intuition
-/****\
+
+## Questions and Intuition
+
 
 Here are some questions that since these weeks, dreams asked me and I woke up sweating.
 But in fact it is OK.
@@ -237,9 +239,9 @@ But in fact it is OK.
 
 
 
-\****/
-Future Research
-/****\
+
+## Future Research
+
 
 Here are some questions I can not answer at the time of this writing.
 
@@ -257,12 +259,12 @@ Here are some questions I can not answer at the time of this writing.
    For now maybe the user should just download the blockchain from a Torrent or something
    where the data is shared between many users and is reasonably likely to be correct.
 
-
-[1] https://people.xiph.org/~greg/confidential_values.txt
-[2] https://bitcointalk.org/index.php?topic=279249.0
-[3] https://cryptonote.org/whitepaper.pdf
-[4] https://eprint.iacr.org/2015/1098.pdf
-[5] https://download.wpsoftware.net/bitcoin/wizardry/horasyuanmouton-owas.pdf
-[6] http://blockstream.com/sidechains.pdf
-[7] http://fr.harrypotter.wikia.com/wiki/Sortilège_de_Langue_de_Plomb
-[8] https://bitcointalk.org/index.php?topic=281848.0
+## 参考链接
+1. https://people.xiph.org/~greg/confidential_values.txt
+2. https://bitcointalk.org/index.php?topic=279249.0
+3. https://cryptonote.org/whitepaper.pdf
+4. https://eprint.iacr.org/2015/1098.pdf
+5. https://download.wpsoftware.net/bitcoin/wizardry/horasyuanmouton-owas.pdf
+6. http://blockstream.com/sidechains.pdf
+7. http://fr.harrypotter.wikia.com/wiki/Sortilège_de_Langue_de_Plomb
+8. https://bitcointalk.org/index.php?topic=281848.0
