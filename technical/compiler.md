@@ -1,17 +1,4 @@
----
-layout:     post
-title:      "[杂乱笔记] Compiler"
-date:       2017-06-21 10:10:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 杂乱笔记
----
-
-<br>
-
-# PLI
+# Compiler
 
 + [klee](https://github.com/klee/klee)
     * KLEE is a symbolic virtual machine built on top of the LLVM compiler infrastructure. 
@@ -119,7 +106,7 @@ tags:
     + goto reduction
 - 龙书重基础，鲸书重优化，虎书重实践
 
-# Cross
+## Cross
 +  build the code on `--build`, run it on `--host` with `--target` architecture environment
     * [What's the difference of “./configure” option “--build”, “--host” and “--target”?](https://stackoverflow.com/a/15901574)
     * build
@@ -150,68 +137,68 @@ tags:
     ```
 + Makefile
     * 一些选项: `-O3`, `-shared`, `-c`, `-fPIC`
-        ```Makefile
-        ifndef GOOS
-        ...
-        endif
+    ```Makefile
+    ifndef GOOS
+    ...
+    endif
 
 
-        ...
+    ...
 
 
-        ifeq ($(OS),Windows_NT)
-            CCFLAGS += -D WIN32
-            ifeq ($(PROCESSOR_ARCHITEW6432),AMD64)
-                CCFLAGS += -D AMD64
-            else
-                ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
-                    CCFLAGS += -D AMD64
-                endif
-                ifeq ($(PROCESSOR_ARCHITECTURE),x86)
-                    CCFLAGS += -D IA32
-                endif
-            endif
+    ifeq ($(OS),Windows_NT)
+        CCFLAGS += -D WIN32
+        ifeq ($(PROCESSOR_ARCHITEW6432),AMD64)
+            CCFLAGS += -D AMD64
         else
-            UNAME_S := $(shell uname -s)
-            ifeq ($(UNAME_S),Linux)
-                CCFLAGS += -D LINUX
-            endif
-            ifeq ($(UNAME_S),Darwin)
-                CCFLAGS += -D OSX
-            endif
-            UNAME_P := $(shell uname -p)
-            ifneq ($(filter arm%,$(UNAME_P)),)
-                CCFLAGS += -D ARM
-            endif
-            UNAME_M := $(shell uname -m)
-            ifeq ($(UNAME_M),x86_64)
+            ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
                 CCFLAGS += -D AMD64
             endif
-            ifneq ($(filter %86,$(UNAME_M)),)
+            ifeq ($(PROCESSOR_ARCHITECTURE),x86)
                 CCFLAGS += -D IA32
             endif
         endif
+    else
+        UNAME_S := $(shell uname -s)
+        ifeq ($(UNAME_S),Linux)
+            CCFLAGS += -D LINUX
+        endif
+        ifeq ($(UNAME_S),Darwin)
+            CCFLAGS += -D OSX
+        endif
+        UNAME_P := $(shell uname -p)
+        ifneq ($(filter arm%,$(UNAME_P)),)
+            CCFLAGS += -D ARM
+        endif
+        UNAME_M := $(shell uname -m)
+        ifeq ($(UNAME_M),x86_64)
+            CCFLAGS += -D AMD64
+        endif
+        ifneq ($(filter %86,$(UNAME_M)),)
+            CCFLAGS += -D IA32
+        endif
+    endif
 
-        
-        ...
+    
+    ...
 
 
 
-        $(TARGET): $(TARGET).cpp
-            $(CC) -o $@.o -c $^ $(CCFLAGS)
+    $(TARGET): $(TARGET).cpp
+        $(CC) -o $@.o -c $^ $(CCFLAGS)
 
 
-        ...
+    ...
 
 
-        libfoo.a: foo.o cfoo.o
-            ar r $@ $^
+    libfoo.a: foo.o cfoo.o
+        ar r $@ $^
 
-        %.o: %.cpp
-            g++ -O2 -o $@ -c $^
-        ```
+    %.o: %.cpp
+        g++ -O2 -o $@ -c $^
+    ```
 
-# Garbage Collection
+## Garbage Collection
 + 内存泄露检测工具
     + 静态代码扫描
 + 智能指针
@@ -228,3 +215,8 @@ tags:
     + 标记-清除（mark and sweep）???
         + 三色标记法
     + 分代收集（generation）
+
+## Link 
+
++ ldd
++ nm -g
