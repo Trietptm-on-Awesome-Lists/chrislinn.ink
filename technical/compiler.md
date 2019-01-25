@@ -136,67 +136,68 @@
     ct-ng build
     ```
 + Makefile
-    * 一些选项: `-O3`, `-shared`, `-c`, `-fPIC`
-    ```Makefile
-    ifndef GOOS
-    ...
-    endif
+    * 一些选项: `-O3`, `-shared`, `-c`, `-fPIC` 
+
+```Makefile
+ifndef GOOS
+...
+endif
 
 
-    ...
+...
 
 
-    ifeq ($(OS),Windows_NT)
-        CCFLAGS += -D WIN32
-        ifeq ($(PROCESSOR_ARCHITEW6432),AMD64)
-            CCFLAGS += -D AMD64
-        else
-            ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
-                CCFLAGS += -D AMD64
-            endif
-            ifeq ($(PROCESSOR_ARCHITECTURE),x86)
-                CCFLAGS += -D IA32
-            endif
-        endif
+ifeq ($(OS),Windows_NT)
+    CCFLAGS += -D WIN32
+    ifeq ($(PROCESSOR_ARCHITEW6432),AMD64)
+        CCFLAGS += -D AMD64
     else
-        UNAME_S := $(shell uname -s)
-        ifeq ($(UNAME_S),Linux)
-            CCFLAGS += -D LINUX
-        endif
-        ifeq ($(UNAME_S),Darwin)
-            CCFLAGS += -D OSX
-        endif
-        UNAME_P := $(shell uname -p)
-        ifneq ($(filter arm%,$(UNAME_P)),)
-            CCFLAGS += -D ARM
-        endif
-        UNAME_M := $(shell uname -m)
-        ifeq ($(UNAME_M),x86_64)
+        ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
             CCFLAGS += -D AMD64
         endif
-        ifneq ($(filter %86,$(UNAME_M)),)
+        ifeq ($(PROCESSOR_ARCHITECTURE),x86)
             CCFLAGS += -D IA32
         endif
     endif
+else
+    UNAME_S := $(shell uname -s)
+    ifeq ($(UNAME_S),Linux)
+        CCFLAGS += -D LINUX
+    endif
+    ifeq ($(UNAME_S),Darwin)
+        CCFLAGS += -D OSX
+    endif
+    UNAME_P := $(shell uname -p)
+    ifneq ($(filter arm%,$(UNAME_P)),)
+        CCFLAGS += -D ARM
+    endif
+    UNAME_M := $(shell uname -m)
+    ifeq ($(UNAME_M),x86_64)
+        CCFLAGS += -D AMD64
+    endif
+    ifneq ($(filter %86,$(UNAME_M)),)
+        CCFLAGS += -D IA32
+    endif
+endif
 
-    
-    ...
+
+...
 
 
 
-    $(TARGET): $(TARGET).cpp
-        $(CC) -o $@.o -c $^ $(CCFLAGS)
+$(TARGET): $(TARGET).cpp
+    $(CC) -o $@.o -c $^ $(CCFLAGS)
 
 
-    ...
+...
 
 
-    libfoo.a: foo.o cfoo.o
-        ar r $@ $^
+libfoo.a: foo.o cfoo.o
+    ar r $@ $^
 
-    %.o: %.cpp
-        g++ -O2 -o $@ -c $^
-    ```
+%.o: %.cpp
+    g++ -O2 -o $@ -c $^
+```
 
 ## Garbage Collection
 + 内存泄露检测工具
