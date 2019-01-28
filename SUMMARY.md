@@ -11,6 +11,7 @@
         + [My trip on Linux](notes/linux.md)
         + [Pentesting resource](notes/pres.md)
         + [Subway 点餐指南](notes/subway.md)
+        - [《知识的僭妄》笔记](notes/mad-knowledge.md)
     * 随笔
 - Draft
     - Technical
@@ -21,7 +22,6 @@
     - 自我提升
     - Notes
         + [My trip on Vim](notes/vim.md)
-        - [《知识的僭妄》笔记](notes/mad-knowledge.md)
     * 随笔
         - [王小波读后感](mics/wangxiaobo.md)
         - [Bytom](mics/bytom.md)
