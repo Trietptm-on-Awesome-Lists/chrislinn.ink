@@ -21,6 +21,7 @@
     - 自我提升
     - Notes
         + [My trip on Vim](notes/vim.md)
+        - [《知识的僭妄》笔记](notes/mad-knowledge.md)
     * 随笔
         - [王小波读后感](mics/wangxiaobo.md)
         - [Bytom](mics/bytom.md)
