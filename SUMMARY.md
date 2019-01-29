@@ -8,7 +8,7 @@
         + [为什么我应该开始写笔记/博客](life-hack/hello-blog.md)
         + [life-hack](life-hack/life-hack.md)
     - Notes
-        - [《知识的僭妄》笔记](notes/proud-science.md)
+        - [我读哈耶克](notes/hayek.md)
         + [My trip on Linux](notes/linux.md)
         + [Pentesting resource](notes/pres.md)
         + [Subway 点餐指南](notes/subway.md)
