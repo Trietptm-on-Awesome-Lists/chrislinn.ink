@@ -256,13 +256,16 @@ What script support is possible? We would need to translate script operations in
 2.
 We require user to check all `k*G` values, when in fact all that is needed is that their sum is of the form `k*G`. Instead of using signatures is there another proof of discrete logarithm that could be combined?
 
-
-
+目前用户需要检查所有的 `k*G` 值，但事实上只需要保证这些值的和也是 `k*G` 的形式就可以了。除了使用签名之外，有没有别的离散对数证明能进行结合呢？
 
 3.
 There is a denial-of-service option when a user downloads the chain, the peer can give gigabytes of data and list the wrong unspent outputs. The user will see that the result do not add up to 0, but cannot tell where the problem is.
 
+用户下载区块链数据的时候，存在DoS的可能性。节点可以发送 GB 级的数据并列出错误的 UTXO， 用户会发现结果加起来不等于0，却不知道问题出在哪里。
+
 For now maybe the user should just download the blockchain from a Torrent or something where the data is shared between many users and is reasonably likely to be correct.
+
+
 
 ## 参考链接
 1. https://people.xiph.org/~greg/confidential_values.txt
