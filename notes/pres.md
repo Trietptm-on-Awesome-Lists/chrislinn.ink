@@ -589,6 +589,7 @@
     * [为Nmap添砖加瓦](https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&mid=2247484047&idx=1&sn=73880e568c3cda7118928217ff9fccce&scene=21#wechat_redirect)
 + [vulners-scanner](https://github.com/videns/vulners-scanner)
     * Vulnerability scanner based on vulners.com audit API https://vulners.com
++ [shodan](https://www.shodan.io)
 + [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner)
     * Popular Pentesting scanner in Python3.6 for SQLi/XSS/LFI/RFI and other Vulns
 + [BlackWidow](https://github.com/1N3/BlackWidow)
