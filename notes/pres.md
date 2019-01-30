@@ -288,6 +288,7 @@
     * XSStrike is a program which can crawl, fuzz and bruteforce parameters for XSS. It can also detect and bypass WAFs.
 + [xsschef](https://github.com/koto/xsschef)
     * a Chrome Extension Exploitation Framework
++ [stamparm/identYwaf](https://github.com/stamparm/identYwaf)
 + [mosquito](https://github.com/koto/mosquito)
     * XSS exploitation tool - access victims through HTTP proxy
 + [xssfork](https://github.com/bsmali4/xssfork)
@@ -446,6 +447,7 @@
     - 企业内网渗透脚本，包括 banner 扫描、端口扫描；各种通用漏洞利用等
 * [VulScritp](https://github.com/CaiJiJi/VulScritp)
     - 内网渗透脚本
+* [PenTestScripts](https://github.com/ChrisTruncer/PenTestScripts)
 * [network_backdoor_scanner](https://github.com/lcatro/network_backdoor_scanner)
     - 基于网络流量的内网探测框架
 * [WebRtcXSS](https://github.com/BlackHole1/WebRtcXSS)
@@ -458,6 +460,8 @@
     * Powershell tools合集
 + [p0wnedShell](https://github.com/Cn33liz/p0wnedShell)
     * PowerShell Runspace Post Exploitation Toolkit
++ [UACME](https://github.com/hfiref0x/UACME)
++ [LOLBAS](https://github.com/LOLBAS-Project/LOLBAS)
 * [hunter](https://github.com/fdiskyou/hunter)
     - 调用 Windows API 枚举用户登录信息
 * [LaZagne](https://github.com/AlessandroZ/LaZagne)
@@ -474,6 +478,7 @@
     - Python based backdoor that uses Gmail to exfiltrate data as an e-mail attachment. It tracks the user activity using screen capture and sends the information to an attacker as an e-mail attachment.
 
 ### 针对性漏洞测试工具
++ [PrivExchange](https://github.com/dirkjanm/PrivExchange)
 + [weblogic_unserialize_exploit](https://github.com/hanc00l/weblogic_unserialize_exploit)
     * java反序列化漏洞的weblogic exploit命令回显exp
 + [cmsPoc](https://github.com/CHYbeta/cmsPoc)
@@ -565,6 +570,7 @@
     - Continuous Fuzzing for Open Source Software
 * [kDriver-Fuzzer](https://github.com/k0keoyo/kDriver-Fuzzer)
     - 基于ioctlbf框架编写的驱动漏洞挖掘工具
+* [Bo0oM/fuzz.txt](https://github.com/Bo0oM/fuzz.txt)
 
 ### 漏洞利用及攻击框架
 + [msf](https://github.com/rapid7/metasploit-framework)
@@ -590,6 +596,9 @@
 + [vulners-scanner](https://github.com/videns/vulners-scanner)
     * Vulnerability scanner based on vulners.com audit API https://vulners.com
 + [shodan](https://www.shodan.io)
++ [spiderfoot](https://github.com/smicallef/spiderfoot)
++ [RED_HAWK](https://github.com/Tuhinshubhra/RED_HAWK)
+    * All in one tool for Information Gathering, Vulnerability Scanning and Crawling.
 + [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner)
     * Popular Pentesting scanner in Python3.6 for SQLi/XSS/LFI/RFI and other Vulns
 + [BlackWidow](https://github.com/1N3/BlackWidow)
@@ -773,7 +782,12 @@
         + 用于自动化恶意软件收集/分析系统的组件，由 Python2 编写，支持 REST API
     - [x-waf](https://github.com/xsec-lab/x-waf)
         + 适用于中小企业的云waf
+    - [Yara-Rules](https://github.com/Yara-Rules/rules)
 * 二进制及代码分析工具
+    - [TripleDoggy](https://github.com/GoSSIP-SJTU/TripleDoggy)
+        + 基于clang static analyzer的源码漏洞检测插件
+    - [tarnish](https://github.com/mandatoryprogrammer/tarnish)
+        + A Chrome extension static analysis tool to help aide in security reviews.
     * [binwalk](https://github.com/devttys0/binwalk)
     * [binmap](https://github.com/quarkslab/binmap)
         - 系统扫描器，用于寻找程序和库然后收集他们的依赖关系，链接等信息
@@ -803,12 +817,17 @@
     - [owasp-modsecurity-crs](https://github.com/SpiderLabs/owasp-modsecurity-crs/)
     - [waf-research](https://github.com/ironbee/waf-research)
     - [phpwaf](https://github.com/virink/phpwaf)
+    - [x-waf](https://github.com/xsec-lab/x-waf)
 * DDOS 防护
     - [Dshield](https://github.com/ywjt/Dshield)
 * Database firewall
     - [DBShield/](https://nim4.github.io/DBShield/)
-* [yulong-hids](https://github.com/ysrc/yulong-hids)
-    - 驭龙 HIDS - 一款由 YSRC 开发的主机入侵检测系统
+* HIDS
+    - [yulong-hids](https://github.com/ysrc/yulong-hids)
+        + 驭龙 HIDS - 一款由 YSRC 开发的主机入侵检测系统
+* secrets&access management
+    - [hashicorp/vault](https://github.com/hashicorp/vault)
+    - [trimstray/the-practical-linux-hardening-guide](https://github.com/trimstray/the-practical-linux-hardening-guide)
 
 ### Mining
 + [xmrig](https://github.com/xmrig)
@@ -886,8 +905,7 @@
 + [pcap-analyzer](https://github.com/le4f/pcap-analyzer)
     * 在线轻量Pcap流量文件分析工具
 + [awesome-spider](https://github.com/facert/awesome-spider)
-+ [pentest_tools](https://github.com/l3m0n/pentest_tools)\
-+ [Java高并发秒杀系统API](https://github.com/codingXiaxw/seckill)
++ [pentest_tools](https://github.com/l3m0n/pentest_tools)
 
 ### CTF tools
 + Miscellaneous
@@ -1033,6 +1051,7 @@
         * Latest/common __web application__ vulnerabilities (e.g. vulnerabilities in WordPress, XAMPP, etc.)
         * __Heartbleed__ & __ShellShock__
 * sites
+    - [browser-pwn](https://github.com/m1ghtym0/browser-pwn)
     - [Security](https://github.com/cokepluscarbon/Security)
     - [Web-Security-Learning](https://github.com/CHYbeta/Web-Security-Learning)
     - [Software-Security-Learning](https://github.com/CHYbeta/Software-Security-Learning)
@@ -1181,6 +1200,8 @@
         * [Linux 渗透测试命令速查手册](https://techincidents.com/important-penetration-testing-cheat-sheet/)
     * Windows
         - [从零开始内网渗透学习](https://github.com/l3m0n/pentest_study)
+        - [Intranet_Penetration_Tips](https://github.com/Ridter/Intranet_Penetration_Tips)
+            + 2018年初整理的一些内网渗透TIPS
         - [我所了解的内网渗透——内网渗透知识大总结](https://www.anquanke.com/post/id/92646)
         - [常见的远程执行命令方式整理](https://mp.weixin.qq.com/s/cJ2vTncor94lHqJq72Rfxg)
         - [提权技巧](http://www.secbox.cn/skill/5583.html)
@@ -1235,7 +1256,15 @@
     * [use docker to show web attack(php本地文件包含结合phpinfo getshell 以及ssrf结合curl的利用演示)](https://github.com/hxer/vulnapp)
     * [php7缓存覆写漏洞Demo及相关工具](https://github.com/GoSecure/php7-opcache-override)
     * [XcodeGhost木马样本](https://github.com/XcodeGhostSource/XcodeGhost)
+    * [guitmz/virii](https://github.com/guitmz/virii)
+        - Collection of ancient computer virus source codes
+    * [ifding/iot-malware](https://github.com/ifding/iot-malware)
+    * [wolfvan/IoT-Malware-Info](https://github.com/wolfvan/IoT-Malware-Info)
+    * [anthonygtellez/BASHLITE](https://github.com/anthonygtellez/BASHLITE)
 + tut
+    * [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
+    * [secdr/sec-paper](https://github.com/secdr/sec-paper)
+    * [sec-ml](https://github.com/secdr/sec-ml)
     * [secbook](https://github.com/riusksk/secbook)
     * [hacker101](https://github.com/Hacker0x01/hacker101)
         - Hacker101 is a free class for web security
@@ -1259,6 +1288,8 @@
         + [chinese version](https://github.com/sunnyelf/awesome-hacking)
     - [sbilly/awesome-security](https://github.com/sbilly/awesome-security)
     - [awesome-threat-detection](https://github.com/0x4D31/awesome-threat-detection)
+    - [Awesome-Red-Teaming](https://github.com/yeyintminthuhtut/Awesome-Red-Teaming)
+    * [awesome-cybersecurity-blueteam](https://github.com/meitar/awesome-cybersecurity-blueteam)
         + 威胁检测与追击方面的资源集
     - [Mind-Map](https://github.com/phith0n/Mind-Map)
     - [信息安全工具以及资源集合](https://github.com/tengzhangchao/Sec-Box)
@@ -1323,6 +1354,9 @@
     * [信息收集——僵尸扫描](https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&mid=2247484848&idx=1&sn=25c87d0fe50286b17c7415f7ff3d405f&scene=21#wechat_redirect)
     * [bWAPP 玩法总结](https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&mid=2247485571&idx=1&sn=2b90a85c307bf02b82f9b81bab462627&chksm=ec1e38abdb69b1bd231814098afea2bba9e685ddffdb014a0d210680435a6045c5fa90483c71&scene=21#wechat_redirect)
     * [RPO攻击技术浅析](http://blog.nsfocus.net/rpo-attack/)
+    * [IoTSecurity101](https://github.com/V33RU/IoTSecurity101)
+    * [iot-security-wiki](https://github.com/yaseng/iot-security-wiki)
+    * [awesome-iot-hacks](https://github.com/nebgnahz/awesome-iot-hacks)
 
 ## Wargrames/CTFs/VulEnvApp
 * ichunqiu
@@ -1399,6 +1433,7 @@
 * [Exploit-Challenges](https://github.com/Billy-Ellis/Exploit-Challenges)
 * [ctf-web-prob](https://github.com/munsiwoo/ctf-web-prob)
 * [FOS:RASP-PHP](https://github.com/umarfarook882/FOS_Demo_Vulnerable_App)
+* [sh00t](https://github.com/pavanw3b/sh00t)
 
 
 ## WriteUps
