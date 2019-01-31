@@ -25,6 +25,7 @@
         - 定长，累积很占空间
         - utxo use hash for cp? 
         - server-side max exec time
+        - https://dev.mysql.com/doc/refman/8.0/en/full-text-adding-collation.html
     * redis
 
 
