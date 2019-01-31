@@ -23,8 +23,9 @@
     * TEXT
         - varchar 是可变长字符串,不预先分配存储空间,长度不要超过 5000,如果存储长度大于此值,定义字段类型为 text ,独立出来一张表,用主键来对应,避免影响其它字段索引效率。
         - 定长，累积很占空间
+        - utxo use hash for cp? 
+        - server-side max exec time
     * redis
-
 
 
 <!-- 
