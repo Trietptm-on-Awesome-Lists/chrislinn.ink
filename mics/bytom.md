@@ -27,6 +27,26 @@
         - server-side max exec time
         - https://dev.mysql.com/doc/refman/8.0/en/full-text-adding-collation.html
     * redis
+<!-- 
+多重签名
+多币种， stable coin
+dapp
+
+bycoin Main: management instead of payment
+寄生 btc/eth
+
+支付：
+巴比特积分 btm
+矿池打币
+
+身份：
+DID
+
+Dapp
+
+ico
+
+ -->
 
 
 <!-- 
