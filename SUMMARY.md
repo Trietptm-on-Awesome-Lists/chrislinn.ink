@@ -19,6 +19,7 @@
         + [compiler](technical/compiler.md)
         + [concurrent & parallel](technical/concurrent-parallel.md)
         + [杭州链家二手房爬虫](technical/second-hand-house.md)
+        + [Interpreter in Python](technical/py-interpreter.md)
     - 自我提升
     - Notes
         + [My trip on Vim](notes/vim.md)
