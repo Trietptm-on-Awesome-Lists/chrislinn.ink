@@ -1,16 +1,6 @@
----
-layout:     post
-title:      "[随笔] 如果可以，希望不再让你孤单的那个人是我"
-subtitle:   "影评《不在让你孤单》"
-date:       2017-01-31 12:00:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 随笔
----
+# 影评《不在让你孤单》
 
-<br>
+> 如果可以，希望不再让你孤单的那个人是我
 
 ## 剧情或许不足
 

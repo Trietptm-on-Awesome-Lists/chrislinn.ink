@@ -1,15 +1,4 @@
----
-layout:     post
-title:      "[杂乱笔记] Westworld beautiful words"
-date:       2017-06-23 14:55:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 杂乱笔记
----
-
-<br>
+# Westworld beautiful words
 
 > have you ever questioned the nature of your reality?
 

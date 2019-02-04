@@ -1,17 +1,8 @@
----
-layout:     post
-title:      "[杂乱笔记] EnglishPod Notes"
-date:       2017-01-31 22:22:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 杂乱笔记
----
+# EnglishPod Notes
 
-<br>
+<!-- ex_nolevel -->
 
-# 1. Difficult Customer
+## 1. Difficult Customer
 + I don't wanna say anymore
 + I'll be your waiter for tonight
 + May I take your order
@@ -30,7 +21,7 @@ tags:
 + __complimentary__
 
 
-# 26. New Year's Resolution
+## 26. New Year's Resolution
 + New year Resolution
 + eating habbits
     + what kind of the food you eat 
@@ -47,7 +38,7 @@ tags:
     + I am not joking
 
 
-# 27. Ask for time off
+## 27. Ask for time off
 + use up all my vacation days
 + take some time off from ... to ...
     + take some unpaid leave
@@ -59,7 +50,7 @@ tags:
 + have a second/sec
 
 
-# 31. Canceling an Appointment
+## 31. Canceling an Appointment
 + reschedule our appointment
     * scheduling conﬂict
 + I have a bit of an emergency that I need to take care of
@@ -74,7 +65,7 @@ tags:
 + for a fake reason
 
 
-# 42. I need more time
+## 42. I need more time
 * press kit
 * run into problems
     * run into a strom
@@ -92,7 +83,7 @@ tags:
 	* I was a really good student, so my teacher believe me.
 
 
-# 43. Applying for a Visa
+## 43. Applying for a Visa
 * B2 visa
     * for 
     * tour visa
@@ -116,7 +107,7 @@ tags:
 * slow it down for you
 
 
-# 44. Small Talk
+## 44. Small Talk
 + you can actually use every single day
 + Anderson
 + How are you on this fine morning?
@@ -131,7 +122,7 @@ tags:
 + it sure is hot today
 
 
-# 45. I'm Sorry I love You
+## 45. I'm Sorry I love You
 + we are on a break
     * a relationship that is temporarily on hold
     * let's take a break
@@ -156,7 +147,7 @@ tags:
 + Theoretically he can do whatever he likes
 
 
-# 46. Emergency Room
+## 46. Emergency Room
 + hamster
 + hold up
 + hold still
@@ -181,14 +172,14 @@ tags:
 + ICU
     * Intensive Care Unit
 
-# 47. Just In Time Strategy
+## 47. Just In Time Strategy
 + lead time
 + defect
 + I'm with you on this one
 + put this plan into action
 + eliminate
 
-# 48. Carnival in Rio!
+## 48. Carnival in Rio!
 + samba
 + Sambadrome
 + tickect scalper
@@ -197,12 +188,12 @@ tags:
 + stadium
 + ditch
 
-# 49. Daily Life - Daddy Please!
+## 49. Daily Life - Daddy Please!
 + No can do... sorry.
 + Fine then!
 + I was wondering can I ... = Do you think I could ... = Would you mind ...
 
-# 50. Daily Life - New Guy In Town III
+## 50. Daily Life - New Guy In Town III
 + appetite
 + poison
 + aroma
@@ -214,7 +205,7 @@ tags:
 + bitter
 + Ghothic
 
-# 51. The Weekend - What a Bargain!
+## 51. The Weekend - What a Bargain!
 + Bargain
 + That'a a bit out of my price range.
 + Can you give me a better deal?
@@ -228,7 +219,7 @@ tags:
 + freebie
     * a free item that is usually given to promote a product
 
-# 52. Daily Life - Pizza Delivery
+## 52. Daily Life - Pizza Delivery
 + May I take your order?
 + I'd like a medium pizza with pepperoni, olives, and extra cheese.
 + We have a two-for-one special on large pizzas.
@@ -237,7 +228,7 @@ tags:
 + dough
 + take-out
 
-# 53. The Weekend - Head Chef
+## 53. The Weekend - Head Chef
 + We'are really in the weeds.
     * in a difficult situation
     * reaaly busy, too much to do, can't finish everything

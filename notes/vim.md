@@ -1,6 +1,6 @@
 # My trip on Vim
 
-# Setup
+## Setup
 + ~~[vim-plug](https://github.com/junegunn/vim-plug)~~
     * .
         ```
@@ -25,7 +25,7 @@
     * Ubuntu Mono derivative Powerline
     * [Nerd-fonts?](https://github.com/ryanoasis/nerd-fonts)
 
-# Shortcuts
+## Shortcuts
 
 
-# Commands
+## Commands

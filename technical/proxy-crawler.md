@@ -1,16 +1,4 @@
----
-layout:     post
-title:      "[technical] 爬虫抓代理"
-subtitle:   "抓完用来跑爬虫"
-date:       2017-07-30 20:27:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - technical
----
-
-<br>
+# 爬虫抓代理
 
 + 有 star 很多的框架，[IPProxyTool](https://github.com/awolfly9/IPProxyTool), [proxy_pool](https://github.com/jhao104/proxy_pool), [IPProxyPool](https://github.com/qiyeboy/IPProxyPool).
 + 要是仅仅短期使用的话其实用不着这么麻烦，在访问的 `http request` 里添加 `x-forward-for` 标签， `client` 随机生成，宣称自己是一台透明代理服务器，代理其他人的访问就能绕过许多限制了，一般服务商不会限制透明代理。([source](https://www.zhihu.com/question/47464143/answer/124181011))

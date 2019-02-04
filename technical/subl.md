@@ -1,19 +1,9 @@
----
-layout:     post
-title:      "[杂乱笔记] My trip on Sublime Text"
-date:       2017-02-09 17:23:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 杂乱笔记
----
+# My trip on Sublime Text
 
-<br>
 
 You can also take a look at [my __Sublime Text 3__ config](https://bitbucket.org/chris_linn/my-subl-config/).
 
-# Set Up
+## Set Up
 + install `Package Control`
     * go to [`Package Control` Page](https://packagecontrol.io/installation)
     - ctrl+`
@@ -138,7 +128,7 @@ You can also take a look at [my __Sublime Text 3__ config](https://bitbucket.org
     * SublimeTmpl 快速生成文件模板
         - 一直都很奇怪为什么sublime text 3没有新建文件模板的功能，像html头部的DTD声明每次都要复制粘贴。用SublimeTmpl这款插件终于可以解脱了，SublimeTmpl能新建html、css、javascript、php、python、ruby六种类型的文件模板，所有的文件模板都在插件目录的templates文件夹里，可以自定义编辑文件模板
 
-# Apprearance
+## Apprearance
 + hide menu?
     + don't hide on Linux
 + use the theme file in [my __Sublime Text 3__ config](https://bitbucket.org/chris_linn/my-subl-config/).
@@ -162,7 +152,7 @@ You can also take a look at [my __Sublime Text 3__ config](https://bitbucket.org
 - show folder (side bar) but hide open file
 
 
-# Shortcuts
+## Shortcuts
 + MardownEditting
     * S+Tab
         - fold/unfold

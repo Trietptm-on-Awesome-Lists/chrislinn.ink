@@ -1,17 +1,8 @@
----
-layout:     post
-title:      "[杂乱笔记] We Bare Bears 英语学习"
-date:       2017-07-17 17:10:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 杂乱笔记
----
+# We Bare Bears 英语学习笔记
 
-<br>
+<!-- ex_nolevel -->
 
-# 20170716
+## 20170716
 + you little
     * rascal
         - 小淘气
@@ -32,7 +23,7 @@ tags:
 * taco
 * what we waited for is not equal to the quality of the food
 
-# 20170720
+## 20170720
 + I have no choice but to ...
 + immerse
     * immerse ourself into the menu
@@ -146,7 +137,7 @@ tags:
 + social - asocial
 + symmetrical - asymmetrical
 
-# 20170721
+## 20170721
 + It's my job to keep this family in tip-top shape.
     * 在最佳状态
     * This hotel is absolutely tip-top.
@@ -242,7 +233,7 @@ tags:
         - 呼喊 呼叫
         - let out a holler
 
-# 20170722
+## 20170722
 + reusable bag, tote bag
 + Let me get this straight.
 + what can I get for you

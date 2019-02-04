@@ -1,16 +1,6 @@
----
-layout:     post
-title:      "[杂乱笔记] 读报笔记(TheEconomist20161119)"
-subtitle:   "Trump's world: The new nationalism"
-date:       2017-01-31 07:00:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 杂乱笔记
----
+# TheEconomist 20161119 读报笔记
 
-<br>
+> "Trump's world: The new nationalism"
 
 1. Trump get elected because of the similar campaign as Reagan's, "Make America Great Again!". He reminds people of Reagen's renewal and gives promise of a "historic once-in-a-lifetime".
 
