@@ -456,3 +456,15 @@ If you look into the Bytom mining code, you will find it hard to understand. In 
         + 备注
         + 数量
         + 以及其他等等
+
+## blockcenter
+
+最近在负责　blockcenter　session　登录交互这一部分，记录一下开发时的所习所想。
+
+主要基础知识还是来自：
+
++ 图解密码学
++ [Crypto 101](https://github.com/crypto101/book)
++ [Practical-Cryptography-for-Developers-Book](https://github.com/nakov/Practical-Cryptography-for-Developers-Book)
++ Applied Cryptography: Protocols, Algorithms, and Source Code in C 应用密码学
++ [An Intensive Introduction to Cryptography](https://intensecrypto.org/public/index.html)
