@@ -120,12 +120,33 @@
             sudo sed -i 's/3/2/' /etc/NetworkManager/conf.d/*
             sudo service network-manager restart
             ```
-+ ss-qt5
-    ```bash
-    sudo add-apt-repository ppa:hzwhuang/ss-qt5
-    sudo apt-get update
-    sudo apt-get install shadowsocks-qt5
-    ```
++ ss
+    + ss-qt5
+        ```bash
+        sudo add-apt-repository ppa:hzwhuang/ss-qt5
+        sudo apt-get update
+        sudo apt-get install shadowsocks-qt5
+        ```
+    + pyss
+        ```
+        sudo apt install libsodium-dev
+        ```
+        ```json
+        {
+            "server":"XXXX服务器地址",
+            "server_port":XXXX端口,
+            "local_address":"127.0.0.1",
+            "local_port":1080,
+            "password":"XXXX密码",
+            "timeout":60,
+            "method":"chacha20-ietf-poly1305",
+            "fast_open":false,
+            "workers":1
+        }
+        ```
+        ```
+        sslocal -c /etc/shadowsocks.json
+        ```
 + restart program
     + bash grep way
         ```bash
@@ -158,14 +179,167 @@
     ```
 + Ops
     * 跳板机
-        - 内网
-        ```
-        ssh -f -NT -R 7788:localhost:22 username@public_host
-        ```
-        - 外网
-        ```
-        ssh -p 7788 username@localhost
-        ```
+        - ssh
+            + 内网
+                ```
+                ssh -f -NT -R 7788:localhost:22 username@public_host
+                ```
+            + 外网
+                ```
+                ssh -p 7788 username@localhost
+                ```
+        + frp   
+            * server
+                ```
+                # frps.ini
+                [common]
+                bind_port = 7000
+                ```
+                ```
+                sudo cp frps /usr/local/bin/frps
+                sudo cp frps.ini /usr/local/bin/frps.ini
+                sudo chmod +x /usr/local/bin/frps
+
+                ```
+                ```
+                sudo vim /etc/init.d/frps
+                ```
+                ```
+                #!/bin/sh -e
+                ### BEGIN INIT INFO
+                # Provides:          frps
+                # Required-Start:    $network $remote_fs $local_fs
+                # Required-Stop:     $network $remote_fs $local_fs
+                # Default-Start:     2 3 4 5
+                # Default-Stop:      0 1 6
+                # Short-Description: autostartup of frp for Linux
+                ### END INIT INFO
+
+                NAME=frps
+                DAEMON=/usr/local/bin/$NAME
+                PIDFILE=/var/run/$NAME.pid
+
+                [ -x "$DAEMON" ] || exit 0
+
+                case "$1" in
+                  start)
+                      if [ -f $PIDFILE ]; then
+                        echo "$NAME already running..."
+                        echo -e "\033[1;35mStart Fail\033[0m"
+                      else
+                        echo "Starting $NAME..."
+                        start-stop-daemon -S -p $PIDFILE -m -b -o -q -x $DAEMON -- "--c /usr/local/bin/frps.ini" || return 2
+                        echo -e "\033[1;32mStart Success\033[0m"
+                    fi
+                    ;;
+                  stop)
+                        echo "Stoping $NAME..."
+                        start-stop-daemon -K -p $PIDFILE -s TERM -o -q || return 2
+                        rm -rf $PIDFILE
+                        echo -e "\033[1;32mStop Success\033[0m"
+                    ;;
+                  restart)
+                    $0 stop && sleep 2 && $0 start
+                    ;;
+                  *)
+                    echo "Usage: $0 {start|stop|restart}"
+                    exit 1
+                    ;;
+                esac
+                exit 0
+                ```
+                ```
+                sudo chmod 755 /etc/init.d/frps
+                sudo /etc/init.d/frps start    #启动
+                sudo /etc/init.d/frps stop     #停止
+                sudo /etc/init.d/frps restart  #重启
+                ```
+                ```
+                cd /etc/init.d
+                sudo update-rc.d frps defaults 90    #加入开机启动
+                sudo update-rc.d -f frps remove  #取消开机启动
+                ```
+            * client
+                ```
+                # frpc.ini
+                [common]
+                server_addr = x.x.x.x
+                server_port = 7000
+
+                [ssh]
+                type = tcp
+                local_ip = 127.0.0.1
+                local_port = 22
+                remote_port = 6000
+                ```
+                ```
+                sudo cp frpc /usr/local/bin/frpc
+                sudo cp frpc.ini /usr/local/bin/frpc.ini
+                sudo chmod +x /usr/local/bin/frpc
+
+                ```
+                ```
+                sudo vim /etc/init.d/frpc
+                ```
+                ```
+                #!/bin/sh -e
+                ### BEGIN INIT INFO
+                # Provides:          frpc
+                # Required-Start:    $network $remote_fs $local_fs
+                # Required-Stop:     $network $remote_fs $local_fs
+                # Default-Start:     2 3 4 5
+                # Default-Stop:      0 1 6
+                # Short-Description: autostartup of frp for Linux
+                ### END INIT INFO
+
+                NAME=frpc
+                DAEMON=/usr/local/bin/$NAME
+                PIDFILE=/var/run/$NAME.pid
+
+                [ -x "$DAEMON" ] || exit 0
+
+                case "$1" in
+                  start)
+                      if [ -f $PIDFILE ]; then
+                        echo "$NAME already running..."
+                        echo -e "\033[1;35mStart Fail\033[0m"
+                      else
+                        echo "Starting $NAME..."
+                        start-stop-daemon -S -p $PIDFILE -m -b -o -q -x $DAEMON -- "--c /usr/local/bin/frpc.ini" || return 2
+                        echo -e "\033[1;32mStart Success\033[0m"
+                    fi
+                    ;;
+                  stop)
+                        echo "Stoping $NAME..."
+                        start-stop-daemon -K -p $PIDFILE -s TERM -o -q || return 2
+                        rm -rf $PIDFILE
+                        echo -e "\033[1;32mStop Success\033[0m"
+                    ;;
+                  restart)
+                    $0 stop && sleep 2 && $0 start
+                    ;;
+                  *)
+                    echo "Usage: $0 {start|stop|restart}"
+                    exit 1
+                    ;;
+                esac
+                exit 0
+                ```
+                ```
+                sudo chmod 755 /etc/init.d/frpc
+                sudo /etc/init.d/frpc start    #启动
+                sudo /etc/init.d/frpc stop     #停止
+                sudo /etc/init.d/frpc restart  #重启
+                ```
+                ```
+                cd /etc/init.d
+                sudo update-rc.d frpc defaults 90    #加入开机启动
+                sudo update-rc.d -f frpc remove  #取消开机启动
+                ```
+            + ssh it
+                ```
+                ssh -oPort=6000 test@x.x.x.x
+                ```
     * Container
         - Docker
             + VM is about emulation, Docker is about isolation.
