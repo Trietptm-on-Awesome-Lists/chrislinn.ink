@@ -130,6 +130,9 @@
     + pyss
         ```
         sudo apt install libsodium-dev
+        pip install https://github.com/shadowsocks/shadowsocks/archive/master.zip -U
+        pip install git+https://github.com/shadowsocks/shadowsocks.git@master
+        pip install --upgrade git+https://github.com/shadowsocks/shadowsocks.git@master
         ```
         ```json
         {
