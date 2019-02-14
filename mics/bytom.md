@@ -468,3 +468,18 @@ If you look into the Bytom mining code, you will find it hard to understand. In 
 + [Practical-Cryptography-for-Developers-Book](https://github.com/nakov/Practical-Cryptography-for-Developers-Book)
 + Applied Cryptography: Protocols, Algorithms, and Source Code in C 应用密码学
 + [An Intensive Introduction to Cryptography](https://intensecrypto.org/public/index.html)
++ [HTTP 身份验证](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Authentication)
+
+### Cross-Origin Resource Sharing (CORS)
+
+XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的Web应用程序只能从加载应用程序的同一个域请求HTTP资源，除非响应报文包含了正确CORS响应头。
+
+跨域资源共享（ CORS ）机制 __允许__ Web 应用服务器进行跨域访问控制，从而使跨域数据传输 __得以安全__ 进行。现代浏览器支持在 API 容器中（例如 XMLHttpRequest 或 Fetch ）使用 CORS，以降低跨域 HTTP 请求所带来的风险。
+
+#### 什么情况下需要 CORS
+
++ XMLHttpRequest 或 Fetch 发起的跨域 HTTP 请求
++ Web 字体 (CSS 中通过 @font-face 使用跨域字体资源), 因此，网站就可以发布 TrueType 字体资源，并只允许已授权网站进行跨站调用。
++ WebGL 贴图
++ 使用 drawImage 将 Images/video 画面绘制到 canvas
++ 样式表（使用 CSSOM）
