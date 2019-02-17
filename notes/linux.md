@@ -35,7 +35,7 @@
     }
     ```
     ```
-    sudo sslocal -c /etc/shadowsocks.json
+    sudo sslocal -c /etc/shadowsocks/jp1.json -d start
     ```
 
 ## [Vim](/notes/vim.md)
