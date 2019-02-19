@@ -487,3 +487,14 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
 ### multi-sign
 #### TODOS
 + createWallet, restoreWallet, addUTXO
++ schedule
+    * updater 已经记录多签地址
+    * create multi-sign
+    * cancel multi-sgin
+    * join multi-sign
+    * list wallets
+    * create txproposal
+    * sign txproposal
+    * submit txproposal
+    * list proposal
+    * updater 多签地址和wallet关联
