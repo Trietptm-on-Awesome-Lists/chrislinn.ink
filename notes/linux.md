@@ -129,8 +129,8 @@
             esac
             exit $RETVAL
             ```
-            or
             ```
+            # or.....
             #!/bin/bash
 
             ### BEGIN INIT INFO
