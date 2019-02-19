@@ -129,8 +129,8 @@
             esac
             exit $RETVAL
             ```
+            or
             ```
-            # or.....
             #!/bin/bash
 
             ### BEGIN INIT INFO
@@ -148,7 +148,6 @@
             PID_FILE="/home/stronger/.shadowsocks/sslocal.pid"
             LOG_FILE="/home/stronger/.shadowsocks/sslocal.log"
             PROG_ARGS="-c $CONFIG_FILE -d start --pid-file $PID_FILE --log-file $LOG_FILE -q" 
-
 
             start() {
                 echo "begin start"
