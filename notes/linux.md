@@ -37,6 +37,157 @@
     ```
     sudo sslocal -c /etc/shadowsocks/jp1.json -d start
     ```
+    + auto-start
+        1. `/etc/rc.local`
+            ```
+            sudo /usr/local/bin/sslocal -c '/home/skyao/shadowsocks/config.json' -d start
+            ```
+        2. `/etc/init.d/shadowsocks`
+            ```
+            sudo nohup nohup -c /etc/shadowsocks/config.json > /etc/shadowsocks/log &
+            ```
+            ```
+            sudo chmod 755 /etc/init.d/shadowsocks
+            sudo update-rc.d shadowsocks defaults
+            sudo update-rc.d -f shadowsocks remove
+            ```
+        3. `sudo vim /etc/init.d/sslocal`
+            ```
+            #!/bin/bash
+            ### BEGIN INIT INFO
+            # Provides:          Shadowsocks-local
+            # Required-Start:    $network $local_fs $remote_fs
+            # Required-Stop:     $network $local_fs $remote_fs
+            # Default-Start:     2 3 4 5
+            # Default-Stop:      0 1 6
+            # Short-Description: Fast tunnel proxy that helps you bypass firewalls
+            # Description:       A secure socks5 proxy, designed to protect your Internet traffic.
+            ### END INIT INFO
+
+            # Author: lynnyq <lynnyq@gmail.com>
+
+            name=sslocal
+            BIN=/usr/local/bin/sslocal
+            conf=/etc/shadowsocks/client.json
+
+            start(){
+                $BIN -c $conf -d start
+                RETVAL=$?
+                if [ "$RETVAL" = "0" ]; then
+                    echo "$name start success"
+                else
+                    echo "$name start failed"
+                fi
+            }
+
+            stop(){
+                pid=`ps -ef | grep -v grep | grep -i "${BIN}" | awk '{print $2}'`
+                if [[ ! -z $pid ]]; then
+                    $BIN -c $conf -d stop
+                    RETVAL=$?
+                    if [ "$RETVAL" = "0" ]; then
+                        echo "$name stop success"
+                    else
+                        echo "$name stop failed"
+                    fi
+                else
+                    echo "$name is not running"
+                    RETVAL=1
+                fi
+            }
+
+            status(){
+                pid=`ps -ef | grep -v grep | grep -i "${BIN}" | awk '{print $2}'`
+                if [[ -z $pid ]]; then
+                    echo "$name is not running"
+                    RETVAL=1
+                else
+                    echo "$name is running with PID $pid"
+                    RETVAL=0
+                fi
+            }
+
+            case "$1" in
+            'start')
+                start
+                ;;
+            'stop')
+                stop
+                ;;
+            'status')
+                status
+                ;;
+            'restart')
+                stop
+                start
+                RETVAL=$?
+                ;;
+            *)
+                echo "Usage: $0 { start | stop | restart | status }"
+                RETVAL=1
+                ;;
+            esac
+            exit $RETVAL
+            ```
+            or
+            ```
+            #!/bin/bash
+
+            ### BEGIN INIT INFO
+            # Provides:          sslocal
+            # Required-Start:    $local_fs $remote_fs
+            # Required-Stop:     $local_fs $remote_fs
+            # Default-Start:     2 3 4 5
+            # Default-Stop:      0 1 6
+            # Short-Description: shadowsocks client
+            # Description:       shadowsocks client
+            ### END INIT INFO
+
+            PROG="/usr/local/bin/sslocal"
+            CONFIG_FILE="/home/stronger/.shadowsocks/config.json"
+            PID_FILE="/home/stronger/.shadowsocks/sslocal.pid"
+            LOG_FILE="/home/stronger/.shadowsocks/sslocal.log"
+            PROG_ARGS="-c $CONFIG_FILE -d start --pid-file $PID_FILE --log-file $LOG_FILE -q" 
+
+
+            start() {
+                echo "begin start"
+                $PROG $PROG_ARGS
+                echo "$PROG started"
+            }
+
+            stop() {
+                echo "begin stop"
+                pid=`cat $PID_FILE`
+                kill -9 $pid
+                echo "$PROG stopped"
+            }
+
+            case "$1" in
+                start)
+                    start
+                    exit 0
+                ;;
+                stop)
+                    stop
+                    exit 0
+                ;;
+                reload|restart|force-reload)
+                    stop
+                    start
+                    exit 0
+                ;;
+                **)
+                    echo "Usage: $0 {start|stop|reload}" 1>&2
+                    exit 1
+                ;;
+            esac
+            ```
+            ```
+            sudo chmod +x /etc/init.d/sslocal
+            sudo update-rc.d sslocal defaults 90
+            sudo update-rc.d -f sslocal remove
+            ```
 
 ## [Vim](/notes/vim.md)
 
