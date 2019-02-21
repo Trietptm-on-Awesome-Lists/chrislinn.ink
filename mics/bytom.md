@@ -488,15 +488,15 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
 #### TODOS
 + createWallet, restoreWallet, addUTXO
 + schedule
-    * [X] updater 已经记录多签地址
-    * [X] create multi-sign
-    * [X] cancel multi-sgin
-    * [] join multi-sign
-        - [X] resp
-        - [X] name has been used
-        - [X] gen_addr
-        - [ ] save_addr
-        - [ ] gorm update
+    * [x] updater 已经记录多签地址
+    * [x] create multi-sign
+    * [x] cancel multi-sgin
+    * [x] join multi-sign
+        - [x] resp
+        - [x] name has been used
+        - [x] gen_addr
+        - [x] save_addr
+        - [x] gorm update
     * [ ] list wallets
     * [ ] create txproposal
         - [ ] addUtxoInput check len
