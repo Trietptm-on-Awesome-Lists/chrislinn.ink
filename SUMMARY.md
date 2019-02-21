@@ -7,9 +7,9 @@
         + [爬虫抓代理](technical/proxy-crawler.md)
         + [My trip on Sublime Text](technical/subl.md)
     - 自我提升
-        + [为什么我应该开始写笔记/博客](life-hack/hello-blog.md)
-        + [life-hack](life-hack/life-hack.md)
-        + [How to Procrastinate Properly](life-hack/how-to-procrastinate.md)
+        + [为什么我应该开始写笔记/博客](life-hacks/hello-blog.md)
+        + [Life Hacks](life-hacks/life-hacks.md)
+        + [How to Procrastinate Properly](life-hacks/how-to-procrastinate.md)
     - Notes
         - [我读哈耶克](notes/hayek.md)
         - [Westworld beautiful words](notes/westworld-subtitle.md)
