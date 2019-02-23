@@ -35,6 +35,7 @@
         + [DApps](technical/dapps.md)
     - 自我提升
     - Notes
+        - [Trading](notes/trading.md)
         + [EnglishPod Notes](notes/englishpod.md)
         - [《苏菲的世界》笔记](notes/sophies-world.md)
         + [My trip on Vim](notes/vim.md)
