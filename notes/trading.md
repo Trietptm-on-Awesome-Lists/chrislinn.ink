@@ -19,8 +19,11 @@
 + ...
 
 ## Economists
-
 + [The-Economist](https://github.com/nailperry-zd/The-Economist)
+
+## 微信公众号
++ 智谷趋势
++ 36 kr
 
 ## Stock
 + [勝負師董寶珠](https://www.douban.com/people/william-choi/)
