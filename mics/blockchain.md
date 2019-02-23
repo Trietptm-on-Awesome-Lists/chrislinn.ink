@@ -1,6 +1,8 @@
 # Blockchain
 
 ## Reading List
++ [theoretical-blockchain-research-papers](https://github.com/mathetake/theoretical-blockchain-research-papers)
++ [blockchain-papers](https://github.com/decrypto-org/blockchain-papers)
 + [区块链技术指南](https://yeasy.gitbooks.io/blockchain_guide/content/)
 + 《精通比特币》第二版
     * https://legacy.gitbook.com/book/wizardforcel/masterbitcoin2cn/details

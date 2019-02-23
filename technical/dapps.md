@@ -20,7 +20,9 @@
 + 手机绑定? 微信登陆？
 + 先游戏再支付
 
-## 项目架构
+## ETH EOS TRX
+
+### 项目架构
 
 1. 游戏框架参考 [gowog](https://github.com/giongto35/gowog)
 
@@ -92,3 +94,55 @@ ScatterJS.scatter.connect('My-App').then(connected => {
 ```
 
 3. 游戏结束后，发起解锁
+
+
+
+## BTM
+### bet
+```
+contract BetGame(status: Hash, hashedAnswer: Hash, totalEven: Integer, totalOdd: Integer) locks valueAmount of valueAsset {
+  clause bid(amount: Integer, bidSide: Integer, bidder: Program) {
+    define temp1:String = concat(status, amount)
+    define temp2:String = concat(temp1, bidSide)
+    define result:String = concat(temp2, bidder)
+    define newStatus:Hash = sha3(result)
+    if bidSide%2 == 1 {
+       lock valueAmount + amount of valueAsset with BetGame(newStatus, hashedAnswer, totalEven+amount, totalOdd)
+    } else {
+        lock valueAmount + amount of valueAsset with BetGame(newStatus, hashedAnswer, totalEven, totalOdd+amount)
+    }
+  }
+  clause check(answer: Integer, preStatus: Hash, amount: Integer, bidSide: Integer, bidder: Program) {
+    verify sha3(answer) == hashedAnswer
+    define temp1:String = concat(preStatus, amount)
+    define temp2:String = concat(temp1, bidSide)
+    define result:String = concat(temp2, bidder)
+    verify sha3(result) == status
+    if (bidSide%2) == (answer%2) {
+       define total:Integer = totalOdd
+       if (bidSide%2) == 1 {
+         assign total = totalEven
+       }
+       define reward:Integer = (totalEven+totalOdd)*amount/total
+       lock reward of valueAsset with bidder
+       lock valueAmount - reward of valueAsset with BetGame(preStatus, hashedAnswer, totalEven, totalOdd)
+    } else {
+       lock valueAmount of valueAsset with BetGame(preStatus, hashedAnswer, totalEven, totalOdd)
+    }
+  }
+}
+```
+
+### price changer
+```
+contract PriceChanger(askAmount: Amount, askAsset: Asset, sellerKey: PublicKey, sellerProg: Program) locks valueAmount of valueAsset {
+    clause changePrice(newAmount: Amount, newAsset: Asset, sig: Signature) {
+      verify checkTxSig(sellerKey, sig)
+      lock valueAmount of valueAsset with PriceChanger(newAmount, newAsset, sellerKey, sellerProg)
+    }
+    clause redeem() {
+      lock askAmount of askAsset with sellerProg
+      unlock valueAmount of valueAsset
+    }
+  }
+```
