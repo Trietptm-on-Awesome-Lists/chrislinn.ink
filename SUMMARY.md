@@ -43,4 +43,4 @@
         - [王小波读后感](mics/wangxiaobo.md)
         - [Bytom](mics/bytom.md)
         - [Blockchain](mics/blockchain.md)
-        + [我读周金波](notes/zhoujinbo.md)
+        + [我读周金波](mics/zhoujinbo.md)
