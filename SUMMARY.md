@@ -32,6 +32,7 @@
         + [杭州链家二手房爬虫](technical/second-hand-house.md)
         + [Interpreter in Python](technical/py-interpreter.md)
         + [MimbleWimble Origin](technical/mimblewimble-origin.md)
+        + [DApps](technical/dapps.md)
     - 自我提升
     - Notes
         + [EnglishPod Notes](notes/englishpod.md)
