@@ -44,3 +44,4 @@
         - [Bytom](mics/bytom.md)
         - [Blockchain](mics/blockchain.md)
         + [我读周金波](mics/zhoujinbo.md)
+        + [5G](mics/5g.md)
