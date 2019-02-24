@@ -96,7 +96,7 @@ ScatterJS.scatter.connect('My-App').then(connected => {
 3. 游戏结束后，发起解锁
 
 
-
+<!-- 
 ## BTM
 ### bet
 ```
@@ -146,3 +146,28 @@ contract PriceChanger(askAmount: Amount, askAsset: Asset, sellerKey: PublicKey, 
     }
   }
 ```
+
+### lottery
+```
+contract Lottery(unitPrice: Amount, partcipants []PublicKey, partcipants: Integer, targetHeight: Integer) locks valueAmount of valueAsset{
+    
+    clause put(publicKey: PublicKey, putAmount: Amount) {
+        define partcipants:[]PublicKey = append(partcipants, publicKey)
+        define newAmount:Amount = valueAmount
+        define newCount:Integer = count
+        for i := 0; i < (putAmount/unitPrice); i++{
+            newAmount += unitPrice
+            newCount += 1
+        }
+        lock newAmount of valueAsset with Lottery(unitPrice, partcipants, partcipants, targetHeight)
+    }
+
+    clause claim(sig: Signature) {
+        verify above(targetHeight)
+        verify checkTxSig(publicKey, sig)
+        unlock valueAmount of valueAsset
+    }
+
+}
+```
+ -->
