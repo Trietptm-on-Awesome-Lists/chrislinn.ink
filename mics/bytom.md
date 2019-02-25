@@ -27,6 +27,8 @@
         - server-side max exec time
         - https://dev.mysql.com/doc/refman/8.0/en/full-text-adding-collation.html
     * redis
+
+
 <!-- 
 多重签名
 多币种， stable coin
@@ -492,15 +494,8 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
     * [x] create multi-sign
     * [x] cancel multi-sgin
     * [x] join multi-sign
-        - [x] resp
-        - [x] name has been used
-        - [x] gen_addr
-        - [x] save_addr
-        - [x] gorm update
-    * [ ] list wallets
+    * [x] list wallets
     * [ ] create txproposal
-        - [ ] addUtxoInput check len
     * [ ] sign txproposal
     * [ ] submit txproposal
     * [ ] list proposal
-    * [ ] updater 多签地址和wallet关联
