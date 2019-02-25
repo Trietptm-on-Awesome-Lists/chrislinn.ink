@@ -20,6 +20,7 @@
         + [Subway 点餐指南](notes/subway.md)
         + [We Bare Bears 英语学习笔记](notes/we-bare-bears.md)
     * 随笔
+        + [5G](mics/5g.md)
         - [我也谈写作](mics/writing.md)
         - [《上海堡垒》读后感](mics/once-upon-a-time-in-Shanghai.md)
         - [黑镜 第三季 影评](mics/black-mirror-s3.md)
@@ -45,4 +46,3 @@
         - [Bytom](mics/bytom.md)
         - [Blockchain](mics/blockchain.md)
         + [我读周金涛](mics/zhoujintao.md)
-        + [5G](mics/5g.md)
