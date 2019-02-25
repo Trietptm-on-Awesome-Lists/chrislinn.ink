@@ -138,7 +138,7 @@
 + Makefile
     * 一些选项: `-O3`, `-shared`, `-c`, `-fPIC` 
 
-```Makefile
+```makefile
 ifndef GOOS
 ...
 endif

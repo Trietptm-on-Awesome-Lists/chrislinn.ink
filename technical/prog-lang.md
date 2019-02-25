@@ -65,7 +65,7 @@
             + `import "github.com/pkg/profile"`
             + `defer profile.Start().Stop()`
             + .
-                ```Go
+                ```go
                 start := time.Now()
                 ...
                 end := time.Now()
@@ -73,7 +73,7 @@
                 ```
     * platform-related
         - .
-            ```Go
+            ```go
             // +build windows
 
             package main
@@ -101,7 +101,7 @@
             ```
     * CGO
         - Makefile
-            ```Makefile
+            ```makefile
             CGO_ENABLED=1 GOOS=windows GOARCH=386   CC=i686-w64-mingw32-gcc-posix   CXX=i686-w64-mingw32-g++-posix   go build -ldflags "-X github.com/bytom/version.GitCommit=`git rev-parse HEAD`" -o <exec> <source>
             CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC=x86_64-w64-mingw32-gcc-posix CXX=x86_64-w64-mingw32-g++-posix go build -ldflags "-X github.com/bytom/version.GitCommit=`git rev-parse HEAD`" -o <exec> <source>
             CGO_ENABLED=1 GOOS=linux   GOARCH=386   CC=i686-linux-gnu-gcc           CXX=i686-linux-gnu-g++           go build -ldflags "-X github.com/bytom/version.GitCommit=`git rev-parse HEAD`" -o <exec> <source>
@@ -110,7 +110,7 @@
         + go file
             * `import "C"` 前面要紧跟, 后面要空行
             * CGO CGO 逗号表示与，空格表示或
-                ```Go
+                ```go
                 // #cgo windows,amd64 linux CFLAGS: -I.
                 // #cgo windows,amd64 linux LDFLAGS: -L./lib/ -l:cSimdTs_win32.o -lstdc++ -lgomp -lpthread
                 // #cgo darwin,amd64 CFLAGS: -I. -I/usr/local/opt/llvm/include
