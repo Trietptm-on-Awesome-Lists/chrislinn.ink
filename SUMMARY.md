@@ -6,6 +6,7 @@
         + [如何学习编程](technical/programming.md)
         + [爬虫抓代理](technical/proxy-crawler.md)
         + [My trip on Sublime Text](technical/subl.md)
+        + [Programming Language Picked](technical/prog-lang.md)
     - 自我提升
         + [为什么我应该开始写笔记/博客](life-hacks/hello-blog.md)
         + [Life Hacks](life-hacks/life-hacks.md)

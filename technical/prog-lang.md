@@ -1,18 +1,10 @@
----
-layout:     post
-title:      "[杂乱笔记] Programming Language Picked"
-subtitle:   "那个时候我还很年轻，还一心只想成为地表最强 coder"
-date:       2017-02-16 17:10:00
-author:     "LiqueurTofu"
-header-img: "img/home-bg-art.jpg"
-catalog:    true
-tags:
-    - 杂乱笔记
----
+# Programming Language Picked
 
-<br>
+<!-- ex_nolevel -->
 
-# low-level
+> 那个时候我还很年轻，还一心只想成为地表最强 coder
+
+## low-level
 * assembly
 * C
     - [The Definitive C++ Book Guide and List](https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
@@ -35,12 +27,14 @@ tags:
     - OpenMP
         + https://bisqwit.iki.fi/story/howto/openmp/
 
-# concurrency
+## concurrency
 * GoLang
 * OCaml
 * Haskell
+* PHP(X)
+    - php
 
-# quick dev
+## quick dev
 * GoLang
     - basic
         + [For continued](https://tour.golang.org/flowcontrol/2), [For is Go's "while"](https://tour.golang.org/flowcontrol/3), [Forever](https://tour.golang.org/flowcontrol/4)
