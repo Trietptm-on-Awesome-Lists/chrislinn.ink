@@ -6,7 +6,6 @@
         + [如何学习编程](technical/programming.md)
         + [爬虫抓代理](technical/proxy-crawler.md)
         + [My trip on Sublime Text](technical/subl.md)
-        + [Programming Language Picked](technical/prog-lang.md)
     - 自我提升
         + [为什么我应该开始写笔记/博客](life-hacks/hello-blog.md)
         + [Life Hacks](life-hacks/life-hacks.md)
@@ -30,6 +29,7 @@
         + [GoLang](technical/golang.md)
         + [compiler](technical/compiler.md)
         + [concurrent & parallel](technical/concurrent-parallel.md)
+        + [Programming Language Picked](technical/prog-lang.md)
         + [杭州链家二手房爬虫](technical/second-hand-house.md)
         + [Interpreter in Python](technical/py-interpreter.md)
         + [MimbleWimble Origin](technical/mimblewimble-origin.md)
