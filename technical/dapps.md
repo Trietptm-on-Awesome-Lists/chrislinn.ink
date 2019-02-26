@@ -33,14 +33,16 @@
         - 玩家系统
         - 没跑起来
             * [BrowserQuest-PHP](https://github.com/walkor/BrowserQuest-PHP) 跑起来了
+    * [jumpsuit](https://github.com/KordonBleu/jumpsuit)
+        * 适合 建房间，因为 ECMAScript Modules 和 import 语法问题还没有搭建成功
     + [SquareOff](https://github.com/ScriptaGames/SquareOff/)
         * 还行
     + [Space-Shooter](https://github.com/Couchfriends/Space-Shooter)
-        * 用户系统 基于 Couchfriends，放弃
+        * 玩家系统 基于 Couchfriends，放弃
     * [breakout](https://github.com/Couchfriends/breakout)
-        * 用户系统 基于 Couchfriends，放弃
+        * 玩家系统 基于 Couchfriends，放弃
     * [I-Spy-A-Ghost](https://github.com/OmarShehata/I-Spy-A-Ghost)
-    * [jumpsuit](https://github.com/KordonBleu/jumpsuit)
+        - 玩家系统使用 peerjs & PeerCloud，较麻烦
     * [blk-game](https://github.com/morozd/blk-game)
         * 编译没成功
 2. 前端调用 scatter
