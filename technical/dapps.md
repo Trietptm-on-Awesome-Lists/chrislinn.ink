@@ -24,7 +24,7 @@
 
 ### 项目架构
 
-1. 游戏框架参考
+1. 游戏框架参考，主要是看[这里面的](https://github.com/leereilly/games) Browser-Based multiplayer game
     + [gowog](https://github.com/giongto35/gowog)
         * 并发好，支持位置。但是 用的是 protobuf
     + [BrowserQuest](https://github.com/mozilla/BrowserQuest)
@@ -33,10 +33,11 @@
         - 玩家系统
         - 没跑起来
             * [BrowserQuest-PHP](https://github.com/walkor/BrowserQuest-PHP) 跑起来了
-    * [jumpsuit](https://github.com/KordonBleu/jumpsuit)
-        * 适合 建房间，因为 ECMAScript Modules 和 import 语法问题还没有搭建成功
     + [SquareOff](https://github.com/ScriptaGames/SquareOff/)
         * 还行
+    * [jumpsuit](https://github.com/KordonBleu/jumpsuit)
+        * 适合 建房间，不过 每开一个房间都要建一个server
+        * 因为 ECMAScript Modules 和 import 语法问题还没有搭建成功
     + [Space-Shooter](https://github.com/Couchfriends/Space-Shooter)
         * 玩家系统 基于 Couchfriends，放弃
     * [breakout](https://github.com/Couchfriends/breakout)
