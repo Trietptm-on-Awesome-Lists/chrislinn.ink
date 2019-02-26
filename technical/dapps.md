@@ -24,8 +24,25 @@
 
 ### 项目架构
 
-1. 游戏框架参考 [gowog](https://github.com/giongto35/gowog)
-
+1. 游戏框架参考
+    + [gowog](https://github.com/giongto35/gowog)
+        * 并发好，支持位置。但是 用的是 protobuf
+    + [BrowserQuest](https://github.com/mozilla/BrowserQuest)
+        * socket.io
+        - 多星
+        - 玩家系统
+        - 没跑起来
+            * [BrowserQuest-PHP](https://github.com/walkor/BrowserQuest-PHP) 跑起来了
+    + [SquareOff](https://github.com/ScriptaGames/SquareOff/)
+        * 还行
+    + [Space-Shooter](https://github.com/Couchfriends/Space-Shooter)
+        * 用户系统 基于 Couchfriends，放弃
+    * [breakout](https://github.com/Couchfriends/breakout)
+        * 用户系统 基于 Couchfriends，放弃
+    * [I-Spy-A-Ghost](https://github.com/OmarShehata/I-Spy-A-Ghost)
+    * [jumpsuit](https://github.com/KordonBleu/jumpsuit)
+    * [blk-game](https://github.com/morozd/blk-game)
+        * 编译没成功
 2. 前端调用 scatter
 
 3. 游戏结束后，发起解锁
