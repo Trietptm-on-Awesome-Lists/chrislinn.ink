@@ -25,6 +25,7 @@
 ### 项目架构
 
 1. 游戏框架参考
+    + [boardgame.io](https://github.com/nicolodavis/boardgame.io)
     + [gowog](https://github.com/giongto35/gowog)
         * 并发好，支持位置。但是 用的是 protobuf
     + [pomelo](https://github.com/NetEase/pomelo)'s [treasures](https://github.com/NetEase/treasures) & []()
