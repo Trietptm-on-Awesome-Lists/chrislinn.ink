@@ -16,7 +16,7 @@ My friends:
 
 ---
 
->My PGP PubKey
+My PGP PubKey:
 
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
