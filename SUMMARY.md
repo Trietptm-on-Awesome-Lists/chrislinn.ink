@@ -4,6 +4,7 @@
 - Published
     - Technical
         + [如何学习编程](technical/programming.md)
+        + [也体验一把密码朋克](technical/cypherpunk.md)
         + [爬虫抓代理](technical/proxy-crawler.md)
         + [My trip on Sublime Text](technical/subl.md)
     - 自我提升
