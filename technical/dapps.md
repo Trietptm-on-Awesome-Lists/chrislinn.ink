@@ -13,6 +13,9 @@
 + 多人贪吃蛇
 + 五子棋
 + 井字棋
++ sheji
++ eluosifangkuai
++ yinyou
 
 
 后续支持:
