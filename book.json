@@ -52,10 +52,10 @@
             ]
         },
         "github": {
-            "url": "https://github.com/ChrisLinn/blog"
+            "url": "https://github.com/ChrisLinn/chrislinn.ink"
         },
         "github-buttons": {
-            "repo": "ChrisLinn/blog",
+            "repo": "ChrisLinn/chrislinn.ink",
             "types": [
                 "star",
                 "watch",
