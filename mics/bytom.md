@@ -495,8 +495,8 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
     * [x] cancel multi-sgin
     * [x] join multi-sign
     * [x] list wallets
-    * [x] submit txproposal
     * [x] create txproposal
-    * [ ] list proposal
+    * [x] list proposal
     * [ ] sign txproposal
+    * [ ] submit txproposal
 + delete unconfirmed utxo
