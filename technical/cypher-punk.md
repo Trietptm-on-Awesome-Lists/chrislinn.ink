@@ -1,5 +1,19 @@
 # 也体验一把密码朋克
 
+<!-- TODO
++ chrome-extension://cdlcdnmhcodhagbmljapgbjdimjckilb/html/options.html
++ https://www.google.com/search?q=pgp%E6%8C%87%E7%BA%B9&oq=pgp%E6%8C%87%E7%BA%B9&aqs=chrome..69i57.746j0j7&sourceid=chrome&ie=UTF-8
++ https://jin-yang.github.io/post/security-pgp-introduce.html
++ https://tomli.blog/pgp
++ http://www.ruanyifeng.com/blog/2013/07/gpg.html
++ https://www.jianshu.com/p/0e1e66423055
++ https://zh.moegirl.org/zh-hant/Help:PGP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95
++ https://nova.moe/openpgp-best-practices-keyserver-and-configuration/
++ https://wiki.debian.org/Keysigning#Step_5:_Hand_out_your_key.27s_fingerprint
++ https://www.debian.org/events/keysigning
++ http://www.queen.clara.net/pgp/art4.html
+ -->
+
 区块链将 密码朋克 这个词带进了普通网民的视线，这篇文章带你也体验一把 密码朋克 (cyber punk) 过过瘾，随便复习一下密码学知识。
 
 使用微信的时候，我们可能会有被监听的顾虑。这时候，PGP 就可以派上用场。
