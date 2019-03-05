@@ -107,6 +107,8 @@
 - 龙书重基础，鲸书重优化，虎书重实践
 
 ## Cross
++ MinGW
+    * https://nuwen.net/mingw.html
 +  build the code on `--build`, run it on `--host` with `--target` architecture environment
     * [What's the difference of “./configure” option “--build”, “--host” and “--target”?](https://stackoverflow.com/a/15901574)
     * build

@@ -25,12 +25,14 @@
 ## PGP
 PGP (Pretty Good Privacy, "优良保密协议") 本身是用于签名和加解密商业应用程序；OpenPGP 是由 PGP 衍生出的开源规范（RFC 4880），而 GnuPG（简称 GPG）就是遵循 OpenPGP 规范的 GNU 实现。
 
-<!-- TODO
 ## 体验
 
-简单的 PGP 体验可以使用 Chrome 插件 PGP ANYWHERE，
+简单的 PGP 体验可以使用 Chrome 插件 PGP ANYWHERE，现在有的邮箱 (Secure Email, https://securegroup.com/secure-email/) 和邮箱插件 (如支持 Gmail 的 FlowCrypt) 也继承了 PGP 功能，邮件加解密、签名更加方便。
 
-现在有的邮箱 (Secure Email, https://securegroup.com/secure-email/) 和邮箱插件 (如支持 Gmail 的 FlowCrypt) 也继承了 PGP 功能，邮件加解密、签名更加方便。
+进入 PGP Anywhere 插件，在 Options 标签页中 Generate Keys 可以生成一对公私钥，将这把公钥发给别人别人就可以进行加密（从别人那里获取一把公钥就可以加密消息并发给别人）。类似的，也可以使用
+
+
+<!-- TODO
  -->
 
 ## 原理流程
@@ -61,9 +63,6 @@ PGP 实现加解密的原理流程图：
 ### 不要依靠 Key ID
 Key ID （无论长短）已经 被证明 可以 被碰撞。为了安全应该使用全指纹而非 Key ID。应该在 GPG 配置文件中写上 `keyid-format 0xlong` 和 `with-fingerprint` 来保证所有密钥都是显示 64 位长的 ID 且显示指纹。
 
-<!-- TODO 
-被碰撞
--->
 
 ### 不要盲目地相信来自密钥服务器的密钥
 
