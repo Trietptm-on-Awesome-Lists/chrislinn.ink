@@ -73,12 +73,12 @@ __TODO__
 + key server
  -->
 
-## 信任传递
+### 信任传递
 
 __TODO__
 
 
-## 注意
+### 注意
 
 ### 不要依靠 Key ID
 Key ID （无论长短）已经 被证明 可以 被碰撞。为了安全应该使用全指纹而非 Key ID。应该在 GPG 配置文件中写上 `keyid-format 0xlong` 和 `with-fingerprint` 来保证所有密钥都是显示 64 位长的 ID 且显示指纹。
