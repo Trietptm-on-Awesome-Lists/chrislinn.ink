@@ -1,7 +1,6 @@
 # 也体验一把密码朋克
 
 <!-- TODO
-+ chrome-extension://cdlcdnmhcodhagbmljapgbjdimjckilb/html/options.html
 + https://www.google.com/search?q=pgp%E6%8C%87%E7%BA%B9&oq=pgp%E6%8C%87%E7%BA%B9&aqs=chrome..69i57.746j0j7&sourceid=chrome&ie=UTF-8
 + https://jin-yang.github.io/post/security-pgp-introduce.html
 + https://tomli.blog/pgp
@@ -16,11 +15,8 @@
 
 区块链将 密码朋克 这个词带进了普通网民的视线，这篇文章带你也体验一把 密码朋克 (cyber punk) 过过瘾，随便复习一下密码学知识。
 
-最近 Victor Gevers 关于中国政府明文记录民众消息记录在分布式数据库中的新闻在安全圈内炒得火热，使用wx的时候，我们可能会有被监听的顾虑。这时候，PGP 就可以派上用场。
+最近 Victor Gevers 关于中国政府明文记录民众消息记录在分布式数据库中的新闻在安全圈内炒得火热，使用微信的时候，我们可能会有被监听的顾虑。这时候，PGP 就可以派上用场。
 
-<!-- TODO
-你可能也发现了，我在博客首页上贴出了 自己的 PGP Public key。那么，PGP 到底是什么？如何使用呢？下面就来讲解一下 PGP。
- -->
 
 ## PGP 是什么
 PGP (Pretty Good Privacy, "优良保密协议") 本身是用于签名和加解密商业应用程序；OpenPGP 是由 PGP 衍生出的开源规范（RFC 4880），而 GnuPG（简称 GPG）就是遵循 OpenPGP 规范的 GNU 实现。
@@ -31,7 +27,7 @@ PGP 实现加解密的原理流程图：
 
 ![PGP](/img/pgp/PGP_diagram.png)
 
-可以看到，OpenPGP 发送方产生一串随机数，作为对称加密密钥，这一随机数 __只对__ 该信息或该会话有效。使用接受者的公钥加密上述的随机数 (密钥)，放置到需要发送消息的开头。然后通过上述产生的随机数加密需要加密的信息（通常会先对信息进行压缩）。
+> 可以看到，OpenPGP 发送方产生一串随机数，作为对称加密密钥，这一随机数 __只对__ 该信息或该会话有效。使用接受者的公钥加密上述的随机数 (密钥)，放置到需要发送消息的开头。然后通过上述产生的随机数加密需要加密的信息（通常会先对信息进行压缩）。
 
 ## 体验
 
@@ -48,10 +44,38 @@ PGP 实现加解密的原理流程图：
 
 ### 签名
 
+上述的场景其实还存在另外一个问题。用户能加密一个文本，但是这个 pubkey 第三方也是获取的，如果微信用这个 pubkey 加密了一个文本，在我和你的聊天窗中给你发了一个消息，你可以解密出原文，但是我并不能证明我没有说过这句话，那真是百口莫辩。
+
+你们可能也注意到了，在 PGP Anywhere 的 Editor 标签页中，选择 private key 后不仅可以 Decrypt，还有一个 Sign 的功能。这个就是为了解决上述的问题。
+
+我的 private key 是不透露给别人的，我在签名之后，发给你原文和原文对应的签名，你使用我的 pubkey 进行验证。微信如果冒用我的名义给你发送一条消息，因为微信无法提供一条正确使用过我的  private key 进行签名的信息，你用的我的 pubkey 无法验证成功，那么就知道这不是真的我发出来的信息。
+
+当然了，实际使用中，往往会将签名和加密结合使用。我将原文用我的私钥签名，使用你的公钥签名，再发送给你，你收到后使用自己的私钥解密，再用我的公钥验证签名。这样就可以达到加密传输并且确认消息确实是我发出来的效果。
+
+读书的时候，带我的 PhD 喜欢每封邮件都带上签名，我一直觉得这是一件很酷炫的事情。读完这篇文章以后，相信你也会懂得 如何给邮件加上签名，可以说是很朋克了。
 
 
 ## 使用 GPG
 
+上面的例子中，双方需要知道对方的 pubkey，换台设备又要重新问一遍或者导出导入很麻烦。如果忘了又要重新生成密钥并告知对方，更麻烦。
+
+现实生活中，其实有 pgp key server 相应解决这个问题。比如中科大的 https://pgp.ustc.edu.cn/ ，mit 的 https://pgp.mit.edu/ 。别的知名的还有 [keys.gnupg.net](keys.gnupg.net) , [keyserver.ubuntu.com](keyserver.ubuntu.com) 等。用户的 pubkey 可以登记在 key server 上被查询和下载。
+
+我们来通过 GPG 来举例子。
+
+__TODO__
+
+
+<!-- 
++ asc
++ email
++ revoke
++ key server
+ -->
+
+## 信任传递
+
+__TODO__
 
 
 ## 注意
