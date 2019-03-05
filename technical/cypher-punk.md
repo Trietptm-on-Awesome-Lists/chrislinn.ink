@@ -16,24 +16,14 @@
 
 区块链将 密码朋克 这个词带进了普通网民的视线，这篇文章带你也体验一把 密码朋克 (cyber punk) 过过瘾，随便复习一下密码学知识。
 
-使用微信的时候，我们可能会有被监听的顾虑。这时候，PGP 就可以派上用场。
+使用wx的时候，我们可能会有被监听的顾虑。这时候，PGP 就可以派上用场。
 
 <!-- TODO
 你可能也发现了，我在博客首页上贴出了 自己的 PGP Public key。那么，PGP 到底是什么？如何使用呢？下面就来讲解一下 PGP。
  -->
 
-## PGP
+## PGP 是什么
 PGP (Pretty Good Privacy, "优良保密协议") 本身是用于签名和加解密商业应用程序；OpenPGP 是由 PGP 衍生出的开源规范（RFC 4880），而 GnuPG（简称 GPG）就是遵循 OpenPGP 规范的 GNU 实现。
-
-## 体验
-
-简单的 PGP 体验可以使用 Chrome 插件 PGP ANYWHERE，现在有的邮箱 (Secure Email, https://securegroup.com/secure-email/) 和邮箱插件 (如支持 Gmail 的 FlowCrypt) 也继承了 PGP 功能，邮件加解密、签名更加方便。
-
-进入 PGP Anywhere 插件，在 Options 标签页中 Generate Keys 可以生成一对公私钥，将这把公钥发给别人别人就可以进行加密（从别人那里获取一把公钥就可以加密消息并发给别人）。类似的，也可以使用
-
-
-<!-- TODO
- -->
 
 ## 原理流程
 
@@ -43,18 +33,24 @@ PGP 实现加解密的原理流程图：
 
 > 可以看到，OpenPGP 发送方产生一串随机数，作为对称加密密钥，这一随机数 __只对__ 该信息或该会话有效。使用接受者的公钥加密上述的随机数 (密钥)，放置到需要发送消息的开头。然后通过上述产生的随机数加密需要加密的信息（通常会先对信息进行压缩）。
 
-<!-- TODO 
+## 体验
 
-## 别的例子
+### 加密
 
-邮箱
+简单的 PGP 体验可以使用 Chrome 插件 PGP ANYWHERE，现在有的邮箱 (Secure Email, https://securegroup.com/secure-email/) 和邮箱插件 (如支持 Gmail 的 FlowCrypt) 也继承了 PGP 功能，邮件加解密、签名更加方便。
 
-消息签名
+进入 PGP Anywhere 插件，在 Options 标签页中 Generate Keys 可以生成一对公私钥，将这把公钥发给别人别人就可以进行加密（从别人那里获取一把公钥就可以加密消息并发给别人）。类似的，也可以使用 https://webencrypt.org/openpgpjs/ 或者 https://sela.io/pgp/ 这样的在线工具生成密钥对和加解密。
+
+在 PGP Anywhere 插件的 Editor 标签页中 选择一把 pubkey（从别人那里获得并 import），填写好你的文本，然后 进行 Decrypt，发送给对方。对方收到后，用他自己的 private key 解密，就可以还原出原本的文本。
+
+整个过程中，别人 不知道你们的 private key，只知道 pubkey （假如在传输过程中泄露）和 加密后的文本，所以无法知道消息的内容是什么。
+
+
+### 签名
+
 
 
 ## 使用 GPG
-
--->
 
 
 
