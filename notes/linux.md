@@ -201,6 +201,9 @@
         ...
         forward-socks5t / 127.0.0.1:<PORT> .
         ```
+    + `/etc/privoxy/user.action`
+        ```
+        ```
     + restart
         ```
         sudo privoxy --user privoxy /etc/privoxy/config
@@ -215,9 +218,18 @@
         ```
     + export (`/etc/profile`, better than `.bashXXX` or `.profile`)
         ```
-        export http_proxy=http://127.0.0.1:8118
-        export https_proxy=http://127.0.0.1:8118
-        export ftp_proxy=http://127.0.0.1:8118
+        function proxy_off(){
+            unset http_proxy
+            unset https_proxy
+            echo -e "proxy off!"
+        }
+
+        function proxy_on() {
+            export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+            export http_proxy="http://127.0.0.1:8118"
+            export https_proxy=$http_proxy
+            echo -e "proxy on!"
+        }
         ```
 + gfwlist
     * for provixy: `https://www.igfw.net/archives/1178`

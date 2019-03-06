@@ -499,4 +499,5 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
     * [x] list proposal
     * [ ] sign txproposal
     * [ ] submit txproposal
+        - processNewTxch?
 + delete unconfirmed utxo
