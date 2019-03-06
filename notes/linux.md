@@ -205,12 +205,15 @@
         ```
         sudo privoxy --user privoxy /etc/privoxy/config
         sudo service privoxy restart
+        sudo service privoxy start
+        sudo service privoxy stop
+        sudo service privoxy status
         ???
-        sudo systemctl enable privoxy
-        sudo systemctl start privoxy
-        sudo systemctl restart privoxy
+        [X] sudo systemctl enable privoxy
+        [X] sudo systemctl start privoxy
+        [X] sudo systemctl restart privoxy
         ```
-    + export (`/etc/profile`)
+    + export (`/etc/profile`, better than `.bashXXX` or `.profile`)
         ```
         export http_proxy=http://127.0.0.1:8118
         export https_proxy=http://127.0.0.1:8118
