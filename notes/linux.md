@@ -184,8 +184,8 @@
             ```
             ```
             sudo chmod +x /etc/init.d/sslocal
-            sudo update-rc.d sslocal defaults 90
-            sudo update-rc.d -f sslocal remove
+            sudo update-rc.d /etc/init.d/sslocal defaults 90
+            sudo update-rc.d -f /etc/init.d/sslocal remove
             ```
 + provixy
     + install
