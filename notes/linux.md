@@ -187,6 +187,44 @@
             sudo update-rc.d sslocal defaults 90
             sudo update-rc.d -f sslocal remove
             ```
++ provixy
+    + install
+        ```
+        sudo apt-get install privoxy
+        ```
+    + config
+        ```
+        sudo subl /etc/privoxy/config
+        ```
+        ```
+        listen-address localhost:8118
+        ...
+        forward-socks5t / 127.0.0.1:<PORT> .
+        ```
+    + restart
+        ```
+        sudo privoxy --user privoxy /etc/privoxy/config
+        sudo service privoxy restart
+        ???
+        sudo systemctl enable privoxy
+        sudo systemctl start privoxy
+        sudo systemctl restart privoxy
+        ```
+    + export (`/etc/profile`)
+        ```
+        export http_proxy=http://127.0.0.1:8118
+        export https_proxy=http://127.0.0.1:8118
+        export ftp_proxy=http://127.0.0.1:8118
+        ```
++ gfwlist
+    * for provixy: `https://www.igfw.net/archives/1178`
++ GenPAC
+    ```
+    sudo pip install genpac
+    pip install —-upgrade genpac
+    genpac --pac-proxy "SOCKS5 127.0.0.1:<PORT>" --gfwlist-proxy="SOCKS5 127.0.0.1:<PORT>" --gfwlist-url=https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt --output="autoproxy.pac” 
+    ```
+
 
 ## [Vim](/notes/vim.md)
 
