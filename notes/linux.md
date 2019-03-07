@@ -51,7 +51,7 @@
             sudo update-rc.d shadowsocks defaults
             sudo update-rc.d -f shadowsocks remove
             ```
-        3. `sudo vim /etc/init.d/sslocal`
+        3. `sudo vim /etc/init.d/sslocal_script`
             ```
             #!/bin/bash
             ### BEGIN INIT INFO
@@ -183,9 +183,11 @@
             esac
             ```
             ```
-            sudo chmod +x /etc/init.d/sslocal
-            sudo update-rc.d /etc/init.d/sslocal defaults 90
-            sudo update-rc.d -f /etc/init.d/sslocal remove
+            sudo chmod 755 /etc/init.d/sslocal_script
+            sudo chmod +x /etc/init.d/sslocal_script
+            cd /etc/init.d/
+            sudo update-rc.d sslocal_script defaults 90
+            sudo update-rc.d -f sslocal_script remove
             ```
 + provixy
     + install
@@ -216,7 +218,7 @@
         [X] sudo systemctl start privoxy
         [X] sudo systemctl restart privoxy
         ```
-    + export (`/etc/profile`, better than `.bashXXX` or `.profile`)
+    + export (`~/.bashrc`? `~/.profile`? `~/.bash_profile`? `/etc/profile`?)
         ```
         function proxy_off(){
             unset http_proxy
@@ -240,7 +242,38 @@
     genpac --pac-proxy "SOCKS5 127.0.0.1:<PORT>" --gfwlist-proxy="SOCKS5 127.0.0.1:<PORT>" --gfwlist-url=https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt --output="autoproxy.pac” 
     ```
 
+<!-- 
+`~/.bashrc`
+```
+function kproxy() {
+  unset http_proxy
+  unset https_proxy
+  echo -e "proxy off!"
+}
 
+function sproxy_ss() {
+  export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+  export http_proxy="http://127.0.0.1:8118"
+  export https_proxy=$http_proxy
+  echo -e "proxy on!"
+}
+
+function start_ss() {
+  sudo /etc/init.d/sslocal_script restart 
+}
+
+function start_goflyway() {
+  nohup goflyway -g -k="oo00oowoo00oo" -up="cf://i.lori.science:2082" > ~/.goflyway.log &
+}
+
+function sproxy_goflyway() {
+  export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+  export http_proxy="http://127.0.0.1:8100"
+  export https_proxy=$http_proxy
+  echo -e "proxy on!"
+}
+```
+ -->
 ## [Vim](/notes/vim.md)
 
 ## Reverse proxy
