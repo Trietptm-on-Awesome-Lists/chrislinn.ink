@@ -491,6 +491,8 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
 + createWallet, restoreWallet, addUTXO
 + delete unconfirmed utxo
 + memo
+    * tpp resp
+    * save memo when submit
 + raw tx
     * encoding decoding will waste storage
     * no need for encoding/decoding code
