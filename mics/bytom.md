@@ -493,6 +493,7 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
 + memo
     * tpp resp
     * save memo when submit
+    * memo test case
 + raw tx
     * encoding decoding will waste storage
     * no need for encoding/decoding code
