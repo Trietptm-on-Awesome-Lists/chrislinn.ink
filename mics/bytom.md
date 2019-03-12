@@ -498,6 +498,8 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
         - submit-txproposal
     * save memo when submit
     * memo test case
++ txhash? sign_data?
++ dataWitness
 + raw tx
     * encoding decoding will waste storage
     * no need for encoding/decoding code
