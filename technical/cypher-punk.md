@@ -11,6 +11,7 @@
 + https://wiki.debian.org/Keysigning#Step_5:_Hand_out_your_key.27s_fingerprint
 + https://www.debian.org/events/keysigning
 + http://www.queen.clara.net/pgp/art4.html
++ RSA? egima?
  -->
 
 区块链将 密码朋克 这个词带进了普通网民的视线，这篇文章带你也体验一把 密码朋克 (cyber punk) 过过瘾，随便复习一下密码学知识。
