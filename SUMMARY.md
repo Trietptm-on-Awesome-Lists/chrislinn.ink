@@ -6,7 +6,6 @@
         + [如何学习编程](technical/programming.md)
         + [也体验一把密码朋克](technical/cypher-punk.md)
         + [爬虫抓代理](technical/proxy-crawler.md)
-        + [My trip on Sublime Text](technical/subl.md)
     - 自我提升
         + [为什么我应该开始写笔记/博客](life-hacks/hello-blog.md)
         + [Life Hacks](life-hacks/life-hacks.md)
@@ -15,7 +14,8 @@
         - [我读哈耶克](notes/hayek.md)
         - [Westworld beautiful words](notes/westworld-subtitle.md)
         - [TheEconomist20161119 读报笔记](notes/trumps-world.md)
-        + [My trip on Linux](notes/linux.md)
+        + [Linux](notes/linux.md)
+        + [Sublime Text](notes/subl.md)
         + [Pentesting resource](notes/pres.md)
         + [How to Ask a Good Question](notes/how-to-ask-a-good-question.md)
         + [Subway 点餐指南](notes/subway.md)

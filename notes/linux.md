@@ -1,4 +1,4 @@
-# My trip on Linux
+# Linux Notes
 
 <!-- ex_nolevel -->
 

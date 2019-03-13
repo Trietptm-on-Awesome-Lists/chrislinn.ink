@@ -1,4 +1,4 @@
-# My trip on Sublime Text
+# Sublime Text Notes
 
 
 You can also take a look at [my __Sublime Text 3__ config](https://bitbucket.org/chris_linn/my-subl-config/).
