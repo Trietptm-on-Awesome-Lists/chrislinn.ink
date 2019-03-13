@@ -498,8 +498,9 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
         - submit-txproposal
     * save memo when submit
     * memo test case
-+ txhash? sign_data?
-+ dataWitness
-+ raw tx
-    * encoding decoding will waste storage
-    * no need for encoding/decoding code
++ JoinMultiSignWallet对pubkey进行合法性验证, 不然等生成地址的时候再判断就坑了
++ NewUtxoSelector历史记录缺陷现在选择utxo只会一次选择在多少个之内，而不是一共选择了多少个
++ txproposal lock untxo more than 24 hours， 7 days?
++ 调研if txProposalSign.Signatures == "" {是否可以去除
++ newAddress handle mutilsign??
++ db tx_proposals unique key
