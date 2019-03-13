@@ -27,7 +27,6 @@ PGP 实现加解密的原理流程图：
 
 ![PGP](/img/pgp/PGP_diagram.png)
 
-> 可以看到，OpenPGP 发送方产生一串随机数，作为对称加密密钥，这一随机数 __只对__ 该信息或该会话有效。使用接受者的公钥加密上述的随机数 (密钥)，放置到需要发送消息的开头。然后通过上述产生的随机数加密需要加密的信息（通常会先对信息进行压缩）。
 
 ## 体验
 
@@ -78,13 +77,27 @@ __TODO__
 __TODO__
 
 
-### 注意
+### 扩展阅读
 
-### 不要依靠 Key ID
+#### 为什么还每次会话生成一个（对称）密钥
+可以看到，OpenPGP 发送方产生一串随机数，作为对称加密密钥，这一随机数 __只对__ 该信息或该会话有效。使用接受者的公钥加密上述的随机数 (密钥)，放置到需要发送消息的开头。然后通过上述产生的随机数加密需要加密的信息（通常会先对信息进行压缩）。[这是为什么呢，为什么不直接用 已经交换好的对称公私钥呢，会有什么坏处？](https://security.stackexchange.com/questions/64399/pgp-encryption-whats-the-need-to-encrypt-using-random-one-time-key)
+
++ Asymmetric encryption algorithms like RSA or ElGamal are very limited in the size of messages that they can process.
+    * There is no currently known, clear, fully specified and heavily reviewed method by which a longer message could be somehow "split" into individual elements, each small enough to be RSA-encrypted, then reassembled.
+        - it is not that easy to do securely, and nobody quite knows how to do a secure mode of operation for RSA.
++ Even if we knew how to securely perform an only-RSA asymmetric encryption for bulk data, overhead can be considerable (multiplicative factor....)
++ Asymmetric encryption algorithms poorer performance
++ efficient multi-recipient data
+    * You symmetrically encrypt the data with a key K, then you encrypt K with the RSA key of each recipient. When you send a 3 MB file to 10 people, you would prefer to compute and send an encrypted email of size 3.01 MB, rather than ten 3 MB emails...
+
+
+#### 注意
+
+##### 不要依靠 Key ID
 Key ID （无论长短）已经 被证明 可以 被碰撞。为了安全应该使用全指纹而非 Key ID。应该在 GPG 配置文件中写上 `keyid-format 0xlong` 和 `with-fingerprint` 来保证所有密钥都是显示 64 位长的 ID 且显示指纹。
 
 
-### 不要盲目地相信来自密钥服务器的密钥
+##### 不要盲目地相信来自密钥服务器的密钥
 
 所有人都可以把自己的密钥上传到密钥服务器上，所以把你不应该仅仅是下载下密钥就盲目地认为就是你需要的那个。
 
