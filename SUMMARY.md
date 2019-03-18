@@ -37,6 +37,7 @@
         + [Interpreter in Python](technical/py-interpreter.md)
         + [MimbleWimble Origin](technical/mimblewimble-origin.md)
         + [DApps](technical/dapps.md)
+        + [WASM 关注列表](technical/wasm.md)
     - 自我提升
     - Notes
         - [Trading](notes/trading.md)
