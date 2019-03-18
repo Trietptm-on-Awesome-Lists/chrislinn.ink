@@ -504,7 +504,7 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
     * memo test case
 + newAddress handle mutilsign??
 + NewUtxoSelector历史记录缺陷现在选择utxo只会一次选择在多少个之内，而不是一共选择了多少个
++ [?] 调研if txProposalSign.Signatures == "" {是否可以去除
 + [X] JoinMultiSignWallet对pubkey进行合法性验证, 不然等生成地址的时候再判断就坑了
 + [X] db tx_proposals unique key
-+ [?] txproposal lock untxo more than 24 hours， 7 days?
-+ [?] 调研if txProposalSign.Signatures == "" {是否可以去除
++ [X] txproposal lock untxo more than 24 hours， 7 days?
