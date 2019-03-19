@@ -25,3 +25,26 @@
 + https://juejin.im/entry/5b7688b2e51d455f997fc6a5
 + https://juejin.im/entry/5b7a3fcc518825430d26ae48
 
+
+__rust...__
+
++ https://www.zhihu.com/question/31038569
++ https://www.zhihu.com/question/30407715
++ https://github.com/ctjhoa/rust-learning
++ https://github.com/RustStudy
+    * https://rust.cc/
+    * https://github.com/RustStudy/tao_of_rust_docs
++ https://doc.rust-lang.org/
+    * https://doc.rust-lang.org/stable/rust-by-example/
++ https://github.com/rust-lang
++ https://prev.rust-lang.org/en-US/documentation.html
++ https://www.rust-lang.org/learn
++ https://github.com/rust-lang-cn
+    * https://rustlang-cn.org/office/rust/book/
+        - poor translation
++ https://rustlang-cn.org/office/rust/
++ 
+
+__rust NG!__
++ https://github.com/rust-lang-nursery
+    * https://rust-lang-nursery.github.io/rust-cookbook/
