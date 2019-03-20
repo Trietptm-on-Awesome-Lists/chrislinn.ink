@@ -40,6 +40,9 @@ __阅读列表__
 + https://juejin.im/entry/5bb476eff265da0aba70cb7f
 + https://juejin.im/entry/5b7688b2e51d455f997fc6a5
 + https://juejin.im/entry/5b7a3fcc518825430d26ae48
++ https://github.com/patterns/hello-wasm
++ https://github.com/patterns/wasm-websocket
++ https://github.com/patterns/wasm-life
 
 
 __rust...__
