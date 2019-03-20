@@ -266,7 +266,7 @@ There is a denial-of-service option when a user downloads the chain, the peer ca
 
 For now maybe the user should just download the blockchain from a Torrent or something where the data is shared between many users and is reasonably likely to be correct.
 
-
+目前，用户可能只需从 BT 种子或者在一个许多用户共享数据的地方下载区块链，并且（数据）应该是正确的。
 
 ## 参考链接
 1. https://people.xiph.org/~greg/confidential_values.txt
