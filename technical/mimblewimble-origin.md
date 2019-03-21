@@ -1,5 +1,7 @@
 # MimbleWimble Origin
 
+* [Grin 交易原理详解](https://bbs.chainon.io/d/3074)
+
 MimbleWimble 协议起源. 
 
 翻译自 https://github.com/mimblewimble/docs/wiki/MimbleWimble-Origin.
