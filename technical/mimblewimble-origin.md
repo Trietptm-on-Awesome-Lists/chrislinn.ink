@@ -16,114 +16,52 @@ MimbleWimble 协议起源.
 
 ## Introduction 介绍
 
-Bitcoin is the first widely used financial system for which all the necessary
-data to validate the system status can be cryptographically verified by anyone.
-However, it accomplishes this feat by storing all transactions in a public
-database called "the blockchain" and someone who genuinely wishes to check
-this state must download the whole thing and basically replay each transaction,
-check each one as they go. Meanwhile, most of these transactions have not
-affected the actual final state (they create outputs that are destroyed
-a transaction later).
+Bitcoin is the first widely used financial system for which all the necessary data to validate the system status can be cryptographically verified by anyone. However, it accomplishes this feat by storing all transactions in a public database called "the blockchain" and someone who genuinely wishes to check this state must download the whole thing and basically replay each transaction, check each one as they go. Meanwhile, most of these transactions have not affected the actual final state (they create outputs that are destroyed a transaction later).
 
 比特币是第一个被广泛使用的，所有必要的验证系统状态的数据可以由任何人加密验证的金融系统。但是，它通过将所有交易存储在称为“区块链”的公共数据库来实现这一特性，想要检查状态的人必须下载整个“区块链”并基本上重播、检查每个交易。同时，大多数交易都没有影响实际最终状态（它们只是创建了可被将来的交易用掉的输出）。
 
-At the time of this writing, there were nearly 150 million transactions
-committed in the blockchain, which must be replayed to produce a set of
-only 4 million unspent outputs.
+At the time of this writing, there were nearly 150 million transactions committed in the blockchain, which must be replayed to produce a set of only 4 million unspent outputs.
 
 在写这篇文章的时候，区块链上已有约 一亿五千万笔交易发生，产生了 约 4百万笔 未花费输出。
 
-It would be better if an auditor needed only to check data on the outputs
-themselves, but this is impossible because they are valid if and only if the
-output is at the end of a chain of previous outputs, each signs the next. In
-other words, the whole blockchain must be validated to confirm the final
-state.
+It would be better if an auditor needed only to check data on the outputs themselves, but this is impossible because they are valid if and only if the output is at the end of a chain of previous outputs, each signs the next. In other words, the whole blockchain must be validated to confirm the final state.
 
+如果审计员只需要检查输出数据本身就好了，但这是不可能的，因为当且仅当输出位于先前输出链的末尾时，它们才有效，每个输出都标记下一个输出。 换句话说，必须验证整个区块链以确认最终状态。
 
-Add to this that these transactions are cryptographically atomic, it is clear
-what outputs go into every transaction and what emerges. The "transaction graph"
-resulting reveals a lot of information and is subjected to analysis by many
-companies whose business model is to monitor and control the lower classes.
-This makes it very non-private and even dangerous for people to use.
+Add to this that these transactions are cryptographically atomic, it is clear what outputs go into every transaction and what emerges. The "transaction graph" resulting reveals a lot of information and is subjected to analysis by many companies whose business model is to monitor and control the lower classes. This makes it very non-private and even dangerous for people to use.
 
+除此之外，这些事务是密码学上原子性的。每个交易的输出是什么以及出现了什么是很清楚的。 产生的“交易图”显示了大量信息，并且受到许多公司的分析，这些公司的商业模式是监控和控制下层阶级。 这使得它非常公开，甚至对使用者来说也很危险。
 
-Some solutions to this have been proposed. Greg Maxwell discovered to encrypt
-the amounts, so that the graph of the transaction is faceless but still allow
-validation that the sums are correct [1]. Dr Maxwell also produced CoinJoin,
-a system for Bitcoin users to combine interactively transactions, confusing
-the transaction graph. Nicolas van Saberhagen has developed a system to blind
-the transaction entries, goes much further to cloud the transaction graph (as
-well as not needed the user interaction) [3]. Later, Shen Noether combined
-the two approaches to obtain "confidential transactions" of Maxwell AND the
-darkening of van Saberhagen [4].
+Some solutions to this have been proposed. Greg Maxwell discovered to encrypt the amounts, so that the graph of the transaction is faceless but still allow validation that the sums are correct [1]. Dr Maxwell also produced CoinJoin, a system for Bitcoin users to combine interactively transactions, confusing the transaction graph. Nicolas van Saberhagen has developed a system to blind the transaction entries, goes much further to cloud the transaction graph (as well as not needed the user interaction) [3]. Later, Shen Noether combined the two approaches to obtain "confidential transactions" of Maxwell AND the darkening of van Saberhagen [4].
 
-These solutions are very good and would make Bitcoin very safe to use. But
-the problem of too much data is made even worse. Confidential transactions
-require multi-kilobyte proofs on every output, and van Saberhagen signatures
-require every output to be stored for ever, since it is not possible to tell
-when they are truly spent.
+These solutions are very good and would make Bitcoin very safe to use. But the problem of too much data is made even worse. Confidential transactions require multi-kilobyte proofs on every output, and van Saberhagen signatures require every output to be stored for ever, since it is not possible to tell when they are truly spent.
 
-Dr. Maxwell's CoinJoin has the problem of needing interactivity. Dr. Yuan Horas
-Mouton fixed this by making transactions freely mergeable [5], but he needed to
-use pairing-based cryptography, which is potentially slower and more difficult
-to trust. He called this "one-way aggregate signatures" (OWAS).
+Dr. Maxwell's CoinJoin has the problem of needing interactivity. Dr. Yuan Horas Mouton fixed this by making transactions freely mergeable [5], but he needed to use pairing-based cryptography, which is potentially slower and more difficult to trust. He called this "one-way aggregate signatures" (OWAS).
 
-OWAS had the good idea to combine the transactions in blocks. Imagine that we
-can combine across blocks (perhaps with some glue data) so that when the outputs
-are created and destroyed, it is the same as if they never existed. Then, to
-validate the entire chain, users only need to know when money is entered into
-the system (new money in each block as in Bitcoin or Monero or peg-ins for
-sidechains [6]) and final unspent outputs, the rest can be removed and forgotten.
-Then we can have Confidential Transactions to hide the amounts and OWAS to blur
-the transaction graph, and use LESS space than Bitcoin to allow users to fully
-verify the blockchain. And also imagine that we must not pairing-based cryptography
-or new hypotheses, just regular discrete logarithms signatures like Bitcoin.
-Here is what I propose.
+OWAS had the good idea to combine the transactions in blocks. Imagine that we can combine across blocks (perhaps with some glue data) so that when the outputs are created and destroyed, it is the same as if they never existed. Then, to validate the entire chain, users only need to know when money is entered into the system (new money in each block as in Bitcoin or Monero or peg-ins for sidechains [6]) and final unspent outputs, the rest can be removed and forgotten. Then we can have Confidential Transactions to hide the amounts and OWAS to blur the transaction graph, and use LESS space than Bitcoin to allow users to fully verify the blockchain. And also imagine that we must not pairing-based cryptography or new hypotheses, just regular discrete logarithms signatures like Bitcoin. Here is what I propose.
 
-I call my creation Mimblewimble because it is used to prevent the blockchain from
-talking about all user's information [7].
+I call my creation Mimblewimble because it is used to prevent the blockchain from talking about all user's information [7].
 
 
 
 ## Confidential Transactions and OWAS
 
 
-The first thing we need to do is remove Bitcoin Script. This is sad, but it is too
-powerful so it is impossible to merge transactions using general scripts. We will
-demonstrate that confidential transactions of Dr. Maxwell are enough (after some
-small modification) to authorize spending of outputs and also allows to make
-combined transactions without interaction. This is in fact identical to OWAS,
-and allows relaying nodes take some transaction fee or the recipient to change
-the transaction fees. These additional things Bitcoin can not do, we get for free.
+The first thing we need to do is remove Bitcoin Script. This is sad, but it is too powerful so it is impossible to merge transactions using general scripts. We will demonstrate that confidential transactions of Dr. Maxwell are enough (after some small modification) to authorize spending of outputs and also allows to make combined transactions without interaction. This is in fact identical to OWAS, and allows relaying nodes take some transaction fee or the recipient to change the transaction fees. These additional things Bitcoin can not do, we get for free. 
 
-We start by reminding the reader how confidential transactions work. First, the
-amounts are coded by the following equation:
+We start by reminding the reader how confidential transactions work. First, the amounts are coded by the following equation:
 
     C = r*G + v*H
 
-where C is a Pedersen commitment, G and H are fixed nothing-up-my-sleeve elliptic
-curve group generators, v is the amount, and r is a secret random blinding key.
+where C is a Pedersen commitment, G and H are fixed nothing-up-my-sleeve elliptic curve group generators, v is the amount, and r is a secret random blinding key.
 
-Attached to this output is a rangeproof which proves that v is in [0, 2^64], so
-that user cannot exploit the blinding to produce overflow attacks, etc.
+Attached to this output is a rangeproof which proves that v is in [0, 2^64], so that user cannot exploit the blinding to produce overflow attacks, etc.
 
-To validate a transaction, the verifer will add commitments for all outputs, plus
-f*H (f here is the transaction fee which is given explicitly) and subtracts all
-input commitments. The result must be 0, which proves that no amount was created
-or destroyed overall.
+To validate a transaction, the verifer will add commitments for all outputs, plus f*H (f here is the transaction fee which is given explicitly) and subtracts all input commitments. The result must be 0, which proves that no amount was created or destroyed overall.
 
-We note that to create such a transaction, the user must know the sum of all the
-values of r for commitments entries. Therefore, the r-values (and their sums) act
-as secret keys. If we can make the r output values known only to the recipient,
-then we have an authentication system! Unfortunately, if we keep the rule that
-commits all add to 0, this is impossible, because the sender knows the sum of
-all _his_ r values, and therefore knows the receipient's r values sum to the
-negative of that. So instead, we allow the transaction to sum to a nonzero value
-k*G, and require a signature of an empty string with this as key, to prove its
-amount component is zero.
+We note that to create such a transaction, the user must know the sum of all the values of r for commitments entries. Therefore, the r-values (and their sums) act as secret keys. If we can make the r output values known only to the recipient, then we have an authentication system! Unfortunately, if we keep the rule that commits all add to 0, this is impossible, because the sender knows the sum of all _his_ r values, and therefore knows the receipient's r values sum to the negative of that. So instead, we allow the transaction to sum to a nonzero value k*G, and require a signature of an empty string with this as key, to prove its amount component is zero.
 
-We let transactions have as many k*G values as they want, each with a signature,
-and sum them during verification.
+We let transactions have as many k*G values as they want, each with a signature, and sum them during verification.
 
 To create transactions sender and recipient do following ritual:
 
@@ -141,12 +79,7 @@ To create transactions sender and recipient do following ritual:
   4. Recipient attaches signature with k to the transaction, and the explicit
      fee. It has done.
 
-Now, creating transactions in this manner supports OWAS already. To show this,
-suppose we have two transactions that have a surplus k1*G and k2*G, and the
-attached signatures with these. Then you can combine the lists of inputs and
-outputs of the two transactions, with both k1*G and k2*G to the mix, and
-voilá! is again a valid transaction. From the combination, it is impossible to
-say which outputs or inputs are from which original transaction.
+Now, creating transactions in this manner supports OWAS already. To show this, suppose we have two transactions that have a surplus k1*G and k2*G, and the attached signatures with these. Then you can combine the lists of inputs and outputs of the two transactions, with both k1*G and k2*G to the mix, and voilá! is again a valid transaction. From the combination, it is impossible to say which outputs or inputs are from which original transaction.
 
 Because of this, we change our block format from Bitcoin to this information:
  1. Explicit amounts for new money (block subsidy or sidechain peg-ins) with
@@ -159,14 +92,9 @@ Because of this, we change our block format from Bitcoin to this information:
 
   4. Excess k*G values for all transactions
 
-Each of these are grouped together because it do not matter what the transaction
-boundaries are originally. In addition, Lists 2 3 and 4 should be required to be
-coded in alphabetical order, since it is quick to check and prevents the block
-creator of leaking any information about the original transactions.
+Each of these are grouped together because it do not matter what the transaction boundaries are originally. In addition, Lists 2 3 and 4 should be required to be coded in alphabetical order, since it is quick to check and prevents the block creator of leaking any information about the original transactions.
 
-Note that the outputs are now identified by their hash, and not by their position
-in a transaction that could easily change. Therefore, it should be banned to have
-two unspent outputs are equal at the same time, to avoid confusion.
+Note that the outputs are now identified by their hash, and not by their position in a transaction that could easily change. Therefore, it should be banned to have two unspent outputs are equal at the same time, to avoid confusion.
 
 
 
@@ -174,30 +102,13 @@ two unspent outputs are equal at the same time, to avoid confusion.
 ## Merging Transactions Across Blocks
 
 
-Now, we have used Dr. Maxwell's Confidential Transactions to create a noninteractive
-version of Dr. Maxwell's CoinJoin, but we have not seen the last of marvelous Dr. Maxwell!
-We need another idea, transaction cut-through, he described in [8]. Again, we create a
-noninteractive version of this, and to show how it is used with several blocks.
+Now, we have used Dr. Maxwell's Confidential Transactions to create a noninteractive version of Dr. Maxwell's CoinJoin, but we have not seen the last of marvelous Dr. Maxwell! We need another idea, transaction cut-through, he described in [8]. Again, we create a noninteractive version of this, and to show how it is used with several blocks.
 
-We can imagine now each block as one large transaction. To validate it, we add all the
-output commitments together, then subtracts all input commitments, k*G values, and all
-explicit input amounts times H. We find that we could combine transactions from two
-blocks, as we combined transactions to form a single block, and the result is again
-a valid transaction. Except now, some output commitments have an input commitment exactly
-equal to it, where the first block's output was spent in the second block. We could
-remove both commitments and still have a valid transaction. In fact, there is not even
-need to check the rangeproof of the deleted output.
+We can imagine now each block as one large transaction. To validate it, we add all the output commitments together, then subtracts all input commitments, k*G values, and all explicit input amounts times H. We find that we could combine transactions from two blocks, as we combined transactions to form a single block, and the result is again a valid transaction. Except now, some output commitments have an input commitment exactly equal to it, where the first block's output was spent in the second block. We could remove both commitments and still have a valid transaction. In fact, there is not even need to check the rangeproof of the deleted output.
 
-The extension of this idea all the way from the genesis block to the latest block, we
-see that EVERY nonexplicit input is deleted along with its referenced output. What
-remains are only the unspent outputs, explicit input amounts and every k*G value.
-And this whole mess can be validated as if it were one transaction: add all unspent
-commitments output, subtract the values k*G, validate explicit input amounts (if there
-is anything to validate) then subtract them times H. If the sum is 0, the entire
-chain is good.
+The extension of this idea all the way from the genesis block to the latest block, we see that EVERY nonexplicit input is deleted along with its referenced output. What remains are only the unspent outputs, explicit input amounts and every k*G value. And this whole mess can be validated as if it were one transaction: add all unspent commitments output, subtract the values k*G, validate explicit input amounts (if there is anything to validate) then subtract them times H. If the sum is 0, the entire chain is good.
 
-What is this mean? When a user starts up and downloads the chain he needs the following
-data from each block:
+What is this mean? When a user starts up and downloads the chain he needs the following data from each block:
 
   1. Explicit amounts for new money (block subsidy or sidechain peg-ins) with
      whatever else data this needs.
@@ -207,40 +118,25 @@ data from each block:
 
   3. Excess k*G values for all transactions.
 
-Bitcoin today there are about 423000 blocks, totaling 80GB or so of data on the hard
-drive to validate everything. These data are about 150 million transactions and 5 million
-unspent nonconfidential outputs. Estimate how much space the number of transactions
-take on a Mimblewimble chain. Each unspent output is around 3Kb for rangeproof and
-Merkle proof. Each transaction also adds about 100 bytes: a k*G value and a signature.
-The block headers and explicit amounts are negligible. Add this together and get
-30Gb -- with a confidential transaction and obscured transaction graph!
+Bitcoin today there are about 423000 blocks, totaling 80GB or so of data on the hard drive to validate everything. These data are about 150 million transactions and 5 million unspent nonconfidential outputs. Estimate how much space the number of transactions take on a Mimblewimble chain. Each unspent output is around 3Kb for rangeproof and Merkle proof. Each transaction also adds about 100 bytes: a k*G value and a signature. The block headers and explicit amounts are negligible. Add this together and get 30Gb -- with a confidential transaction and obscured transaction graph!
 
 
 
 ## Questions and Intuition
 
 
-Here are some questions that since these weeks, dreams asked me and I woke up sweating.
-But in fact it is OK.
+Here are some questions that since these weeks, dreams asked me and I woke up sweating. But in fact it is OK.
 
-  Q. If you delete the transaction outputs, user cannot verify the rangeproof and maybe
-     a negative amount is created.
+  Q. If you delete the transaction outputs, user cannot verify the rangeproof and maybe a negative amount is created.
 
-  A. This is OK. For the entire transaction to validate all negative amounts must have
-     been destroyed. User have SPV security only that no illegal inflation happened in
-     the past, but the user knows that _at this time_ no inflation occurred.
+  A. This is OK. For the entire transaction to validate all negative amounts must have been destroyed. User have SPV security only that no illegal inflation happened in the past, but the user knows that _at this time_ no inflation occurred.
 
 
   Q. If you delete the inputs, double spending can happen.
 
-  A. In fact, this means: maybe someone claims that some unspent output was spent
-     in the old days. But this is impossible, otherwise the sum of the combined transaction
-     could not be zero.
+  A. In fact, this means: maybe someone claims that some unspent output was spent in the old days. But this is impossible, otherwise the sum of the combined transaction could not be zero.
 
-     An exception is that if the outputs are amount zero, it is possible to make two that
-     are negatives of each other, and the pair can be revived without anything breaks. So to
-     prevent consensus problems, outputs 0-amount should be banned. Just add H at each output,
-     now they all amount to at least 1.
+     An exception is that if the outputs are amount zero, it is possible to make two that are negatives of each other, and the pair can be revived without anything breaks. So to prevent consensus problems, outputs 0-amount should be banned. Just add H at each output, now they all amount to at least 1.
 
 
 
