@@ -1,5 +1,7 @@
 # MimbleWimble Origin
 
+* [Grin 交易原理详解](https://bbs.chainon.io/d/3074)
+
 MimbleWimble 协议起源. 
 
 翻译自 https://github.com/mimblewimble/docs/wiki/MimbleWimble-Origin.
@@ -12,8 +14,7 @@ MimbleWimble 协议起源.
 > 19 July, 2016
 
 
-## Introduction
-
+## Introduction 介绍
 
 Bitcoin is the first widely used financial system for which all the necessary
 data to validate the system status can be cryptographically verified by anyone.
@@ -23,6 +24,8 @@ this state must download the whole thing and basically replay each transaction,
 check each one as they go. Meanwhile, most of these transactions have not
 affected the actual final state (they create outputs that are destroyed
 a transaction later).
+
+比特币是第一个被广泛使用的，所有必要的验证系统状态的数据可以由任何人加密验证的金融系统。但是，它通过将所有交易存储在称为“区块链”的公共数据库来实现这一特性，想要检查状态的人必须下载整个“区块链”并基本上重播、检查每个交易。同时，大多数交易都没有影响实际最终状态（它们只是创建了可被将来的交易用掉的输出）。
 
 At the time of this writing, there were nearly 150 million transactions
 committed in the blockchain, which must be replayed to produce a set of
@@ -265,7 +268,7 @@ There is a denial-of-service option when a user downloads the chain, the peer ca
 
 For now maybe the user should just download the blockchain from a Torrent or something where the data is shared between many users and is reasonably likely to be correct.
 
-
+目前，用户可能只需从 BT 种子或者在一个许多用户共享数据的地方下载区块链，并且（数据）应该是正确的。
 
 ## 参考链接
 1. https://people.xiph.org/~greg/confidential_values.txt
