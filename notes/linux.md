@@ -223,6 +223,8 @@
         function proxy_off(){
             unset http_proxy
             unset https_proxy
+            npm config delete proxy
+            npm config delete https-proxy
             echo -e "proxy off!"
         }
 
@@ -230,8 +232,19 @@
             export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
             export http_proxy="http://127.0.0.1:8118"
             export https_proxy=$http_proxy
+            npm config set proxy "http://127.0.0.1:8118"
+            npm config set https-proxy "https://127.0.0.1:8118"
             echo -e "proxy on!"
         }
+        ```
+    + `/etc/apt/apt.conf`
+        ```
+        Acquire::http::proxy "http://127.0.0.1:8118/";
+        Acquire::https::proxy "https://127.0.0.1:8118/";
+        ```
+        in case apt doesn't use conf
+        ```
+        sudo apt-get -c /etc/apt/apt.conf update
         ```
 + gfwlist
     * for provixy: `https://www.igfw.net/archives/1178`
