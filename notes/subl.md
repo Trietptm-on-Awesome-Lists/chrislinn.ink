@@ -153,6 +153,8 @@ You can also take a look at [my __Sublime Text 3__ config](https://bitbucket.org
 
 
 ## Shortcuts
++ HTML-CSS-JS Prettify
+    * C+S+H
 + MardownEditting
     * S+Tab
         - fold/unfold
