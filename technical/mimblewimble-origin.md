@@ -76,7 +76,7 @@ We start by reminding the reader how confidential transactions work. First, the 
 我们首先提醒读者保密交易是如何工作的。首先，用以下公式对金额进行编码：
 
 ```
-C = r*G + v*H
+C = r * G + v * H
 ```
 
 where C is a Pedersen commitment, G and H are fixed nothing-up-my-sleeve elliptic curve group generators, v is the amount, and r is a secret random blinding key.
@@ -110,6 +110,9 @@ Sender and recipient agree on amount to be sent. Call this b.
 
 2.
 Sender creates transaction with all inputs and change output(s), and gives recipient the total blinding factor (r-value of change minus r-values of inputs) along with this transaction. So the commitments sum to r*G - b*H.
+
+发送方创建具有所有输入的交易，更改输出，并将总盲因子（更改的 r 值减去输入的 r 值）与此交易一起提供给接收方。因此，总额为 `r * G - b * H` 。
+
 
 3.
 Recipient chooses random r-values for his outputs, and values that sum to b minus fee, and adds these to transaction (including range proof). Now the commitments sum to k*G - fee*H for some k that only recipient knows.
