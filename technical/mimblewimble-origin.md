@@ -34,7 +34,11 @@ Add to this that these transactions are cryptographically atomic, it is clear wh
 
 Some solutions to this have been proposed. Greg Maxwell discovered to encrypt the amounts, so that the graph of the transaction is faceless but still allow validation that the sums are correct [1]. Dr Maxwell also produced CoinJoin, a system for Bitcoin users to combine interactively transactions, confusing the transaction graph. Nicolas van Saberhagen has developed a system to blind the transaction entries, goes much further to cloud the transaction graph (as well as not needed the user interaction) [3]. Later, Shen Noether combined the two approaches to obtain "confidential transactions" of Maxwell AND the darkening of van Saberhagen [4].
 
+对此，一些解决办法被提出。Greg Maxwell 发现如果加密了金额，交易的流向图可以达到匿名效果，但金额是否正确[1]仍然可以被验证。Maxwell 博士还制造了 coinjoin ，一个比特币用户可以交互地组合交易的系统，来混淆交易流向图。Nicolas van Saberhagen 已经开发了一个系统来掩盖交易条目，并进一步对交易流向图进行了遮敝（也不需要用户交互）。后来，Shen Noether 结合了两种方法来达成 Maxwell 的“机密交易”和 van Saberhagen 的遮敝[4]。
+
 These solutions are very good and would make Bitcoin very safe to use. But the problem of too much data is made even worse. Confidential transactions require multi-kilobyte proofs on every output, and van Saberhagen signatures require every output to be stored for ever, since it is not possible to tell when they are truly spent.
+
+这些解决方案非常好，可以使比特币的使用。但数据太多的问题变得更为严重了。机密交易需要在每个输出上有多个KB的证明，而 van Saberhagen 签名要求永远存储每个输出，因为不可能知道它们何时真正被使用。
 
 Dr. Maxwell's CoinJoin has the problem of needing interactivity. Dr. Yuan Horas Mouton fixed this by making transactions freely mergeable [5], but he needed to use pairing-based cryptography, which is potentially slower and more difficult to trust. He called this "one-way aggregate signatures" (OWAS).
 
