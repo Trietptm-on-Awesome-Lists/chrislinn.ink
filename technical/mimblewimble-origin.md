@@ -5,6 +5,8 @@ MimbleWimble 白皮书的诞生基于 2013 年发表的另一篇匿名论文。�
  -->
 <!-- 
 ## TODOS
++ 致盲攻击
++ 盲签名
 + https://download.wpsoftware.net/bitcoin/wizardry/mimblewimble.pdf
 + https://github.com/mimblewimble/grin/blob/master/doc/intro.md
 * [Grin 交易原理详解](https://www.longhash.com.cn/news/145)
@@ -83,7 +85,11 @@ where C is a Pedersen commitment, G and H are fixed nothing-up-my-sleeve ellipti
 
 Attached to this output is a rangeproof which proves that v is in [0, 2^64], so that user cannot exploit the blinding to produce overflow attacks, etc.
 
+附加在这个输出上的是一个 RangeProof ，它证明 v 在 [0，2^64]中，因此用户不能利用致盲来产生溢出攻击等。
+
 To validate a transaction, the verifer will add commitments for all outputs, plus f*H (f here is the transaction fee which is given explicitly) and subtracts all input commitments. The result must be 0, which proves that no amount was created or destroyed overall.
+
+为了验证交易，验证人将加上所有的输出，加上 `f * H` (这里的 f 是显示给出的交易费)，并减去所有的输入。这个结果肯定为零，证明整体数量上没有新增或者销毁。
 
 We note that to create such a transaction, the user must know the sum of all the values of r for commitments entries. Therefore, the r-values (and their sums) act as secret keys. If we can make the r output values known only to the recipient, then we have an authentication system! Unfortunately, if we keep the rule that commits all add to 0, this is impossible, because the sender knows the sum of all _his_ r values, and therefore knows the receipient's r values sum to the negative of that. So instead, we allow the transaction to sum to a nonzero value k*G, and require a signature of an empty string with this as key, to prove its amount component is zero.
 
@@ -121,33 +127,25 @@ The extension of this idea all the way from the genesis block to the latest bloc
 
 What is this mean? When a user starts up and downloads the chain he needs the following data from each block:
 
-  1. Explicit amounts for new money (block subsidy or sidechain peg-ins) with
-     whatever else data this needs.
-
-  2. Unspent outputs of all transactions, along with a merkle proof that each
-     output appeared in the original block.
-
-  3. Excess k*G values for all transactions.
+1. Explicit amounts for new money (block subsidy or sidechain peg-ins) with whatever else data this needs.
+2. Unspent outputs of all transactions, along with a merkle proof that each output appeared in the original block.
+3. Excess k*G values for all transactions.
 
 Bitcoin today there are about 423000 blocks, totaling 80GB or so of data on the hard drive to validate everything. These data are about 150 million transactions and 5 million unspent nonconfidential outputs. Estimate how much space the number of transactions take on a Mimblewimble chain. Each unspent output is around 3Kb for rangeproof and Merkle proof. Each transaction also adds about 100 bytes: a k*G value and a signature. The block headers and explicit amounts are negligible. Add this together and get 30Gb -- with a confidential transaction and obscured transaction graph!
 
-
-
 ## Questions and Intuition
-
 
 Here are some questions that since these weeks, dreams asked me and I woke up sweating. But in fact it is OK.
 
-  Q. If you delete the transaction outputs, user cannot verify the rangeproof and maybe a negative amount is created.
+Q. If you delete the transaction outputs, user cannot verify the rangeproof and maybe a negative amount is created.
 
-  A. This is OK. For the entire transaction to validate all negative amounts must have been destroyed. User have SPV security only that no illegal inflation happened in the past, but the user knows that _at this time_ no inflation occurred.
+A. This is OK. For the entire transaction to validate all negative amounts must have been destroyed. User have SPV security only that no illegal inflation happened in the past, but the user knows that _at this time_ no inflation occurred.
 
+Q. If you delete the inputs, double spending can happen.
 
-  Q. If you delete the inputs, double spending can happen.
+A. In fact, this means: maybe someone claims that some unspent output was spent in the old days. But this is impossible, otherwise the sum of the combined transaction could not be zero.
 
-  A. In fact, this means: maybe someone claims that some unspent output was spent in the old days. But this is impossible, otherwise the sum of the combined transaction could not be zero.
-
-     An exception is that if the outputs are amount zero, it is possible to make two that are negatives of each other, and the pair can be revived without anything breaks. So to prevent consensus problems, outputs 0-amount should be banned. Just add H at each output, now they all amount to at least 1.
+An exception is that if the outputs are amount zero, it is possible to make two that are negatives of each other, and the pair can be revived without anything breaks. So to prevent consensus problems, outputs 0-amount should be banned. Just add H at each output, now they all amount to at least 1.
 
 
 
