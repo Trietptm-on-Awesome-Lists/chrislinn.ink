@@ -34,7 +34,7 @@ Add to this that these transactions are cryptographically atomic, it is clear wh
 
 Some solutions to this have been proposed. Greg Maxwell discovered to encrypt the amounts, so that the graph of the transaction is faceless but still allow validation that the sums are correct [1]. Dr Maxwell also produced CoinJoin, a system for Bitcoin users to combine interactively transactions, confusing the transaction graph. Nicolas van Saberhagen has developed a system to blind the transaction entries, goes much further to cloud the transaction graph (as well as not needed the user interaction) [3]. Later, Shen Noether combined the two approaches to obtain "confidential transactions" of Maxwell AND the darkening of van Saberhagen [4].
 
-对此，一些解决办法被提出。Greg Maxwell 发现如果加密了金额，交易的流向图可以达到匿名效果，但金额是否正确[1]仍然可以被验证。Maxwell 博士还制造了 coinjoin ，一个比特币用户可以交互地组合交易的系统，来混淆交易流向图。Nicolas van Saberhagen 已经开发了一个系统来掩盖交易条目，并进一步对交易流向图进行了遮敝（也不需要用户交互）。后来，Shen Noether 结合了两种方法来达成 Maxwell 的“机密交易”和 van Saberhagen 的遮敝[4]。
+对此，一些解决办法被提出。Greg Maxwell 发现如果加密了金额，交易的图可以达到匿名效果，但金额是否正确[1]仍然可以被验证。Maxwell 博士还制造了 coinjoin ，一个比特币用户可以交互地组合交易的系统，来混淆交易图。Nicolas van Saberhagen 已经开发了一个系统来掩盖交易条目，并进一步对交易图进行了遮敝（也不需要用户交互）。后来，Shen Noether 结合了两种方法来达成 Maxwell 的“机密交易”和 van Saberhagen 的遮敝[4]。
 
 These solutions are very good and would make Bitcoin very safe to use. But the problem of too much data is made even worse. Confidential transactions require multi-kilobyte proofs on every output, and van Saberhagen signatures require every output to be stored for ever, since it is not possible to tell when they are truly spent.
 
@@ -46,14 +46,14 @@ Dr. Maxwell's CoinJoin has the problem of needing interactivity. Dr. Yuan Horas 
 
 OWAS had the good idea to combine the transactions in blocks. Imagine that we can combine across blocks (perhaps with some glue data) so that when the outputs are created and destroyed, it is the same as if they never existed. Then, to validate the entire chain, users only need to know when money is entered into the system (new money in each block as in Bitcoin or Monero or peg-ins for sidechains [6]) and final unspent outputs, the rest can be removed and forgotten. Then we can have Confidential Transactions to hide the amounts and OWAS to blur the transaction graph, and use LESS space than Bitcoin to allow users to fully verify the blockchain. And also imagine that we must not pairing-based cryptography or new hypotheses, just regular discrete logarithms signatures like Bitcoin. Here is what I propose.
 
-<!-- OWAS有一个好主意，将事务组合成块。假设我们可以跨块组合（可能与一些粘合数据结合），这样当创建和销毁输出时，就好像它们从未存在过一样。然后，为了验证整个链，用户只需要知道什么时候货币进入系统（每个区块的新货币，如比特币或Monero或侧链的钉住货币[6]）和最终未使用的输出，其余的可以删除和忘记。然后我们可以进行保密交易来隐藏金额和OWA来模糊交易图，并使用比比特币更少的空间来允许用户完全验证区块链。并且想象一下，我们不能配对的密码术或新的假设，只是常规的离散对数签名，如比特币。这是我的建议。 -->
+单向聚合签名将事务组合成块的主意很好。假设我们可以跨块组合（可能与一些粘合数据结合），这样当创建和销毁输出时，就好像它们从未存在过一样。然后，为了验证整个链，用户只需要知道货币什么时候进入系统（每个区块的新货币，如比特币或Monero或侧链的锚定货币[6]）和最终未使用的输出，其余的信息就都可以删除和忘记。然后我们可以进行保密交易来隐藏金额和 单向聚合签名来模糊交易图，并使用比比特币更少的空间来允许用户完全验证区块链。并且想象一下，我们没有配对的加密或新的假设，只是常规的离散对数签名，如比特币。这是我的建议。
 
 I call my creation Mimblewimble because it is used to prevent the blockchain from talking about all user's information [7].
 
 我将我的发明称为 mimblewimble，因为它用于不让区块链谈及每一个用户的信息[7]。
 
 
-## Confidential Transactions and OWAS
+## Confidential Transactions and OWAS 保密交易和单向聚合签名
 
 
 The first thing we need to do is remove Bitcoin Script. This is sad, but it is too powerful so it is impossible to merge transactions using general scripts. We will demonstrate that confidential transactions of Dr. Maxwell are enough (after some small modification) to authorize spending of outputs and also allows to make combined transactions without interaction. This is in fact identical to OWAS, and allows relaying nodes take some transaction fee or the recipient to change the transaction fees. These additional things Bitcoin can not do, we get for free. 
