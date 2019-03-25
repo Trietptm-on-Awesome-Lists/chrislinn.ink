@@ -42,10 +42,15 @@ These solutions are very good and would make Bitcoin very safe to use. But the p
 
 Dr. Maxwell's CoinJoin has the problem of needing interactivity. Dr. Yuan Horas Mouton fixed this by making transactions freely mergeable [5], but he needed to use pairing-based cryptography, which is potentially slower and more difficult to trust. He called this "one-way aggregate signatures" (OWAS).
 
+麦克斯韦博士的 CoinJoin 存在需要互动性的问题。Yuan Horas Mouton 博士通过使交易可以自由合并来解决这一问题[5]，但他需要使用基于配对的密码术，这可能更慢，更难信任。他称之为“单向聚合签名”（OWAS）。
+
 OWAS had the good idea to combine the transactions in blocks. Imagine that we can combine across blocks (perhaps with some glue data) so that when the outputs are created and destroyed, it is the same as if they never existed. Then, to validate the entire chain, users only need to know when money is entered into the system (new money in each block as in Bitcoin or Monero or peg-ins for sidechains [6]) and final unspent outputs, the rest can be removed and forgotten. Then we can have Confidential Transactions to hide the amounts and OWAS to blur the transaction graph, and use LESS space than Bitcoin to allow users to fully verify the blockchain. And also imagine that we must not pairing-based cryptography or new hypotheses, just regular discrete logarithms signatures like Bitcoin. Here is what I propose.
+
+<!-- OWAS有一个好主意，将事务组合成块。假设我们可以跨块组合（可能与一些粘合数据结合），这样当创建和销毁输出时，就好像它们从未存在过一样。然后，为了验证整个链，用户只需要知道什么时候货币进入系统（每个区块的新货币，如比特币或Monero或侧链的钉住货币[6]）和最终未使用的输出，其余的可以删除和忘记。然后我们可以进行保密交易来隐藏金额和OWA来模糊交易图，并使用比比特币更少的空间来允许用户完全验证区块链。并且想象一下，我们不能配对的密码术或新的假设，只是常规的离散对数签名，如比特币。这是我的建议。 -->
 
 I call my creation Mimblewimble because it is used to prevent the blockchain from talking about all user's information [7].
 
+我将我的发明称为 mimblewimble，因为它用于不让区块链谈及每一个用户的信息[7]。
 
 
 ## Confidential Transactions and OWAS
