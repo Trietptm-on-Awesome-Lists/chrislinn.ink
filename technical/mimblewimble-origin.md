@@ -63,17 +63,23 @@ I call my creation Mimblewimble because it is used to prevent the blockchain fro
 
 我将我的发明称为 mimblewimble，因为它用于不让区块链谈及每一个用户的信息[7]。
 
-
 ## Confidential Transactions and OWAS 保密交易和单向聚合签名
-
 
 The first thing we need to do is remove Bitcoin Script. This is sad, but it is too powerful so it is impossible to merge transactions using general scripts. We will demonstrate that confidential transactions of Dr. Maxwell are enough (after some small modification) to authorize spending of outputs and also allows to make combined transactions without interaction. This is in fact identical to OWAS, and allows relaying nodes take some transaction fee or the recipient to change the transaction fees. These additional things Bitcoin can not do, we get for free. 
 
+我们要做的第一件事就是移除比特币脚本。这令人悲伤，但它太强大了，强大到不可能使用常规脚本合并交易。我们将证明，Maxwell 博士的机密交易（经过一些小修改）足以授权花费输出，并允许在没有交互的情况下进行组合交易。这实际上与单向聚合签名相同，并且允许中继节点收取一些交易费用，或者允许收款人更改交易费用。这些额外的事情比特币做不到，我们却能自由做到。
+
 We start by reminding the reader how confidential transactions work. First, the amounts are coded by the following equation:
 
-    C = r*G + v*H
+我们首先提醒读者保密交易是如何工作的。首先，用以下公式对金额进行编码：
+
+```
+C = r*G + v*H
+```
 
 where C is a Pedersen commitment, G and H are fixed nothing-up-my-sleeve elliptic curve group generators, v is the amount, and r is a secret random blinding key.
+
+其中 C 是一个 Pedersen 承诺，G 和 H 是固定的、公开的、无心机的没有椭圆曲线群生成器，v 是数量，r 是一个秘密的随机盲密钥。
 
 Attached to this output is a rangeproof which proves that v is in [0, 2^64], so that user cannot exploit the blinding to produce overflow attacks, etc.
 
@@ -85,38 +91,23 @@ We let transactions have as many k*G values as they want, each with a signature,
 
 To create transactions sender and recipient do following ritual:
 
-  1. Sender and recipient agree on amount to be sent. Call this b.
-
-  2. Sender creates transaction with all inputs and change output(s), and gives
-     recipient the total blinding factor (r-value of change minus r-values of
-     inputs) along with this transaction. So the commitments sum to r*G - b*H.
-
-  3. Recipient chooses random r-values for his outputs, and values that sum
-     to b minus fee, and adds these to transaction (including range proof).
-     Now the commitments sum to k*G - fee*H for some k that only recipient
-     knows.
-
-  4. Recipient attaches signature with k to the transaction, and the explicit
-     fee. It has done.
+1. Sender and recipient agree on amount to be sent. Call this b.
+2. Sender creates transaction with all inputs and change output(s), and gives recipient the total blinding factor (r-value of change minus r-values of inputs) along with this transaction. So the commitments sum to r*G - b*H.
+3. Recipient chooses random r-values for his outputs, and values that sum to b minus fee, and adds these to transaction (including range proof). Now the commitments sum to k*G - fee*H for some k that only recipient knows.
+4. Recipient attaches signature with k to the transaction, and the explicit fee. It has done.
 
 Now, creating transactions in this manner supports OWAS already. To show this, suppose we have two transactions that have a surplus k1*G and k2*G, and the attached signatures with these. Then you can combine the lists of inputs and outputs of the two transactions, with both k1*G and k2*G to the mix, and voilá! is again a valid transaction. From the combination, it is impossible to say which outputs or inputs are from which original transaction.
 
 Because of this, we change our block format from Bitcoin to this information:
- 1. Explicit amounts for new money (block subsidy or sidechain peg-ins) with
-     whatever else data this needs. For a sidechain peg-in maybe it references
-     a Bitcoin transaction that commits to a specific excess k*G value?
 
-  2. Inputs of all transactions
-
-  3. Outputs of all transactions
-
-  4. Excess k*G values for all transactions
+1. Explicit amounts for new money (block subsidy or sidechain peg-ins) with whatever else data this needs. For a sidechain peg-in maybe it references a Bitcoin transaction that commits to a specific excess k*G value?
+2. Inputs of all transactions
+3. Outputs of all transactions
+4. Excess k*G values for all transactions
 
 Each of these are grouped together because it do not matter what the transaction boundaries are originally. In addition, Lists 2 3 and 4 should be required to be coded in alphabetical order, since it is quick to check and prevents the block creator of leaking any information about the original transactions.
 
 Note that the outputs are now identified by their hash, and not by their position in a transaction that could easily change. Therefore, it should be banned to have two unspent outputs are equal at the same time, to avoid confusion.
-
-
 
 
 ## Merging Transactions Across Blocks
