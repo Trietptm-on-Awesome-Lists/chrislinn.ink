@@ -85,7 +85,7 @@ where C is a Pedersen commitment, G and H are fixed nothing-up-my-sleeve ellipti
 
 Attached to this output is a rangeproof which proves that v is in [0, 2^64], so that user cannot exploit the blinding to produce overflow attacks, etc.
 
-附加在这个输出上的是一个 RangeProof ，它证明 v 在 [0，2^64]中，因此用户不能利用致盲来产生溢出攻击等。
+附加在这个输出上的是一个 RangeProof ，它证明 v 在 [0，2^64]中，因此用户不能利用盲化来产生溢出攻击等。
 
 To validate a transaction, the verifer will add commitments for all outputs, plus f*H (f here is the transaction fee which is given explicitly) and subtracts all input commitments. The result must be 0, which proves that no amount was created or destroyed overall.
 
@@ -113,9 +113,10 @@ Sender creates transaction with all inputs and change output(s), and gives recip
 
 发送方创建具有所有输入的交易，更改输出，并将总盲因子（更改的 r 值减去输入的 r 值）与此交易一起提供给接收方。因此，总额为 `r * G - b * H` 。
 
-
 3.
 Recipient chooses random r-values for his outputs, and values that sum to b minus fee, and adds these to transaction (including range proof). Now the commitments sum to k*G - fee*H for some k that only recipient knows.
+
+接受者为其输出选择随机的 r 值，以及一些值（且他们的总和 b 减去手续费），并将这些值添加到交易中（包括范围证明）。现在，总额为 `K * G - fee * H`，K 只有接受方知道。
 
 4.
 Recipient attaches signature with k to the transaction, and the explicit fee. It has done.
