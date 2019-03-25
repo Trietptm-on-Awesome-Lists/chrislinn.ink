@@ -9,6 +9,22 @@
             * go 920ms -> go 820ms -> simd 160ms -> cuda 6ms
         + block recommit
     - consume newBlockCh for vault_mode
+    - tx cache
+        + orphan? blockcache?
+        + chain
+            * if nil, rescan
+            * protocol/store.go
+            * database/leveldb/...
+        + api
+            * add to getTx
+            * wallet rescan?
+            * force rescan?
+        + wallet!
+            * 临时关联输入输出?
+            * a.rescanWallet()?
+            * wallet/
+                - TxPrefix
+                - TxIndexPrefix
 + Precogs
     * 涉及 P2P
 + 中心化钱包

@@ -1,7 +1,20 @@
 # MimbleWimble Origin
 
-* [Grin 交易原理详解](https://bbs.chainon.io/d/3074)
-
+<!-- 
+MimbleWimble 白皮书的诞生基于 2013 年发表的另一篇匿名论文。这篇论文中使用了单向聚合签名（one-way aggregate signatures ），并搭配一种新的密码原语——配对加密，尽管这种密码原语在学术界不太受信任。此外，MimbleWimble 白皮书还参考了比特币核心开发者 Gregory Maxwell 提出的两项隐私建议——机密交易和 CoinJoin。所谓的 CoinJoin，即当你想要转账时 , 可以找到另外一些也想转账的人 , 你们分别签名自己的输入，共同创建一笔交易。CoinJoin 的核心思想是利用比特币的一笔交易中可以有多个输入以及多个输出这一点 , 将多笔交易合并 , 让人难以分辨哪笔输入对应哪笔输出 , 进而达到难以追踪某个地址的资金的来源或去向的目的。最初的 MimbleWimble 白皮书使用了与比特币相同的椭圆曲线加密技术，引起了诸多比特币研究者的关注。Blockstream 的数学家、应用密码学家 Andrew Poelstra 就是其中一员，他对 MimbleWimble 白皮书进行了改进，于 2016 年 10 月发布了「precise」版本。长久以来，Andrew Poelstra 的工作重点一直是保护隐私，致力于比特币的机密交易和「无脚本脚本」。
+ -->
+<!-- 
+## TODOS
++ 致盲攻击
++ 盲签名
++ https://download.wpsoftware.net/bitcoin/wizardry/mimblewimble.pdf
++ https://github.com/mimblewimble/grin/blob/master/doc/intro.md
+* [Grin 交易原理详解](https://www.longhash.com.cn/news/145)
+* [Mimblewimble explained like you’re 12](https://medium.com/beam-mw/mimblewimble-explained-like-youre-12-d779a5bb483d)
+* [张韧全面解析 MimbleWimble](https://mp.weixin.qq.com/s?__biz=MzUzNzg4NTAzOA==&mid=2247485610&idx=1&sn=e296a5c4e13cc194b76982af3c145f40&chksm=fae168abcd96e1bdbf7272566de64d69c822d614518a09360f725acc5be444fb3fb5a1035351&mpshare=1&scene=1&srcid=0325fDDI1XeZAhHgF6fCKJjg&pass_ticket=D1SY%2FSFIGgI7aWe8aWZDU7arUhabZE76G0iajOdbaQhRJSkDiBvR36vEcbpjpSnL#rd)
+* [Beam and the Mimblewimble Protocol Breathe Life Back into Online Privacy Go to the profile of Alex Broudy](https://medium.com/coinmonks/beam-breathes-life-back-into-online-privacy-38d2c50c807d)
+* [Circle 极致解读 : MimbleWimble 及两个实现 Grin 与 Beam](https://www.chainnews.com/articles/179305830457.htm)
+ -->
 MimbleWimble 协议起源. 
 
 翻译自 https://github.com/mimblewimble/docs/wiki/MimbleWimble-Origin.
@@ -34,69 +47,101 @@ Add to this that these transactions are cryptographically atomic, it is clear wh
 
 Some solutions to this have been proposed. Greg Maxwell discovered to encrypt the amounts, so that the graph of the transaction is faceless but still allow validation that the sums are correct [1]. Dr Maxwell also produced CoinJoin, a system for Bitcoin users to combine interactively transactions, confusing the transaction graph. Nicolas van Saberhagen has developed a system to blind the transaction entries, goes much further to cloud the transaction graph (as well as not needed the user interaction) [3]. Later, Shen Noether combined the two approaches to obtain "confidential transactions" of Maxwell AND the darkening of van Saberhagen [4].
 
+对此，一些解决办法被提出。Greg Maxwell 发现如果加密了金额，交易的图可以达到匿名效果，但金额是否正确[1]仍然可以被验证。Maxwell 博士还制造了 coinjoin ，一个比特币用户可以交互地组合交易的系统，来混淆交易图。Nicolas van Saberhagen 已经开发了一个系统来掩盖交易条目，并进一步对交易图进行了遮敝（也不需要用户交互）。后来，Shen Noether 结合了两种方法来达成 Maxwell 的“机密交易”和 van Saberhagen 的遮敝[4]。
+
 These solutions are very good and would make Bitcoin very safe to use. But the problem of too much data is made even worse. Confidential transactions require multi-kilobyte proofs on every output, and van Saberhagen signatures require every output to be stored for ever, since it is not possible to tell when they are truly spent.
+
+这些解决方案非常好，可以使比特币的使用。但数据太多的问题变得更为严重了。机密交易需要在每个输出上有多个KB的证明，而 van Saberhagen 签名要求永远存储每个输出，因为不可能知道它们何时真正被使用。
 
 Dr. Maxwell's CoinJoin has the problem of needing interactivity. Dr. Yuan Horas Mouton fixed this by making transactions freely mergeable [5], but he needed to use pairing-based cryptography, which is potentially slower and more difficult to trust. He called this "one-way aggregate signatures" (OWAS).
 
+麦克斯韦博士的 CoinJoin 存在需要互动性的问题。Yuan Horas Mouton 博士通过使交易可以自由合并来解决这一问题[5]，但他需要使用基于配对的密码术，这可能更慢，更难信任。他称之为“单向聚合签名”（OWAS）。
+
 OWAS had the good idea to combine the transactions in blocks. Imagine that we can combine across blocks (perhaps with some glue data) so that when the outputs are created and destroyed, it is the same as if they never existed. Then, to validate the entire chain, users only need to know when money is entered into the system (new money in each block as in Bitcoin or Monero or peg-ins for sidechains [6]) and final unspent outputs, the rest can be removed and forgotten. Then we can have Confidential Transactions to hide the amounts and OWAS to blur the transaction graph, and use LESS space than Bitcoin to allow users to fully verify the blockchain. And also imagine that we must not pairing-based cryptography or new hypotheses, just regular discrete logarithms signatures like Bitcoin. Here is what I propose.
+
+单向聚合签名将事务组合成块的主意很好。假设我们可以跨块组合（可能与一些粘合数据结合），这样当创建和销毁输出时，就好像它们从未存在过一样。然后，为了验证整个链，用户只需要知道货币什么时候进入系统（每个区块的新货币，如比特币或Monero或侧链的锚定货币[6]）和最终未使用的输出，其余的信息就都可以删除和忘记。然后我们可以进行保密交易来隐藏金额和 单向聚合签名来模糊交易图，并使用比比特币更少的空间来允许用户完全验证区块链。并且想象一下，我们没有配对的加密或新的假设，只是常规的离散对数签名，如比特币。这是我的建议。
 
 I call my creation Mimblewimble because it is used to prevent the blockchain from talking about all user's information [7].
 
+我将我的发明称为 mimblewimble，因为它用于不让区块链谈及每一个用户的信息[7]。
 
-
-## Confidential Transactions and OWAS
-
+## Confidential Transactions and OWAS 保密交易和单向聚合签名
 
 The first thing we need to do is remove Bitcoin Script. This is sad, but it is too powerful so it is impossible to merge transactions using general scripts. We will demonstrate that confidential transactions of Dr. Maxwell are enough (after some small modification) to authorize spending of outputs and also allows to make combined transactions without interaction. This is in fact identical to OWAS, and allows relaying nodes take some transaction fee or the recipient to change the transaction fees. These additional things Bitcoin can not do, we get for free. 
 
+我们要做的第一件事就是移除比特币脚本。这令人悲伤，但它太强大了，强大到不可能使用常规脚本合并交易。我们将证明，Maxwell 博士的机密交易（经过一些小修改）足以授权花费输出，并允许在没有交互的情况下进行组合交易。这实际上与单向聚合签名相同，并且允许中继节点收取一些交易费用，或者允许收款人更改交易费用。这些额外的事情比特币做不到，我们却能自由做到。
+
 We start by reminding the reader how confidential transactions work. First, the amounts are coded by the following equation:
 
-    C = r*G + v*H
+我们首先提醒读者保密交易是如何工作的。首先，用以下公式对金额进行编码：
+
+```
+C = r * G + v * H
+```
 
 where C is a Pedersen commitment, G and H are fixed nothing-up-my-sleeve elliptic curve group generators, v is the amount, and r is a secret random blinding key.
 
+其中 C 是一个 Pedersen 承诺，G 和 H 是固定的、公开的、无心机的没有椭圆曲线群生成器，v 是数量，r 是一个秘密的随机盲密钥。
+
 Attached to this output is a rangeproof which proves that v is in [0, 2^64], so that user cannot exploit the blinding to produce overflow attacks, etc.
+
+附加在这个输出上的是一个 RangeProof ，它证明 v 在 [0，2^64]中，因此用户不能利用盲化来产生溢出攻击等。
 
 To validate a transaction, the verifer will add commitments for all outputs, plus f*H (f here is the transaction fee which is given explicitly) and subtracts all input commitments. The result must be 0, which proves that no amount was created or destroyed overall.
 
+为了验证交易，验证人将加上所有的输出，加上 `f * H` (这里的 f 是显示给出的交易费)，并减去所有的输入。这个结果肯定为零，证明整体数量上没有新增或者销毁。
+
 We note that to create such a transaction, the user must know the sum of all the values of r for commitments entries. Therefore, the r-values (and their sums) act as secret keys. If we can make the r output values known only to the recipient, then we have an authentication system! Unfortunately, if we keep the rule that commits all add to 0, this is impossible, because the sender knows the sum of all _his_ r values, and therefore knows the receipient's r values sum to the negative of that. So instead, we allow the transaction to sum to a nonzero value k*G, and require a signature of an empty string with this as key, to prove its amount component is zero.
+
+我们注意到，要创建这样一个交易，用户必须知道所有输入输出 r 的值的总和。因此，r 值（及其和）充当密钥的作用。如果我们可以使输出的 r 值仅为收款方所知，那么我们就有了一个身份验证系统！不幸的是，如果我们要保证输入输出加和为 0，这将不可能实现，因为发送者知道 _他_ 所有的 r 值之和，因此一取反就知道接收者的 r 值之和。因此，我们允许交易的输入输出金额加和为一个非零值 `k * G` ，并且需要一个以这个为密钥的对空字符串的签名，以证明它的金额部分是零。
 
 We let transactions have as many k*G values as they want, each with a signature, and sum them during verification.
 
+我们使交易可以拥有任意多的 `k * G` 值，每个值都有一个签名，并在验证过程中对其求和。
+
 To create transactions sender and recipient do following ritual:
 
-  1. Sender and recipient agree on amount to be sent. Call this b.
+要创建交易，发送者和接收者执行以下操作：
 
-  2. Sender creates transaction with all inputs and change output(s), and gives
-     recipient the total blinding factor (r-value of change minus r-values of
-     inputs) along with this transaction. So the commitments sum to r*G - b*H.
+1.
+Sender and recipient agree on amount to be sent. Call this b. 
 
-  3. Recipient chooses random r-values for his outputs, and values that sum
-     to b minus fee, and adds these to transaction (including range proof).
-     Now the commitments sum to k*G - fee*H for some k that only recipient
-     knows.
+发送方和接收方约定发送的金额。假设为 b。
 
-  4. Recipient attaches signature with k to the transaction, and the explicit
-     fee. It has done.
+2.
+Sender creates transaction with all inputs and change output(s), and gives recipient the total blinding factor (r-value of change minus r-values of inputs) along with this transaction. So the commitments sum to r*G - b*H.
+
+发送方创建具有所有输入的交易，更改输出，并将总盲因子（更改的 r 值减去输入的 r 值）与此交易一起提供给接收方。因此，总额为 `r * G - b * H` 。
+
+3.
+Recipient chooses random r-values for his outputs, and values that sum to b minus fee, and adds these to transaction (including range proof). Now the commitments sum to k*G - fee*H for some k that only recipient knows.
+
+接受者为其输出选择随机的 r 值，以及一些值（且他们的总和 b 减去手续费），并将这些值添加到交易中（包括范围证明）。现在，总额为 `K * G - fee * H`，K 只有接受方知道。
+
+4.
+Recipient attaches signature with k to the transaction, and the explicit fee. It has done.
+
+接受方在交易中附加用 k 进行的签名，显式地给出交易手续费。搞定。
 
 Now, creating transactions in this manner supports OWAS already. To show this, suppose we have two transactions that have a surplus k1*G and k2*G, and the attached signatures with these. Then you can combine the lists of inputs and outputs of the two transactions, with both k1*G and k2*G to the mix, and voilá! is again a valid transaction. From the combination, it is impossible to say which outputs or inputs are from which original transaction.
 
 Because of this, we change our block format from Bitcoin to this information:
- 1. Explicit amounts for new money (block subsidy or sidechain peg-ins) with
-     whatever else data this needs. For a sidechain peg-in maybe it references
-     a Bitcoin transaction that commits to a specific excess k*G value?
 
-  2. Inputs of all transactions
+1.
+Explicit amounts for new money (block subsidy or sidechain peg-ins) with whatever else data this needs. For a sidechain peg-in maybe it references a Bitcoin transaction that commits to a specific excess k*G value?
 
-  3. Outputs of all transactions
+2.
+Inputs of all transactions
 
-  4. Excess k*G values for all transactions
+3.
+Outputs of all transactions
+
+4.
+Excess k*G values for all transactions
 
 Each of these are grouped together because it do not matter what the transaction boundaries are originally. In addition, Lists 2 3 and 4 should be required to be coded in alphabetical order, since it is quick to check and prevents the block creator of leaking any information about the original transactions.
 
 Note that the outputs are now identified by their hash, and not by their position in a transaction that could easily change. Therefore, it should be banned to have two unspent outputs are equal at the same time, to avoid confusion.
-
-
 
 
 ## Merging Transactions Across Blocks
@@ -110,35 +155,30 @@ The extension of this idea all the way from the genesis block to the latest bloc
 
 What is this mean? When a user starts up and downloads the chain he needs the following data from each block:
 
-  1. Explicit amounts for new money (block subsidy or sidechain peg-ins) with
-     whatever else data this needs.
+1.
+Explicit amounts for new money (block subsidy or sidechain peg-ins) with whatever else data this needs.
 
-  2. Unspent outputs of all transactions, along with a merkle proof that each
-     output appeared in the original block.
+2.
+Unspent outputs of all transactions, along with a merkle proof that each output appeared in the original block.
 
-  3. Excess k*G values for all transactions.
+3.
+Excess k*G values for all transactions.
 
 Bitcoin today there are about 423000 blocks, totaling 80GB or so of data on the hard drive to validate everything. These data are about 150 million transactions and 5 million unspent nonconfidential outputs. Estimate how much space the number of transactions take on a Mimblewimble chain. Each unspent output is around 3Kb for rangeproof and Merkle proof. Each transaction also adds about 100 bytes: a k*G value and a signature. The block headers and explicit amounts are negligible. Add this together and get 30Gb -- with a confidential transaction and obscured transaction graph!
 
-
-
 ## Questions and Intuition
-
 
 Here are some questions that since these weeks, dreams asked me and I woke up sweating. But in fact it is OK.
 
-  Q. If you delete the transaction outputs, user cannot verify the rangeproof and maybe a negative amount is created.
+Q. If you delete the transaction outputs, user cannot verify the rangeproof and maybe a negative amount is created.
 
-  A. This is OK. For the entire transaction to validate all negative amounts must have been destroyed. User have SPV security only that no illegal inflation happened in the past, but the user knows that _at this time_ no inflation occurred.
+A. This is OK. For the entire transaction to validate all negative amounts must have been destroyed. User have SPV security only that no illegal inflation happened in the past, but the user knows that _at this time_ no inflation occurred.
 
+Q. If you delete the inputs, double spending can happen.
 
-  Q. If you delete the inputs, double spending can happen.
+A. In fact, this means: maybe someone claims that some unspent output was spent in the old days. But this is impossible, otherwise the sum of the combined transaction could not be zero.
 
-  A. In fact, this means: maybe someone claims that some unspent output was spent in the old days. But this is impossible, otherwise the sum of the combined transaction could not be zero.
-
-     An exception is that if the outputs are amount zero, it is possible to make two that are negatives of each other, and the pair can be revived without anything breaks. So to prevent consensus problems, outputs 0-amount should be banned. Just add H at each output, now they all amount to at least 1.
-
-
+An exception is that if the outputs are amount zero, it is possible to make two that are negatives of each other, and the pair can be revived without anything breaks. So to prevent consensus problems, outputs 0-amount should be banned. Just add H at each output, now they all amount to at least 1.
 
 
 ## Future Research 未来研究的方向
