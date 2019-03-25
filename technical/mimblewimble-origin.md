@@ -93,23 +93,45 @@ To validate a transaction, the verifer will add commitments for all outputs, plu
 
 We note that to create such a transaction, the user must know the sum of all the values of r for commitments entries. Therefore, the r-values (and their sums) act as secret keys. If we can make the r output values known only to the recipient, then we have an authentication system! Unfortunately, if we keep the rule that commits all add to 0, this is impossible, because the sender knows the sum of all _his_ r values, and therefore knows the receipient's r values sum to the negative of that. So instead, we allow the transaction to sum to a nonzero value k*G, and require a signature of an empty string with this as key, to prove its amount component is zero.
 
+我们注意到，要创建这样一个交易，用户必须知道所有输入输出 r 的值的总和。因此，r 值（及其和）充当密钥的作用。如果我们可以使输出的 r 值仅为收款方所知，那么我们就有了一个身份验证系统！不幸的是，如果我们要保证输入输出加和为 0，这将不可能实现，因为发送者知道 _他_ 所有的 r 值之和，因此一取反就知道接收者的 r 值之和。因此，我们允许交易的输入输出金额加和为一个非零值 `k * G` ，并且需要一个以这个为密钥的对空字符串的签名，以证明它的金额部分是零。
+
 We let transactions have as many k*G values as they want, each with a signature, and sum them during verification.
+
+我们使交易可以拥有任意多的 `k * G` 值，每个值都有一个签名，并在验证过程中对其求和。
 
 To create transactions sender and recipient do following ritual:
 
-1. Sender and recipient agree on amount to be sent. Call this b.
-2. Sender creates transaction with all inputs and change output(s), and gives recipient the total blinding factor (r-value of change minus r-values of inputs) along with this transaction. So the commitments sum to r*G - b*H.
-3. Recipient chooses random r-values for his outputs, and values that sum to b minus fee, and adds these to transaction (including range proof). Now the commitments sum to k*G - fee*H for some k that only recipient knows.
-4. Recipient attaches signature with k to the transaction, and the explicit fee. It has done.
+要创建交易，发送者和接收者执行以下操作：
+
+1. 
+Sender and recipient agree on amount to be sent. Call this b. 
+
+发送方和接收方约定发送的金额。假设为 b。
+
+2. 
+Sender creates transaction with all inputs and change output(s), and gives recipient the total blinding factor (r-value of change minus r-values of inputs) along with this transaction. So the commitments sum to r*G - b*H.
+
+3. 
+Recipient chooses random r-values for his outputs, and values that sum to b minus fee, and adds these to transaction (including range proof). Now the commitments sum to k*G - fee*H for some k that only recipient knows.
+
+4. 
+Recipient attaches signature with k to the transaction, and the explicit fee. It has done.
 
 Now, creating transactions in this manner supports OWAS already. To show this, suppose we have two transactions that have a surplus k1*G and k2*G, and the attached signatures with these. Then you can combine the lists of inputs and outputs of the two transactions, with both k1*G and k2*G to the mix, and voilá! is again a valid transaction. From the combination, it is impossible to say which outputs or inputs are from which original transaction.
 
 Because of this, we change our block format from Bitcoin to this information:
 
-1. Explicit amounts for new money (block subsidy or sidechain peg-ins) with whatever else data this needs. For a sidechain peg-in maybe it references a Bitcoin transaction that commits to a specific excess k*G value?
-2. Inputs of all transactions
-3. Outputs of all transactions
-4. Excess k*G values for all transactions
+1. 
+Explicit amounts for new money (block subsidy or sidechain peg-ins) with whatever else data this needs. For a sidechain peg-in maybe it references a Bitcoin transaction that commits to a specific excess k*G value?
+
+2. 
+Inputs of all transactions
+
+3. 
+Outputs of all transactions
+
+4. 
+Excess k*G values for all transactions
 
 Each of these are grouped together because it do not matter what the transaction boundaries are originally. In addition, Lists 2 3 and 4 should be required to be coded in alphabetical order, since it is quick to check and prevents the block creator of leaking any information about the original transactions.
 
@@ -127,9 +149,14 @@ The extension of this idea all the way from the genesis block to the latest bloc
 
 What is this mean? When a user starts up and downloads the chain he needs the following data from each block:
 
-1. Explicit amounts for new money (block subsidy or sidechain peg-ins) with whatever else data this needs.
-2. Unspent outputs of all transactions, along with a merkle proof that each output appeared in the original block.
-3. Excess k*G values for all transactions.
+1. 
+Explicit amounts for new money (block subsidy or sidechain peg-ins) with whatever else data this needs.
+
+2. 
+Unspent outputs of all transactions, along with a merkle proof that each output appeared in the original block.
+
+3. 
+Excess k*G values for all transactions.
 
 Bitcoin today there are about 423000 blocks, totaling 80GB or so of data on the hard drive to validate everything. These data are about 150 million transactions and 5 million unspent nonconfidential outputs. Estimate how much space the number of transactions take on a Mimblewimble chain. Each unspent output is around 3Kb for rangeproof and Merkle proof. Each transaction also adds about 100 bytes: a k*G value and a signature. The block headers and explicit amounts are negligible. Add this together and get 30Gb -- with a confidential transaction and obscured transaction graph!
 
@@ -146,8 +173,6 @@ Q. If you delete the inputs, double spending can happen.
 A. In fact, this means: maybe someone claims that some unspent output was spent in the old days. But this is impossible, otherwise the sum of the combined transaction could not be zero.
 
 An exception is that if the outputs are amount zero, it is possible to make two that are negatives of each other, and the pair can be revived without anything breaks. So to prevent consensus problems, outputs 0-amount should be banned. Just add H at each output, now they all amount to at least 1.
-
-
 
 
 ## Future Research 未来研究的方向
