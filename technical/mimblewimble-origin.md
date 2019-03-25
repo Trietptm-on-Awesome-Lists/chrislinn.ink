@@ -121,6 +121,8 @@ Recipient chooses random r-values for his outputs, and values that sum to b minu
 4.
 Recipient attaches signature with k to the transaction, and the explicit fee. It has done.
 
+接受方在交易中附加用 k 进行的签名，显式地给出交易手续费。搞定。
+
 Now, creating transactions in this manner supports OWAS already. To show this, suppose we have two transactions that have a surplus k1*G and k2*G, and the attached signatures with these. Then you can combine the lists of inputs and outputs of the two transactions, with both k1*G and k2*G to the mix, and voilá! is again a valid transaction. From the combination, it is impossible to say which outputs or inputs are from which original transaction.
 
 Because of this, we change our block format from Bitcoin to this information:
