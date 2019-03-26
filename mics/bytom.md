@@ -29,6 +29,9 @@
                     + indexTransactions
                         * `filterAccountTxs`
                         * `annotateTxsAccount`
+                - `indexer.go`
+                    + 51: iter delete
+                    + 153: get tx by ID
 + Precogs
     * 涉及 P2P
 + 中心化钱包
