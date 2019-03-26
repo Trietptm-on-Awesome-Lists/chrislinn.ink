@@ -10,31 +10,10 @@
         + block recommit
     - consume newBlockCh for vault_mode
     - tx cache
-        + orphan? blockcache?
-        + chain
-            * if nil, rescan
-            * protocol/store.go
-            * database/leveldb/...
-        + api
-            * add to getTx
-            * wallet rescan?
-            * force rescan?
-        + wallet!
-            * 临时关联输入输出?
-            * delete
-                - [X] unconfirmed
-                - detach
-            * wallet/
-                - TxPrefix
-                - TxIndexPrefix
-                - walletUpdater()!!!
-                    + indexTransactions
-                        * `filterAccountTxs`
-                        * `annotateTxsAccount`
-                - `indexer.go`
-                    + 51: iter delete
-                    + 153: get tx by ID
-                - func (w *Wallet) deleteTransactions(batch db.Batch, height uint64)
+        + 临时关联输入输出?
+        + wallet/
+            * `indexer.go`
+                - GetTransactionByTxID
 + Precogs
     * 涉及 P2P
 + 中心化钱包
