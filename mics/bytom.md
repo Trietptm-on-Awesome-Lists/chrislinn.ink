@@ -13,7 +13,7 @@
         + 临时关联输入输出?
         + wallet/
             * `indexer.go`
-                - GetTransactionByTxID
+                - GetTransactionByTxID, query.AnnotatedTx
 + Precogs
     * 涉及 P2P
 + 中心化钱包
