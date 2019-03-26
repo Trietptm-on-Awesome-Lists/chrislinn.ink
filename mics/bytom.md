@@ -25,6 +25,10 @@
             * wallet/
                 - TxPrefix
                 - TxIndexPrefix
+                - walletUpdater()!!!
+                    + indexTransactions
+                        * `filterAccountTxs`
+                        * `annotateTxsAccount`
 + Precogs
     * 涉及 P2P
 + 中心化钱包
@@ -508,12 +512,12 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
 
 ### multi-sign
 #### TODOS
-+ [ ] multi-sign
-    * [ ] addUTXO
-    * [X] createWallet
-    * [X] restoreWallet
 + [ ] delete unconfirmed utxo
 + [ ] 调研if txProposalSign.Signatures == "" {是否可以去除
++ [X] multi-sign
+    * [X] addUTXO
+    * [X] createWallet
+    * [X] restoreWallet
 + [X] join multi-sign 进行派生
 + [X] txproposal memo
 + [X] newAddress handle mutilsign
