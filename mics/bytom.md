@@ -21,7 +21,9 @@
             * force rescan?
         + wallet!
             * 临时关联输入输出?
-            * a.rescanWallet()?
+            * delete
+                - [X] unconfirmed
+                - detach
             * wallet/
                 - TxPrefix
                 - TxIndexPrefix
@@ -32,9 +34,7 @@
                 - `indexer.go`
                     + 51: iter delete
                     + 153: get tx by ID
-                - delete
-                    + unconfirmed
-                    + detach
+                - func (w *Wallet) deleteTransactions(batch db.Batch, height uint64)
 + Precogs
     * 涉及 P2P
 + 中心化钱包
@@ -531,3 +531,6 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
 + [X] JoinMultiSignWallet对pubkey进行合法性验证, 不然等生成地址的时候再判断就坑了
 + [X] db tx_proposals unique key
 + [X] txproposal lock untxo more than 24 hours， 7 days?
+
+### ticker
++ [ ] ws reconnect ticker stop
