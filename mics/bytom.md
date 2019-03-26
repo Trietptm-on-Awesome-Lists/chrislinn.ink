@@ -32,6 +32,9 @@
                 - `indexer.go`
                     + 51: iter delete
                     + 153: get tx by ID
+                - delete
+                    + unconfirmed
+                    + detach
 + Precogs
     * 涉及 P2P
 + 中心化钱包
