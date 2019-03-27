@@ -125,23 +125,39 @@ Recipient attaches signature with k to the transaction, and the explicit fee. It
 
 Now, creating transactions in this manner supports OWAS already. To show this, suppose we have two transactions that have a surplus k1*G and k2*G, and the attached signatures with these. Then you can combine the lists of inputs and outputs of the two transactions, with both k1*G and k2*G to the mix, and voilá! is again a valid transaction. From the combination, it is impossible to say which outputs or inputs are from which original transaction.
 
+现在，以这种方式创建的交易已经支持单向聚合签名了。为了证明这一点，假设我们有两个分别有盈余 `k1*G` 和 `k2*G` 的交易，以及他们附带的签名。然后，您可以将这两个交易的输入和输出列表与 `k1*G` 和 `k2*G` 组合在一起，然后，哇，仍然会是有效的交易。从这个组合中无法看出哪些输出或输入来自哪个原来的交易。
+
 Because of this, we change our block format from Bitcoin to this information:
+
+因此，我们将区块的格式从比特币版改为：
 
 1.
 Explicit amounts for new money (block subsidy or sidechain peg-ins) with whatever else data this needs. For a sidechain peg-in maybe it references a Bitcoin transaction that commits to a specific excess k*G value?
 
+新资金的明确数额（区块奖励或侧链锚定）与有需要的其他任何数据。对于侧链锚定来说，比如可能它引用了一个具有特定的超额 `k*G` 值的比特币交易？
+
 2.
 Inputs of all transactions
+
+所有交易的输入
 
 3.
 Outputs of all transactions
 
+所有交易的输出
+
 4.
 Excess k*G values for all transactions
 
+所有交易的超额 `k*G` 值
+
 Each of these are grouped together because it do not matter what the transaction boundaries are originally. In addition, Lists 2 3 and 4 should be required to be coded in alphabetical order, since it is quick to check and prevents the block creator of leaking any information about the original transactions.
 
+每一个都被分组在一起，因为最初交易区分是什么并不重要。此外，2, 3 和 4 应按字母顺序进行编码，因为它可以快速检查并防止出块者泄漏有关原始交易的任何信息。
+
 Note that the outputs are now identified by their hash, and not by their position in a transaction that could easily change. Therefore, it should be banned to have two unspent outputs are equal at the same time, to avoid confusion.
+
+注意，输出现在是通过散列来标识的，而不是通过它们在一个(容易被更改的)交易中的位置来标识的。因此，应该禁止两个未消耗的输出同时相等，以避免产生困惑。
 
 
 ## Merging Transactions Across Blocks
