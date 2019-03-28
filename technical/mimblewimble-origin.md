@@ -47,7 +47,7 @@ Add to this that these transactions are cryptographically atomic, it is clear wh
 
 Some solutions to this have been proposed. Greg Maxwell discovered to encrypt the amounts, so that the graph of the transaction is faceless but still allow validation that the sums are correct [1]. Dr Maxwell also produced CoinJoin, a system for Bitcoin users to combine interactively transactions, confusing the transaction graph. Nicolas van Saberhagen has developed a system to blind the transaction entries, goes much further to cloud the transaction graph (as well as not needed the user interaction) [3]. Later, Shen Noether combined the two approaches to obtain "confidential transactions" of Maxwell AND the darkening of van Saberhagen [4].
 
-对此，一些解决办法被提出。Greg Maxwell 发现如果加密了金额，交易的图可以达到匿名效果，但金额是否正确[1]仍然可以被验证。Maxwell 博士还制造了 coinjoin ，一个比特币用户可以交互地组合交易的系统，来混淆交易图。Nicolas van Saberhagen 已经开发了一个系统来掩盖交易条目，并进一步对交易图进行了遮敝（也不需要用户交互）。后来，Shen Noether 结合了两种方法来达成 Maxwell 的“机密交易”和 van Saberhagen 的遮敝[4]。
+对此，一些解决办法被提出。Greg Maxwell 发现如果加密了金额，交易的图可以达到匿名效果，但金额是否正确[1]仍然可以被验证。Maxwell 博士还制造了 CoinJoin ，一个比特币用户可以交互地组合交易的系统，来混淆交易图。Nicolas van Saberhagen 已经开发了一个系统来掩盖交易条目，并进一步对交易图进行了遮敝（也不需要用户交互）。后来，Shen Noether 结合了两种方法来达成 Maxwell 的“机密交易”和 van Saberhagen 的遮敝[4]。
 
 These solutions are very good and would make Bitcoin very safe to use. But the problem of too much data is made even worse. Confidential transactions require multi-kilobyte proofs on every output, and van Saberhagen signatures require every output to be stored for ever, since it is not possible to tell when they are truly spent.
 
@@ -160,41 +160,79 @@ Note that the outputs are now identified by their hash, and not by their positio
 注意，输出现在是通过散列来标识的，而不是通过它们在一个(容易被更改的)交易中的位置来标识的。因此，应该禁止两个未消耗的输出同时相等，以避免产生困惑。
 
 
-## Merging Transactions Across Blocks
+## Merging Transactions Across Blocks 跨块合并交易
 
 
 Now, we have used Dr. Maxwell's Confidential Transactions to create a noninteractive version of Dr. Maxwell's CoinJoin, but we have not seen the last of marvelous Dr. Maxwell! We need another idea, transaction cut-through, he described in [8]. Again, we create a noninteractive version of this, and to show how it is used with several blocks.
 
+现在，我们已经使用麦克斯韦博士的机密交易创建了麦克斯韦博士的 CoinJoin 无需交互版本，但我们还没有将神奇的麦克斯韦博士探究完全！他在[8]中描述道：“我们需要另一个想法，即交易突破。”同样，我们创建了交易突破的无需交互版本，并展示了它如何与几个块一起使用。
+
 We can imagine now each block as one large transaction. To validate it, we add all the output commitments together, then subtracts all input commitments, k*G values, and all explicit input amounts times H. We find that we could combine transactions from two blocks, as we combined transactions to form a single block, and the result is again a valid transaction. Except now, some output commitments have an input commitment exactly equal to it, where the first block's output was spent in the second block. We could remove both commitments and still have a valid transaction. In fact, there is not even need to check the rangeproof of the deleted output.
+
+我们现在可以将每个块想象为一个大型交易。为了验证它，我们将所有输出加在一起，然后减去所有输入、减去所有 `k*G` 值和减去所有显式输入金额乘以 `H` 的值 。我们发现我们可以将两个块的交易组合起来，因为我们如果将交易组合成一个块，结果仍然是一个有效的事务。除了，现在，有些输出与它的输入完全相同，其中第一个块的输出用在了第二个块中。我们可以把这两项取消，但仍然得到一个有效的交易。实际上，甚至不需要检查已删除输出的 RangeProof。
 
 The extension of this idea all the way from the genesis block to the latest block, we see that EVERY nonexplicit input is deleted along with its referenced output. What remains are only the unspent outputs, explicit input amounts and every k*G value. And this whole mess can be validated as if it were one transaction: add all unspent commitments output, subtract the values k*G, validate explicit input amounts (if there is anything to validate) then subtract them times H. If the sum is 0, the entire chain is good.
 
+从创世区块一直扩展到最新的块，我们看到每一个非显式的输入以及它引用的输出都被删除。剩下的只是未花费的输出、显式输入量和每个 `k*G` 值。整一大坨东西可以像只有一笔交易一样被验证：把所有未花费的输出加到一起，减去 `k*G` 值，验证显式输入量（如果有什么要验证的话），然后减去它们乘以 H 的值。如果总和为 0，整条链就没问题。
+
 What is this mean? When a user starts up and downloads the chain he needs the following data from each block:
+
+这意味着什么？当用户启动并下载区块链时，他需要来自每个块的以下数据：
 
 1.
 Explicit amounts for new money (block subsidy or sidechain peg-ins) with whatever else data this needs.
 
+明确的新资金数额（出块奖励或侧链锚定）与其他需要的任何数据。
+
 2.
 Unspent outputs of all transactions, along with a merkle proof that each output appeared in the original block.
+
+所有交易的未花费输出，以及每个输出在原始区块中的 Merkle 证明。
 
 3.
 Excess k*G values for all transactions.
 
+所有交易的超额 `k*G` 值。
+
 Bitcoin today there are about 423000 blocks, totaling 80GB or so of data on the hard drive to validate everything. These data are about 150 million transactions and 5 million unspent nonconfidential outputs. Estimate how much space the number of transactions take on a Mimblewimble chain. Each unspent output is around 3Kb for rangeproof and Merkle proof. Each transaction also adds about 100 bytes: a k*G value and a signature. The block headers and explicit amounts are negligible. Add this together and get 30Gb -- with a confidential transaction and obscured transaction graph!
 
-## Questions and Intuition
+比特币今天大约有 423000 区块，总共有 80GB 左右的硬盘数据要验证。这些数据约为 1.5 亿笔交易和 500 万未花费的非机密输出出。（下面我们来）估计这么多交易在 Mimblewimble 链上占用的空间。每一个未花费的输出需要约 3Kb 用于 rangeproof 和 Merkle proof。每个交易还需要再加上约 100 字节：一个 `k*G` 值和一个签名。区块头和显式金额占用的空间可以忽略不计。这些加起来有30GB——一个保密的交易和模糊的交易图！
+
+## Questions and Intuition 问题和直觉
 
 Here are some questions that since these weeks, dreams asked me and I woke up sweating. But in fact it is OK.
 
-Q. If you delete the transaction outputs, user cannot verify the rangeproof and maybe a negative amount is created.
+这几个星期以来，我在梦中被问题惊醒，满头大汗。但事实上不是什么问题。
 
-A. This is OK. For the entire transaction to validate all negative amounts must have been destroyed. User have SPV security only that no illegal inflation happened in the past, but the user knows that _at this time_ no inflation occurred.
 
-Q. If you delete the inputs, double spending can happen.
+__Q.__
 
-A. In fact, this means: maybe someone claims that some unspent output was spent in the old days. But this is impossible, otherwise the sum of the combined transaction could not be zero.
+If you delete the transaction outputs, user cannot verify the rangeproof and maybe a negative amount is created.
+
+如果删除交易输出，则用户无法验证 rangeproof ，可能会创建负数金额（的交易）。
+
+__A.__
+
+This is OK. For the entire transaction to validate all negative amounts must have been destroyed. User have SPV security only that no illegal inflation happened in the past, but the user knows that _at this time_ no inflation occurred.
+
+不是什么问题。对于整个要验证的交易，所有负数金额肯定已经被销毁。用户只有在过去没有发生非法通货膨胀的情况下才能拥有简单支付验证 (SPV) 安全，但用户知道到目前为止还没有发生过通货膨胀。
+
+
+__Q.__
+
+If you delete the inputs, double spending can happen.
+
+如果删除输入，可能会导致双花。
+
+__A.__
+
+In fact, this means: maybe someone claims that some unspent output was spent in the old days. But this is impossible, otherwise the sum of the combined transaction could not be zero.
+
+事实上，这意味着：也许有人声称一些未花费的输出已经在过去被花费掉了。但这是不可能的，否则合并交易的金额总和无法为零。
 
 An exception is that if the outputs are amount zero, it is possible to make two that are negatives of each other, and the pair can be revived without anything breaks. So to prevent consensus problems, outputs 0-amount should be banned. Just add H at each output, now they all amount to at least 1.
+
+一个例外是，如果输出金额为零，则存在可能性生成金额互为相反数的两个输出，并且这个输出对可以在没有任何破坏的情况下被恢复。因此，为了防止共识问题，应禁止 0 金额输出。只需在每个输出上加 `H` 就可以了，那么它们都至少等于1。
 
 
 ## Future Research 未来研究的方向
