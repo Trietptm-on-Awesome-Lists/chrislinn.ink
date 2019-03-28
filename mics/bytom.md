@@ -7,7 +7,7 @@
     * PoW 相关完善及优化
         + 优化tensority
             * go 920ms -> go 820ms -> simd 160ms -> cuda 6ms
-        + block recommit
+        + get work 定时更新变为出块即更新，更加及时
     - [x] consume newBlockCh for vault_mode
         + 被马总解决了
     - block_recommit 交易数据及时入块
