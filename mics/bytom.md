@@ -8,19 +8,24 @@
         + 优化tensority
             * go 920ms -> go 820ms -> simd 160ms -> cuda 6ms
         + block recommit
-    - consume newBlockCh for vault_mode
-    - tx cache
-        + 临时关联输入输出?
-        + wallet/
-            * `indexer.go`
-                - GetTransactionByTxID, query.AnnotatedTx
+    - [x] consume newBlockCh for vault_mode
+        + 被马总解决了
+    - block_recommit 交易数据及时入块
+        + 其实就是用 map
+        + ticker 定期生成 NewBlockTemplate，因为 新添交易的话 commitment 会改变，blockheader 也会改变，不用 map 的话，submit work不对应
+        + 老 map 要注意 GC
+    - 全局交易索引
 + Precogs
     * 涉及 P2P
 + 中心化钱包
     * api & database schema
     * build tx
+        - utxo >21 build fail
+        - retire类型交易 utxo 是否忘了处理。应该变成不可用。
     * fee estimate
     * multisign
+        - [ ] delete unconfirmed utxo
+        - [ ] 调研if txProposalSign.Signatures == "" {是否可以去除
     * all utxos
         - check `utxo.Asset.Asset` in `btm.go`
         - raw sql
@@ -37,46 +42,7 @@
         - https://dev.mysql.com/doc/refman/8.0/en/full-text-adding-collation.html
     * redis
 
-
 <!-- 
-多重签名
-多币种， stable coin
-dapp
-
-bycoin Main: management instead of payment
-寄生 btc/eth
-
-支付：
-巴比特积分 btm
-矿池打币
-
-身份：
-DID
-
-Dapp
-
-ico
-
- -->
-
-
-<!-- 
-# 2018_12_13 晚会议记录
-
-## 这个版本
-+ retire类型交易 utxo 是否忘了处理。应该变成不可用。
-+ X. api 整合import和create，（即整合 list-guids 和 create），一个 pubkey 永远只返回特定guid。幂等性。如果是已存在的pubkey就返回之前数据库中存在的 guid
-++ X. 即默认单账户体系，通过 传参"wallet_idx"来支持多账户体系
-++ X better keep list-guids, to support multiple account.
-++ opt query utxo
-++ utxo >21 build fail
-+++ availabel amount
-+ submit tx 压测
-+ list address 直接计算好并返回资产价值（现在只有数量），否则 如果多个资产，那么app就要请求完一次 list-address 后又要分资产多次请求 /q/asset 并计算
-+ 路由改一改，account 可以全部改成 merchant
-+ rename market
-+ struct keeper
-+ del expired unconfirmed txs
 
 ## 下版本
 + 应该区分用户提交的业务形态的交易（并在数据库中存一份）和提交的 raw tx。
@@ -92,26 +58,20 @@ ico
 +++ bytomd load balancing 要注意节点状态不一致的处理，从哪个节点同步数据。拿块可以通过判断最高高度，问题主要是 ws 去哪个节点拿 tx -->
 
 <!-- 
-# TODOS
-+ blockcenter
-    * chainkd_util
-    * time related
-        - lock_until
-        - submission
-+ mining pool
-    * research
-        + MinDiff
-        + DiffType
-        + GetTargetHex
-        + leading zero
-        + retarget
-        + processShare
-            + s.hashrateExpiration, 
-            + s.minuteHashrateExpiration
-        + shareTimeRing
-+ tensor
-    * arm ver
-    * asm ver
+## mining pool
+
++ MinDiff
++ DiffType
++ GetTargetHex
++ leading zero
++ retarget
++ processShare
+    + s.hashrateExpiration, 
+    + s.minuteHashrateExpiration
++ shareTimeRing
+
+## Tensority  
+### research
 + mulMatrix
     * __blas__
         - openblas
@@ -151,18 +111,11 @@ ico
 + mat_init
     * simd?
     * gpu simd?
-+ benchmark
-+ AIHash struct
-    * cache
-    * Hash()
-+ head_hash 和 锚点 是否可以优化？
 + 有没有 生成 doc 的文件
 + mining/tensority
-    * __blockHeader & seed 怎么来的__
-+ 搞清楚 BigEdian LittleEdian 的区别好吧
-+ 看 asset 数据结构，搞清楚商业逻辑
++ 搞清楚 BigEdian LittleEdian 的区别
 
-# DONE
+### DONE
 + Time & space opt for dataIdentity[] init in mulMatrix()
 + clean up code & update tensority test
 + confirm all use SHA-3-256 
@@ -255,14 +208,6 @@ ico
     * `func (b *Buffer) Bytes() []byte`
         - Bytes returns a slice of length b.Len() holding the unread portion of the buffer. The slice is valid for use only until the next buffer modification (that is, only until the next call to a method like Read, Write, Reset, or Truncate). The slice aliases the buffer content at least until the next buffer modification, so immediate changes to the slice will affect the result of future reads.
     * [为什么电脑数据一个字节是8位？](https://www.guokr.com/question/542532/)
-+ 3-12 Beijing meeting
-    * 钱包-生成地址
-    * 钱包-转帐（收钱？）
-    * API 创建地址给矿工打钱
-    * will `get work` 每个数据字节长度 change?
-    * 网页调用 -> API调用
-    * 单芯片  1s 验证100次
-    * need coinbase addr
 + tensor
     * [X]win64 ver
         - define flag
@@ -277,114 +222,6 @@ ico
         - no change
     * 1-core on 4-core
         - faster
-- mining addr
-    + miningAddressKey
-+ pingpong
-    ```
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/icmp/ping_test.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/google.golang.org/grpc/transport/transport_test.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/google.golang.org/grpc/transport/http2_server.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/google.golang.org/grpc/transport/http2_client.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/google.golang.org/grpc/transport/control.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/google.golang.org/grpc/transport/bdp_estimator.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/google.golang.org/grpc/test/end2end_test.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/google.golang.org/grpc/stress/client/main.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/google.golang.org/grpc/interop/http2/negative_http2_client.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/google.golang.org/grpc/interop/client/client.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/google.golang.org/grpc/interop/test_utils.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/google.golang.org/grpc/benchmark/latency/latency.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/google.golang.org/grpc/call_test.go:
-
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/gonum.org/v1/gonum/lapack/gonum/dlasq2.go:
-
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/websocket/websocket_test.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/websocket/websocket.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/websocket/hybi_test.go:
-
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/websocket/hybi.go:
-
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/publicsuffix/table_test.go:
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/nettest/conntest_go17.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/nettest/conntest_go16.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/nettest/conntest.go:
-
-
-
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/gonum.org/v1/gonum/lapack/internal/testdata/dlasqtest/dlasq2.f:
-    /home/gavin/work/go/src/github.com/bytom/vendor/gonum.org/v1/gonum/lapack/internal/testdata/dlasqtest/dlasq3.f:
-    /home/gavin/work/go/src/github.com/bytom/vendor/gonum.org/v1/gonum/lapack/internal/testdata/dlasqtest/dlasq5.f:
-    /home/gavin/work/go/src/github.com/bytom/vendor/gonum.org/v1/gonum/lapack/internal/testdata/dlasqtest/dlasq6.f:
-
-
-
-
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/icmp/ping_test.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/icmp/example_test.go:
-
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/h2i/h2i.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/h2i/README.md:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/h2demo/h2demo.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/writesched_random.go:
-
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/write.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/transport_test.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/transport.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/server_test.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/server.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/not_go17.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/go17.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/frame_test.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/http2/frame.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/html/atom/table_test.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/html/atom/table.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/net/html/atom/gen.go:
-
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/golang.org/x/crypto/ssh/handshake.go:
-
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/wire/protocol.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/wire/msgpong.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/wire/msgping_test.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/wire/msgping.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/wire/message_test.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/wire/message.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/wire/doc.go:
-
-
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/rpcclient/net.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/peer/peer_test.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/peer/peer.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/peer/log.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/peer/doc.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/peer/README.md:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/docs/json_rpc_api.md:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/btcjson/chainsvrresults.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/btcjson/chainsvrcmds_test.go:
-    /home/gavin/work/go/src/github.com/bytom/vendor/github.com/btcsuite/btcd/btcjson/chainsvrcmds.go:
-    ```
 + coinbase data
     * Getblocktemplate allow you to define coinbase. You can check btcpool code. In stratum.cc, we define coinbase. See initfromGbt function. gbt stands for getblocktemplate.
     * 看下btc的交易结构及coinbase交易. 没有pre tx所以 就可以利用这个字段来写自定义信息. 比特币是在coinbase交易的输入的脚本里写的.
@@ -494,22 +331,3 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
 + WebGL 贴图
 + 使用 drawImage 将 Images/video 画面绘制到 canvas
 + 样式表（使用 CSSOM）
-
-### multi-sign
-#### TODOS
-+ [ ] delete unconfirmed utxo
-+ [ ] 调研if txProposalSign.Signatures == "" {是否可以去除
-+ [X] multi-sign
-    * [X] addUTXO
-    * [X] createWallet
-    * [X] restoreWallet
-+ [X] join multi-sign 进行派生
-+ [X] txproposal memo
-+ [X] newAddress handle mutilsign
-+ [X] NewUtxoSelector 历史记录缺陷现在选择 utxo 只会一次选择在多少个之内，而不是一共选择了多少个
-+ [X] JoinMultiSignWallet对pubkey进行合法性验证, 不然等生成地址的时候再判断就坑了
-+ [X] db tx_proposals unique key
-+ [X] txproposal lock untxo more than 24 hours， 7 days?
-
-### ticker
-+ [ ] ws reconnect ticker stop
