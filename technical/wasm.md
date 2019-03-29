@@ -35,7 +35,6 @@ __阅读列表__
 + https://rustwasm.github.io/book/
 + https://github.com/rustwasm/awesome-rust-and-webassembly
 + https://developer.mozilla.org/zh-CN/docs/WebAssembly/Rust_to_wasm
-+ https://blog.csdn.net/I2Cbus/article/details/83500689
 + https://github.com/mbasso/awesome-wasm
 + https://juejin.im/entry/5be3d6a2518825170678f0e6
 + https://juejin.im/entry/5b24d1406fb9a00e833d446e
