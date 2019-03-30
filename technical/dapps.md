@@ -110,7 +110,7 @@
         for(var i=1; i < 100; i++) {
           calcSeed(seedObject.serverSeed, seedObject.clientSeed, i);
         }
-x
+
         function verifyServerSeedvsHash(seedObject) {
           var server_seed = seedObject.serverSeed;
             let hash = crypto.createHash('SHA256');
