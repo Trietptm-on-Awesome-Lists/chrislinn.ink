@@ -80,3 +80,22 @@
 2. 前端调用 scatter
 
 3. 游戏结束后，发起解锁
+
+
+# LAPP
+
++ code
+    * https://github.com/bcongdon/awesome-lightning-network
+    * https://github.com/ElementsProject/woocommerce-gateway-lightning
+    * https://github.com/ElementsProject/wordpress-lightning-publisher
+    * https://github.com/ElementsProject/filebazaar
+    * https://github.com/ElementsProject/paypercall
+    * https://github.com/ElementsProject/lightning-jukebox
+    * https://github.com/ElementsProject/nanotip
+    * https://github.com/ElementsProject/ifpaytt
++ nodes
+    * https://1ml.com/
++ knowledge
+    * https://segmentfault.com/a/1190000016454672
+    * https://medium.com/cryptocow/lightning-vs-raiden-1-can-watchtowers-and-monitoring-services-scale-f3b59906114b
+    * https://s1.rylink.com/info_detail/239
