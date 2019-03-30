@@ -10,6 +10,8 @@
     * other
         - Boost Blockchain Broadcast Propagation with Tree Routing
         - Han Runchao list
+        - https://github.com/tyrchen/unchained
+        - why it takes 20 min to mine this block
 + [Ethereum Research](https://ethresear.ch/)
 + [区块链技术指南](https://yeasy.gitbooks.io/blockchain_guide/content/)
 + 《精通比特币》第二版
@@ -74,28 +76,15 @@
     * https://github.com/btccom/btcpool
     * https://github.com/btccom/parity-ethereum
 + Master Bitcoin
-+ Bitcoin: A Peer-to-Peer Electronic Cash System
-+ why it takes 20 min to mine this block
 
-[谈谈如何做研究](https://mp.weixin.qq.com/s/owj8c2xeOWG7e-9oOvgaMw)
 
 ## TODOS
-+ 多签
 + taint
-+ coinbase
 + mint
 + chain
-+ 技术书
-+ 0-confirm
-+ 量化交易
 + 搬砖机器人
 + 合约
-+ 芯片挖矿
-+ 矿池
 + 情绪预测
-+ utxo
-+ 地址验证、key、addr、script, 私钥, 助记词, keystore, 密码
-+ 解锁
 + P2P
 + MIM
 + Secp256k1
