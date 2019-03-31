@@ -74,11 +74,11 @@ Attached to this output is a rangeproof which proves that v is in [0, 2^64], so 
 
 To validate a transaction, the verifer will add commitments for all outputs, plus f*H (f here is the transaction fee which is given explicitly) and subtracts all input commitments. The result must be 0, which proves that no amount was created or destroyed overall.
 
-为了验证交易，验证人将加上所有的输出，加上 `f * H` (这里的 f 是显示给出的交易费)，并减去所有的输入。这个结果肯定为零，证明整体数量上没有新增或者销毁。
+为了验证交易，验证人将加上所有的输出承诺，加上 `f * H` (这里的 f 是显示给出的交易费)，并减去所有的输入承诺。这个结果肯定为零，证明整体数量上没有新增或者销毁。
 
 We note that to create such a transaction, the user must know the sum of all the values of r for commitments entries. Therefore, the r-values (and their sums) act as secret keys. If we can make the r output values known only to the recipient, then we have an authentication system! Unfortunately, if we keep the rule that commits all add to 0, this is impossible, because the sender knows the sum of all _his_ r values, and therefore knows the receipient's r values sum to the negative of that. So instead, we allow the transaction to sum to a nonzero value k*G, and require a signature of an empty string with this as key, to prove its amount component is zero.
 
-我们注意到，要创建这样一个交易，用户必须知道所有输入输出 r 的值的总和。因此，r 值（及其和）充当密钥的作用。如果我们可以使输出的 r 值仅为收款方所知，那么我们就有了一个身份验证系统！不幸的是，如果我们要保证输入输出加和为 0，这将不可能实现，因为发送者知道 _他_ 所有的 r 值之和，因此一取反就知道接收者的 r 值之和。因此，我们允许交易的输入输出金额加和为一个非零值 `k * G` ，并且需要一个以这个为密钥的对空字符串的签名，以证明它的金额部分是零。
+我们注意到，要创建这样一个交易，用户必须知道所有输入输出承诺 r 的值的总和。因此，r 值（及其和）充当密钥的作用。如果我们可以使输出的 r 值仅为收款方所知，那么我们就有了一个身份验证系统！不幸的是，如果我们要保证输入输出加和为 0，这将不可能实现，因为发送者知道 _他_ 所有的 r 值之和，因此一取反就知道接收者的 r 值之和。因此，我们允许交易的输入输出金额加和为一个非零值 `k * G` ，并且需要一个以这个为密钥的对空字符串的签名，以证明它的金额部分是零。
 
 We let transactions have as many k*G values as they want, each with a signature, and sum them during verification.
 
@@ -96,12 +96,12 @@ Sender and recipient agree on amount to be sent. Call this b.
 2.
 Sender creates transaction with all inputs and change output(s), and gives recipient the total blinding factor (r-value of change minus r-values of inputs) along with this transaction. So the commitments sum to r*G - b*H.
 
-发送方创建具有所有输入的交易，更改输出，并将总盲因子（更改的 r 值减去输入的 r 值）与此交易一起提供给接收方。因此，总额为 `r * G - b * H` 。
+发送方创建具有所有输入的交易，更改输出，并将总盲因子（更改的 r 值减去输入的 r 值）与此交易一起提供给接收方。因此，承诺总额为 `r * G - b * H` 。
 
 3.
 Recipient chooses random r-values for his outputs, and values that sum to b minus fee, and adds these to transaction (including range proof). Now the commitments sum to k*G - fee*H for some k that only recipient knows.
 
-接受者为其输出选择随机的 r 值，以及一些值（且他们的总和 b 减去手续费），并将这些值添加到交易中（包括范围证明）。现在，总额为 `K * G - fee * H`，K 只有接受方知道。
+接受者为其输出选择随机的 r 值，以及一些值（且他们的总和 b 减去手续费），并将这些值添加到交易中（包括范围证明）。现在，承诺总额为 `K * G - fee * H`，K 只有接受方知道。
 
 4.
 Recipient attaches signature with k to the transaction, and the explicit fee. It has done.
@@ -154,11 +154,11 @@ Now, we have used Dr. Maxwell's Confidential Transactions to create a noninterac
 
 We can imagine now each block as one large transaction. To validate it, we add all the output commitments together, then subtracts all input commitments, k*G values, and all explicit input amounts times H. We find that we could combine transactions from two blocks, as we combined transactions to form a single block, and the result is again a valid transaction. Except now, some output commitments have an input commitment exactly equal to it, where the first block's output was spent in the second block. We could remove both commitments and still have a valid transaction. In fact, there is not even need to check the rangeproof of the deleted output.
 
-我们现在可以将每个块想象为一个大型交易。为了验证它，我们将所有输出加在一起，然后减去所有输入、减去所有 `k*G` 值和减去所有显式输入金额乘以 `H` 的值 。我们发现我们可以将两个块的交易组合起来，因为我们如果将交易组合成一个块，结果仍然是一个有效的事务。除了，现在，有些输出与它的输入完全相同，其中第一个块的输出用在了第二个块中。我们可以把这两项取消，但仍然得到一个有效的交易。实际上，甚至不需要检查已删除输出的 RangeProof。
+我们现在可以将每个块想象为一个大型交易。为了验证它，我们将所有输出承诺加在一起，然后减去所有输入承诺、减去所有 `k*G` 值和减去所有显式输入金额乘以 `H` 的值 。我们发现我们可以将两个块的交易组合起来，因为我们如果将交易组合成一个块，结果仍然是一个有效的事务。除了，现在，有些输出承诺与它的输入承诺完全相同，其中第一个块的输出用在了第二个块中。我们可以把这两项承诺取消，但仍然得到一个有效的交易。实际上，甚至不需要检查已删除输出的 RangeProof。
 
 The extension of this idea all the way from the genesis block to the latest block, we see that EVERY nonexplicit input is deleted along with its referenced output. What remains are only the unspent outputs, explicit input amounts and every k*G value. And this whole mess can be validated as if it were one transaction: add all unspent commitments output, subtract the values k*G, validate explicit input amounts (if there is anything to validate) then subtract them times H. If the sum is 0, the entire chain is good.
 
-从创世区块一直扩展到最新的块，我们看到每一个非显式的输入以及它引用的输出都被删除。剩下的只是未花费的输出、显式输入量和每个 `k*G` 值。整一大坨东西可以像只有一笔交易一样被验证：把所有未花费的输出加到一起，减去 `k*G` 值，验证显式输入量（如果有什么要验证的话），然后减去它们乘以 H 的值。如果总和为 0，整条链就没问题。
+从创世区块一直扩展到最新的块，我们看到每一个非显式的输入以及它引用的输出都被删除。剩下的只是未花费的输出、显式输入量和每个 `k*G` 值。整一大坨东西可以像只有一笔交易一样被验证：把所有未花费的输出承诺加到一起，减去 `k*G` 值，验证显式输入量（如果有什么要验证的话），然后减去它们乘以 H 的值。如果总和为 0，整条链就没问题。
 
 What is this mean? When a user starts up and downloads the chain he needs the following data from each block:
 
