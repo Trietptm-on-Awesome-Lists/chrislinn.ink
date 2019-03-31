@@ -79,6 +79,7 @@
 
 
 ## TODOS
++ IPFS vs BitTorrent
 + 致盲攻击
 + 盲签名
 + mimblewimble
