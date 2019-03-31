@@ -79,45 +79,33 @@
 
 
 ## TODOS
++ 致盲攻击
++ 盲签名
++ mimblewimble
++ lightning & lapp
++ fibre
+    * http://bitcoinfibre.org/
+    * https://github.com/bitcoinfibre/bitcoinfibre
+    * http://bitcoinfibre.org/public-network.html
+    * https://bitcoin.stackexchange.com/questions/56485/can-someone-please-explain-fibre-to-me-like-im-5-and-why-is-it-useful/56494
++ cardano
++ bo ka
++ cosmos
 + taint
 + mint
 + chain
-+ 搬砖机器人
-+ 合约
-+ 情绪预测
 + P2P
+    * https://github.com/AmarRSingh/NotThatNetworking_Research
++ layer2
+    * https://github.com/Awesome-Layer-2/awesome-layer-2
 + MIM
 + Secp256k1
     * https://bitcointalk.org/index.php?topic=151120.0
     * https://en.bitcoin.it/wiki/Secp256k1
-+ leveldb
-    * 持久化存储
-+ cardano
-
-## DB
-+ https://github.com/bigchaindb/bigchaindb
-+ https://github.com/pixelspark/catena
-+ https://github.com/ChainSQL/chainsqld
-
-<!-- 
-## Soul-Rose
-+ [以太坊私链](https://mp.weixin.qq.com/s?__biz=MzUzNTEwODM4OA==&mid=2247483747&idx=2&sn=e270c52cbea73654a08162e9a4833252&chksm=fa8bcf28cdfc463e6a45446e95e1a3461e302a48cae3af10b72cec8ae19f423a0a5c7ccfbf22&mpshare=1&scene=1&srcid=0323kCmh8uIp2uaN58GQUyfT&pass_ticket=xsclNig29Kt4k90qrIoVlF1vVltuq2IlP%2F3tszP3fSMRPVayWjSDx1mu5YdzNe7I#rd)
-+ https://mp.weixin.qq.com/s?__biz=MzUzNTEwODM4OA==&mid=2247483740&idx=1&sn=07181641332359c45b64384eb8fc081b&chksm=fa8bcf17cdfc4601e2d46cd3d22fdf4b075f34452472ed107f59c0a9a1415ecd59e6dfd5162f&scene=0&pass_ticket=xsclNig29Kt4k90qrIoVlF1vVltuq2IlP%2F3tszP3fSMRPVayWjSDx1mu5YdzNe7I#rd
-+ http://cj.sina.com.cn/articles/view/2506401175/9564a5970010046ph
-+ https://mp.weixin.qq.com/s?__biz=MzU2MTE1NDk2Mg==&mid=2247484662&idx=1&sn=b2d9c242e7fa993a5beb793deea47172&chksm=fc7c5a0bcb0bd31d1944ae007eb1bbd2ca0d2a1bfa97f68bb15e126c9b742d588e0089b3354d&mpshare=1&scene=1&srcid=0313kihjkq6Yv0UEpydGN2y6&pass_ticket=xsclNig29Kt4k90qrIoVlF1vVltuq2IlP%2F3tszP3fSMRPVayWjSDx1mu5YdzNe7I#rd
-+ https://steemit.com/cn-cryptocurrency/@peipei/cryptokitties
-+ http://www.icokan.com/portal.php?mod=view&aid=6052
-+ https://ethfans.org/posts/how-to-code-your-own-cryptokitties-style-game-on-ethereum
-+ https://zhuanlan.zhihu.com/p/32380985
-+ https://blog.csdn.net/pure_lady/article/details/78768546
-+ Firstblood、GameCredits、Bitcrystals
-+ [24小时全球交易TOP3，2周总流水780ETH，复盘新年第一款国产区块链游戏](https://mp.weixin.qq.com/s?__biz=MjM5Njc5MjgyMA==&mid=2989658332&idx=1&sn=c37a238202cbdb18dd529279d35e7a2d&chksm=9125e047a65269514f43b0e8d29f893ea24b23341aafa96d3289937d74b0bbcc73bbbe33ec5f&mpshare=1&scene=1&srcid=03118jbSJvJvYyIzFgs3yYH5&pass_ticket=xsclNig29Kt4k90qrIoVlF1vVltuq2IlP%2F3tszP3fSMRPVayWjSDx1mu5YdzNe7I#rd)
-+ [「以太猫」不是区块链游戏，这些才是 | 36氪新风向](https://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2247506101&idx=1&sn=c0caee8a9b2aa0980e201317b9dde7d0&chksm=eaa68969ddd1007fe8f3010a9c99200e38723988dfac4622a43a7738361669bc752d0b445b3b&scene=0&pass_ticket=xsclNig29Kt4k90qrIoVlF1vVltuq2IlP%2F3tszP3fSMRPVayWjSDx1mu5YdzNe7I#rd)
- -->
 
 ## Books
 
-## BigchainDB
+## BigchainDB 源码剖析
 
 ## DNA 源码剖析
 
