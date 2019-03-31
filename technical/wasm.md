@@ -9,33 +9,40 @@ __阅读列表__
 + https://github.com/webassembly
 * https://rust.cc/
 + https://www.8btc.com/author/3708
-* 玄武
+* 玄武 https://sec.today
 * https://bbs.chainon.io/
 
 ---
 
++ https://wasi.dev/
+    * https://github.com/CraneStation/wasmtime/blob/master/docs/WASI-documents.md
+    * https://github.com/CraneStation/wasmtime/blob/master/docs/WASI-intro.md
+    * https://github.com/CraneStation/wasmtime/blob/master/docs/WASI-overview.md
+    * https://github.com/CraneStation/wasmtime/blob/master/docs/WASI-tutorial.md
+    * https://github.com/CraneStation/wasi-sdk
+    * https://github.com/CraneStation/wasi-sysroot/
+    * https://github.com/CraneStation/wasmtime/
+    * https://github.com/fastly/lucet/
++ https://webassembly.org/
++ http://webassembly.github.io/spec/
++ https://github.com/WebAssembly/design
++ https://developer.mozilla.org/en-US/docs/WebAssembly
++ https://webassembly.org/docs/high-level-goals/
++ https://github.com/mbasso/awesome-wasm
++ https://github.com/rustwasm/team
+    * https://github.com/rustwasm/wasm-pack
+    * https://github.com/rustwasm/create-wasm-app
+    * https://github.com/rustwasm/awesome-rust-and-webassembly
++ https://rustwasm.github.io/book/
++ https://developer.mozilla.org/zh-CN/docs/WebAssembly/Rust_to_wasm
 + https://webassembly.eu/
 + https://wasmweekly.news/
 + https://blogs.autodesk.com/autocad/autocad-web-app-google-io-2018/
 + https://zhuanlan.zhihu.com/p/36130095
 + https://zhuanlan.zhihu.com/p/42274816
-+ http://webassembly.github.io/spec/
-+ https://github.com/WebAssembly/design
-+ https://webassembly.org/
-+ https://www.w3.org/community/webassembly/
-+ https://www.w3.org/wasm/
-+ https://developer.mozilla.org/en-US/docs/WebAssembly
-+ https://webassembly.org/docs/high-level-goals/
-+ https://tomassetti.me/introduction-to-webassembly/
 + https://www.parity.io/wasm-smart-contract-development/
 + https://github.com/paritytech/parity-ethereum
-+ https://github.com/rustwasm/team
-    * https://github.com/rustwasm/wasm-pack
-    * https://github.com/rustwasm/create-wasm-app
-+ https://rustwasm.github.io/book/
-+ https://github.com/rustwasm/awesome-rust-and-webassembly
-+ https://developer.mozilla.org/zh-CN/docs/WebAssembly/Rust_to_wasm
-+ https://github.com/mbasso/awesome-wasm
++ https://tomassetti.me/introduction-to-webassembly/
 + https://juejin.im/entry/5be3d6a2518825170678f0e6
 + https://juejin.im/entry/5b24d1406fb9a00e833d446e
 + https://juejin.im/entry/5bb476eff265da0aba70cb7f
