@@ -15,6 +15,8 @@
         + ticker 定期生成 NewBlockTemplate，因为 新添交易的话 commitment 会改变，blockheader 也会改变，不用 map 的话，submit work不对应
         + 老 map 要注意 GC
     - 全局交易索引
+        + config
+        + test
 + Precogs
     * 涉及 P2P
 + 中心化钱包
