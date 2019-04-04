@@ -333,3 +333,6 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
 + WebGL 贴图
 + 使用 drawImage 将 Images/video 画面绘制到 canvas
 + 样式表（使用 CSSOM）
+
+
+## patent

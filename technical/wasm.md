@@ -57,6 +57,16 @@ __阅读列表__
 + 用 Webpack 运行 Rust 转 wasm
     * https://magicly.me/fe-hpc/rust-asmjs-and-webassembly/
     * https://imweb.io/topic/5c06b8b0611a25cc7bf1d7d5
++ smart contract
+    * https://eoswiki.readthedocs.io/zh_CN/latest/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/
+    * https://wiki.parity.io/WebAssembly-Home
+    * https://github.com/tnessn/docsify/wiki/%5BChinese-Simplified%5D-Wasm%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97
+    * https://blog.51cto.com/13625500/2107544
+    * https://bihu.com/article/356166
+    * https://www.jianshu.com/p/681aae056259
+    * https://zhuanlan.zhihu.com/p/36495658
+    * https://segmentfault.com/a/1190000016434809
+    * https://blog.csdn.net/ITleaks/article/details/80394703
 
 
 
