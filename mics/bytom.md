@@ -410,3 +410,5 @@ type validationState struct {
     cache     map[bc.Hash]error // Memoized per-entry validation results
 }
 ```
+
+`gasStatus := &GasState{GasValid: false}` 一开始是 false，然后随着验证逐步更新， 如果最终有效  GasValid  才为 true
