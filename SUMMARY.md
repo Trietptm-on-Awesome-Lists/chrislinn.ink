@@ -41,6 +41,7 @@
         - [Bytom](technical/bytom/README.md)
             + [源码解读-链式交易](technical/bytom/chained-tx.md)
             + [源码解读-验证交易](technical/bytom/chained-tx.md)
+            + 源码解读-虚拟机验证
     - 自我提升
     - Notes
         - [Trading](notes/trading.md)
