@@ -40,6 +40,7 @@
 
 ## twitter
 + ~~Crypto_Rand~~
++ ~~Crypto_Dog~~
 
 
 ## 收获
