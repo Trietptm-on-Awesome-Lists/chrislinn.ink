@@ -38,6 +38,8 @@
         + [Interpreter in Python](technical/py-interpreter.md)
         + [DApps](technical/dapps.md)
         + [WASM 关注列表](technical/wasm.md)
+        - [Bytom](technical/bytom/README.md)
+            + [源码解读 - ](technical/chained-tx.md)
     - 自我提升
     - Notes
         - [Trading](notes/trading.md)
@@ -46,6 +48,5 @@
         + [My trip on Vim](notes/vim.md)
     * 随笔
         - [王小波读后感](mics/wangxiaobo.md)
-        - [Bytom](mics/bytom.md)
         - [Blockchain](mics/blockchain.md)
         + [我读周金涛](mics/zhoujintao.md)
