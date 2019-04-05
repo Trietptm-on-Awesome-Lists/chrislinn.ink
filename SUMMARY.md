@@ -39,7 +39,8 @@
         + [DApps](technical/dapps.md)
         + [WASM 关注列表](technical/wasm.md)
         - [Bytom](technical/bytom/README.md)
-            + [源码解读 - ](technical/chained-tx.md)
+            + [源码解读-链式交易](technical/bytom/chained-tx.md)
+            + [源码解读-验证交易](technical/bytom/chained-tx.md)
     - 自我提升
     - Notes
         - [Trading](notes/trading.md)
