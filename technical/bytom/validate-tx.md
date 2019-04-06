@@ -1,9 +1,10 @@
 # 验证交易
 
-`protocol/validation/tx.go` 中 `func ValidateTx(tx *bc.Tx, block *bc.Block) (*GasState, error)` 对交易进行验证
+`protocol/validation/tx.go` 中 
+
+`func ValidateTx(tx *bc.Tx, block *bc.Block) (*GasState, error)` 对交易进行验证
 
 交易除了原生 types 层之外，有个 map 层的封装，便于 验证
-
 ```
 type validationState struct {
     block     *bc.Block
@@ -43,7 +44,7 @@ type validationState struct {
 
 比如我们挑选最经典的 mux 对 `checkValidDest` 进行示范讲解。
 
-对于 一个 `mux` ，代码中可以看到，`checkValid` 先对 `WitnessDestinations` 进行 `checkValidDest`,
+对于 一个 `mux` ，代码中可以看到，`checkValid` 先对 `WitnessDestinations` (output) 进行 `checkValidDest`,
 ```
 for i, dest := range e.WitnessDestinations {
     vs2 := *vs
@@ -54,7 +55,7 @@ for i, dest := range e.WitnessDestinations {
 }
 ```
 
-然后对 `Sources` 进行 `checkValidSrc`。
+然后对 `Sources` (input) 进行 `checkValidSrc`。
 ```
 for i, src := range e.Sources {
     vs2 := *vs
@@ -66,8 +67,6 @@ for i, src := range e.Sources {
 ```
 
 `checkValidDest(&vs2, dest)` 中 `vs2` 就是这个 mux 的验证状态， `dest` 就是这个输出，可能的类型有 `bc.Output`、`bc.Retirement`。
-
-
 
 `vd.Ref` 是对这个输出本身的引用（回忆一下：所有 `entryID` 都以 `bc.Hash` 进行标识）
 ```
