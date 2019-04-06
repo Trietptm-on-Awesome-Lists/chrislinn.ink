@@ -39,6 +39,8 @@ type validationState struct {
 2. 互为对称逻辑的 `checkValidDest` 和 `checkValidSrc` 检查输入
 3. 对于 `*bc.Spend` 来说 还要检查 prevout amount 等于该 entry (即该 spend)的 `WitnessDestination.Value`
 
+---
+
 比如我们挑选最经典的 mux 对 `checkValidDest` 进行示范讲解。
 
 对于 一个 `mux` ，代码中可以看到，`checkValid` 先对 `WitnessDestinations` 进行 `checkValidDest`,
@@ -63,9 +65,9 @@ for i, src := range e.Sources {
 }
 ```
 
----
-
 `checkValidDest(&vs2, dest)` 中 `vs2` 就是这个 mux 的验证状态， `dest` 就是这个输出，可能的类型有 `bc.Output`、`bc.Retirement`。
+
+
 
 `vd.Ref` 是对这个输出本身的引用（回忆一下：所有 `entryID` 都以 `bc.Hash` 进行标识）
 ```
@@ -77,7 +79,7 @@ if !ok {
 
 对于 `bc.Output`、`bc.Retirement` 来说，它不像 mux 一样有很多入口出口，所以 position 为 0。简单来说，可以理解为 mux 有 WitnessDestinations 和 Sources （对应 sourcePosition），而 coindbase、spend、issue 只有 WitnessDestination，output、 retire 只有 Souce。而且这样的话，非 mux 的 `ValueSource` & `ValueDestination` 其实 Position、srcPosition、destPosition 可以统一看作 0，不予校验，因为不是数组。传入时就可以写0。
 
-> `bc.Output`、`bc.Retirement` 的 `Source` ，`bc.Coinbase`、`bc.Issuance`、`bc.Spend` 的 `WitnessDestination` 可以简单地理解为就是他们自己本身。这样一来，再结合上一段，checkValid 中的 非 mux 的 cases 将会比较好理解。
+> `bc.Output`、`bc.Retirement` 的 `Source` ，`bc.Coinbase`、`bc.Issuance`、`bc.Spend` 的 `WitnessDestination` 可以简单地理解为跳过mux 去校验对应的来源／目的地。这样一来，再结合上一段，checkValid 中的 非 mux 的 cases 将会比较好理解。
 
 ```
 var src *bc.ValueSource
@@ -102,8 +104,7 @@ if vd.Position >= uint64(len(ref.Sources)) {
 }
 ```
 
-
-`ref = vs.tx.Entries[*vd.Ref]`, `src = ref.Source`, 这里的 `ref` 和 `.Ref` 可能看起来比较乱，可以理解为 `ref` 就是一个输出实体，比如对于 `bc.Output`
+`ref = vs.tx.Entries[*vd.Ref]`, `src = ref.Source`, 这里的 `ref` 和 `.Ref` 可能看起来比较乱，可以理解为 `.Ref` 是 id,  `ref` 就是一个输出实体（一般来说 如果查找正确就是 vd 本身），比如对于 `bc.Output`
 ```
 type Output struct {
     Source         *ValueSource `protobuf:"bytes,1,opt,name=source" json:"source,omitempty"`
@@ -112,7 +113,7 @@ type Output struct {
 }
 ```
 
-而 `src` (`src = ref.Source`) 可以理解为一个抽象实体(metadata)，包含了 ID `src.Ref`、金额 `src.Value`、和位置信息 `src.Position`:
+而 `src` (`src = ref.Source`) 可以理解为一个抽象实体(metadata)，包含了 ID `src.Ref` (对于一个 mux vstate 来说指向 mux, 否则 src 是 coinbase spend issue 这些。)、金额 `src.Value`、和位置信息 `src.Position`:
 ```
 type ValueSource struct {
     Ref      *Hash        `protobuf:"bytes,1,opt,name=ref" json:"ref,omitempty"`
@@ -121,16 +122,14 @@ type ValueSource struct {
 }
 ```
 
-所以通过 `src` 可以知道输出在 mux 上对应的第几个出口。
-
-检查自己确实和通过 vs 中查到的自己 ID 相等:
+检查自己确实和通过 vstate 中查到的自己 ID 相等:
 ```
 if src.Ref == nil || *src.Ref != vs.entryID {
     return errors.Wrapf(ErrMismatchedReference, "value destination for %x has disagreeing source %x", vs.entryID.Bytes(), src.Ref.Bytes())
 }
 ```
 
-检查 `vs.destPos` 位置确实和通过 `vs.tx.Entries` 中查到的 src 位置相等（包括 ref 是一个 mux，即 vd 是 mux 上一个输入，src是 通过 map 找到的输入，的情况）:
+检查 `vs.destPos` 位置确实和通过 `vs.tx.Entries` 中查到的 src 位置相等（包括 ref 是一个 mux，即 vd 是 mux 上的一个输入，src是 通过 map 找到的输入，的情况）:
 ```
 if src.Position != vs.destPos {
     return errors.Wrapf(ErrMismatchedPosition, "value destination position %d disagrees with %d", src.Position, vs.destPos)
@@ -144,4 +143,4 @@ eq, err := src.Value.Equal(vd.Value)
 
 ---
 
-`checkValidSrc` 的逻辑和 `checkValidDest` 是对称的，不再进行详细讲解。
+`checkValidSrc` 的逻辑和 `checkValidDest` 是对称的，不再进行详细讲解。对 `checkValidSrc()` 还会先把要检查的src重新调用一遍 checkValid， 以保证 source 有效为前提。
