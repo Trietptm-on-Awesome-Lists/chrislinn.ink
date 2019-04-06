@@ -29,7 +29,7 @@ cache 则是对之前校验过的 entry 的 error 进行缓存，避免重复校
 `func checkValid(vs *validationState, e bc.Entry) ` 中反复有类似 `vs2 := *vs`
 的语句出现是为了防止 浅拷贝 造成修改
 
-`vm.Verify` 涉及到 [虚拟机验证](vm-valify.md)
+`vm.Verify` 涉及到 [虚拟机验证](vm-verify.md)
 
 其他的任务就落在了
 1. `map[bc.AssetID]int64` 进行金额计算，校验是否溢出，并尝试 `setGas` 

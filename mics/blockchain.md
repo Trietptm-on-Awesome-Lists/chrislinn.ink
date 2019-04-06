@@ -7,6 +7,7 @@
     * [scalingbitcoin](https://scalingbitcoin.org/papers/)
         - Bitcoin: A Peer-to-Peer Electronic Cash System
         - Information propagation in the Bitcoin network
+    * https://github.com/bitcoinops/scaling-book
     * other
         - Boost Blockchain Broadcast Propagation with Tree Routing
         - Han Runchao list
