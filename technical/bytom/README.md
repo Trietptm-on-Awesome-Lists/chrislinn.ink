@@ -316,20 +316,41 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
 本说明书的一个或多个实例涉及区块链和人工智能计算技术领域，尤其涉及运行在区块链上的、通过人工智能硬件进行计算的智能合约，对能源和物联网进行自动化和现代化的方法
 
 #### 技术背景
-区块链赋能的智能合约展现了在不需要第三方信任机构的情况下价值交换的潜力。
+区块链赋能的智能合约展现了在不需要第三方信任机构的情况下价值交换的潜力。人工智能，密码学，分布式信任算法和智能合约组合起来能更加安全、高效地来对价值、商品和服务进行交换。这个专利结合人工智能、区块链和智能合约，打造一个运行在区块链上的、可信的人工智能智能合约，适合在人工智能硬件物联网上高效运行，实现了一个构建在电网和物联网等多个复杂系统之上的系统，对能源和物联网进行自动化和现代化，将能源基础设施发展为日益自动化、分布式、清洁和弹性的系统，帮助经济和社会稳健发展。
 
-_TODO: 拆分_
+#### 发明内容
+传统的物联网、电网中，系统的运行是中心化控制的、逻辑固定的。这个发明通过一个创新的区块链智能合约应用到电力基础设施，以及一系列网络化来实现生产、传输、分配和消耗能源以及价值的连接体。通过人工智能区块链解决方案加密、监控和自动化交易以及解除对第三方信任的依赖来提高网络弹性和优化分布式能源资源的复杂交换。通过物联网设备感知和交换信息，支持人工智能的区块链解决方案还可以帮助更好地分析来自数千个变量（工业控制系统异常、频率、负载和电压变化）的数据集，并将它们组织成加权关系，可通过区块链追溯这些加权关系。由于这些变量中的数据模式可以通过机器学习计算机神经网络更好地检测，可以更新区块链智能合约以更好地保护和交换能源数据。
 
-人工智能，密码学，分布式信任算法和智能合约组合起来能更加安全、高效地来对价值、商品和服务进行交换。这个专利结合人工智能、区块链和智能合约，打造一个运行在区块链上的、可信的人工智能智能合约，适合在人工智能硬件物联网上高效运行，实现了一个构建在电网和物联网等多个复杂系统之上的系统，对能源和物联网进行自动化和现代化，将能源基础设施发展为日益自动化、分布式、清洁和弹性的系统，帮助经济和社会稳健发展。
+具体来说，这个发明的创新设计是：
 
-Blockchain is defined as a distributed data base or digital ledger that records transactions of value using a cryptographic signature that is inherently resistant to modification (Tapscott 2016). Combining blockchain based smart contracts with machine learning algorithms presents an opportunity to increase the speed, scale, security and autonomy of complex, distributed internet of things (IoT) environments. Certainly, the need for third parties in executing a transaction will be reduced or even be replaced when an autonomous smart contract can execute and exchange value and services via an autonomous agent. But who will be held responsible when there is an error or when the contract is not successfully executed? While the data and exchange of value captured in blockchain might be immutable, or at least very hard to manipulate, what if the algorithm that establishes the terms of the contract executed is written by a AI agent. What additional challenges and potential solutions should be explored to via AI enabled blockchain solutions to distribute and automate IoT in a more secure way?
+1. 传统系统使用中心化数据库，存在单点故障和信任忧患。而目前电网缺乏必要的安全性和恢复能力，无法防止对灾害应急响应系统、电网边缘设备和相关电力基础设施的网络攻击。这个专利通过使用区块链的数字账本和加密签名交易数据提高能源交易的可靠性和完整性。通过分布式信任机制，在不需要信任机构的情况下也能防止篡改和修订，实现可信地记录实时净负载，提高对电网通信的保真度和安全性。
+
+1. 传统系统中程序控制是中心化的，这个专利通过使用智能合约，避免了中心化的控制，执行程序进行价值交换的双方可以相互验证，避免了受到中心化控制和作弊的可能。另外智能合约通过允许能源消费者和采购商相互出售而不是通过多层系统进行交易（在多层系统中，配电和输电系统运营商、电力生产商和供应商在不同层次进行交易，存在中间商差价），从而促进对等能源交换，有效地提高了能源供应效率和降低交易成本。
+
+1. 传统系统中控制程序的逻辑是固定的。这个专利中使用了 人工智能算法自动调整逻辑。
+1.1 物联网系统难以避免需要与物理世界交互，在做出决策时就需要更高的智能和现实世界知识。人工智能系统将来自各种传感器的信息转换成智能合约可以执行的代码。例如，关键能源基础设施的所有者和运营商需要针对网络攻击和有害天气条件的保险合同，而通过人工智能生成智能合约则需要可以确定何时触发支付事件。
+
+1.2 将人工智能和区块链功能结合起来，还可以对未经授权试图更改重要数据、配置、应用程序以及网络设备和传感器基础设施的行为提供实时安全响应。自动检测数据异常并通过统一的事件分析时间线减少标准化证据的负担。
+
+1. 传统加密方案通常使用公钥基础设施（public key infrastructure, PKI）解决方案。但该方案通常成本高昂，无法扩展以实现物联网环境的加密要求。比如说，物联网系统环境缺乏必要的计算机处理能力来支持 PKI 的部署。此外，在 PKI 中，通常只有一个颁发机构可以颁发和吊销安全证书。如果此授权受到攻击并且证书被篡改，则其所有用户都可能受到网络攻击。该发明使用了区块链无钥匙签名基础设施 (keyless signature infrastructure, KSI)，通过 KSI 使用数学算法进行身份验证，无需信任密钥或凭证，帮助维护数据交换和其他数字交易的完整性。能够实时大规模地验证物联网数据，提供不变的交易数据，避免了 PKI 存在的问题。KSI 通过使用加密散列函数，证明物联网设备没有变化，防止敏感物联网数据的泄露，并提供了可以证明的加密数据。
+
+
+#### 具体实施方式
+
+#### 总结
+
+#### 附图说明
+
+---
+
+<!-- Blockchain is defined as a distributed data base or digital ledger that records transactions of value using a cryptographic signature that is inherently resistant to modification (Tapscott 2016). Combining blockchain based smart contracts with machine learning algorithms presents an opportunity to increase the speed, scale, security and autonomy of complex, distributed internet of things (IoT) environments. Certainly, the need for third parties in executing a transaction will be reduced or even be replaced when an autonomous smart contract can execute and exchange value and services via an autonomous agent. But who will be held responsible when there is an error or when the contract is not successfully executed? While the data and exchange of value captured in blockchain might be immutable, or at least very hard to manipulate, what if the algorithm that establishes the terms of the contract executed is written by a AI agent. What additional challenges and potential solutions should be explored to via AI enabled blockchain solutions to distribute and automate IoT in a more secure way?
 
 基于区块链的智能合约与机器学习算法相结合，提供了一个提高复杂、分布式物联网（IOT）环境的速度、规模、安全性和自主性的机会。当然，当自主智能合约可以通过自主代理执行和交换价值和服务时，第三方执行交易的需求将会减少，甚至会被取代。但如果出现错误或合同执行不成功，谁将承担责任？虽然区块链中捕获的数据和价值交换可能是不可变的，或者至少很难操作，但是如果确定执行的合同条款的算法是由人工智能代理编写的呢？应通过支持人工智能的区块链解决方案探索哪些额外的挑战和潜在的解决方案，以更安全的方式分发和自动化物联网？
+
 
 This paper explores these questions through an innovative blockchain smart contract application to electricity infrastructure and the array of networked things that are increasing connected responsible for energy generation, transmission, distribution and consumption. This use case highlights how AI enabled blockchain solutions may help increase cyber resilience and optimize complex exchanges of distributed energy resources by encrypting, monitoring and automating transactions and removing third parties. With billions of IoT devices sensing and exchanging information, AI enabled blockchain solutions could also help better analyze data sets from thousands of variables (industrial control system anomalies, frequency, load and voltage changes) and organize them into weighted relationships, which could be tracked through a next generation blockchain solution. As data patterns in these variables are better understood via machine learning computer-based neural networks, the smart blockchain contract could be updated to better secure and exchange energy data.
 
 本文通过一个创新的区块链智能合约应用到电力基础设施，以及一系列网络化的事物来探讨这些问题，这些事物正日益成为产生、传输、分配和消耗能源的连接体。这个用例强调了人工智能区块链解决方案如何通过加密、监控和自动化交易以及删除第三方来帮助提高网络弹性和优化分布式能源资源的复杂交换。由于数十亿物联网设备感知和交换信息，支持人工智能的区块链解决方案还可以帮助更好地分析来自数千个变量（工业控制系统异常、频率、负载和电压变化）的数据集，并将它们组织成加权关系，可通过下一代区块链跟踪这些关系。洗脱。由于这些变量中的数据模式可以通过机器学习计算机神经网络更好地理解，智能区块链合同可以更新，以更好地保护和交换能源数据。
-
 
 The AI Enabled Blockchain Opportunity: The Evolution of Public Key Infrastructure Encryption
 
@@ -354,6 +375,7 @@ To help overcome these challenges, blockchain keyless signature infrastructure t
 为了帮助克服这些挑战，区块链无键签名基础设施技术在帮助优化和保护这些关键数据集免受新出现的网络威胁方面提供了独特的价值主张。支持人工智能的区块链显示了使关键能源交付系统能够越来越自动化以响应自然发生的天气事件、网络或网络物理混合攻击的潜力，从而使一些关键能源基础设施功能变得越来越自我修复和有弹性。
 
 Blockchain’s digital ledger and cryptography signed transaction data may help increase the trustworthiness and integrity energy transactions. Combined with machine learning and AI enabled energy delivery systems, these systems may also have more control and flexibility in automating, monitoring and auditing of complex energy exchanges at the grid’s edge.
+
 
 区块链的数字账本和加密签名交易数据可能有助于提高能源交易的可靠性和完整性。结合机器学习和人工智能的能量传递系统，这些系统在电网边缘复杂能量交换的自动化、监控和审计方面也可能具有更多的控制和灵活性。
 
@@ -383,9 +405,13 @@ Secure Data Storage in Cryptographically Signed Distributed Ledger: Blockchain c
 
 Certainly, AI enabled blockchain will be disruptive and replace jobs, especially traditional 3rd parties that are replaced by new consensus algorithms and distributed trust mechanisms. Energy aggregators and meter readers could potentially be replaced by a dynamic distributed ledger. Blockchain innovation will also create new energy jobs, value, and markets. Even as technology empowers humans, it also changes the relationship between man and machine, technology and organizations, society and innovation. Autonomous blockchain organizations may distribute power and leadership via cryptographic votes that establish equity against a contract or even mission statement. For example, future energy organizations may have stakeholders govern what type of energy mix they would like and have that preference or willingness to pay be capture in a smart contract. Blockchain AI empowered energy organizations might be increasingly autonomous made up decentralized contractors and investors with power to vote, invest and delivery services based on an immutable smart contract that captures who, what, when and where services are executed and shared in a transparent immutable ledger.
 
+
+
 当然，支持人工智能的区块链将具有破坏性并取代工作岗位，尤其是传统的第三方，这些第三方将被新的共识算法和分布式信任机制所取代。能量聚合器和抄表器可能会被动态分布式账本所取代。区块链创新还将创造新的能源就业机会、价值和市场。即使技术赋予人类力量，它也改变了人与机器、技术与组织、社会与创新之间的关系。自治区块链组织可以通过加密投票来分配权力和领导权，这些投票建立了对合同甚至任务声明的公平性。例如，未来的能源组织可能会让利益相关者控制他们想要的能源组合类型，并在智能合约中获得这种偏好或支付意愿。区块链人工智能授权的能源组织可能越来越具有自主性，由分散的承包商和投资者组成，他们有权根据一个不变的智能合约来投票、投资和交付服务，该智能合约在透明不变的分类账中记录服务的执行者、执行者、执行者、时间和地点。
 
 The notion of a “self-bootstrapped” organizations with crypto equities leveraging independently contractors guided by decentralized blockchain voting has been explored (Levine 2014). Bit congress has established a blockchain based voting system. The country of Georgia is leveraging blockchain to facilitate real estate licensing. Estonia has established a privacy preserving secure virtual government using keyless signature infrastructure blockchain. These examples highlight how technology can help distribute trust and reduce redundancy in everything from billing to middle management, creating new value for organizations in an increasingly decentralized autonomous society. Reducing redundancy creates new value and more competitive organizations (Lawless 2017)
+
+
 
 已经探讨了“自启动”组织的概念，即在分散的区块链投票的指导下，利用独立承包商的加密股票（Levine 2014）。比特大会建立了一个基于区块链的投票系统。格鲁吉亚国家正在利用区块链促进房地产许可。爱沙尼亚利用无钥匙签名基础设施区块链建立了一个保护隐私的安全虚拟政府。这些例子强调了技术如何帮助分配信任，减少从计费到中间管理的所有方面的冗余，为日益分散的自治社会中的组织创造新的价值。减少冗余创造了新的价值和更具竞争力的组织（Lawless 2017）
 
@@ -396,6 +422,8 @@ Blockchain and AI integration and innovation may present a more resilient and ef
 
 “Simple and easy to write contracts appear to be sufficient for many entirely digital transactions. But as these systems start to interact with the physical world, there is likely to be a need for greater intelligence and real world knowledge in making decisions. AI systems will be needed to translate information from a wide variety of sensors into precise terms that smart contracts can act upon. In the other direction, contracts that lead to physical actions (such as delivery of items) will need to interface with human and robotic agents. For example, owner and operators of critical energy infrastructure might want insurance contracts against cyber-attacks and harmful weather conditions and a smart contract would need to determine when the payout event is triggered (Levine 2014).
 
+
+
 “对于许多完全数字化的交易来说，简单易写的合同似乎已经足够了。但是，随着这些系统开始与物理世界交互，在做出决策时可能需要更高的智能和现实世界知识。人工智能系统将需要将来自各种传感器的信息转换成智能合约可以执行的精确术语。在另一个方向上，导致物理行为（如物品交付）的合同将需要与人类和机器人代理交互。例如，关键能源基础设施的所有者和运营商可能需要针对网络攻击和有害天气条件的保险合同，而智能合同则需要确定何时触发支付事件（Levine 2014）。
 
 These grid optimization, automation and resilience improvements are essential operations and design criteria as we modernize our power grid. However, cybersecurity is often an afterthought as vendors and end users prioritize functionality and cost, leaving our power grid, the backbone of our economy, potentially vulnerable to a cyber-attack. This is especially true at the grid’s edge which continues to increase the size and speed of data being collected and exchanged in absence of clear cybersecurity and IoT standards and regulation. Thus, the grid lacks the necessary defenses to prevent disruption and manipulation of DERs, grid edge devices and associated electricity infrastructure. Moreover, as the smart grid increases its connectivity and communications with buildings, cyber vulnerabilities will extend behind the meter into “smart” buildings, which also have a host of documented cybersecurity vulnerabilities.
@@ -404,9 +432,14 @@ These grid optimization, automation and resilience improvements are essential op
 
 Blockchain technology can also be applied to the smart grid to help reduce costs by cutting out 3rd parties and increasing the arbitrage opportunity for individuals to produce and sell energy to each other. Smart contracts facilitate peer-to-peer energy exchanges by enabling energy consumers and procures to sell to each other, instead of transacting through a multi-tiered system, in which distribution and transmission system operators, power producers, and suppliers transact on various levels (Mylrea and Gourisetti 2017). In April 2016, one of the first use cases was demonstrated where energy generated in a decentralized fashion was sold directly between neighbors in New York via a blockchain system, demonstrating that energy producers and energy consumers could execute energy supply contracts without involving a third-party intermediary; effectively increasing speed and reducing costs of the transaction (PWC 2017).
 
+
 区块链技术也可以应用于智能电网，通过切断第三方并增加个人相互生产和销售能源的套利机会来帮助降低成本。智能合约通过允许能源消费者和采购商相互出售而不是通过多层系统进行交易，从而促进对等能源交换，在多层系统中，配电和输电系统运营商、电力生产商和供应商在不同层次进行交易（Mylrea和Gourisetti，2017年）。2016年4月，第一个使用案例中的一个通过区块链系统在纽约邻居们之间直接销售以分散方式产生的能源，证明能源生产商和能源消费者可以在不涉及第三方中介的情况下执行能源供应合同；有效地提高了能源供应效率。ED和降低交易成本（普华永道2017年）。
 
+
+
 In addition to potential cost savings, transaction data might be more secure through decentralized storage and multifactor verification of transactions in the blockchain distributed ledger (PWC 2017). Blockchain reduces the need for 3rd parties to process transactions: Electricity is generated  Consumer buys the electricity  blockchain based meters update the blockchain, creating a unique timestamped block for verification in a distributed ledger: 1) At the distribution level, system operators can leverage the blockchain to receive energy transaction data to charge their network costs to consumers; 2) Reduces data requirements and increases speed of clearing transactions for transmission system operators as transactions could be executed and settled on the basis of actual consumption (Mylrea and Gourisetti 2017).
+
+
 
 除了潜在的成本节约之外，通过分散存储和区块链分布式账本中交易的多因素验证，交易数据可能更安全（pwc 2017）。区块链减少了第三方处理交易的需要：发电消费者购买基于电力区块链的电表更新区块链，在分布式账本中创建唯一的时间戳块进行验证：1）在分发级别，系统运营商可以利用区块链接收能量传输行动数据向用户收取其网络成本；2）减少数据需求，提高传输系统运营商的结算交易速度，因为交易可以在实际消费的基础上执行和结算（Mylrea和Gourisetti，2017年）。
 
@@ -425,7 +458,6 @@ Currently, the power grid lacks the necessary security and resilience to prevent
 Currently, time-lags for payment and uncollected bills leaves value on the table and the real cost associated with the energy value chain is not captured. Blockchain can record real time net loads and smart contracts execute customers distributed generated sales and purchases. Currently, grid operators lack visibility and control of real- time power flows and injections from DERs and distributed generation customers. Blockchain can help optimize network data and record residual energy at the substation level. Increasing the fidelity and control of utility data will also help settle with bulk systems as well as negotiate future contracts.
 
 目前，支付和未收回票据的时间滞后会使价值留在表中，而与能源价值链相关的实际成本并未被捕获。区块链可以记录实时净负载，智能合约执行客户分布式生成的销售和购买。目前，电网运营商缺乏对来自分布式发电客户和分布式发电客户的实时电力流和注入的可视性和控制。区块链可以帮助优化网络数据并记录变电站级别的剩余能量。提高公用事业数据的保真度和控制也将有助于解决批量系统以及谈判未来的合同。
-
 
 Blockchain, AI and IoT have a lot of buzz right now. Reading the news one might assume that blockchain is a panacea for all that ills us – climate change, cyber security, volatile financial systems. AI articles suggest that robots are coming and may take our jobs. Internet of Things or IoT cyber incidents remind us that everything is increasingly connected to the internet and collecting and exchanging data that is potentially vulnerable. While these are disruptive in their own way and create some exciting new opportunities, many challenges remain. Several fundamental policy, regulatory and scientific challenges remain before blockchain realizes its disruptive potential. This sections explores some of the challenges as they relate to block chain’s application to the array of things.
 
@@ -451,18 +483,7 @@ Despite being a centralized currency, Coincheck was a centralized cryptocurrency
 
 尽管Coincheck是一种集中的货币，但它是一种单一故障点的集中加密货币交换。然而，该账户的区块链共享分类账可能能够标记和跟踪被盗硬币，并识别收到它们的任何账户（Fadilpa_i_和Garlick 2018）。存储在区块链上不断增长的庞大数据集也可能在链中产生潜在的延迟或膨胀，需要在服务器上使用大量的RAM和内存。基于以太坊的智能合约的这些需求随着时间的推移而增长，并且处理该区块需要更长的时间。对于时间而言，敏感的能源交易这可能会导致智能合约的速度、规模和成本问题设计不当。
 
-
-
-#### 发明内容
-__的创新设计是__
-
-#### 具体实施方式
-
-#### 总结
-
-#### 附图说明
-
-
+ -->
 
 <!-- 
 
