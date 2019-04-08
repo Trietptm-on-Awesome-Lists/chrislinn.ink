@@ -1,5 +1,4 @@
 <!-- 
-+ http://docs.kubernetes.org.cn/
 + https://jimmysong.io/posts/what-is-serverless/
 + https://www.tarlogic.com/en/blog/how-kerberos-works/
 + https://github.com/serverless/serverless
@@ -13,6 +12,17 @@ serverless
 + http://www.servicemesher.com/istio-handbook/
 + https://jimmysong.io/istio-handbook/
 + http://www.servicemesher.com/awesome-servicemesh
+
+
+k8s
++ http://docs.kubernetes.org.cn/
++ https://www.kubernetes.org.cn/doc-11
++ https://zhuanlan.zhihu.com/p/42507941
++ https://juejin.im/post/5c6657fdf265da2db3053dd9
++ https://blog.51cto.com/wzlinux/2321293
++ https://www.infoq.cn/article/get-along-well-with-kubernetes
++ https://tech.antfin.com/articles/224
++ https://www.cnblogs.com/along21/p/10297756.html
 
 
 do this
