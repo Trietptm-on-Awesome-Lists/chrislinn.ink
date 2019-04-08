@@ -313,10 +313,15 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
 ### 利用网络弹性能源基础设施和物联网实现 AI 赋能的区块链智能合约
 
 #### 技术领域
-本说明书的一个或多个实例涉及区块链和人工智能计算技术领域，尤其涉及运行在区块链上的、通过人工智能硬件进行计算的智能合约，对能源和物联网进行自动化和现代化的方法
+本说明书的一个或多个实例涉及区块链和人工智能计算技术领域，尤其涉及运行在区块链上的、通过人工智能硬件进行计算的智能合约，对能源和物联网进行自动化和现代化的方法。
 
 #### 技术背景
-区块链赋能的智能合约展现了在不需要第三方信任机构的情况下价值交换的潜力。人工智能，密码学，分布式信任算法和智能合约组合起来能更加安全、高效地来对价值、商品和服务进行交换。这个专利结合人工智能、区块链和智能合约，打造一个运行在区块链上的、可信的人工智能智能合约，适合在人工智能硬件物联网上高效运行，实现了一个构建在电网和物联网等多个复杂系统之上的系统，对能源和物联网进行自动化和现代化，将能源基础设施发展为日益自动化、分布式、清洁和弹性的系统，帮助经济和社会稳健发展。
+区块链被定义为一个分布式数据库或数字账本，它使用固有的抗修改的加密签名记录价值交易。它维护一个不断增长的记录列表，称为块，每个块包含一个时间戳和到上一个块的链接，能够防止篡改和修订。
+
+基于区块链的智能合约（在没有中介机构充当货币和信息仲裁者的情况下交换价值的技术或应用程序）可以在没有人工交互的情况下执行，数据更难修改，因为块中的数据不能进行追溯性修改。区块链赋能的智能合约展现了在不需要第三方信任机构的情况下价值交换的潜力，提高了安全性，优化交换和跟踪价值的能力。
+
+人工智能可以通过学习数据，产生知识，并利用这些知识通过灵活适应实现特定目标和任务，自动做出优化的判断和决策。避免人类思考的局限，生成效率不够高的策略，或者灵活地根据场景进行决策，避免固定的逻辑。并可以自动化流程，将人类从反复决策的过程解放出来，实现 24 小时的可靠运行。
+
 
 #### 发明内容
 传统的物联网、电网中，系统的运行是中心化控制的、逻辑固定的。这个发明通过一个创新的区块链智能合约应用到电力基础设施，以及一系列网络化来实现生产、传输、分配和消耗能源以及价值的连接体。通过人工智能区块链解决方案加密、监控和自动化交易以及解除对第三方信任的依赖来提高网络弹性和优化分布式能源资源的复杂交换。通过物联网设备感知和交换信息，支持人工智能的区块链解决方案还可以帮助更好地分析来自数千个变量（工业控制系统异常、频率、负载和电压变化）的数据集，并将它们组织成加权关系，可通过区块链追溯这些加权关系。由于这些变量中的数据模式可以通过机器学习计算机神经网络更好地检测，可以更新区块链智能合约以更好地保护和交换能源数据。
@@ -337,7 +342,12 @@ XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的We
 
 #### 具体实施方式
 
+这项专利，使用了区块链分布式账本作为数据库记录数据，通过无钥匙签名基础设施 (keyless signature infrastructure, KSI) 来进行加密，实现物联网数据的可信记录。然后，利用搭载人工智能友好型芯片的设备，进行数据采集检测和未授权的异常检测。采集到的数据再利用人工智能设备，运行机器学习算法自动生成高效的、贴合用户需求的智能合约。通过智能合约来避免中心化的程序控制，实现灵活的、避免中心化作恶的控制。并通过智能合约促进对等能源交换，提高能源供应效率和降低交易成本。支持人工智能的区块链使关键能源交付系统能够越来越自动化以响应自然发生的天气事件、网络或网络物理混合攻击的潜力，从而使一些关键能源基础设施功能增强了自我修复能力和弹性。
+
 #### 总结
+这个专利结合人工智能、区块链和智能合约，打造一个运行在区块链上的、可信的人工智能智能合约，适合在人工智能硬件物联网上高效运行，实现了一个构建在电网和物联网等多个复杂系统之上的系统，对能源和物联网进行自动化和现代化，将能源基础设施发展为日益自动化、分布式、清洁和弹性的系统，帮助经济和社会稳健发展。
+
+
 
 #### 附图说明
 
@@ -438,7 +448,6 @@ Blockchain technology can also be applied to the smart grid to help reduce costs
 
 
 In addition to potential cost savings, transaction data might be more secure through decentralized storage and multifactor verification of transactions in the blockchain distributed ledger (PWC 2017). Blockchain reduces the need for 3rd parties to process transactions: Electricity is generated  Consumer buys the electricity  blockchain based meters update the blockchain, creating a unique timestamped block for verification in a distributed ledger: 1) At the distribution level, system operators can leverage the blockchain to receive energy transaction data to charge their network costs to consumers; 2) Reduces data requirements and increases speed of clearing transactions for transmission system operators as transactions could be executed and settled on the basis of actual consumption (Mylrea and Gourisetti 2017).
-
 
 
 除了潜在的成本节约之外，通过分散存储和区块链分布式账本中交易的多因素验证，交易数据可能更安全（pwc 2017）。区块链减少了第三方处理交易的需要：发电消费者购买基于电力区块链的电表更新区块链，在分布式账本中创建唯一的时间戳块进行验证：1）在分发级别，系统运营商可以利用区块链接收能量传输行动数据向用户收取其网络成本；2）减少数据需求，提高传输系统运营商的结算交易速度，因为交易可以在实际消费的基础上执行和结算（Mylrea和Gourisetti，2017年）。
