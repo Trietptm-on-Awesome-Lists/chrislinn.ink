@@ -12,10 +12,24 @@ serverless
 
 
 istio
+
 + http://www.servicemesher.com/istio-handbook/
 + https://jimmysong.io/istio-handbook/
 + https://istio.io/zh/
 + https://github.com/servicemesher/istio-knowledge-map
+
+
+istio vs linkerd
+
++ https://kubedex.com/istio-vs-linkerd-vs-linkerd2-vs-consul/
++ https://glasnostic.com/blog/comparing-service-meshes-linkerd-vs-istio
++ https://medium.com/devopslinks/istio-step-by-step-part-05-istio-and-linkerd-570b511f7a85
++ https://medium.com/@ihcsim/linkerd-2-0-and-istio-performance-benchmark-df290101c2bb
++ https://searchitoperations.techtarget.com/news/252457734/Linkerd-vs-Istio-fray-dominates-service-mesh-battle
+
+sidecar?
+
+Kubernetes Ingress vs Istio Gateway
 
 
 k8s
