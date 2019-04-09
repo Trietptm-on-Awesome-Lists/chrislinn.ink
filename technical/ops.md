@@ -1,20 +1,25 @@
-<!-- 
-+ https://jimmysong.io/posts/what-is-serverless/
 + https://www.tarlogic.com/en/blog/how-kerberos-works/
 + https://github.com/serverless/serverless
 + https://www.phodal.com/blog/serverless-architecture-what-is-serverless-architecture/
 
 serverless
+
 + http://dockone.io/article/1460
 + http://blog.ucloud.cn/archives/2476
 
 + https://jimmysong.io/kubernetes-handbook/cloud-native
-+ http://www.servicemesher.com/istio-handbook/
-+ https://jimmysong.io/istio-handbook/
 + http://www.servicemesher.com/awesome-servicemesh
 
 
+istio
++ http://www.servicemesher.com/istio-handbook/
++ https://jimmysong.io/istio-handbook/
++ https://istio.io/zh/
++ https://github.com/servicemesher/istio-knowledge-map
+
+
 k8s
+
 + http://docs.kubernetes.org.cn/
 + https://www.kubernetes.org.cn/doc-11
 + https://zhuanlan.zhihu.com/p/42507941
@@ -25,12 +30,29 @@ k8s
 + https://www.cnblogs.com/along21/p/10297756.html
 
 
+
+
+
 do this
+
++ docker & iptables
++ https://jimmysong.io/posts/what-is-a-service-mesh/
 + https://jimmysong.io/posts/from-kubernetes-to-cloud-native/
     * https://jimmysong.io/posts/what-is-serverless/
+        - 应用必须运行在不论是实体还是虚拟的服务器上，必须经过部署、配置、初始化才可以运行，还需要对服务器和应用进行监控和管理，还需要保证数据的安全性，这些云能够帮我们简化吗？让我们只要关注自己代码的逻辑就好了，其它的东西让云帮我实现就好了。
+        - Serverless架构是云的自然延伸
+            + 云: IaaS -> PaaS,docker -> Serverless(BaaS/FaaS)
     * https://jimmysong.io/posts/microservice-reading-notes/
-    * https://jimmysong.io/posts/istio-11/
+        - 如何架构
++ https://jimmysong.io/kubernetes-handbook/
++ https://jimmysong.io/kubernetes-handbook/appendix/kubernetes-and-cloud-native-summary-in-2017-and-outlook-for-2018.html
 * https://jimmysong.io/posts/kubernetes-and-cloud-native-outlook-2019/
+    - Kubernetes、Service Mesh、Istio 三者之间的关系：
+        + Kubernetes 负责应用的生命周期管理，最小的治理单元是 Pod；
+        + Service Mesh 解决服务间的流量治理，最小的治理单元是 Service（可以类比为 Kubernetes 中 Service 资源）；
+        + 而 Serviceless 是更高一层的抽象，最小的治理单元是 APP；
+    - 越向上层就越不关心应用的底层实现，到了 Serverless 开发者只需要关心代码逻辑，其他的一起都是配置
+    - 2019年才开始学 Kubernetes 依然不晚，这可能是影响云计算未来10年的技术，甚至有人预测，未来的开发者可能一上手就是在云上开发，从提交代码、测试到发布一气呵成，直接基于 Git 操作即可完成，完全感受不到 Kubernetes 的存在。展望2019年，我在2017年的预测的趋势依然不变，2019年将更加深化。如果以 Kubernetes 的发展阶段类比，就像2017年时的 Kubernetes 一样，在一部分企业中 Service Mesh 已经开始快速落地，而 Knative 更像 2015 年时的 Kubernetes，一起才刚刚开始，毕竟也是 2018 年中才开源。
 * https://jimmysong.io/posts/service-mesh-the-microservices-in-post-kubernetes-era/
 * https://jimmysong.io/posts/istio-handbook-by-servicemesher/
 * https://jimmysong.io/posts/istio-knowledge-map-and-handbook/
@@ -44,7 +66,6 @@ do this
     * https://jimmysong.io/posts/envoy-sidecar-injection-in-istio-service-mesh-deep-dive/
 * https://jimmysong.io/posts/istio-service-and-traffic-model/
 
- -->
 
 ---
 
