@@ -154,10 +154,6 @@ Swarm、Mesos和Kubernetes
 + 动态管理：通过集中式的编排调度系统来动态的管理和调度。
 + 微服务化：明确服务间的依赖，互相解耦。
 
----
-# 云原生所需要的能力和特征
-
-![cloud-native-architecutre-mindnode](https://chrislinn.ink/img/ops/cloud-native-architecutre-mindnode.jpg)
 
 ---
 # 微服务架构
@@ -174,6 +170,20 @@ Swarm、Mesos和Kubernetes
 
 ---
 ![service-discovery-in-microservices](https://chrislinn.ink/img/ops/service-discovery-in-microservices.png)
+
+---
+# 云原生所需要的能力和特征
+
+![cloud-native-architecutre-mindnode](https://chrislinn.ink/img/ops/cloud-native-architecutre-mindnode.jpg)
+
+---
+# 使用Kubernetes构建云原生架构
+![create-k8s-native](https://chrislinn.ink/img/ops/create-k8s-native.jpg)
+
+---
+
+![build-cf-with-k8s](https://chrislinn.ink/img/ops/build-cf-with-k8s.jpg)
+
 
 ---
 # service mesh
