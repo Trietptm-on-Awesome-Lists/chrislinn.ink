@@ -184,15 +184,21 @@ Swarm、Mesos和Kubernetes
 
 ![build-cf-with-k8s](https://chrislinn.ink/img/ops/build-cf-with-k8s.jpg)
 
+---
+# 如何迁移到云原生应用架构
+迁移到云端架构，相对单体架构来说会带来很多挑战。比如自动的持续集成与发布、服务监控的变革、服务暴露、权限的管控等。
+
+![migrating-monolith-to-kubernetes](https://chrislinn.ink/img/ops/migrating-monolith-to-kubernetes.jpg)
+
+
+https://jimmysong.io/migrating-to-cloud-native-application-architectures/
+
 
 ---
 # service mesh
 linkerd vs k8s vs linkerd2
 
 ---
-
-# 如何迁移到云原生应用架构
-https://jimmysong.io/migrating-to-cloud-native-application-architectures/
 
 
 ---
