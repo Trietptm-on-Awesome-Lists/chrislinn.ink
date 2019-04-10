@@ -88,24 +88,13 @@ iptables 规则冲突，内部提供服务的端口被暴露在公共网络上
 https://chaifeng.com/to-fix-ufw-and-docker-security-flaw-without-disabling-iptables/
 
 ---
-## Kubernetes (k8s)
+# Kubernetes (k8s)
 
-让容器应用进入大规模工业生产
-
-
-在单机上运行容器，无法发挥它的最大效能，只有形成集群，才能最大程度发挥容器的良好隔离、资源分配与编排管理的优势
++ 让容器应用进入大规模工业生产
++ 在单机上运行容器，无法发挥它的最大效能，只有形成集群，才能最大程度发挥容器的良好隔离、资源分配与编排管理的优势
 
 ---
-## 编排管理
-Swarm、Mesos和Kubernetes
-
----
-#Kubernetes的架构图
-![k8s-arch](https://chrislinn.ink/img/ops/k8s-arch.jpg)
-
-
----
-## k8s
+# k8s
 + 容器编排调度引擎/系统
 + 一个规范
     * 描述集群的架构
@@ -113,6 +102,16 @@ Swarm、Mesos和Kubernetes
         - 将系统自动地达到和维持在这个状态
 + 云原生应用的基石
     * 相当于一个云操作系统
+
+---
+# 编排管理
+Swarm、Mesos和Kubernetes
+
+---
+# Kubernetes的架构图
+![k8s-arch](https://chrislinn.ink/img/ops/k8s-arch.jpg)
+
+
 
 ---
 
