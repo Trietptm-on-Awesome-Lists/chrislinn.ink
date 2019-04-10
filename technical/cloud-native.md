@@ -5,6 +5,9 @@ __docker? swarm? compose? !!!__
  XEN???
  mereos???
 
+ iaas
+ paas
+
 ---
 # k8s
 + 为什么 k8s 这么受欢迎
@@ -115,7 +118,7 @@ Swarm、Mesos和Kubernetes
 显示了组件之间交互的接口CNI、CRI、OCI等，这些将Kubernetes与某款具体产品解耦，给用户最大的定制程度，使得Kubernetes有机会成为跨云的真正的云原生应用的操作系统。
 
 ---
-
+<!-- 
 # 一些概念
 + deployment
     * 滚动升级和回滚应用
@@ -136,11 +139,27 @@ Swarm、Mesos和Kubernetes
 # 一些工具
 + kubectl
 + kubeadm
+ -->
+
+---
+# cloud native 的核心目标
++ 云已经可以为我们提供稳定可以唾手可得的基础设施，但是业务上云成了一个难题
++ Kubernetes的出现与其说是从最初的容器编排解决方案，倒不如说是为了解决应用上云这个难题
+    * 不是为了部署和管理容器而用Kubernetes，承载其上的应用才是 [价值所在]
+    * 基于k8s“操作系统”之上构建的适用于不同场景的应用将成为发展方向
+
+---
+# 微服务架构
++ 开发和部署上的灵活性和技术多样性
++ 带来了服务调用的开销、分布式系统管理、调试与服务治理方面的难题
 
 
 ---
+# 微服务中最基础的服务注册发现
++ 客户端服务发现
++ 服务端服务发现
 
-
+![service-discovery-in-microservices](https://chrislinn.ink/img/ops/service-discovery-in-microservices.png)
 
 ---
 # service mesh
@@ -155,6 +174,11 @@ https://jimmysong.io/migrating-to-cloud-native-application-architectures/
 ---
 
 # 来得及吗，会不会被淘汰
+
+---
+# 云原生应用的架构
++ micro-service
++ serverless
 
 
 ---
