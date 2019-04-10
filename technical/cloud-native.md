@@ -186,12 +186,28 @@ Swarm、Mesos和Kubernetes
 
 ---
 # 如何迁移到云原生应用架构
-迁移到云端架构，相对单体架构来说会带来很多挑战。比如自动的持续集成与发布、服务监控的变革、服务暴露、权限的管控等。
 
 ![migrating-monolith-to-kubernetes](https://chrislinn.ink/img/ops/migrating-monolith-to-kubernetes.jpg)
 
+---
+# 如何迁移到云原生应用架构
 
-https://jimmysong.io/migrating-to-cloud-native-application-architectures/
+迁移到云端架构，相对单体架构来说会带来很多挑战。比如自动的持续集成与发布、服务监控的变革、服务暴露、权限的管控等。
+
+---
+# 迁移步骤
++ 将原有应用拆解为服务
++ 制作 docker 镜像
++ 制作应用的配置文件
++ 制作 Kubernetes YAML 文件
++ 制作 Bootstrap 脚本
+    * 在启动时根据 Pod 的环境变量、主机名或其他可以区分不同 Pod 和将启动角色的变量来修改配置文件和启动服务应用
++ 制作 ConfigMaps
+    * 将 Hadoop 的配置文件和 bootstrap 脚本作为 ConfigMap 资源保存，用作 Pod 启动时挂载的 volume
+
+---
+# spark-on-yarn 例子
+![spark-on-yarn-with-kubernetes](https://chrislinn.ink/img/ops/spark-on-yarn-with-kubernetes.jpg)
 
 
 ---
