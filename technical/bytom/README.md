@@ -4,6 +4,7 @@
 
 + bytom
     * 可以看看 release notes
+        - 实现 set-mining-address & set-coinbase-arbitrary 等挖矿相关功能 
     * PoW 相关完善及优化
         + 优化tensority
             * go 920ms -> go 820ms -> simd 160ms -> cuda 6ms
@@ -14,10 +15,13 @@
         + 其实就是用 map
         + ticker 定期生成 NewBlockTemplate，因为 新添交易的话 commitment 会改变，blockheader 也会改变，不用 map 的话，submit work不对应
         + 老 map 要注意 GC
+    - 实现 stratumn miner，cpu 版本和 gpu 版本
+    - 节点 solo mining 集成显卡挖矿算法
     - 全局交易索引
         + config
         + test
 + Precogs
+    * 负责先知节点计划，进行比原网络中的节点发现和状态统计
     * 涉及 P2P
 + 中心化钱包
     * api & database schema
