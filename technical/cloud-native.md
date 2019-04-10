@@ -149,16 +149,30 @@ Swarm、Mesos和Kubernetes
     * 基于k8s“操作系统”之上构建的适用于不同场景的应用将成为发展方向
 
 ---
+# 云原生应用的三大特征
++ 容器化包装：软件应用的进程应该包装在容器中独立运行。
++ 动态管理：通过集中式的编排调度系统来动态的管理和调度。
++ 微服务化：明确服务间的依赖，互相解耦。
+
+---
+# 云原生所需要的能力和特征
+
+![cloud-native-architecutre-mindnode](https://chrislinn.ink/img/ops/cloud-native-architecutre-mindnode.jpg)
+
+---
 # 微服务架构
 + 开发和部署上的灵活性和技术多样性
 + 带来了服务调用的开销、分布式系统管理、调试与服务治理方面的难题
 
-
 ---
 # 微服务中最基础的服务注册发现
 + 客户端服务发现
+    * Java应用中常用的方式是使用Eureka和Ribbon做服务注册发现和负载均衡
 + 服务端服务发现
+    * Kubernetes中可以使用DNS、Service和Ingress来实现
+        - 不需要修改应用代码，直接从网络层面来实现
 
+---
 ![service-discovery-in-microservices](https://chrislinn.ink/img/ops/service-discovery-in-microservices.png)
 
 ---
