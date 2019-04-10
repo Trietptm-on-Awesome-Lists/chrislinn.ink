@@ -34,19 +34,43 @@ __docker? swarm? compose? !!!__
 
 ---
 # 回顾历史
-从最早的物理服务器开始，我们都在不断地抽象或者虚拟化服务器。
 
+>为保证开发环境的正确（Bug 不是环境因素造成），想出一系列的隔离方式：虚拟机、容器虚拟化、语言虚拟机、应用容器（Java Tomcat）、虚拟环境（Python virtualenv），甚至是独立于语言的 DSL。
+
+从最早的物理服务器开始，我们都在不断地抽象或者虚拟化服务器。
 ![虚拟化](https://chrislinn.ink/img/ops/server-growth.jpg)
 
 ---
 
-+ 我们使用 XEN、KVM等虚拟化技术，隔离了硬件以及运行在这之上的操作系统。
++ 我们使用 XEN、KVM 等虚拟化技术，隔离了硬件以及运行在这之上的操作系统。
 + 我们使用云计算进一步地自动管理这些虚拟化的资源。
 + 我们使用 Docker 等容器技术，隔离了应用的操作系统与服务器的操作。
 + 有了 Serverless，我们可以隔离操作系统，乃至更底层的技术细节。
 
 ---
-# docker
+# 容器
+
+隔离的开发测试环境和持续集成环境
+
++ 轻量级
++ 易于配置
++ 易于使用
+
+---
+# 容器生态
++ 镜像仓库
++ 服务编排
++ 安全管理
++ 持续集成与发布
++ 存储
++ 网络管理
++ ...
+
+---
+# 容器生态
+
+![container-ecosys](https://chrislinn.ink/img/ops/container-ecosys.jpg)
+
 
 ---
 
@@ -95,14 +119,14 @@ linkerd vs k8s vs linkerd2
 # 如何迁移到云原生应用架构
 https://jimmysong.io/migrating-to-cloud-native-application-architectures/
 
----
-# serverless
-
 
 ---
 
 # 来得及吗，会不会被淘汰
 
+
+---
+# serverless
 
 ---
 

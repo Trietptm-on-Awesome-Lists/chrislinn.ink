@@ -1,5 +1,27 @@
 # Paths
 
+## Blockchain json statetest
+### Modify parity_listStorageKeys
++ Make argument _Quantity_ oponal. When `Quantity == null` , return all storage keys.
+
+### parity_storage
+Arguments same as __Modified__ _parity_listStorageKeys . Return is a _JSON_ object
+```
+{
+    StorageKey(HexString): Corresponding value (HexString)
+}
+```
+
+
+impls/parity.rs
+client/client.rs
+
+a collection of type `std::vec::Vec<ethereum_types::H256>` cannot be built from `std::iter::Iterator<Item=(std::vec::Vec<u8>, elastic_array::ElasticArray128<u8>)>`
+
+curl --data '{"method":"parity_listStorageKeys","params":["0xbb9bc244d798123fde783fcc1c72d3bb8c189413",99999999,null],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
+
+
+
 > There are paths for everyone
 
 <!-- 

@@ -81,10 +81,6 @@ do this
 * https://jimmysong.io/posts/istio-service-and-traffic-model/
 
 
-+ cache, java
-+ youzan
-+ Ali DBA
-
 ---
 
 ## Cloud Native
@@ -145,7 +141,6 @@ Serverless（无服务器架构）指的是由开发者实现的服务端逻辑�
 
 ---
 
->开发人员为了保证开发环境的正确（即，这个 Bug 不是环境因素造成的），想出了一系列的隔离方式：虚拟机、容器虚拟化、语言虚拟机、应用容器（如 Java 的 Tomcat）、虚拟环境（如 Python 中的 virtualenv），甚至是独立于语言的 DSL。
 
 
 
