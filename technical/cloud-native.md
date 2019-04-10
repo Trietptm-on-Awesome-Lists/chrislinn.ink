@@ -1,15 +1,17 @@
 # Cloud Native
 
----
-# k8s
-
 __docker? swarm? compose? !!!__
 
+ XEN???
+ mereos???
+
+---
+# k8s
 + 为什么 k8s 这么受欢迎
     * deployment
-        - ``
         - `kubectl autoscale deployment nginx-deployment --min=10 --max=15 --cpu-percent=80`
-    * swarm, mereos
+        - 一个命令增加10个nginx节点，线上运行，f5、A10 传统硬件负载均衡做不到
+            + 应对流量洪峰，响应、调度
 + CNCF（Cloud Native Computing Foundation）最重要的组件之一, Cloud Native 应用的基石
 
 ---
@@ -17,10 +19,13 @@ __docker? swarm? compose? !!!__
 # Cloud Native 的定义
 + 在动态环境中构建和运行可弹性扩展的应用
 + 代表技术包括容器、服务网格、微服务、不可变基础设施和声明式 API
++ 能够构建容错性好、易于管理和便于观察的松耦合系统
++ 结合可靠的自动化手段，可以使开发者轻松地对系统进行频繁并可预测的重大变更
 
 ---
-迁移到云原生应用架构？
+# 是否应该迁移到云原生应用架构？
 
+---
 # 巴比特目前的架构
 + 镜像
 + 使用阿里云提供的 RDS、MySQL、负载均衡
@@ -35,7 +40,9 @@ __docker? swarm? compose? !!!__
 ---
 # 回顾历史
 
->为保证开发环境的正确（Bug 不是环境因素造成），想出一系列的隔离方式：虚拟机、容器虚拟化、语言虚拟机、应用容器（Java Tomcat）、虚拟环境（Python virtualenv），甚至是独立于语言的 DSL。
+为保证开发环境的正确（Bug 不是环境因素造成），想出一系列的隔离方式：虚拟机、容器虚拟化、语言虚拟机、应用容器（Java Tomcat）、虚拟环境（Python virtualenv），甚至是独立于语言的 DSL。
+
+---
 
 从最早的物理服务器开始，我们都在不断地抽象或者虚拟化服务器。
 ![虚拟化](https://chrislinn.ink/img/ops/server-growth.jpg)
@@ -69,16 +76,36 @@ __docker? swarm? compose? !!!__
 ---
 # 容器生态
 
-![container-ecosys](https://chrislinn.ink/img/ops/container-ecosys.jpg)
+https://chrislinn.ink/img/ops/container-ecosys.jpg
 
 
 ---
 
 # docker 存在的问题
-iptables?
+iptables 规则冲突，内部提供服务的端口被暴露在公共网络上
+
+# 解决办法
+https://chaifeng.com/to-fix-ufw-and-docker-security-flaw-without-disabling-iptables/
 
 ---
 ## Kubernetes (k8s)
+
+让容器应用进入大规模工业生产
+
+
+在单机上运行容器，无法发挥它的最大效能，只有形成集群，才能最大程度发挥容器的良好隔离、资源分配与编排管理的优势
+
+---
+## 编排管理
+Swarm、Mesos和Kubernetes
+
+---
+#Kubernetes的架构图
+![k8s-arch](https://chrislinn.ink/img/ops/k8s-arch.jpg)
+
+
+---
+## k8s
 + 容器编排调度引擎/系统
 + 一个规范
     * 描述集群的架构
