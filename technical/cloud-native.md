@@ -108,10 +108,11 @@ https://chaifeng.com/to-fix-ufw-and-docker-security-flaw-without-disabling-iptab
 Swarm、Mesos和Kubernetes
 
 ---
-# Kubernetes的架构图
 ![k8s-arch](https://chrislinn.ink/img/ops/k8s-arch.jpg)
 
+---
 
+显示了组件之间交互的接口CNI、CRI、OCI等，这些将Kubernetes与某款具体产品解耦，给用户最大的定制程度，使得Kubernetes有机会成为跨云的真正的云原生应用的操作系统。
 
 ---
 
@@ -135,6 +136,11 @@ Swarm、Mesos和Kubernetes
 # 一些工具
 + kubectl
 + kubeadm
+
+
+---
+
+
 
 ---
 # service mesh
