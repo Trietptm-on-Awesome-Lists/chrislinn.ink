@@ -154,6 +154,20 @@ Swarm、Mesos和Kubernetes
 + 动态管理：通过集中式的编排调度系统来动态的管理和调度。
 + 微服务化：明确服务间的依赖，互相解耦。
 
+---
+# 云原生的设计理念
+
+---
+
++ 面向分布式设计（Distribution）：容器、微服务、API 驱动的开发；
++ 面向配置设计（Configuration）：一个镜像，多个环境配置；
++ 面向韧性设计（Resistancy）：故障容忍和自愈；
++ 面向弹性设计（Elasticity）：弹性扩展和对环境变化（负载）做出响应；
++ 面向交付设计（Delivery）：自动拉起，缩短交付时间；
++ 面向性能设计（Performance）：响应式，并发和资源高效利用；
++ 面向自动化设计（Automation）：自动化的 DevOps；
++ 面向诊断性设计（Diagnosability）：集群级别的日志、metric 和追踪；
++ 面向安全性设计（Security）：安全端点、API Gateway、端到端加密；
 
 ---
 # 微服务架构
@@ -240,9 +254,8 @@ https://jimmysong.io/kubernetes-handbook/guide/deploy-applications-in-kubernetes
 ![pick1](https://chrislinn.ink/img/cloud-native/pick1.jpg)
 
 ---
-# 调研方案
-![pick2](https://chrislinn.ink/img/cloud-native/selection.jpg)
-
+# 方案调研
+https://chrislinn.ink/img/cloud-native/selection.jpg
 
 
 ---
@@ -271,15 +284,21 @@ https://jimmysong.io/kubernetes-handbook/guide/deploy-applications-in-kubernetes
 
 ---
 # spark-on-yarn 例子
-![spark-on-yarn-with-kubernetes](https://chrislinn.ink/img/cloud-native/spark-on-yarn-with-kubernetes.jpg)
-
-
----
-
+![spark-on-yarn-with-kubernetes](https://chrislinn.ink/img/cloud-native/spark-on-yarn-with-kubernetes.png)
 
 ---
 
 # 来得及吗，会不会被淘汰
+
+> 2019年才开始学 Kubernetes 依然不晚，这可能是影响云计算未来10年的技术，甚至有人预测，未来的开发者可能一上手就是在云上开发，从提交代码、测试到发布一气呵成，直接基于 Git 操作即可完成，完全感受不到 Kubernetes 的存在。展望2019年，我在2017年的预测的趋势依然不变，2019年将更加深化。如果以 Kubernetes 的发展阶段类比，就像2017年时的 Kubernetes 一样，在一部分企业中 Service Mesh 已经开始快速落地，而 Knative 更像 2015 年时的 Kubernetes，一起才刚刚开始，毕竟也是 2018 年中才开源。
+> 
+> --蚂蚁金服 宋净超
+
+---
++ 之前还不成熟，现在生态正好稳定
++ 没有淘不淘汰，只有合不合适
++ knative 原生调度最节省资源 (使用YARN调度 vs standalone调度 vs kubernetes原生调度)
+
 
 ---
 # 云原生应用的架构
