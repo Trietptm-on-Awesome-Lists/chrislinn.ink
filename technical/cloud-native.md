@@ -175,6 +175,10 @@ Swarm、Mesos和Kubernetes
 + 带来了服务调用的开销、分布式系统管理、调试与服务治理方面的难题
 
 ---
+# 微服务中应该关心的主题
+![microservice-concern](https://chrislinn.ink/img/cloud-native/microservice-concern.jpg)
+
+---
 # 微服务中最基础的服务注册发现
 + 客户端服务发现
     * Java应用中常用的方式是使用Eureka和Ribbon做服务注册发现和负载均衡
