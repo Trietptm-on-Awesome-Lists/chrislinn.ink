@@ -177,6 +177,68 @@ Swarm、Mesos和Kubernetes
 ![cloud-native-architecutre-mindnode](https://chrislinn.ink/img/ops/cloud-native-architecutre-mindnode.jpg)
 
 ---
+云端架构(分布式系统)，相对单体架构来说会带来很多挑战。一致性、延迟和网络分区、服务监控的变革、服务暴露、权限的管控等。
+
+---
+
++ 版本化和分布式配置
++ 服务注册发现
++ 路由和负载均衡
++ 容错
+    * 熔断器: 阻绝该服务与其依赖的远程调用
+    * 隔板: 将服务分区，以便限制错误影响的区域
++ API 网关/边缘服务
+    * 针对其开发微服务，尝试解决延迟、往返通信开销(减少服务端调用)、设备&协议多样性
+
+---
+
+# Service Mesh
+Kubernetes中的应用将作为微服务运行，但是Kuberentes本身并没有给出微服务治理的解决方案，比如服务的限流、熔断、良好的灰度发布支持等。
+
+---
+
+# Service Mesh 可以用来做什么
++ Traffic Management：API网关
++ Observability：服务调用和性能分析
++ Policy Enforcement：控制服务访问策略
++ Service Identity and Security：安全保护
+
+---
+# Service Mesh 的特点
++ 专用的基础设施层
++ 轻量级高性能网络代理
++ 提供安全的、快速的、可靠地服务间通讯
++ 扩展kubernetes的应用负载均衡机制，实现灰度发布
++ 完全解耦于应用，应用可以无感知，加速应用的微服务和云原生转型
+
+---
+
+Linkerd vs Istio vs Linkerd2
+
+---
+# kubernetes 应用开发部署流程
+![how-to-use-kubernetes-with-istio](https://chrislinn.ink/img/ops/how-to-use-kubernetes-with-istio.jpg)
+
+---
+# kubernetes 应用开发部署流程
++ 开发容器化应用
++ 使用Wercker持续集成工具构建docker镜像上传到docker镜像仓库中
++ 在本地使用docker-compose测试
++ 使用kompose自动生成kubernetes的yaml文件
++ 注入Envoy sidecar容器，集成Istio service mesh中
+
+
+---
+# 架构选型
+![pick1](https://chrislinn.ink/img/ops/pick1.jpg)
+
+---
+# 调研方案
+![pick2](https://chrislinn.ink/img/ops/pick2.jpg)
+
+
+
+---
 # 使用Kubernetes构建云原生架构
 ![create-k8s-native](https://chrislinn.ink/img/ops/create-k8s-native.jpg)
 
@@ -188,11 +250,6 @@ Swarm、Mesos和Kubernetes
 # 如何迁移到云原生应用架构
 
 ![migrating-monolith-to-kubernetes](https://chrislinn.ink/img/ops/migrating-monolith-to-kubernetes.jpg)
-
----
-# 如何迁移到云原生应用架构
-
-迁移到云端架构，相对单体架构来说会带来很多挑战。比如自动的持续集成与发布、服务监控的变革、服务暴露、权限的管控等。
 
 ---
 # 迁移步骤
@@ -209,10 +266,6 @@ Swarm、Mesos和Kubernetes
 # spark-on-yarn 例子
 ![spark-on-yarn-with-kubernetes](https://chrislinn.ink/img/ops/spark-on-yarn-with-kubernetes.jpg)
 
-
----
-# service mesh
-linkerd vs k8s vs linkerd2
 
 ---
 
