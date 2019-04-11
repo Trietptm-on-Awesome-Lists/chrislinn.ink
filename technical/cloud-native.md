@@ -318,16 +318,6 @@ twitter 开发的 Finagle、Netflix 开发的 Hystrix 和 Google 的 Stubby ，�
 + 使用kompose自动生成kubernetes的yaml文件
 + 注入Envoy sidecar容器，集成Istio service mesh中
 
-
----
-# 架构选型
-https://chrislinn.ink/img/cloud-native/sig.jpg
-
----
-# 方案调研
-https://chrislinn.ink/img/cloud-native/selection.jpg
-
-
 ---
 # 使用Kubernetes构建云原生架构
 ![create-k8s-native](https://chrislinn.ink/img/cloud-native/create-k8s-native.jpg)
@@ -348,7 +338,7 @@ Keepalived + Haproxy
 
 ---
 # 集群监控
-![heapster](https://chrislinn.ink/img/cloud-native/kubernetes-heapster-monitoring.png)
+https://chrislinn.ink/img/cloud-native/kubernetes-heapster-monitoring.png
 
 ---
 # 应用监控
@@ -395,9 +385,9 @@ OpenTracing 是 CNCF 提出的分布式追踪的标准
 
 ---
 # k8s & Cloud Native 上手试玩
-+ `kubectl` CLI
++ `kubectl`
 + 生产级的 Kubernetes 简化管理工具 `kubeadm`, 快速部署
-+ https://jimmysong.io/kubernetes-handbook/cloud-native/play-with-kubernetes.html
++ https://labs.play-with-k8s.com/
 + https://github.com/rootsongjc/kubernetes-vagrant-centos-cluster
 + https://github.com/rootsongjc/cloud-native-sandbox
 
@@ -457,9 +447,7 @@ Serverless 是构建在虚拟机和容器之上的一层，与应用本身的关
     * 邮件服务、短信服务
     * 降低开发成本，只需在配置文件上写下数据库的表名，数据就会存储到对应的数据库里
 + 快速上线
-    * 内建自动化部署
-    * 只需要关注于如何更好去实现业务
-    * 使用测试来保证健壮性，结合持续集成，可以在 PUSH 代码时直接部署到生产环境
+    * 内建自动化部署, 只需要关注于如何更好去实现业务, 使用测试来保证健壮性，结合持续集成，可以在 PUSH 代码时直接部署到生产环境
 + 系统安全性
     * 无服务器，无登陆入口
 + 适应微服务架构
