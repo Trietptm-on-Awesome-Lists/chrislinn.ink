@@ -87,6 +87,9 @@ Linux 容器, Linux Containers (LXC)
 
 ---
 # 容器生态
+
+https://chrislinn.ink/img/cloud-native/container-ecosys.jpg
+
 + 镜像仓库
 + 服务编排
 + 安全管理
@@ -94,11 +97,6 @@ Linux 容器, Linux Containers (LXC)
 + 存储
 + 网络管理
 + ...
-
----
-# 容器生态
-
-https://chrislinn.ink/img/cloud-native/container-ecosys.jpg
 
 ---
 # 云计算
@@ -161,21 +159,24 @@ Swarm、Mesos和Kubernetes
 
 ---
 
-显示了组件之间交互的接口CNI、CRI、OCI等，这些将Kubernetes与某款具体产品解耦，给用户最大的定制程度，使得Kubernetes有机会成为跨云的真正的云原生应用的操作系统。
+组件之间交互的接口CNI、CRI、OCI等，将Kubernetes与某款具体产品解耦，给用户最大的定制程度，使得Kubernetes有机会成为跨云的真正的云原生应用的操作系统。
 
-+ CRI（Container Runtime Interface）：容器运行时接口，提供计算资源
-+ CNI（Container Network Interface）：容器网络接口，提供网络资源
-+ CSI（Container Storage Interface）：容器存储接口，提供存储资源
++ CRI（Container Runtime Interface）
+    * 容器运行时接口，提供计算资源
++ CNI（Container Network Interface）
+    * 容器网络接口，提供网络资源
++ CSI（Container Storage Interface）
+    * 容器存储接口，提供存储资源
 
 ---
 # 核心组件
-+ etcd 用于保存集群所有的网络配置和对象的状态信息
-+ apiserver提供了资源操作的唯一入口，并提供认证、授权、访问控制、API注册和发现等机制；
-+ controller manager负责维护集群的状态，比如故障检测、自动扩展、滚动更新等；
-+ scheduler负责资源的调度，按照预定的调度策略将Pod调度到相应的机器上；
-+ kubelet负责维护容器的生命周期，同时也负责Volume（CVI）和网络（CNI）的管理；
-+ Container runtime负责镜像管理以及Pod和容器的真正运行（CRI）；
-+ kube-proxy负责为Service提供cluster内部的服务发现和负载均衡；
++ etcd 保存集群所有的网络配置和对象的状态信息
++ apiserver 提供了资源操作唯一入口，并提供认证、授权、访问控制、API注册和发现等机制
++ controller manager 维护集群的状态，比如故障检测、自动扩展、滚动更新等
++ scheduler负责资源的调度，按照预定的调度策略将Pod调度到相应的机器上
++ kubelet 维护容器的生命周期，同时也负责Volume（CVI）和网络（CNI）的管理
++ Container runtime 负责镜像管理以及Pod和容器的真正运行（CRI）
++ kube-proxy 为Service提供cluster内部的服务发现和负载均衡
 
 ---
 # Kubernetes中的资源隔离层次
@@ -214,15 +215,15 @@ Swarm、Mesos和Kubernetes
 
 ---
 
-+ 面向分布式设计（Distribution）：容器、微服务、API 驱动的开发；
-+ 面向配置设计（Configuration）：一个镜像，多个环境配置；
-+ 面向韧性设计（Resistancy）：故障容忍和自愈；
-+ 面向弹性设计（Elasticity）：弹性扩展和对环境变化（负载）做出响应；
-+ 面向交付设计（Delivery）：自动拉起，缩短交付时间；
-+ 面向性能设计（Performance）：响应式，并发和资源高效利用；
-+ 面向自动化设计（Automation）：自动化的 DevOps；
-+ 面向诊断性设计（Diagnosability）：集群级别的日志、metric 和追踪；
-+ 面向安全性设计（Security）：安全端点、API Gateway、端到端加密；
++ 面向分布式设计（Distribution）：容器、微服务、API 驱动的开发
++ 面向配置设计（Configuration）：一个镜像，多个环境配置
++ 面向韧性设计（Resistancy）：故障容忍和自愈
++ 面向弹性设计（Elasticity）：弹性扩展和对环境变化（负载）做出响应
++ 面向交付设计（Delivery）：自动拉起，缩短交付时间
++ 面向性能设计（Performance）：响应式，并发和资源高效利用
++ 面向自动化设计（Automation）：自动化的 DevOps
++ 面向诊断性设计（Diagnosability）：集群级别的日志、metric 和追踪
++ 面向安全性设计（Security）：安全端点、API Gateway、端到端加密
 
 
 ---
