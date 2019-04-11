@@ -24,6 +24,8 @@ curl --data '{"method":"parity_listStorageKeys","params":["0xbb9bc244d798123fde7
 
 curl --data '{"method":"parity_listStorageKeys","params":["0xab7c74abC0C4d48d1bdad5DCB26153FC8780f83E",null,null],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 
+加上--mode=offline黎停止同步
+
 
 + 0xab7c74abC0C4d48d1bdad5DCB26153FC8780f83E
 + 0x61EDCDf5bb737ADffE5043706e7C5bb1f1a56eEA
