@@ -3,19 +3,25 @@
 __docker? swarm? compose? !!!__
 
  XEN???
- mereos???
 
- iaas
- paas
 
 ---
 # k8s
 + 为什么 k8s 这么受欢迎
     * deployment
-        - `kubectl autoscale deployment nginx-deployment --min=10 --max=15 --cpu-percent=80`
         - 一个命令增加10个nginx节点，线上运行，f5、A10 传统硬件负载均衡做不到
             + 应对流量洪峰，响应、调度
+        - 
 + CNCF（Cloud Native Computing Foundation）最重要的组件之一, Cloud Native 应用的基石
+
+---
+
+# deployment 示例
+* 滚动升级和回滚应用
+    - `kubectl set image deployment/nginx-deployment nginx=nginx:1.9.1`
+* 扩容和缩容
+    - `kubectl scale deployment nginx-deployment --replicas 10`
+    - `kubectl autoscale deployment nginx-deployment --min=10 --max=15 --cpu-percent=80`
 
 ---
 
@@ -58,6 +64,16 @@ __docker? swarm? compose? !!!__
 + 有了 Serverless，我们可以隔离操作系统，乃至更底层的技术细节。
 
 ---
+# 云计算
++ IaaS
+    * 亚马逊的EC2、S3存储
++ PaaS
+    * 工具和服务的集合
+        - Google App Engine
++ SaaS
+    * 终端用户可以直接使用的应用程序
+
+---
 # 容器
 
 隔离的开发测试环境和持续集成环境
@@ -80,7 +96,6 @@ __docker? swarm? compose? !!!__
 # 容器生态
 
 https://chrislinn.ink/img/cloud-native/container-ecosys.jpg
-
 
 ---
 
@@ -118,28 +133,14 @@ Swarm、Mesos和Kubernetes
 显示了组件之间交互的接口CNI、CRI、OCI等，这些将Kubernetes与某款具体产品解耦，给用户最大的定制程度，使得Kubernetes有机会成为跨云的真正的云原生应用的操作系统。
 
 ---
-<!-- 
-# 一些概念
-+ deployment
-    * 滚动升级和回滚应用
-        - `kubectl set image deployment/nginx-deployment nginx=nginx:1.9.1`
-    * 扩容和缩容
-        - `kubectl scale deployment nginx-deployment --replicas 10`
-        - `kubectl autoscale deployment nginx-deployment --min=10 --max=15 --cpu-percent=80`
+# Kubernetes中的资源隔离层次
+保证对集群资源的最大化和最优利用率
 
----
-
-+ ingress?
-+ pod
-+ volume
-+ secret
-+ job
-
----
-# 一些工具
-+ kubectl
-+ kubeadm
- -->
++ 容器
++ Pod：命名空间的隔离，共享网络，每个Pod都有独立IP，使用Service Account为Pod赋予账户
++ Sandbox：是对最小资源调度单位的抽象，甚至可以是虚拟机
++ Node：网络隔离，每个节点间网络是隔离的，每个节点都有单独的IP地址
++ Cluster：元数据的隔离，使用Federation可以将不同的集群联合在一起
 
 ---
 # cloud native 的核心目标
@@ -147,6 +148,15 @@ Swarm、Mesos和Kubernetes
 + Kubernetes的出现与其说是从最初的容器编排解决方案，倒不如说是为了解决应用上云这个难题
     * 不是为了部署和管理容器而用Kubernetes，承载其上的应用才是 [价值所在]
     * 基于k8s“操作系统”之上构建的适用于不同场景的应用将成为发展方向
+
+---
+# 云原生应用应该具备
++ 敏捷
++ 可靠
++ 高弹性
++ 易扩展
++ 故障隔离保护
++ 不中断业务持续更新
 
 ---
 # 云原生应用的三大特征
@@ -168,6 +178,7 @@ Swarm、Mesos和Kubernetes
 + 面向自动化设计（Automation）：自动化的 DevOps；
 + 面向诊断性设计（Diagnosability）：集群级别的日志、metric 和追踪；
 + 面向安全性设计（Security）：安全端点、API Gateway、端到端加密；
+
 
 ---
 # 微服务架构
@@ -211,7 +222,9 @@ Swarm、Mesos和Kubernetes
 ---
 
 # Service Mesh
-Kubernetes中的应用将作为微服务运行，但是Kuberentes本身并没有给出微服务治理的解决方案，比如服务的限流、熔断、良好的灰度发布支持等。
+在现今的复杂的大型网站情况下，单体应用被分解为众多的微服务，服务之间的依赖和通讯十分复杂。
+
+可以将它比作是应用程序或者说微服务间的 TCP/IP，负责服务之间的网络调用、限流、熔断和监控。
 
 ---
 
@@ -230,6 +243,14 @@ Kubernetes中的应用将作为微服务运行，但是Kuberentes本身并没有
 + 完全解耦于应用，应用可以无感知，加速应用的微服务和云原生转型
 
 ---
+
+Kubernetes中的应用将作为微服务运行，但是Kuberentes本身并没有给出微服务治理的解决方案，比如服务的限流、熔断、良好的灰度发布支持等。
+
+kube-proxy里基于iptables的原生负载均衡，并且服务间的流量也没有任何控制。
+
+---
+# 早期的 service mesh
+twitter 开发的 Finagle、Netflix 开发的 Hystrix 和 Google 的 Stubby ，适用于特定的环境和特定的开发语言，并不能作为平台级的 service mesh 支持。
 
 # Linkerd vs Istio vs Linkerd2
 
@@ -267,8 +288,12 @@ https://chrislinn.ink/img/cloud-native/selection.jpg
 ![create-k8s-native](https://chrislinn.ink/img/cloud-native/create-k8s-native.jpg)
 
 ---
-
+# 持续集成与发布
 ![build-cf-with-k8s](https://chrislinn.ink/img/cloud-native/build-cf-with-k8s.jpg)
+
+---
+# 日志收集与监控
+![elk](https://chrislinn.ink/img/cloud-native/filebeat-log-collector-arch.jpg)
 
 ---
 # 如何迁移到云原生应用架构
@@ -303,6 +328,11 @@ https://chrislinn.ink/img/cloud-native/selection.jpg
 + 没有淘不淘汰，只有合不合适
 + knative 原生调度最节省资源 (使用YARN调度 vs standalone调度 vs kubernetes原生调度)
 
+---
+# k8s & Cloud Native 上手试玩
++ https://jimmysong.io/kubernetes-handbook/cloud-native/play-with-kubernetes.html
++ https://github.com/rootsongjc/kubernetes-vagrant-centos-cluster
++ https://github.com/rootsongjc/cloud-native-sandbox
 
 ---
 # 云原生应用的架构
