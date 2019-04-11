@@ -20,7 +20,8 @@ a collection of type `std::vec::Vec<ethereum_types::H256>` cannot be built from 
 
 curl --data '{"method":"parity_listStorageKeys","params":["0xbb9bc244d798123fde783fcc1c72d3bb8c189413",99999999,null],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 
-
+./target/release/parity --fat-db=on
+cargo build --release --features final
 
 > There are paths for everyone
 
