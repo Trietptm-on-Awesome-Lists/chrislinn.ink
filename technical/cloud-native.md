@@ -346,6 +346,8 @@ Keepalived + Haproxy
 
 ---
 # 日志收集与监控
+
+---
 ![elk](https://chrislinn.ink/img/cloud-native/filebeat-log-collector-arch.png)
 
 ---
