@@ -48,7 +48,7 @@ __docker? swarm? compose? !!!__
 ---
 
 从最早的物理服务器开始，我们都在不断地抽象或者虚拟化服务器。
-![虚拟化](https://chrislinn.ink/img/ops/server-growth.jpg)
+![虚拟化](https://chrislinn.ink/img/cloud-native/server-growth.jpg)
 
 ---
 
@@ -79,13 +79,13 @@ __docker? swarm? compose? !!!__
 ---
 # 容器生态
 
-https://chrislinn.ink/img/ops/container-ecosys.jpg
+https://chrislinn.ink/img/cloud-native/container-ecosys.jpg
 
 
 ---
 
-# docker 存在的问题
-iptables 规则冲突，内部提供服务的端口被暴露在公共网络上
+# docker iptables 规则冲突问题
+内部提供服务的端口被暴露在公共网络上
 
 # 解决办法
 https://chaifeng.com/to-fix-ufw-and-docker-security-flaw-without-disabling-iptables/
@@ -111,7 +111,7 @@ https://chaifeng.com/to-fix-ufw-and-docker-security-flaw-without-disabling-iptab
 Swarm、Mesos和Kubernetes
 
 ---
-![k8s-arch](https://chrislinn.ink/img/ops/k8s-arch.jpg)
+![k8s-arch](https://chrislinn.ink/img/cloud-native/k8s-arch.jpg)
 
 ---
 
@@ -169,12 +169,12 @@ Swarm、Mesos和Kubernetes
         - 不需要修改应用代码，直接从网络层面来实现
 
 ---
-![service-discovery-in-microservices](https://chrislinn.ink/img/ops/service-discovery-in-microservices.png)
+![service-discovery-in-microservices](https://chrislinn.ink/img/cloud-native/service-discovery-in-microservices.png)
 
 ---
 # 云原生所需要的能力和特征
 
-![cloud-native-architecutre-mindnode](https://chrislinn.ink/img/ops/cloud-native-architecutre-mindnode.jpg)
+![cloud-native-architecutre-mindnode](https://chrislinn.ink/img/cloud-native/cloud-native-architecutre-mindnode.jpg)
 
 ---
 云端架构(分布式系统)，相对单体架构来说会带来很多挑战。一致性、延迟和网络分区、服务监控的变革、服务暴露、权限的管控等。
@@ -213,11 +213,13 @@ Kubernetes中的应用将作为微服务运行，但是Kuberentes本身并没有
 
 ---
 
-Linkerd vs Istio vs Linkerd2
+# Linkerd vs Istio vs Linkerd2
 
 ---
 # kubernetes 应用开发部署流程
-![how-to-use-kubernetes-with-istio](https://chrislinn.ink/img/ops/how-to-use-kubernetes-with-istio.jpg)
+
+---
+![how-to-use-kubernetes-with-istio](https://chrislinn.ink/img/cloud-native/how-to-use-kubernetes-with-istio.jpg)
 
 ---
 # kubernetes 应用开发部署流程
@@ -230,26 +232,29 @@ Linkerd vs Istio vs Linkerd2
 
 ---
 # 架构选型
-![pick1](https://chrislinn.ink/img/ops/pick1.jpg)
+
+---
+
+![pick1](https://chrislinn.ink/img/cloud-native/pick1.jpg)
 
 ---
 # 调研方案
-![pick2](https://chrislinn.ink/img/ops/pick2.jpg)
+![pick2](https://chrislinn.ink/img/cloud-native/pick2.jpg)
 
 
 
 ---
 # 使用Kubernetes构建云原生架构
-![create-k8s-native](https://chrislinn.ink/img/ops/create-k8s-native.jpg)
+![create-k8s-native](https://chrislinn.ink/img/cloud-native/create-k8s-native.jpg)
 
 ---
 
-![build-cf-with-k8s](https://chrislinn.ink/img/ops/build-cf-with-k8s.jpg)
+![build-cf-with-k8s](https://chrislinn.ink/img/cloud-native/build-cf-with-k8s.jpg)
 
 ---
 # 如何迁移到云原生应用架构
 
-![migrating-monolith-to-kubernetes](https://chrislinn.ink/img/ops/migrating-monolith-to-kubernetes.jpg)
+![migrating-monolith-to-kubernetes](https://chrislinn.ink/img/cloud-native/migrating-monolith-to-kubernetes.jpg)
 
 ---
 # 迁移步骤
@@ -264,7 +269,7 @@ Linkerd vs Istio vs Linkerd2
 
 ---
 # spark-on-yarn 例子
-![spark-on-yarn-with-kubernetes](https://chrislinn.ink/img/ops/spark-on-yarn-with-kubernetes.jpg)
+![spark-on-yarn-with-kubernetes](https://chrislinn.ink/img/cloud-native/spark-on-yarn-with-kubernetes.jpg)
 
 
 ---
