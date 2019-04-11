@@ -321,9 +321,6 @@ twitter 开发的 Finagle、Netflix 开发的 Hystrix 和 Google 的 Stubby ，�
 
 ---
 # 架构选型
-
----
-
 https://chrislinn.ink/img/cloud-native/sig.jpg
 
 ---
