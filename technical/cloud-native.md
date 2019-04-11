@@ -31,7 +31,7 @@
 ---
 # 巴比特目前的架构
 + 镜像
-+ 使用阿里云提供的 RDS、MySQL、负载均衡
++ 使用阿里云提供的 RDS、负载均衡
 
 # 存在的问题
 + 不利于升级管理
@@ -307,8 +307,6 @@ twitter 开发的 Finagle、Netflix 开发的 Hystrix 和 Google 的 Stubby ，�
 ---
 # kubernetes 应用开发部署流程
 
-https://jimmysong.io/kubernetes-handbook/guide/deploy-applications-in-kubernetes.html
-
 ---
 ![how-to-use-kubernetes-with-istio](https://chrislinn.ink/img/cloud-native/how-to-use-kubernetes-with-istio.jpg)
 
@@ -326,7 +324,7 @@ https://jimmysong.io/kubernetes-handbook/guide/deploy-applications-in-kubernetes
 
 ---
 
-![pick1](https://chrislinn.ink/img/cloud-native/pick1.jpg)
+https://chrislinn.ink/img/cloud-native/sig.jpg
 
 ---
 # 方案调研
