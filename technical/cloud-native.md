@@ -218,6 +218,8 @@ Kubernetes中的应用将作为微服务运行，但是Kuberentes本身并没有
 ---
 # kubernetes 应用开发部署流程
 
+https://jimmysong.io/kubernetes-handbook/guide/deploy-applications-in-kubernetes.html
+
 ---
 ![how-to-use-kubernetes-with-istio](https://chrislinn.ink/img/cloud-native/how-to-use-kubernetes-with-istio.jpg)
 
@@ -239,7 +241,7 @@ Kubernetes中的应用将作为微服务运行，但是Kuberentes本身并没有
 
 ---
 # 调研方案
-![pick2](https://chrislinn.ink/img/cloud-native/pick2.jpg)
+![pick2](https://chrislinn.ink/img/cloud-native/selection.jpg)
 
 
 
