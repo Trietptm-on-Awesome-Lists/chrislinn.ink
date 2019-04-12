@@ -33,7 +33,7 @@ curl --data '{"method":"parity_listStorageKeys","params":["0xab7c74abC0C4d48d1bd
 + 0x75bA02c5bAF9cc3E9fE01C51Df3cB1437E8690D4
 + 0x7da82C7AB4771ff031b66538D2fB9b0B047f6CF9
 
-./target/release/parity --fat-db=on
+./target/release/parity --fat-db=on --mode=offline
 cargo build --release --features final
 
 > There are paths for everyone
