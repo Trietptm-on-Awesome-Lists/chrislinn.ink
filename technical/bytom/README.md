@@ -20,6 +20,17 @@
     - 全局交易索引
         + config
         + test
+            * GetAccountBalances
+                - indexBalances?
+            * GetTransactions
+                - filterAccountTxs
+                - findTransactionsByAccount
+            * GetTransactionsSummary
+            * GetTransactionByTxID
+            * deleteAccountTxs
+            * DeleteAccount
+            * deleteUtxos
+            * UpdateAccountAlias
 + Precogs
     * 负责先知节点计划，进行比原网络中的节点发现和状态统计
     * 涉及 P2P
