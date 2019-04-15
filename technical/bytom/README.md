@@ -19,6 +19,12 @@
     - 节点 solo mining 集成显卡挖矿算法
     - 全局交易索引
         + config
+        + merge account
+            * GetTransactionsSummary
+            * GetTransactionByTxID
+                - calcTxIndexKey
+                - calcAnnotatedKey
+                - annotateTxsAsset
         + test
             * GetAccountBalances
                 - indexBalances?
