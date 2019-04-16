@@ -470,3 +470,49 @@ Serverless 是构建在虚拟机和容器之上的一层，与应用本身的关
 + http://mysql.taobao.org/monthly/
 + 阿里巴巴Java 开发手册
 + https://github.com/superhj1987/pragmatic-java-engineer
+
+
+<!-- 
+
+======演讲目的======
+1. 向全公司技术小伙伴介绍K8S + Docker + Istio, 为公司未来架构升级打下坚实基础
+2. 解答来个各方小伙伴可能会提问的一些表层的问题
+
+======演讲时间======
+建议1小时的介绍 + 15分钟的demo
+
+======PPT架构======
+一. 介绍物理机时代的服务器架构（5%）
+二. 介绍虚拟机时代的服务器架构，以及对比一的优势（10%）
+三. 介绍Docker模式，以及对比二的优势（15%分钟）
+四. 介绍Cloud Native概念，介绍微服务VS传统架构的优势（20%）
+五. 介绍k8s的框架，能做什么，如何构造一个全新的架构 （15%）
+六. 介绍service mesh概念，为什么有这个概念，解决了什么问题 （20%）
+七. 介绍Istio的框架，和k8s配合使用可以获得什么好处 （10%）
+八. 畅想一下公司未来在docker + k8s + istio框架下的好处与便利性（5%）
+
+======demo案例======
+google一个k8s + Istio的hello world例子，低优先级
+
+======准备流程======
+1. 构思PPT八个模块的大纲，然后与James交流
+2. 制作的初稿（无需任何美化，图片），然后与James交流
+3. 制作完成第一版的PPT，然后进行一次demo演讲（只有James）
+4. 基于流程3优化完成PPT后，然后进行一次小范围的demo演讲（James + Mangus + 另外一位能怼的人）
+5. 发布对全公司演讲的邀请
+6. 有空的话中间时间再准备一个demo案例
+
+======一些小资料======
+https://www.youtube.com/watch?v=j1gU2oGFayY
+有不错的图，和对微服务的讲解，微服务的优劣势介绍
+
+https://www.youtube.com/watch?v=rmf04ylI2K0
+有图可以介绍一下docker
+
+https://www.youtube.com/watch?v=5lzUpDtmWgM&list=PL2We04F3Y_43dAehLMT5GxJhtk3mJtkl5&index=8
+k8s介绍的图
+
+https://www.youtube.com/watch?v=hG5k61vXgfo
+对service mesh很不错的介绍视屏（五星好评必看）
+
+ -->
